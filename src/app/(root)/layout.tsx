@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { ReactNode } from "react";
-import { Header } from "@/components/landing/header";
-import { Footer } from "@/components/layout/footer";
+import  Header  from "@/components/landing/Header";
+import  Footer  from "@/components/layout/Footer";
 export const metadata: Metadata = {
   title: {
     template: "%s | Synapse UI - Open Source UI Components for React",
