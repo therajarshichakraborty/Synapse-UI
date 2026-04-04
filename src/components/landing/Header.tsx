@@ -5,10 +5,10 @@ import React from "react";
 function Header() {
   return (
     <>
-      /* header For Mobile */
+    {/* header For Mobile */}
       <div className="sticky top-0 left-0 right-0 z-50">
         <div className="bg-white dark:bg-black/5 w-full">
-          /* Rest of the Header Component */
+          {/* Rest of the Header Component */}
           <div className="flex items-center justify-center w-full flex-col">
             <div
               className={`
@@ -26,10 +26,10 @@ function Header() {
                           transition-all duration-300 ease-in-out`}
             >
               <div className="relative z-10 flex items-center justify-between w-full gap-2">
-                /* Logo section and the Navigation Links */
+                {/* Logo section and the Navigation Links */}
                 <div className="gap-6 flex items-center">
                   <Link href={"/"} className="flex items-center gap-2">
-                    <Flame className="w-6 h-6 text-blue-500 dark:text-blue-400" />
+                    <Flame className="w-8 h-8 text-blue-500 dark:text-blue-400" />
                     <span className="hidden sm:block font-semibold">
                       Synapse-UI
                     </span>
