@@ -2,6 +2,7 @@ import { Flame } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { Link as ViewTransitionLink } from "next-view-transitions";
+import { AnimatedThemeToggler } from "@/lib/theme-toggler"
 function Header() {
   return (
     <>
@@ -69,7 +70,7 @@ function Header() {
                 <div className="hidden sm:flex items-center gap-3">
                   <span className="text-zinc-300 dark:text-zinc-700">|</span>
                   {/* <HeaderPro /> */}
-                  <ThemeToggle />
+                  <AnimatedThemeToggler />
                 </div>
 
 
