@@ -1,11 +1,11 @@
 import { Flame } from "lucide-react";
 import Link from "next/link";
 import React from "react";
-
+import { Link as ViewTransitionLink } from "next-view-transitions";
 function Header() {
   return (
     <>
-    {/* header For Mobile */}
+      {/* header For Mobile */}
       <div className="sticky top-0 left-0 right-0 z-50">
         <div className="bg-white dark:bg-black/5 w-full">
           {/* Rest of the Header Component */}
@@ -34,6 +34,31 @@ function Header() {
                       Synapse-UI
                     </span>
                   </Link>
+
+                  <span className="text-zinc-300 dark:text-zinc-700">|</span>
+                  {/* Desktop Navigation Links */}
+                  <div className="hidden sm:flex items-center gap-4">
+                    <ViewTransitionLink
+                      href={"/docs/components/background-path"}
+                      className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                    >
+                      Components
+                    </ViewTransitionLink>
+                    <ViewTransitionLink
+                      href={"/pricing"}
+                      className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                    >
+                      Pricing
+                    </ViewTransitionLink>
+
+                    <Link
+                      href={"<the link of the templates>"}
+                      className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
+                      target="_blank"
+                    >
+                      Templates
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
