@@ -7,7 +7,7 @@ function Header() {
   return (
     <>
       {/* header For Mobile pro layout */}
-        <div className="sm:hidden w-full p-2.5 bg-white dark:bg-black/5">
+        <div className="w-full p-2.5 bg-white dark:bg-black">
         <Link
           href="#"
           target="_blank"
@@ -15,15 +15,15 @@ function Header() {
         >
           <span className="flex items-center gap-2">
             {/* <PartyPopper className="w-3.5 h-3.5" /> */}
-            <span className="text-transparent bg-linear-to-r from-orange-500 via-amber-500 to-orange-600 bg-clip-text font-semibold">
-              Explore new components
+            <span className="text-transparent bg-linear-to-r from-blue-500 via-indigo-500 to-blue-600 bg-clip-text font-semibold">
+              Explore new components & Templates
             </span>
           </span>
 
-          <div className="group relative inline-flex items-center gap-2 px-3 py-1 text-sm rounded-lg bg-zinc-900 dark:bg-zinc-100 transition-colors">
-            <div className="absolute inset-0 rounded-lg bg-linear-to-r from-orange-500 via-amber-500 to-orange-600 opacity-40 group-hover:opacity-80 blur-sm transition-opacity duration-500" />
+          <div className="group relative inline-flex items-center gap-2 px-3 py-1 text-sm rounded-lg bg-black dark:bg-zinc-100 transition-colors">
+            <div className="absolute inset-0 rounded-lg bg-linear-to-r from-white via-indigo-200 to-white opacity-10 group-hover:opacity-80 blur-sm transition-opacity duration-500" />
             <div className="relative z-10 flex items-center gap-2">
-              <span className="text-white dark:text-zinc-900">
+              <span className="text-white dark:text-black">
                 Synapse-UI Pro
               </span>
               {/* <ArrowUpRight className="w-3.5 h-3.5 text-white/90 dark:text-zinc-900/90" /> */}
