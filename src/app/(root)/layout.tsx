@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 import Header from "@/components/landing/Header";
 import Footer from "@/components/layout/Footer";
 export const metadata: Metadata = {
