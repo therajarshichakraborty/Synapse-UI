@@ -1,14 +1,30 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ViewTransitions } from "next-view-transitions";
 import React, { ReactNode } from "react";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { Geist, Geist_Mono } from "next/font/google";
+import { Roboto , Inter, Roboto_Mono } from 'next/font/google';
+
+const roboto = Roboto({
+  weight: '400',
+  subsets: ['latin'],
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
+
+const roboto_mono = Roboto_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -29,7 +45,7 @@ export default function RootLayout({
     <ViewTransitions>
       <html lang="en" suppressHydrationWarning>
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          className={`${roboto.className} ${inter.className}  antialiased`}
         >
            <ThemeProvider
             attribute="class"
