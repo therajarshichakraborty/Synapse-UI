@@ -57,9 +57,25 @@ function Header() {
                       target="_blank"
                     >
                       Templates
+                      <span className="text-green-500 dark:text-green-400 border border-green-500 dark:border-green-400 rounded-lg px-1 py-0.5 text-xs">
+                        New
+                      </span>
                     </Link>
                   </div>
                 </div>
+
+
+                {/*Right side items*/}
+                <div className="hidden sm:flex items-center gap-3">
+                  <span className="text-zinc-300 dark:text-zinc-700">|</span>
+                  {/* <HeaderPro /> */}
+                  <ThemeToggle />
+                </div>
+
+
+
+
+
               </div>
             </div>
           </div>
