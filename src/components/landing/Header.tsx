@@ -2,11 +2,39 @@ import { Flame } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { Link as ViewTransitionLink } from "next-view-transitions";
-import { AnimatedThemeToggler } from "@/lib/theme-toggler"
+import { AnimatedThemeToggler } from "@/lib/theme-toggler";
 function Header() {
   return (
     <>
-      {/* header For Mobile */}
+      {/* header For Mobile pro layout */}
+        <div className="sm:hidden w-full p-2.5 bg-white dark:bg-black/5">
+        <Link
+          href="#"
+          target="_blank"
+          className="flex items-center justify-center gap-2"
+        >
+          <span className="flex items-center gap-2">
+            {/* <PartyPopper className="w-3.5 h-3.5" /> */}
+            <span className="text-transparent bg-linear-to-r from-orange-500 via-amber-500 to-orange-600 bg-clip-text font-semibold">
+              Explore new components
+            </span>
+          </span>
+
+          <div className="group relative inline-flex items-center gap-2 px-3 py-1 text-sm rounded-lg bg-zinc-900 dark:bg-zinc-100 transition-colors">
+            <div className="absolute inset-0 rounded-lg bg-linear-to-r from-orange-500 via-amber-500 to-orange-600 opacity-40 group-hover:opacity-80 blur-sm transition-opacity duration-500" />
+            <div className="relative z-10 flex items-center gap-2">
+              <span className="text-white dark:text-zinc-900">
+                Synapse-UI Pro
+              </span>
+              {/* <ArrowUpRight className="w-3.5 h-3.5 text-white/90 dark:text-zinc-900/90" /> */}
+            </div>
+          </div>
+        </Link>
+      </div>
+
+
+
+
       <div className="sticky top-0 left-0 right-0 z-50">
         <div className="bg-white dark:bg-black/5 w-full">
           {/* Rest of the Header Component */}
@@ -65,18 +93,12 @@ function Header() {
                   </div>
                 </div>
 
-
                 {/*Right side items*/}
                 <div className="hidden sm:flex items-center gap-3">
                   <span className="text-zinc-300 dark:text-zinc-700">|</span>
                   {/* <HeaderPro /> */}
                   <AnimatedThemeToggler />
                 </div>
-
-
-
-
-
               </div>
             </div>
           </div>
