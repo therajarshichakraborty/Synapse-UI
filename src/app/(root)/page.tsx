@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div className="h-48 w-full bg-blue-600 flex items-center justify-center text-white">
+    <div className="">
       <h1>Welcome to Synapse-UI</h1>
     </div>
   );
