@@ -45,8 +45,8 @@ Synapse UI is a modern, production-ready UI component library built for scalable
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/tubid-synapse-ui.git
-cd tubid-synapse-ui
+git clone https://github.com/chakrabortyrajarshi2005/Synapse-UI.git
+cd Synapse-UI
 ```
 
 ### 2. Install dependencies (using Bun)
