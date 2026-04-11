@@ -23,7 +23,7 @@ function Header() {
           <div className="group relative inline-flex items-center gap-2 px-3 py-1 text-sm rounded-lg bg-black dark:bg-zinc-100 transition-colors">
             <div className="absolute inset-0 rounded-lg group-hover:opacity-80 blur-sm transition-opacity duration-500" />
             <div className="relative z-10 flex items-center gap-2">
-              <span className="text-white dark:text-black">
+              <span className="text-white dark:text-black dark:text-bold">
                 Synapse-UI Pro
               </span>
               {/* <ArrowUpRight className="w-3.5 h-3.5 text-white/90 dark:text-zinc-900/90" /> */}
