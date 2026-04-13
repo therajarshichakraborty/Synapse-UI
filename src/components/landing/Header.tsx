@@ -1,105 +1,89 @@
-import { Flame } from "lucide-react";
+import { Blocks } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { Link as ViewTransitionLink } from "next-view-transitions";
 import { AnimatedThemeToggler } from "@/lib/theme-toggler";
+
 function Header() {
   return (
     <>
-      {/* header For Mobile pro layout */}
-        <div className="w-full p-2.5 bg-white dark:bg-black">
+      {/* Top Promo Bar */}
+      <div className="w-full px-4 py-2 bg-white dark:bg-black">
         <Link
           href="#"
           target="_blank"
-          className="flex items-center justify-center gap-2"
+          className="flex items-center justify-center gap-3 text-sm group"
         >
-          <span className="flex items-center gap-2">
-            {/* <PartyPopper className="w-3.5 h-3.5" /> */}
-            <span className="text-transparent bg-linear-to-r from-blue-500 via-indigo-500 to-blue-600 bg-clip-text font-semibold">
-              Explore new components & Templates
-            </span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-indigo-500 to-blue-600 font-medium tracking-tight">
+            Explore new components & templates
           </span>
 
-          <div className="group relative inline-flex items-center gap-2 px-3 py-1 text-sm rounded-lg bg-black dark:bg-zinc-100 transition-colors">
-            <div className="absolute inset-0 rounded-lg group-hover:opacity-80 blur-sm transition-opacity duration-500" />
-            <div className="relative z-10 flex items-center gap-2">
-              <span className="text-white dark:text-black dark:text-bold">
-                Synapse-UI Pro
-              </span>
-              {/* <ArrowUpRight className="w-3.5 h-3.5 text-white/90 dark:text-zinc-900/90" /> */}
-            </div>
+          <div className="relative inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-black dark:bg-white text-white dark:text-black text-xs font-medium transition-all duration-300 group-hover:scale-105 shadow-sm">
+            <span>Synapse UI Pro</span>
           </div>
         </Link>
       </div>
 
+      {/* Main Header */}
+      <div className="sticky top-0 z-50 w-full bg-transparent ">
+        <div className="flex justify-center px-3 py-2">
+          <div className="
+            w-full max-w-6xl
+            flex items-center justify-between
+            px-5 py-3
+            rounded-2xl
+            backdrop-blur-md
+            bg-white/30 dark:bg-black/30
+            border border-white/20 dark:border-white/10
+            shadow-[0_8px_30px_rgba(0,0,0,0.08)]
+            dark:shadow-[0_8px_30px_rgba(0,0,0,0.4)]
+            transition-all duration-300">
+            {/* Left Section */}
+            <div className="flex items-center gap-6">
+              {/* Logo */}
+              <Link href="/" className="flex items-center gap-2 group">
+                <Blocks className="w-7 h-7 text-fuchsia-500 dark:text-fuchsia-600 transition-transform duration-500 group-hover:scale-100" />
+                <span className="hidden sm:block font-semibold text-zinc-800 dark:text-zinc-100 tracking-tight">
+                  Synapse UI
+                </span>
+              </Link>
 
+              {/* Divider */}
+              <div className="hidden sm:block h-5 w-px bg-zinc-300 dark:bg-zinc-700 " />
 
+              {/* Navigation */}
+              <div className="hidden sm:flex items-center gap-5 ">
+                <ViewTransitionLink
+                  href={"/docs/components/background-path"}
+                  className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-violet-400 transition-colors"
+                >
+                  Components
+                </ViewTransitionLink>
 
-      <div className="sticky top-0 left-0 right-0 z-50 bg-transparent">
-        <div className="bg-white dark:bg-black w-full">
-          {/* Rest of the Header Component */}
-          <div className="flex items-center justify-center w-full flex-col">
-            <div
-              className={`
-                          flex items-center justify-between
-                          bg-linear-to-b from-white via-gray-50/90 to-white
-                          dark:from-zinc-900/90 dark:via-zinc-800/90 dark:to-zinc-900/90
-                          shadow-[0_2px_20px_-2px_rgba(0,0,0,0.1)]
-                          backdrop-blur-md
-                          border-x border-b 
-                          border-[rgba(230,230,230,0.7)] dark:border-[rgba(70,70,70,0.7)]
-                          w-full sm:min-w-200 sm:max-w-300
-                          rounded-[28px]
-                          px-4 py-2.5
-                          relative
-                          transition-all duration-300 ease-in-out`}
-            >
-              <div className="relative z-10 flex items-center justify-between w-full gap-2">
-                {/* Logo section and the Navigation Links */}
-                <div className="gap-6 flex items-center">
-                  <Link href={"/"} className="flex items-center gap-2">
-                    <Flame className="w-8 h-8 text-blue-500 dark:text-blue-400" />
-                    <span className="hidden sm:block font-semibold">
-                      Synapse-UI
-                    </span>
-                  </Link>
+                <ViewTransitionLink
+                  href={"/pricing"}
+                  className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-violet-400 transition-colors"
+                >
+                  Pricing
+                </ViewTransitionLink>
 
-                  <span className="text-zinc-300 dark:text-zinc-700">|</span>
-                  {/* Desktop Navigation Links */}
-                  <div className="hidden sm:flex items-center gap-4">
-                    <ViewTransitionLink
-                      href={"/docs/components/background-path"}
-                      className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
-                    >
-                      Components
-                    </ViewTransitionLink>
-                    <ViewTransitionLink
-                      href={"/pricing"}
-                      className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
-                    >
-                      Pricing
-                    </ViewTransitionLink>
-
-                    <Link
-                      href={"<the link of the templates>"}
-                      className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
-                      target="_blank"
-                    >
-                      Templates
-                      <span className="text-green-500 dark:text-green-400 border border-green-500 dark:border-green-400 rounded-lg px-1 py-0.5 text-xs">
-                        New
-                      </span>
-                    </Link>
-                  </div>
-                </div>
-
-                {/*Right side items*/}
-                <div className="hidden sm:flex items-center gap-3">
-                  <span className="text-zinc-300 dark:text-zinc-700">|</span>
-                  {/* <HeaderPro /> */}
-                  <AnimatedThemeToggler />
-                </div>
+                <Link
+                  href={"<the link of the templates>"}
+                  target="_blank"
+                  className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-violet-400 transition-colors flex items-center gap-2"
+                >
+                  Templates
+                  <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-md bg-amber-200 text-amber-600 dark:bg-amber-900/40 dark:text-amber-400">
+                    NEW
+                  </span>
+                </Link>
               </div>
+            </div>
+
+            {/* Right Section */}
+            <div className="flex items-center gap-4">
+              <div className="hidden sm:block h-5 w-px bg-zinc-300 dark:bg-zinc-700" />
+              <AnimatedThemeToggler />
             </div>
           </div>
         </div>

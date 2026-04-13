@@ -34,6 +34,14 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Synapse UI - Open Source UI Components for React",
   description: "Created by Rajarshi Chakraborty, Synapse UI is an open-source library of React components designed to accelerate development and enhance user interfaces. With a focus on accessibility, performance, and customization, Synapse UI provides a comprehensive set of tools for building modern web applications. Whether you're a seasoned developer or just starting out, Synapse UI offers a seamless experience for creating beautiful and functional interfaces.",
+  icons: {
+    icon: [
+      {
+        url: "./favicon.ico",
+        href: "./favicon.ico",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -42,10 +50,12 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
+    
     <ViewTransitions>
+      <link rel="icon" href="/favicon.ico" sizes="any" />
       <html lang="en" suppressHydrationWarning>
         <body
-          className={`${roboto.className} ${inter.className}  antialiased`}
+          className={`${roboto.className} ${inter.className}  antialiased bg-white dark:bg-black`}
         >
            <ThemeProvider
             attribute="class"
