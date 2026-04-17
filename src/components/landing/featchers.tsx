@@ -81,8 +81,8 @@ export default function Features() {
           onMouseEnter={() => handleMouseEnter("Motion")}
           onMouseLeave={handleMouseLeave}
         >
-          <Link href="https://www.youtube.com/watch?v=Njyx5ZuwEHI&list=RDNjyx5ZuwEHI&start_radio=1">
-            <Motion width={32} height={32} />
+          <Link href="https://www.youtube.com/watch?v=Njyx5ZuwEHI&list=RDNjyx5ZuwEHI&start_radio=1" target="_blank">
+            <Motion width={32} height={32}  />
           </Link>
           <motion.span
             animate={{
