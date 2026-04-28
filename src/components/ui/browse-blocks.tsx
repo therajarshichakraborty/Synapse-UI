@@ -6,10 +6,6 @@ import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import { ArrowDownRight, ArrowRight, BlocksIcon } from "lucide-react";
 
-/**
- *
- *
- */
 export function BrowseBlocksButton() {
     return (
         <Link
@@ -27,10 +23,10 @@ export function BrowseBlocksButton() {
                     className={cn(
                         "relative inline-flex items-center justify-center gap-4 rounded-xl font-medium",
                         "relative h-12 px-6 min-w-72 md:min-w-56",
-                        "bg-white dark:bg-black",
+                        "bg-white dark:bg-[#0e1111]",
                         "text-black dark:text-white",
                         "border-2 border-black/20 dark:border-white/20",
-                        "hover:bg-black/5 dark:hover:bg-white/10",
+                        "hover:bg-[#0e1111] dark:hover:bg-white/10",
                         "backdrop-blur-xs",
                         "shadow-md hover:shadow-lg transition-all duration-200"
                     )}

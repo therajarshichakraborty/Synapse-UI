@@ -53,9 +53,9 @@ export default function RootLayout({
     
     <ViewTransitions>
       <link rel="icon" href="/favicon.ico" sizes="any" />
-      <html lang="en" suppressHydrationWarning>
+      <html lang="en" suppressHydrationWarning className="cursor-pointer">
         <body
-          className={`${roboto.className} ${inter.className}  antialiased bg-white dark:bg-black`}
+          className={`${roboto.className} ${inter.className}  antialiased bg-white dark:bg-[#0e1111]`}
         >
            <ThemeProvider
             attribute="class"

@@ -8,7 +8,7 @@ function Header() {
   return (
     <>
       {/* Top Promo Bar */}
-      <div className="w-full px-4 py-2 bg-white dark:bg-black">
+      <div className="w-full px-4 py-2 bg-white dark:bg-[#0e1111] cursor-pointer">
         <Link
           href="#"
           target="_blank"
@@ -33,7 +33,7 @@ function Header() {
             px-5 py-3
             rounded-2xl
             backdrop-blur-md
-            bg-white/30 dark:bg-black/30
+            bg-white/30 dark:bg-[#0e1111]/30
             border border-white/20 dark:border-white/10
             shadow-[0_8px_30px_rgba(0,0,0,0.08)]
             dark:shadow-[0_8px_30px_rgba(0,0,0,0.4)]
