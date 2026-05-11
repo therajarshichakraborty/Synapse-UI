@@ -16,7 +16,6 @@ export function useAutoResizeTextarea({
   const adjustHeight = React.useCallback(
     (reset?: boolean) => {
       const textarea = textareaRef.current;
-
       if (!textarea) return;
 
       if (reset) {
@@ -25,16 +24,14 @@ export function useAutoResizeTextarea({
       }
 
       textarea.style.height = "auto";
-
-      const newHeight = Math.min(Math.max(textarea.scrollHeight, minHeight), maxHeight);
-
+      const newHeight = Math.min(
+        Math.max(textarea.scrollHeight, minHeight),
+        maxHeight
+      );
       textarea.style.height = `${newHeight}px`;
     },
-    [minHeight, maxHeight],
+    [minHeight, maxHeight]
   );
 
-  return {
-    textareaRef,
-    adjustHeight,
-  };
+  return { textareaRef, adjustHeight };
 }
