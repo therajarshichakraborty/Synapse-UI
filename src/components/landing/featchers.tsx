@@ -81,8 +81,11 @@ export default function Features() {
           onMouseEnter={() => handleMouseEnter("Motion")}
           onMouseLeave={handleMouseLeave}
         >
-          <Link href="https://www.youtube.com/watch?v=Njyx5ZuwEHI&list=RDNjyx5ZuwEHI&start_radio=1" target="_blank">
-            <Motion width={32} height={32}  />
+          <Link
+            href="https://www.youtube.com/watch?v=Njyx5ZuwEHI&list=RDNjyx5ZuwEHI&start_radio=1"
+            target="_blank"
+          >
+            <Motion width={32} height={32} />
           </Link>
           <motion.span
             animate={{
@@ -104,16 +107,11 @@ export default function Features() {
             delay: 0.5,
             ease: [0.23, 1, 0.32, 1],
           }}
-          className={cn(
-            "text-black dark:text-white flex flex-col items-center gap-2 relative",
-          )}
+          className={cn("text-black dark:text-white flex flex-col items-center gap-2 relative")}
           onMouseEnter={() => handleMouseEnter("Shadcn UI")}
           onMouseLeave={handleMouseLeave}
         >
-          <ShadcnIcon
-            className="w-8 h-8 text-black dark:text-white"
-            aria-label="Shadcn/ui"
-          />
+          <ShadcnIcon className="w-8 h-8 text-black dark:text-white" aria-label="Shadcn/ui" />
           <motion.span
             animate={{
               scale: hoveredItem === "Shadcn UI" ? 1.1 : 1,

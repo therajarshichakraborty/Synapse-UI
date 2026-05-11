@@ -6,24 +6,23 @@ Synapse UI is a modern, production-ready UI component library built for scalable
 
 ## ✨ Features
 
-* 🎯 **100+ Premium Components**
-* ⚡ Built with **Next.js + TypeScript**
-* 🎨 Powered by **Tailwind CSS + shadcn/ui**
-* 🧩 Fully **modular & reusable components**
-* 🌙 Built-in **Dark Mode Support**
-* 📱 **Responsive by default**
-* 🚀 Optimized for **performance & scalability**
-* 🧪 Developer-friendly architecture
-* 🛠️ Works seamlessly with **Bun runtime**
-
+- 🎯 **100+ Premium Components**
+- ⚡ Built with **Next.js + TypeScript**
+- 🎨 Powered by **Tailwind CSS + shadcn/ui**
+- 🧩 Fully **modular & reusable components**
+- 🌙 Built-in **Dark Mode Support**
+- 📱 **Responsive by default**
+- 🚀 Optimized for **performance & scalability**
+- 🧪 Developer-friendly architecture
+- 🛠️ Works seamlessly with **Bun runtime**
 
 ## 📦 Tech Stack
 
-* **Framework:** Next.js
-* **Language:** TypeScript
-* **Styling:** Tailwind CSS
-* **UI Primitives:** shadcn/ui
-* **Runtime:** Bun
+- **Framework:** Next.js
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **UI Primitives:** shadcn/ui
+- **Runtime:** Bun
 
 ## 📁 Project Structure
 
@@ -75,25 +74,25 @@ export default function Example() {
 
 ## 🧩 Component Categories
 
-* Buttons
-* Cards
-* Forms
-* Modals
-* Navigation
-* Tables
-* Dashboards
-* Loaders & Skeletons
-* Alerts & Toasts
-* Authentication UI
-* And many more...
+- Buttons
+- Cards
+- Forms
+- Modals
+- Navigation
+- Tables
+- Dashboards
+- Loaders & Skeletons
+- Alerts & Toasts
+- Authentication UI
+- And many more...
 
 ## 🎨 Customization
 
 You can customize the design system via:
 
-* `tailwind.config.ts`
-* CSS variables
-* shadcn/ui theme tokens
+- `tailwind.config.ts`
+- CSS variables
+- shadcn/ui theme tokens
 
 Example:
 
@@ -120,17 +119,17 @@ Dark mode is supported out of the box using Tailwind's `class` strategy.
 
 ## 📈 Performance
 
-* Tree-shakable components
-* Minimal bundle size
-* Optimized for Next.js App Router
-* Lazy loading supported
+- Tree-shakable components
+- Minimal bundle size
+- Optimized for Next.js App Router
+- Lazy loading supported
 
 ## 🛠️ Development Guidelines
 
-* Use **TypeScript strictly**
-* Follow **component-driven architecture**
-* Keep components **small and reusable**
-* Maintain consistent naming conventions
+- Use **TypeScript strictly**
+- Follow **component-driven architecture**
+- Keep components **small and reusable**
+- Maintain consistent naming conventions
 
 ## 🤝 Contributing
 

@@ -27,7 +27,8 @@ function Header() {
       {/* Main Header */}
       <div className="sticky top-0 z-50 w-full bg-transparent ">
         <div className="flex justify-center px-3 py-2">
-          <div className="
+          <div
+            className="
             w-full max-w-6xl
             flex items-center justify-between
             px-5 py-3
@@ -37,7 +38,8 @@ function Header() {
             border border-white/20 dark:border-white/10
             shadow-[0_8px_30px_rgba(0,0,0,0.08)]
             dark:shadow-[0_8px_30px_rgba(0,0,0,0.4)]
-            transition-all duration-300">
+            transition-all duration-300"
+          >
             {/* Left Section */}
             <div className="flex items-center gap-6">
               {/* Logo */}
