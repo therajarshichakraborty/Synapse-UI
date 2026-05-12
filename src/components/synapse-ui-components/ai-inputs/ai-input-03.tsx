@@ -42,15 +42,13 @@ export function AIInput03({
             ? "border-zinc-300 dark:border-zinc-600 shadow-[0_0_0_4px_rgba(0,0,0,0.04)] dark:shadow-[0_0_0_4px_rgba(255,255,255,0.04)]"
             : "border-zinc-200 dark:border-zinc-800 shadow-[0_2px_12px_-2px_rgba(0,0,0,0.08)] dark:shadow-[0_2px_12px_-2px_rgba(0,0,0,0.4)]",
           "bg-white dark:bg-zinc-950",
-          disabled && "opacity-50"
+          disabled && "opacity-50",
         )}
       >
         <Search
           className={cn(
             "size-4 shrink-0 transition-colors duration-200",
-            isFocused
-              ? "text-zinc-600 dark:text-zinc-300"
-              : "text-zinc-400 dark:text-zinc-600"
+            isFocused ? "text-zinc-600 dark:text-zinc-300" : "text-zinc-400 dark:text-zinc-600",
           )}
         />
         <input
@@ -71,7 +69,7 @@ export function AIInput03({
             "flex-1 min-w-0 bg-transparent outline-none",
             "text-[15px] text-zinc-800 dark:text-zinc-100",
             "placeholder:text-zinc-400 dark:placeholder:text-zinc-600",
-            "disabled:cursor-not-allowed"
+            "disabled:cursor-not-allowed",
           )}
         />
 
@@ -97,7 +95,7 @@ export function AIInput03({
                   "text-zinc-300 dark:text-zinc-600",
                   "scale-90 opacity-60",
                   "cursor-not-allowed",
-                ]
+                ],
           )}
         >
           <ArrowUp className="size-4" />

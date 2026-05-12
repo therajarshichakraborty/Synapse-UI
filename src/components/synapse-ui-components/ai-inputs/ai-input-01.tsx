@@ -47,7 +47,7 @@ export function AIInput01({
           className={cn(
             "absolute -inset-px rounded-2xl opacity-0 blur-sm transition-opacity duration-500",
             "bg-gradient-to-r from-zinc-400/30 via-zinc-300/20 to-zinc-400/30",
-            "group-focus-within:opacity-100"
+            "group-focus-within:opacity-100",
           )}
         />
 
@@ -61,7 +61,7 @@ export function AIInput01({
             "transition-all duration-300",
             "focus-within:border-zinc-300 dark:focus-within:border-zinc-700",
             "focus-within:shadow-[0_4px_32px_-4px_rgba(0,0,0,0.12)] dark:focus-within:shadow-[0_4px_32px_-4px_rgba(0,0,0,0.6)]",
-            disabled && "opacity-50 cursor-not-allowed"
+            disabled && "opacity-50 cursor-not-allowed",
           )}
         >
           <textarea
@@ -87,7 +87,7 @@ export function AIInput01({
               "placeholder:text-zinc-400 dark:placeholder:text-zinc-600",
               "outline-none border-none ring-0",
               "min-h-[56px] max-h-[200px]",
-              "leading-relaxed"
+              "leading-relaxed",
             )}
           />
 
@@ -101,7 +101,7 @@ export function AIInput01({
                 "flex items-center justify-center size-8 rounded-xl",
                 "text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300",
                 "hover:bg-zinc-100 dark:hover:bg-zinc-800",
-                "transition-all duration-150"
+                "transition-all duration-150",
               )}
             >
               <Mic className="size-4" />
@@ -127,7 +127,7 @@ export function AIInput01({
                       "bg-zinc-100 dark:bg-zinc-800",
                       "text-zinc-300 dark:text-zinc-600",
                       "cursor-not-allowed",
-                    ]
+                    ],
               )}
             >
               <ArrowUp className="size-4" />
@@ -138,14 +138,9 @@ export function AIInput01({
 
       {/* Subtle hint */}
       <p className="mt-2 text-center text-[11px] text-zinc-400 dark:text-zinc-600">
-        Press{" "}
-        <kbd className="font-mono font-medium text-zinc-500 dark:text-zinc-500">
-          Enter
-        </kbd>{" "}
-        to send,{" "}
-        <kbd className="font-mono font-medium text-zinc-500 dark:text-zinc-500">
-          Shift+Enter
-        </kbd>{" "}
+        Press <kbd className="font-mono font-medium text-zinc-500 dark:text-zinc-500">Enter</kbd> to
+        send,{" "}
+        <kbd className="font-mono font-medium text-zinc-500 dark:text-zinc-500">Shift+Enter</kbd>{" "}
         for newline
       </p>
     </div>

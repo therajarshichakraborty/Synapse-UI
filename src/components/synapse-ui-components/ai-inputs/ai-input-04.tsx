@@ -1,14 +1,7 @@
 "use client";
 
 import * as React from "react";
-import {
-  ArrowUp,
-  FileText,
-  Code,
-  Image as ImageIcon,
-  Brain,
-  Wand2,
-} from "lucide-react";
+import { ArrowUp, FileText, Code, Image as ImageIcon, Brain, Wand2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAutoResizeTextarea } from "@/hooks/use-auto-resize-textarea";
 
@@ -90,15 +83,13 @@ export function AIInput04({
                     "text-zinc-600 dark:text-zinc-400",
                     "hover:border-zinc-300 dark:hover:border-zinc-700",
                     "hover:bg-zinc-50 dark:hover:bg-zinc-900",
-                  ]
+                  ],
             )}
           >
             <action.icon
               className={cn(
                 "size-3.5 transition-colors",
-                activeAction === action.id
-                  ? "text-current"
-                  : action.color
+                activeAction === action.id ? "text-current" : action.color,
               )}
             />
             {action.label}
@@ -115,17 +106,14 @@ export function AIInput04({
           "focus-within:border-zinc-300 dark:focus-within:border-zinc-700",
           "focus-within:shadow-[0_4px_24px_-4px_rgba(0,0,0,0.12)] dark:focus-within:shadow-[0_4px_24px_-4px_rgba(0,0,0,0.5)]",
           "transition-all duration-300",
-          disabled && "opacity-50"
+          disabled && "opacity-50",
         )}
       >
         {/* Active action indicator */}
         {currentAction && (
           <div className="flex items-center gap-2 px-4 pt-3 pb-0">
             <div
-              className={cn(
-                "flex items-center gap-1.5 text-xs font-medium",
-                currentAction.color
-              )}
+              className={cn("flex items-center gap-1.5 text-xs font-medium", currentAction.color)}
             >
               <currentAction.icon className="size-3" />
               {currentAction.label} mode
@@ -142,11 +130,7 @@ export function AIInput04({
 
         <textarea
           ref={textareaRef}
-          placeholder={
-            currentAction
-              ? `${currentAction.label} something...`
-              : placeholder
-          }
+          placeholder={currentAction ? `${currentAction.label} something...` : placeholder}
           disabled={disabled}
           value={value}
           onChange={(e) => {
@@ -168,7 +152,7 @@ export function AIInput04({
             "outline-none border-none ring-0",
             "min-h-[56px] max-h-[200px]",
             "leading-relaxed",
-            currentAction && "pt-2"
+            currentAction && "pt-2",
           )}
         />
 
@@ -182,7 +166,7 @@ export function AIInput04({
             "transition-all duration-200",
             value.trim()
               ? "bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:opacity-90 active:scale-95 shadow-sm"
-              : "bg-zinc-100 dark:bg-zinc-800 text-zinc-300 dark:text-zinc-600 cursor-not-allowed"
+              : "bg-zinc-100 dark:bg-zinc-800 text-zinc-300 dark:text-zinc-600 cursor-not-allowed",
           )}
         >
           <ArrowUp className="size-4" />

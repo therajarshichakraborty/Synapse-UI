@@ -47,7 +47,7 @@ export function AIInput06({
             "mb-1.5 rounded-xl overflow-hidden",
             "border border-zinc-800",
             "bg-zinc-950",
-            "shadow-[0_-4px_24px_-4px_rgba(0,0,0,0.5)]"
+            "shadow-[0_-4px_24px_-4px_rgba(0,0,0,0.5)]",
           )}
         >
           {filteredCommands.map((cmd) => (
@@ -59,7 +59,7 @@ export function AIInput06({
                 "w-full text-left px-4 py-2 text-sm font-mono",
                 "text-emerald-400 hover:bg-zinc-900",
                 "transition-colors duration-100",
-                "border-b border-zinc-800/50 last:border-0"
+                "border-b border-zinc-800/50 last:border-0",
               )}
             >
               {cmd}
@@ -78,7 +78,7 @@ export function AIInput06({
           "shadow-[0_4px_32px_-4px_rgba(0,0,0,0.6)]",
           "transition-all duration-200",
           isFocused && "border-zinc-700 shadow-[0_4px_40px_-4px_rgba(0,0,0,0.8)]",
-          disabled && "opacity-50"
+          disabled && "opacity-50",
         )}
       >
         {/* Title bar */}
@@ -91,15 +91,13 @@ export function AIInput06({
           </div>
           <div className="flex items-center gap-1.5 ml-2">
             <Terminal className="size-3.5 text-zinc-500" />
-            <span className="text-[11px] text-zinc-500 font-mono">
-              synapse-ai — terminal
-            </span>
+            <span className="text-[11px] text-zinc-500 font-mono">synapse-ai — terminal</span>
           </div>
           <div className="ml-auto">
             <span
               className={cn(
                 "inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded",
-                "bg-emerald-500/10 text-emerald-500 border border-emerald-500/20"
+                "bg-emerald-500/10 text-emerald-500 border border-emerald-500/20",
               )}
             >
               <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse inline-block" />
@@ -110,9 +108,7 @@ export function AIInput06({
 
         {/* Input area */}
         <div className="flex items-center gap-2 px-4 py-3.5">
-          <span className="text-emerald-400 font-mono text-sm select-none">
-            ❯
-          </span>
+          <span className="text-emerald-400 font-mono text-sm select-none">❯</span>
           <input
             type="text"
             placeholder={placeholder}
@@ -131,7 +127,7 @@ export function AIInput06({
               "flex-1 bg-transparent outline-none",
               "text-sm font-mono",
               "text-zinc-100 placeholder:text-zinc-600",
-              "disabled:cursor-not-allowed"
+              "disabled:cursor-not-allowed",
             )}
           />
           <kbd
@@ -141,7 +137,7 @@ export function AIInput06({
               "border border-zinc-700 bg-zinc-800",
               "font-mono text-[10px] text-zinc-400",
               "transition-opacity duration-200",
-              value.trim() ? "opacity-100" : "opacity-40"
+              value.trim() ? "opacity-100" : "opacity-40",
             )}
           >
             <CornerDownLeft className="size-3" />
@@ -151,9 +147,7 @@ export function AIInput06({
 
         {/* Bottom quick commands */}
         <div className="flex items-center gap-1.5 px-4 py-2 border-t border-zinc-800/50 bg-zinc-900/30">
-          <span className="text-[10px] text-zinc-600 font-mono mr-1">
-            quick:
-          </span>
+          <span className="text-[10px] text-zinc-600 font-mono mr-1">quick:</span>
           {COMMANDS.slice(0, 4).map((cmd) => (
             <button
               key={cmd}
@@ -164,7 +158,7 @@ export function AIInput06({
                 "px-2 py-0.5 rounded text-[10px] font-mono",
                 "border border-zinc-800 bg-zinc-900",
                 "text-zinc-500 hover:text-zinc-300 hover:border-zinc-700",
-                "transition-colors duration-100"
+                "transition-colors duration-100",
               )}
             >
               {cmd}

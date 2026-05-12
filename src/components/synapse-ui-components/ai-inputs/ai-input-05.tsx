@@ -47,7 +47,7 @@ export function AIInput05({
         className={cn(
           "relative rounded-2xl bg-white dark:bg-zinc-950",
           "transition-all duration-300",
-          disabled && "opacity-50"
+          disabled && "opacity-50",
         )}
       >
         {/* Animated border */}
@@ -57,7 +57,7 @@ export function AIInput05({
             "border-2 transition-all duration-300",
             isFocused
               ? "border-zinc-900 dark:border-zinc-100"
-              : "border-zinc-200 dark:border-zinc-800"
+              : "border-zinc-200 dark:border-zinc-800",
           )}
         />
 
@@ -74,7 +74,7 @@ export function AIInput05({
                     ? "text-zinc-900 dark:text-zinc-100"
                     : "text-zinc-500 dark:text-zinc-400",
                 ]
-              : ["top-1/2 -translate-y-1/2 text-[15px]"]
+              : ["top-1/2 -translate-y-1/2 text-[15px]"],
           )}
         >
           {label}
@@ -103,7 +103,7 @@ export function AIInput05({
             "text-[15px] text-zinc-800 dark:text-zinc-100",
             "min-h-[64px] max-h-[200px]",
             "leading-relaxed transition-all duration-200",
-            isActive ? "pt-7 pb-3 pl-4" : "py-5 pl-4"
+            isActive ? "pt-7 pb-3 pl-4" : "py-5 pl-4",
           )}
         />
 
@@ -117,7 +117,7 @@ export function AIInput05({
             "transition-all duration-200",
             value.trim()
               ? "bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:opacity-90 active:scale-95"
-              : "bg-zinc-100 dark:bg-zinc-800 text-zinc-300 dark:text-zinc-600 cursor-not-allowed"
+              : "bg-zinc-100 dark:bg-zinc-800 text-zinc-300 dark:text-zinc-600 cursor-not-allowed",
           )}
         >
           <ArrowUp className="size-4" />

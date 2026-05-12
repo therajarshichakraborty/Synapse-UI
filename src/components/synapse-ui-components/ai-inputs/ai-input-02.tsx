@@ -77,7 +77,7 @@ export function AIInput02({
           "transition-all duration-200",
           "focus-within:shadow-[0_0_0_1px_rgba(0,0,0,0.06),0_8px_32px_-4px_rgba(0,0,0,0.14)]",
           "dark:focus-within:shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_8px_32px_-4px_rgba(0,0,0,0.6)]",
-          disabled && "opacity-50"
+          disabled && "opacity-50",
         )}
       >
         {/* Top toolbar */}
@@ -94,7 +94,7 @@ export function AIInput02({
                 "bg-zinc-50 dark:bg-zinc-900",
                 "text-zinc-700 dark:text-zinc-300",
                 "hover:bg-zinc-100 dark:hover:bg-zinc-800",
-                "transition-colors duration-150"
+                "transition-colors duration-150",
               )}
             >
               <Sparkles className="size-3 text-violet-500" />
@@ -102,7 +102,7 @@ export function AIInput02({
               <ChevronDown
                 className={cn(
                   "size-3 text-zinc-400 transition-transform duration-200",
-                  isModelOpen && "rotate-180"
+                  isModelOpen && "rotate-180",
                 )}
               />
             </button>
@@ -115,7 +115,7 @@ export function AIInput02({
                   "rounded-xl border border-zinc-200 dark:border-zinc-800",
                   "bg-white dark:bg-zinc-950",
                   "shadow-[0_8px_32px_-4px_rgba(0,0,0,0.16)] dark:shadow-[0_8px_32px_-4px_rgba(0,0,0,0.6)]",
-                  "overflow-hidden"
+                  "overflow-hidden",
                 )}
               >
                 {MODELS.map((model) => (
@@ -131,8 +131,7 @@ export function AIInput02({
                       "text-zinc-700 dark:text-zinc-300",
                       "hover:bg-zinc-50 dark:hover:bg-zinc-900",
                       "transition-colors duration-100",
-                      selectedModel === model.name &&
-                        "bg-zinc-50 dark:bg-zinc-900 font-medium"
+                      selectedModel === model.name && "bg-zinc-50 dark:bg-zinc-900 font-medium",
                     )}
                   >
                     <span>{model.name}</span>
@@ -140,7 +139,7 @@ export function AIInput02({
                       className={cn(
                         "text-[10px] px-1.5 py-0.5 rounded-md font-medium",
                         "bg-zinc-100 dark:bg-zinc-800",
-                        "text-zinc-500 dark:text-zinc-400"
+                        "text-zinc-500 dark:text-zinc-400",
                       )}
                     >
                       {model.tag}
@@ -176,7 +175,7 @@ export function AIInput02({
             "placeholder:text-zinc-400 dark:placeholder:text-zinc-600",
             "outline-none border-none ring-0",
             "min-h-[52px] max-h-[200px]",
-            "leading-relaxed"
+            "leading-relaxed",
           )}
         />
 
@@ -198,7 +197,7 @@ export function AIInput02({
                   "flex items-center justify-center size-8 rounded-lg",
                   "text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300",
                   "hover:bg-zinc-100 dark:hover:bg-zinc-800",
-                  "transition-all duration-150"
+                  "transition-all duration-150",
                 )}
               >
                 <Icon className="size-4" />
@@ -208,9 +207,7 @@ export function AIInput02({
 
           <div className="flex items-center gap-2">
             {value.length > 0 && !isLoading && (
-              <span className="text-[11px] text-zinc-400 tabular-nums">
-                {value.length}
-              </span>
+              <span className="text-[11px] text-zinc-400 tabular-nums">{value.length}</span>
             )}
             <button
               type="button"
@@ -222,8 +219,8 @@ export function AIInput02({
                 isLoading
                   ? "bg-red-500/10 text-red-500 hover:bg-red-500/20"
                   : value.trim()
-                  ? "bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:opacity-90 shadow-sm"
-                  : "bg-zinc-100 dark:bg-zinc-800 text-zinc-300 dark:text-zinc-600 cursor-not-allowed"
+                    ? "bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:opacity-90 shadow-sm"
+                    : "bg-zinc-100 dark:bg-zinc-800 text-zinc-300 dark:text-zinc-600 cursor-not-allowed",
               )}
             >
               {isLoading ? (

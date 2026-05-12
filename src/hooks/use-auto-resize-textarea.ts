@@ -24,13 +24,10 @@ export function useAutoResizeTextarea({
       }
 
       textarea.style.height = "auto";
-      const newHeight = Math.min(
-        Math.max(textarea.scrollHeight, minHeight),
-        maxHeight
-      );
+      const newHeight = Math.min(Math.max(textarea.scrollHeight, minHeight), maxHeight);
       textarea.style.height = `${newHeight}px`;
     },
-    [minHeight, maxHeight]
+    [minHeight, maxHeight],
   );
 
   return { textareaRef, adjustHeight };
