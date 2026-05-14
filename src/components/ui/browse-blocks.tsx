@@ -26,12 +26,12 @@ export function BrowseBlocksButton() {
             "bg-white dark:bg-[#0e1111]",
             "text-black dark:text-white",
             "border-2 border-black/20 dark:border-white/20",
-            "hover:bg-[#0e1111] dark:hover:bg-white/10",
+            "hover:bg-[#0e1111] hover:text-white dark:hover:bg-white dark:hover:text-black",
             "backdrop-blur-xs",
             "shadow-md hover:shadow-lg transition-all duration-200",
           )}
         >
-          <span className="font-medium flex items-center gap-2">Go to Templates</span>
+          <span className="font-medium flex items-center gap-2">Visit Premium UI Blocks</span>
           <ArrowRight className="w-5 h-5" />
         </Button>
       </motion.div>
