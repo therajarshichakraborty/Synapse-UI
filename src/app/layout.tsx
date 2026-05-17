@@ -40,14 +40,10 @@ export default function RootLayout({
         */}
         <RootProvider>
           <ViewTransitions>
-            <TooltipProvider>
-              {children}
-            </TooltipProvider>
+            <TooltipProvider>{children}</TooltipProvider>
           </ViewTransitions>
         </RootProvider>
       </body>
     </html>
   );
 }
-
-

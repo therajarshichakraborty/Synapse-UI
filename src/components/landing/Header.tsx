@@ -1,6 +1,5 @@
 import { Blocks } from "lucide-react";
 import Link from "next/link";
-import React from "react";
 import { Link as ViewTransitionLink } from "next-view-transitions";
 import { AnimatedThemeToggler } from "@/lib/theme-toggler";
 

@@ -22,16 +22,12 @@ import Features from "@/components/landing/featchers";
 import Card_01 from "../synapse-ui-components/cards/card-01";
 import Card_25 from "../synapse-ui-components/cards/card-25";
 import { AIInput04 } from "../synapse-ui-components/ai-inputs/ai-input-04";
-import Button03 from "../synapse-ui-components/buttons/button-03";
-import Button14 from "../synapse-ui-components/buttons/button-14";
-import Button05 from "../synapse-ui-components/buttons/button-05";
-import Button04 from "../synapse-ui-components/buttons/button-04";
-import Input09 from "../synapse-ui-components/inputs/input-09";
-import Input_10 from "../synapse-ui-components/inputs/input-10";
-import Input_05 from "../synapse-ui-components/inputs/input-05";
 import Input_01 from "../synapse-ui-components/inputs/input-01";
-import Input_02 from "../synapse-ui-components/inputs/input-02";
 import Input_06 from "../synapse-ui-components/inputs/input-06";
+import Btn01 from "../synapse-ui-components/buttons/button-01";
+import Button02 from "../synapse-ui-components/buttons/button-02";
+import Button08 from "../synapse-ui-components/buttons/button-08";
+import Button09 from "../synapse-ui-components/buttons/button-09";
 
 interface Action {
   id: string;
@@ -44,9 +40,9 @@ interface Action {
 
 export default function HeroSection() {
   return (
-    <div className="mx-auto w-full max-w-7xl min-h-screen flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 px-4 sm:px-6 py-12 md:py-16 lg:py-20">
+    <div className="mx-auto w-full max-w-7xl min-h-screen flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 px-4 sm:px-6 py-12 md:py-16 lg:py-20  ">
       {/* Left side - Title and CTA */}
-      <div className="w-full lg:w-[45%] flex flex-col items-start text-left space-y-8">
+      <div className="w-full lg:w-[45%] flex flex-col items-start text-left space-y-8 lg:-mt-70">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -148,22 +144,23 @@ export default function HeroSection() {
           className="w-full grid grid-cols-1 md:grid-cols-2 gap-6"
         >
           {/* Left side - Buttons */}
-          <div className="w-full">
-            <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2"></span>
-            <div className="w-full h-68 rounded-xl  border border-zinc-200 dark:border-zinc-800 flex flex-col items-center justify-center gap-3">
-              <Link href="/docs/components/button">
-                <Button14 className=" w-42 py-5" />
-              </Link>
-              <Link href="/docs/components/button">
-                <Button03 className=" w-42 py-5" />
-              </Link>
-              <Link href="/docs/components/button">
-                <Button05 />
-              </Link>
-              <Link href="/docs/components/button">
-                <Button04 />
-              </Link>
-            </div>
+          <div className="w-full ">
+            <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2 ">
+              <div className="w-full h-68 rounded-xl  flex flex-col items-center justify-center gap-3 bg-transparent">
+                <Link href="/docs/components/button">
+                  <Button02 className=" w-42 py-5" />
+                </Link>
+                <Link href="/docs/components/button">
+                  <Button09 className=" w-42 py-5" />
+                </Link>
+                <Link href="/docs/components/button">
+                  <Btn01 className=" w-42 py-5" />
+                </Link>
+                <Link href="/docs/components/button">
+                  <Button08 className=" w-42 py-5" />
+                </Link>
+              </div>
+            </span>
           </div>
 
           {/* Right side - Input */}

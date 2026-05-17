@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-import { createMDX } from 'fumadocs-mdx/next';
+import { createMDX } from "fumadocs-mdx/next";
 
 const config: NextConfig = {
   images: {
@@ -20,4 +20,3 @@ const withMDX = createMDX({
   // configPath: "source.config.ts"
 });
 export default withMDX(config);
-
