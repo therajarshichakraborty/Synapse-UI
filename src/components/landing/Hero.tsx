@@ -2,7 +2,7 @@
 
 import type React from "react";
 import Link from "next/link";
-import TailwindCSS from "@/components/icons/tailwindcss";
+import TailwindCSS from "@/components/Icons/tailwindcss";
 import { motion } from "motion/react";
 import {
   PlaneTakeoff,
@@ -15,15 +15,23 @@ import {
   Code,
   Layers,
 } from "lucide-react";
-//import { Btn14 } from "../codesnippetui/button/btn-14";
-//import Btn03 from "../codesnippetui/button/btn-03";
-//import Input09 from "../codesnippetui/input/input-09";
-//import AIInput_04 from "../codesnippetui/ai-input/ai-input-04";
-//import Card08 from "../codesnippetui/card/card-08";
+
 import { BrowseBlocksButton } from "../ui/browse-blocks";
 import { BrowseComponentsButton } from "../ui/browse-button";
 import Features from "@/components/landing/featchers";
-// import Card02 from "../codesnippetui/card/card-02";
+import Card_01 from "../synapse-ui-components/cards/card-01";
+import Card_25 from "../synapse-ui-components/cards/card-25";
+import { AIInput04 } from "../synapse-ui-components/ai-inputs/ai-input-04";
+import Button03 from "../synapse-ui-components/buttons/button-03";
+import Button14 from "../synapse-ui-components/buttons/button-14";
+import Button05 from "../synapse-ui-components/buttons/button-05";
+import Button04 from "../synapse-ui-components/buttons/button-04";
+import Input09 from "../synapse-ui-components/inputs/input-09";
+import Input_10 from "../synapse-ui-components/inputs/input-10";
+import Input_05 from "../synapse-ui-components/inputs/input-05";
+import Input_01 from "../synapse-ui-components/inputs/input-01";
+import Input_02 from "../synapse-ui-components/inputs/input-02";
+import Input_06 from "../synapse-ui-components/inputs/input-06";
 
 interface Action {
   id: string;
@@ -106,21 +114,15 @@ export default function HeroSection() {
           {/* Card component */}
           <div className="w-full flex flex-col items-center justify-center ">
             <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
-              {"<Card/>"}
+              <Card_01 href="/docs/components/card" />
             </span>
-            {/* <Card08 href="/docs/components/card" /> */}
           </div>
 
           {/* Action Search Bar */}
-          <div className="w-full max-w-150 bg-transparent">
+          <div className="w-full max-w-150 bg-transparent mx-8">
             <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
-              Components
+              <Card_25 />
             </span>
-            {/* <ActionSearchBar
-                            actions={allActions}
-                            defaultOpen={true}
-                        /> */}
-            {/* <Card02 /> */}
           </div>
         </motion.div>
 
@@ -131,12 +133,10 @@ export default function HeroSection() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="w-full"
         >
-          <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
-            AI Chat
-          </span>
-          {/* <AIInput_04 /> */}
+          <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2"></span>
+
           <div className="w-full h-48 rounded-xl border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
-            {/* <AIInput_04 /> */}
+            <AIInput04 />
           </div>
         </motion.div>
 
@@ -149,23 +149,34 @@ export default function HeroSection() {
         >
           {/* Left side - Buttons */}
           <div className="w-full">
-            <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
-              Buttons
-            </span>
-            <div className="w-full h-48 rounded-xl  border border-zinc-200 dark:border-zinc-800 flex flex-col items-center justify-center gap-3">
+            <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2"></span>
+            <div className="w-full h-68 rounded-xl  border border-zinc-200 dark:border-zinc-800 flex flex-col items-center justify-center gap-3">
               <Link href="/docs/components/button">
-                {/* <Btn14 label="Bring me" className=" w-42 py-5" /> */}
+                <Button14 className=" w-42 py-5" />
               </Link>
-              <Link href="/docs/components/button">{/* <Btn03 className=" w-42 py-5" /> */}</Link>
+              <Link href="/docs/components/button">
+                <Button03 className=" w-42 py-5" />
+              </Link>
+              <Link href="/docs/components/button">
+                <Button05 />
+              </Link>
+              <Link href="/docs/components/button">
+                <Button04 />
+              </Link>
             </div>
           </div>
 
           {/* Right side - Input */}
-          <div className="w-full">
-            <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
-              Input
-            </span>
-            <Link href="/docs/components/input">{/* <Input09 /> */}</Link>
+
+          <div className="w-full mx-10 mt-4">
+            <div className="flex flex-col gap-8">
+              <Link href="/docs/components/input">
+                <Input_01 />
+              </Link>
+              <Link href="/docs/components/input">
+                <Input_06 />
+              </Link>
+            </div>
           </div>
         </motion.div>
       </div>

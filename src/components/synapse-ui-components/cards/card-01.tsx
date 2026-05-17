@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 
 interface Card01Props {
+  href: string; 
   author?: {
     name?: string;
     username?: string;
@@ -38,6 +39,7 @@ interface Card01Props {
 }
 
 const defaultProps: Card01Props = {
+  href:"",
   author: {
     name: "Dorian Baffier",
     username: "dorian_baffier",
@@ -63,6 +65,7 @@ const defaultProps: Card01Props = {
 };
 
 export default function Card_01({
+  href,
   author = defaultProps.author,
   content = defaultProps.content,
   engagement = defaultProps.engagement,
@@ -72,6 +75,7 @@ export default function Card_01({
   onBookmark,
 }: Card01Props) {
   return (
+    <a href={href}>
     <div
       className={cn(
         "w-full max-w-2xl mx-auto",
@@ -251,5 +255,6 @@ export default function Card_01({
         </div>
       </div>
     </div>
+    </a>
   );
 }
