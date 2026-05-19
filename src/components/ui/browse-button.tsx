@@ -8,7 +8,7 @@ import { ArrowDownRight, ArrowRight } from "lucide-react";
 
 export function BrowseComponentsButton() {
   return (
-    <Link href="/docs/components/action-search-bar" className="flex items-center gap-8">
+    <Link href="/docs/components/button" className="flex items-center gap-8">
       <motion.div
         initial={{ x: 200, opacity: 0 }}
         animate={{ x: 0, opacity: 1, transition: { duration: 0.2 } }}

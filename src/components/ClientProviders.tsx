@@ -7,7 +7,7 @@ import type { ReactNode } from "react";
 export default function ClientProviders({ children }: { children: ReactNode }) {
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-      <RootProvider search={{ enabled: false }} theme={{ enabled: false }}>
+      <RootProvider search={{ enabled: true }} theme={{ enabled: false }}>
         {children}
       </RootProvider>
     </ThemeProvider>
