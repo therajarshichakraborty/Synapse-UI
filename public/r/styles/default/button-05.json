@@ -1,0 +1,15 @@
+{
+  "name": "button-05",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "components/synapse-ui-components/buttons/button-05.tsx",
+      "content": "import { Button } from \"@/components/ui/button\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ninterface Button05Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {\r\n  children?: React.ReactNode;\r\n}\r\n\r\nexport default function Button05({\r\n  className,\r\n  children = \"Glowing Button\",\r\n  ...props\r\n}: Button05Props) {\r\n  return (\r\n    <Button\r\n      className={cn(\r\n        \"relative h-11 px-8\",\r\n        \"bg-cyan-500 dark:bg-cyan-600\",\r\n        \"text-white\",\r\n        \"hover:bg-cyan-600 dark:hover:bg-cyan-700\",\r\n        \"rounded-lg\",\r\n        \"transition-all duration-300\",\r\n        \"shadow-[0_0_20px_rgba(34,211,238,0.5)]\",\r\n        \"hover:shadow-[0_0_30px_rgba(34,211,238,0.8)]\",\r\n        \"overflow-hidden\",\r\n        \"before:content-['']\",\r\n        \"before:absolute\",\r\n        \"before:inset-0\",\r\n        \"before:bg-white/20\",\r\n        \"before:opacity-0\",\r\n        \"hover:before:opacity-100\",\r\n        \"before:transition-opacity\",\r\n        \"before:duration-300\",\r\n        className,\r\n      )}\r\n      {...props}\r\n    >\r\n      <span className=\"relative z-10\">{children}</span>\r\n    </Button>\r\n  );\r\n}\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}

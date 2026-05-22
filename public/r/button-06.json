@@ -1,0 +1,15 @@
+{
+  "name": "button-06",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "components/synapse-ui-components/buttons/button-06.tsx",
+      "content": "import { Button } from \"@/components/ui/button\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ninterface Button06Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {\r\n  children?: React.ReactNode;\r\n}\r\n\r\nexport default function Button06({\r\n  className,\r\n  children = \"Slide Button\",\r\n  ...props\r\n}: Button06Props) {\r\n  return (\r\n    <Button\r\n      className={cn(\r\n        \"relative h-11 px-8\",\r\n        \"bg-zinc-900 dark:bg-zinc-50\",\r\n        \"text-zinc-50 dark:text-zinc-900\",\r\n        \"rounded-lg\",\r\n        \"transition-all duration-300\",\r\n        \"overflow-hidden\",\r\n        \"group\",\r\n        \"before:content-['']\",\r\n        \"before:absolute\",\r\n        \"before:top-0\",\r\n        \"before:left-0\",\r\n        \"before:w-full\",\r\n        \"before:h-full\",\r\n        \"before:bg-gradient-to-r\",\r\n        \"before:from-transparent\",\r\n        \"before:via-white/30\",\r\n        \"before:to-transparent\",\r\n        \"before:-translate-x-full\",\r\n        \"group-hover:before:translate-x-full\",\r\n        \"before:transition-transform\",\r\n        \"before:duration-500\",\r\n        className,\r\n      )}\r\n      {...props}\r\n    >\r\n      <span className=\"relative z-10\">{children}</span>\r\n    </Button>\r\n  );\r\n}\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}

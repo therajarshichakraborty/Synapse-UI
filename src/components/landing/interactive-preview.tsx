@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Code, Palette, Zap } from "lucide-react";
 
@@ -53,17 +52,9 @@ const FEATURES: Feature[] = [
     description: "Smooth animations and transitions built-in.",
     preview: (
       <div className="flex items-center justify-center">
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="w-16 h-16 bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl"
+        <div
+          className="w-16 h-16 bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl animate-spin"
+          style={{ animationDuration: "2s", animationTimingFunction: "ease-in-out" }}
         />
       </div>
     ),
@@ -72,23 +63,38 @@ const FEATURES: Feature[] = [
 
 export function InteractivePreview() {
   const [activeFeature, setActiveFeature] = useState(0);
+  const [mounted, setMounted] = useState(false);
+  const [panelVisible, setPanelVisible] = useState(true);
+
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
+  const handleFeatureChange = (index: number) => {
+    // Briefly hide panel to retrigger CSS entrance animation
+    setPanelVisible(false);
+    setTimeout(() => {
+      setActiveFeature(index);
+      setPanelVisible(true);
+    }, 60);
+  };
 
   return (
     <div className="w-full max-w-6xl mx-auto px-4 py-16">
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-8">
         <div className="space-y-8">
           {FEATURES.map((feature, index) => (
-            <motion.div
+            <div
               key={index}
               className={cn(
                 "p-6 rounded-2xl cursor-pointer",
+                "transition-transform duration-200 ease-out hover:translate-x-1",
                 activeFeature === index
                   ? "bg-zinc-100 dark:bg-zinc-800/50"
                   : "hover:bg-zinc-50 dark:hover:bg-zinc-800/30",
               )}
-              onClick={() => setActiveFeature(index)}
-              whileHover={{ x: 5 }}
-              transition={{ duration: 0.2 }}
+              onClick={() => handleFeatureChange(index)}
             >
               <div className="flex items-start gap-4">
                 <div className="p-2 rounded-lg bg-zinc-200 dark:bg-zinc-700">{feature.icon}</div>
@@ -97,20 +103,20 @@ export function InteractivePreview() {
                   <p className="text-sm text-zinc-600 dark:text-zinc-400">{feature.description}</p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         <div className="lg:h-[400px] p-8 rounded-3xl bg-linear-to-b from-white to-zinc-50 dark:from-zinc-900 dark:to-zinc-900/50 border border-zinc-200 dark:border-zinc-800">
-          <motion.div
-            key={activeFeature}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="w-full h-full"
+          <div
+            className={cn(
+              "w-full h-full",
+              "transition-all duration-300 ease-out",
+              mounted && panelVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3",
+            )}
           >
             {FEATURES[activeFeature].preview}
-          </motion.div>
+          </div>
         </div>
       </div>
     </div>

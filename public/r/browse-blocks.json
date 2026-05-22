@@ -1,0 +1,17 @@
+{
+  "name": "browse-blocks",
+  "type": "registry:ui",
+  "dependencies": [
+    "next",
+    "motion",
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ui/browse-blocks.tsx",
+      "content": "\"use client\";\r\n\r\nimport Link from \"next/link\";\r\nimport { Button } from \"./button\";\r\nimport { cn } from \"@/lib/utils\";\r\nimport { motion } from \"motion/react\";\r\nimport { ArrowDownRight, ArrowRight, BlocksIcon } from \"lucide-react\";\r\n\r\nexport function BrowseBlocksButton() {\r\n  return (\r\n    <Link\r\n      id=\"browse-blocks-button\"\r\n      href=\"https://kokonutui.pro/templates\"\r\n      className=\"flex items-center gap-8\"\r\n    >\r\n      <motion.div\r\n        initial={{ x: 200, opacity: 0 }}\r\n        animate={{ x: 0, opacity: 1, transition: { duration: 0.2 } }}\r\n        whileHover={{ x: 5, transition: { duration: 0.2 } }}\r\n        className=\"relative\"\r\n      >\r\n        <Button\r\n          className={cn(\r\n            \"relative inline-flex items-center justify-center gap-4 rounded-xl font-medium\",\r\n            \"relative h-12 px-6 min-w-72 md:min-w-56\",\r\n            \"bg-white dark:bg-[#0e1111]\",\r\n            \"text-black dark:text-white\",\r\n            \"border-2 border-black/20 dark:border-white/20\",\r\n            \"hover:bg-[#0e1111] hover:text-white dark:hover:bg-white dark:hover:text-black\",\r\n            \"backdrop-blur-xs\",\r\n            \"shadow-md hover:shadow-lg transition-all duration-200\",\r\n          )}\r\n        >\r\n          <span className=\"font-medium flex items-center gap-2\">Visit Premium UI Blocks</span>\r\n          <ArrowRight className=\"w-5 h-5\" />\r\n        </Button>\r\n      </motion.div>\r\n    </Link>\r\n  );\r\n}\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}

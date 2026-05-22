@@ -1,20 +1,9 @@
 "use client";
 
-import type React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import TailwindCSS from "@/components/Icons/tailwindcss";
-import { motion } from "motion/react";
-import {
-  PlaneTakeoff,
-  BarChart2,
-  Video,
-  AudioLines,
-  Globe,
-  Diamond,
-  Sparkles,
-  Code,
-  Layers,
-} from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 import { BrowseBlocksButton } from "../ui/browse-blocks";
 import { BrowseComponentsButton } from "../ui/browse-button";
@@ -29,24 +18,40 @@ import Button02 from "../synapse-ui-components/buttons/button-02";
 import Button08 from "../synapse-ui-components/buttons/button-08";
 import Button09 from "../synapse-ui-components/buttons/button-09";
 
-interface Action {
-  id: string;
-  label: string;
-  icon: React.ReactNode;
-  description?: string;
-  short?: string;
-  end?: string;
-}
-
 export default function HeroSection() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    // Small rAF delay ensures the class swap triggers a real CSS transition
+    const frame = requestAnimationFrame(() => {
+      setMounted(true);
+    });
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
+  const base =
+    "transition-all duration-700 ease-out";
+  const hidden = "opacity-0 translate-y-5";
+  const visible = "opacity-100 translate-y-0";
+
+  const topRowBase =
+    "transition-all duration-500 ease-out";
+  const hiddenScale = "opacity-0 -translate-y-5 scale-95";
+  const visibleScale = "opacity-100 translate-y-0 scale-100";
+
+  const bottomBase =
+    "transition-all duration-500 ease-out";
+  const hiddenBottom = "opacity-0 translate-y-5 scale-95";
+  const visibleBottom = "opacity-100 translate-y-0 scale-100";
+
   return (
-    <div className="mx-auto w-full max-w-7xl min-h-screen flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 px-4 sm:px-6 py-12 md:py-16 lg:py-20  ">
+    <div className="mx-auto w-full max-w-7xl min-h-screen flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 px-4 sm:px-6 py-12 md:py-16 lg:py-20">
       {/* Left side - Title and CTA */}
       <div className="w-full lg:w-[45%] flex flex-col items-start text-left space-y-8 lg:-mt-70">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+        {/* Hero headline + description */}
+        <div
+          className={`${base} ${mounted ? visible : hidden}`}
+          style={{ transitionDelay: "0ms" }}
         >
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-zinc-900 dark:text-zinc-100">
             Craft with{" "}
@@ -72,13 +77,12 @@ export default function HeroSection() {
             </span>{" "}
             for modern React and Next.js applications.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-col justify-start w-full"
+        {/* CTA buttons + Tailwind badge */}
+        <div
+          className={`${base} flex flex-col justify-start w-full ${mounted ? visible : hidden}`}
+          style={{ transitionDelay: "200ms" }}
         >
           <span className="text-sm text-zinc-500 dark:text-zinc-300 pb-3 text-start flex items-center gap-2">
             <TailwindCSS />
@@ -94,21 +98,20 @@ export default function HeroSection() {
             <BrowseComponentsButton />
             <BrowseBlocksButton />
           </div>
-        </motion.div>
+        </div>
+
         <Features />
       </div>
 
       {/* Right side - Components Layout */}
       <div className="w-full lg:w-[55%] flex flex-col justify-between gap-6 lg:pl-8">
-        {/* Top row: Card + Action Search Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: -20, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 items-center justify-center"
+        {/* Top row: Card + Profile Card */}
+        <div
+          className={`${topRowBase} w-full grid grid-cols-1 md:grid-cols-2 gap-6 items-center justify-center ${mounted ? visibleScale : hiddenScale}`}
+          style={{ transitionDelay: "0ms" }}
         >
           {/* Card component */}
-          <div className="w-full flex flex-col items-center justify-center ">
+          <div className="w-full flex flex-col items-center justify-center">
             <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
               <Card_01 href="/docs/components/card" />
             </span>
@@ -120,33 +123,28 @@ export default function HeroSection() {
               <Card_25 />
             </span>
           </div>
-        </motion.div>
+        </div>
 
         {/* Middle row: AI Chat */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="w-full"
+        <div
+          className={`${topRowBase} w-full ${mounted ? visibleScale : hiddenScale}`}
+          style={{ transitionDelay: "200ms" }}
         >
           <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2"></span>
-
           <div className="w-full h-48 rounded-xl border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
             <AIInput04 />
           </div>
-        </motion.div>
+        </div>
 
         {/* Bottom row: Buttons on left, Input on right */}
-        <motion.div
-          initial={{ opacity: 0, y: 20, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="w-full grid grid-cols-1 md:grid-cols-2 gap-6"
+        <div
+          className={`${bottomBase} w-full grid grid-cols-1 md:grid-cols-2 gap-6 ${mounted ? visibleBottom : hiddenBottom}`}
+          style={{ transitionDelay: "400ms" }}
         >
           {/* Left side - Buttons */}
-          <div className="w-full ">
-            <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2 ">
-              <div className="w-full h-68 rounded-xl  flex flex-col items-center justify-center gap-3 bg-transparent">
+          <div className="w-full">
+            <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
+              <div className="w-full h-68 rounded-xl flex flex-col items-center justify-center gap-3 bg-transparent">
                 <Link href="/docs/components/button">
                   <Button02 className=" w-42 py-5" />
                 </Link>
@@ -164,7 +162,6 @@ export default function HeroSection() {
           </div>
 
           {/* Right side - Input */}
-
           <div className="w-full mx-10 mt-4">
             <div className="flex flex-col gap-8">
               <Link href="/docs/components/input">
@@ -175,7 +172,7 @@ export default function HeroSection() {
               </Link>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

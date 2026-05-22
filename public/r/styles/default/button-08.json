@@ -1,0 +1,15 @@
+{
+  "name": "button-08",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "components/synapse-ui-components/buttons/button-08.tsx",
+      "content": "import { Button } from \"@/components/ui/button\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ninterface Button08Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {\r\n  children?: React.ReactNode;\r\n}\r\n\r\nexport default function Button08({\r\n  className,\r\n  children = \"Outline Button\",\r\n  ...props\r\n}: Button08Props) {\r\n  return (\r\n    <Button\r\n      className={cn(\r\n        \"relative h-11 px-6\",\r\n        \"bg-transparent\",\r\n        \"text-indigo-600 dark:text-indigo-400\",\r\n        \"border-2 border-indigo-600 dark:border-indigo-400\",\r\n        \"hover:bg-indigo-600 dark:hover:bg-indigo-400\",\r\n        \"hover:text-white\",\r\n        \"rounded-lg\",\r\n        \"transition-all duration-300\",\r\n        \"font-medium\",\r\n        className,\r\n      )}\r\n      {...props}\r\n    >\r\n      {children}\r\n    </Button>\r\n  );\r\n}\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}

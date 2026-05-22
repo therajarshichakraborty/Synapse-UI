@@ -1,3 +1,6 @@
+/* Declare fumadocs as a low-priority cascade layer (must come before tailwindcss import) */
+@layer fumadocs;
+
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -6,9 +9,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-heading: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -125,6 +128,9 @@
   }
   html {
     @apply font-sans;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
@@ -150,4 +156,29 @@
 
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {
   cursor: pointer;
+}
+
+/*
+  Hard unlayered overrides for responsive display utilities.
+  These run OUTSIDE any @layer so they are highest priority in the cascade.
+  This prevents fumadocs-ui/style.css (which persists in <head> after
+  client-side navigation away from /docs) from overriding Tailwind's
+  responsive min-width utilities via its own .hidden declaration.
+*/
+@media (max-width: 639px) {
+  .max-sm\:hidden { display: none; }
+}
+@media (min-width: 640px) {
+  .sm\:block  { display: block; }
+  .sm\:flex   { display: flex; }
+  .sm\:inline { display: inline; }
+  .sm\:inline-flex { display: inline-flex; }
+  .sm\:grid   { display: grid; }
+  .sm\:hidden { display: none; }
+}
+@media (min-width: 768px) {
+  .md\:block  { display: block; }
+  .md\:flex   { display: flex; }
+  .md\:inline { display: inline; }
+  .md\:hidden { display: none; }
 }

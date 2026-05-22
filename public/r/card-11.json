@@ -1,0 +1,15 @@
+{
+  "name": "card-11",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/synapse-ui-components/cards/card-11.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\r\nimport { AlertCircle, CheckCircle2 } from \"lucide-react\";\r\n\r\ninterface Card09Props {\r\n  title?: string;\r\n  message?: string;\r\n  type?: \"alert\" | \"success\";\r\n  action?: string;\r\n}\r\n\r\nexport default function Card_11({\r\n  title = \"Update Available\",\r\n  message = \"A new version of our software is ready to download.\",\r\n  type = \"alert\",\r\n  action = \"Update Now\",\r\n}: Card09Props) {\r\n  const isAlert = type === \"alert\";\r\n  return (\r\n    <div\r\n      className={cn(\r\n        \"w-full max-w-sm\",\r\n        \"bg-white dark:bg-zinc-900\",\r\n        \"border\",\r\n        isAlert\r\n          ? \"border-amber-200/50 dark:border-amber-900/30\"\r\n          : \"border-green-200/50 dark:border-green-900/30\",\r\n        \"rounded-xl shadow-sm\",\r\n        \"p-5\",\r\n        \"transition-all duration-300\",\r\n        \"hover:shadow-md dark:hover:shadow-zinc-900/50\",\r\n      )}\r\n    >\r\n      <div className=\"flex gap-3\">\r\n        {isAlert ? (\r\n          <AlertCircle className=\"w-5 h-5 text-amber-600 dark:text-amber-500 flex-shrink-0 mt-0.5\" />\r\n        ) : (\r\n          <CheckCircle2 className=\"w-5 h-5 text-green-600 dark:text-green-500 flex-shrink-0 mt-0.5\" />\r\n        )}\r\n        <div>\r\n          <h3\r\n            className={cn(\r\n              \"text-sm font-semibold mb-1\",\r\n              isAlert ? \"text-amber-950 dark:text-amber-200\" : \"text-green-950 dark:text-green-200\",\r\n            )}\r\n          >\r\n            {title}\r\n          </h3>\r\n          <p\r\n            className={cn(\r\n              \"text-xs mb-3\",\r\n              isAlert ? \"text-amber-800 dark:text-amber-300\" : \"text-green-800 dark:text-green-300\",\r\n            )}\r\n          >\r\n            {message}\r\n          </p>\r\n          <button\r\n            className={cn(\r\n              \"text-xs font-medium transition-colors\",\r\n              isAlert\r\n                ? \"text-amber-600 hover:text-amber-700 dark:text-amber-400 dark:hover:text-amber-300\"\r\n                : \"text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300\",\r\n            )}\r\n          >\r\n            {action}\r\n          </button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}

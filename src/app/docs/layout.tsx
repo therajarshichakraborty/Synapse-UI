@@ -1,4 +1,4 @@
-import "fumadocs-ui/style.css";
+import "./docs.css";
 
 import { DocsLayout } from "fumadocs-ui/layouts/docs";
 import type { Metadata } from "next";
