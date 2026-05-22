@@ -1,0 +1,13 @@
+{
+  "name": "use-auto-resize-textarea",
+  "type": "registry:hook",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "hooks/use-auto-resize-textarea.ts",
+      "content": "\"use client\";\r\n\r\nimport * as React from \"react\";\r\n\r\ninterface UseAutoResizeTextareaProps {\r\n  minHeight?: number;\r\n  maxHeight?: number;\r\n}\r\n\r\nexport function useAutoResizeTextarea({\r\n  minHeight = 52,\r\n  maxHeight = 200,\r\n}: UseAutoResizeTextareaProps = {}) {\r\n  const textareaRef = React.useRef<HTMLTextAreaElement>(null);\r\n\r\n  const adjustHeight = React.useCallback(\r\n    (reset?: boolean) => {\r\n      const textarea = textareaRef.current;\r\n      if (!textarea) return;\r\n\r\n      if (reset) {\r\n        textarea.style.height = `${minHeight}px`;\r\n        return;\r\n      }\r\n\r\n      textarea.style.height = \"auto\";\r\n      const newHeight = Math.min(Math.max(textarea.scrollHeight, minHeight), maxHeight);\r\n      textarea.style.height = `${newHeight}px`;\r\n    },\r\n    [minHeight, maxHeight],\r\n  );\r\n\r\n  return { textareaRef, adjustHeight };\r\n}\r\n",
+      "type": "registry:hook"
+    }
+  ]
+}

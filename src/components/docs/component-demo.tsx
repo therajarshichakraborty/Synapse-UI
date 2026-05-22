@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import {
   CodeBlockTab,
   CodeBlockTabs,
@@ -18,6 +19,17 @@ interface ComponentDemoProps {
 
 export function ComponentDemo({ demo, className }: ComponentDemoProps) {
   const Component = demo.component;
+  const [origin, setOrigin] = useState("https://synapse-ui.vercel.app");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setOrigin(window.location.origin);
+    }
+  }, []);
+
+  // Determine registry ID (map categories/names appropriately if needed, but demo.id matches registry name)
+  const registryId = demo.id;
+  const cliCommand = `npx shadcn@latest add ${origin}/r/${registryId}.json`;
 
   return (
     <figure className={cn("not-prose my-8", className)}>
@@ -25,6 +37,7 @@ export function ComponentDemo({ demo, className }: ComponentDemoProps) {
       <CodeBlockTabs defaultValue="preview">
         <CodeBlockTabsList>
           <CodeBlockTabsTrigger value="preview">Preview</CodeBlockTabsTrigger>
+          <CodeBlockTabsTrigger value="cli">CLI</CodeBlockTabsTrigger>
           <CodeBlockTabsTrigger value="code">Code</CodeBlockTabsTrigger>
         </CodeBlockTabsList>
         <CodeBlockTab value="preview">
@@ -36,6 +49,9 @@ export function ComponentDemo({ demo, className }: ComponentDemoProps) {
           >
             <Component {...(demo.props ?? {})} />
           </div>
+        </CodeBlockTab>
+        <CodeBlockTab value="cli">
+          <DynamicCodeBlock lang="bash" code={cliCommand} />
         </CodeBlockTab>
         <CodeBlockTab value="code">
           <DynamicCodeBlock lang="tsx" code={demo.code} />

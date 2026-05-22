@@ -9,13 +9,33 @@ Synapse UI is a collection of copy-paste React components built with Tailwind CS
 
 ## Installation
 
-Clone or copy components directly from this repository into your project. Each component lives under `src/components/synapse-ui-components/`.
+You can install Synapse UI components either using the shadcn CLI or manually.
 
-Make sure your project has these dependencies:
+### CLI Installation (Recommended)
+
+Add any component to your project dynamically via the shadcn CLI by pointing it to the component's registry URL:
+
+```bash
+npx shadcn@latest add http://localhost:3000/r/button-01.json
+```
+*(Make sure to replace `http://localhost:3000` with the domain Synapse UI is hosted on, and `button-01.json` with the component name you wish to install).*
+
+### Manual Installation
+
+To install manually:
+
+1. Browse to the component page.
+2. Select the **Code** tab to copy the full, entire component code.
+3. Paste it into your project under `src/components/synapse-ui-components/`.
+4. Ensure your project has the required dependencies (such as `lucide-react`, `motion`, etc.) specified at the top of the copied code.
+
+### Required Base Dependencies
+
+Make sure your React project is configured with:
 
 - React 19+
 - Tailwind CSS v4
-- shadcn/ui components (Button, Card, Input, etc.)
+- shadcn/ui primitives (such as Button, Card, Input, etc.)
 
 ## Project Structure
 

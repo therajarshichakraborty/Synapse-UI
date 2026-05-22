@@ -1,0 +1,15 @@
+{
+  "name": "button-07",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "components/synapse-ui-components/buttons/button-07.tsx",
+      "content": "import { Button } from \"@/components/ui/button\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ninterface Button07Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {\r\n  children?: React.ReactNode;\r\n}\r\n\r\nexport default function Button07({\r\n  className,\r\n  children = \"Filled Button\",\r\n  ...props\r\n}: Button07Props) {\r\n  return (\r\n    <Button\r\n      className={cn(\r\n        \"relative h-11 px-8\",\r\n        \"bg-gradient-to-br from-emerald-400 to-teal-600\",\r\n        \"text-white\",\r\n        \"hover:shadow-xl hover:shadow-teal-600/40\",\r\n        \"rounded-lg\",\r\n        \"transition-all duration-300\",\r\n        \"font-semibold\",\r\n        \"tracking-wide\",\r\n        className,\r\n      )}\r\n      {...props}\r\n    >\r\n      {children}\r\n    </Button>\r\n  );\r\n}\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}

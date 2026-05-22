@@ -1,0 +1,15 @@
+{
+  "name": "button-15",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "components/synapse-ui-components/buttons/button-15.tsx",
+      "content": "import { Button } from \"@/components/ui/button\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ninterface Button15Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {\r\n  children?: React.ReactNode;\r\n}\r\n\r\nexport default function Button15({\r\n  className,\r\n  children = \"Glass Button\",\r\n  ...props\r\n}: Button15Props) {\r\n  return (\r\n    <Button\r\n      className={cn(\r\n        \"relative h-11 px-8\",\r\n        \"bg-white/10 dark:bg-white/5\",\r\n        \"text-white\",\r\n        \"backdrop-blur-md\",\r\n        \"border border-white/20\",\r\n        \"hover:bg-white/20 dark:hover:bg-white/10\",\r\n        \"hover:border-white/40\",\r\n        \"rounded-lg\",\r\n        \"transition-all duration-300\",\r\n        \"font-semibold\",\r\n        className,\r\n      )}\r\n      {...props}\r\n    >\r\n      {children}\r\n    </Button>\r\n  );\r\n}\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}

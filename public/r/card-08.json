@@ -1,0 +1,15 @@
+{
+  "name": "card-08",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/synapse-ui-components/cards/card-08.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\r\nimport { Code, GitBranch, Star } from \"lucide-react\";\r\n\r\ninterface Card06Props {\r\n  name?: string;\r\n  description?: string;\r\n  language?: string;\r\n  stars?: number;\r\n  url?: string;\r\n}\r\n\r\nexport default function Card_08({\r\n  name = \"React Query\",\r\n  description = \"Powerful asynchronous state management library for data fetching and caching.\",\r\n  language = \"TypeScript\",\r\n  stars = 42100,\r\n  url = \"github.com/example/repo\",\r\n}: Card06Props) {\r\n  return (\r\n    <div\r\n      className={cn(\r\n        \"w-full max-w-sm\",\r\n        \"bg-white dark:bg-zinc-900\",\r\n        \"border border-zinc-200/50 dark:border-zinc-800/50\",\r\n        \"rounded-xl shadow-sm\",\r\n        \"p-5\",\r\n        \"transition-all duration-300\",\r\n        \"hover:shadow-md dark:hover:shadow-zinc-900/50\",\r\n      )}\r\n    >\r\n      <div className=\"flex items-start justify-between mb-3\">\r\n        <div className=\"p-2 bg-zinc-100 dark:bg-zinc-800 rounded-lg\">\r\n          <Code className=\"w-5 h-5 text-zinc-600 dark:text-zinc-400\" />\r\n        </div>\r\n        <GitBranch className=\"w-4 h-4 text-zinc-400\" />\r\n      </div>\r\n      <h3 className=\"text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-2\">{name}</h3>\r\n      <p className=\"text-xs text-zinc-600 dark:text-zinc-400 mb-4 line-clamp-2\">{description}</p>\r\n      <div className=\"flex items-center justify-between pt-4 border-t border-zinc-200/50 dark:border-zinc-800/50\">\r\n        <span className=\"text-xs text-zinc-500 dark:text-zinc-400\">{language}</span>\r\n        <div className=\"flex items-center gap-1 text-xs\">\r\n          <Star className=\"w-3 h-3 fill-yellow-400 text-yellow-400\" />\r\n          <span className=\"text-zinc-600 dark:text-zinc-400\">{stars.toLocaleString()}</span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}

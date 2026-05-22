@@ -1,0 +1,15 @@
+{
+  "name": "card-19",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/synapse-ui-components/cards/card-19.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\r\nimport { CheckCircle2, Circle } from \"lucide-react\";\r\n\r\ninterface Task {\r\n  title: string;\r\n  completed: boolean;\r\n}\r\n\r\ninterface Card17Props {\r\n  title?: string;\r\n  tasks?: Task[];\r\n  completed?: number;\r\n}\r\n\r\nexport default function Card_19({\r\n  title = \"Project Checklist\",\r\n  tasks = [\r\n    { title: \"Design mockups\", completed: true },\r\n    { title: \"Frontend development\", completed: true },\r\n    { title: \"Backend integration\", completed: false },\r\n    { title: \"Testing & QA\", completed: false },\r\n  ],\r\n  completed = 2,\r\n}: Card17Props) {\r\n  return (\r\n    <div\r\n      className={cn(\r\n        \"w-full max-w-sm\",\r\n        \"bg-white dark:bg-zinc-900\",\r\n        \"border border-zinc-200/50 dark:border-zinc-800/50\",\r\n        \"rounded-xl shadow-sm\",\r\n        \"p-5\",\r\n        \"transition-all duration-300\",\r\n        \"hover:shadow-md dark:hover:shadow-zinc-900/50\",\r\n      )}\r\n    >\r\n      <h3 className=\"text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-3\">{title}</h3>\r\n      <div className=\"mb-4 pb-4 border-b border-zinc-200/50 dark:border-zinc-800/50\">\r\n        <div className=\"w-full h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden\">\r\n          <div\r\n            className=\"h-full bg-zinc-900 dark:bg-zinc-100 transition-all\"\r\n            style={{ width: `${(completed / tasks.length) * 100}%` }}\r\n          />\r\n        </div>\r\n        <p className=\"text-xs text-zinc-500 dark:text-zinc-400 mt-2\">\r\n          {completed} of {tasks.length} completed\r\n        </p>\r\n      </div>\r\n      <div className=\"space-y-2\">\r\n        {tasks.map((task, i) => (\r\n          <div key={i} className=\"flex items-center gap-3\">\r\n            {task.completed ? (\r\n              <CheckCircle2 className=\"w-4 h-4 text-zinc-600 dark:text-zinc-400 flex-shrink-0\" />\r\n            ) : (\r\n              <Circle className=\"w-4 h-4 text-zinc-300 dark:text-zinc-700 flex-shrink-0\" />\r\n            )}\r\n            <span\r\n              className={cn(\r\n                \"text-xs\",\r\n                task.completed\r\n                  ? \"line-through text-zinc-400 dark:text-zinc-600\"\r\n                  : \"text-zinc-600 dark:text-zinc-400\",\r\n              )}\r\n            >\r\n              {task.title}\r\n            </span>\r\n          </div>\r\n        ))}\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}

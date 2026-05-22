@@ -1,0 +1,15 @@
+{
+  "name": "direction",
+  "type": "registry:ui",
+  "dependencies": [
+    "radix-ui"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ui/direction.tsx",
+      "content": "\"use client\";\r\n\r\nimport * as React from \"react\";\r\nimport { Direction } from \"radix-ui\";\r\n\r\nfunction DirectionProvider({\r\n  dir,\r\n  direction,\r\n  children,\r\n}: React.ComponentProps<typeof Direction.DirectionProvider> & {\r\n  direction?: React.ComponentProps<typeof Direction.DirectionProvider>[\"dir\"];\r\n}) {\r\n  return (\r\n    <Direction.DirectionProvider dir={direction ?? dir}>{children}</Direction.DirectionProvider>\r\n  );\r\n}\r\n\r\nconst useDirection = Direction.useDirection;\r\n\r\nexport { DirectionProvider, useDirection };\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}

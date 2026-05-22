@@ -1,0 +1,15 @@
+{
+  "name": "card-20",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/synapse-ui-components/cards/card-20.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\r\nimport { Loader } from \"lucide-react\";\r\n\r\ninterface Card18Props {\r\n  title?: string;\r\n  description?: string;\r\n}\r\n\r\nexport default function Card_20({\r\n  title = \"Loading Data\",\r\n  description = \"Fetching your information...\",\r\n}: Card18Props) {\r\n  return (\r\n    <div\r\n      className={cn(\r\n        \"w-full max-w-sm\",\r\n        \"bg-white dark:bg-zinc-900\",\r\n        \"border border-zinc-200/50 dark:border-zinc-800/50\",\r\n        \"rounded-xl shadow-sm\",\r\n        \"p-8\",\r\n        \"flex flex-col items-center justify-center gap-4\",\r\n      )}\r\n    >\r\n      <Loader className=\"w-8 h-8 text-zinc-400 dark:text-zinc-600 animate-spin\" />\r\n      <div className=\"text-center\">\r\n        <h3 className=\"text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-1\">{title}</h3>\r\n        <p className=\"text-xs text-zinc-500 dark:text-zinc-400\">{description}</p>\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}

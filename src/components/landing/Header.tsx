@@ -6,13 +6,13 @@ function Header() {
   return (
     <>
       {/* Top Promo Bar */}
-      <div className="w-full px-4 py-2 bg-white dark:bg-[#0e1111] cursor-pointer">
+      <div className="w-full px-4 py-2 bg-zinc-50 dark:bg-gradient-to-b dark:from-[#09001a] dark:to-[#050012] border-b border-zinc-200/10 dark:border-zinc-800/20 cursor-pointer">
         <Link
           href="#"
           target="_blank"
           className="flex items-center justify-center gap-3 text-sm group"
         >
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-indigo-500 to-blue-600 font-medium tracking-tight">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-indigo-500 to-blue-600 dark:from-violet-300 dark:via-fuchsia-400 dark:to-rose-300 font-medium tracking-tight">
             Explore new components & templates
           </span>
 
@@ -32,10 +32,10 @@ function Header() {
             px-5 py-3
             rounded-2xl
             backdrop-blur-md
-            bg-white/30 dark:bg-[#0e1111]/30
-            border border-white/20 dark:border-white/10
-            shadow-[0_8px_30px_rgba(0,0,0,0.08)]
-            dark:shadow-[0_8px_30px_rgba(0,0,0,0.4)]
+            bg-white/70 dark:bg-gradient-to-b dark:from-[#050012] dark:to-[#03000a]
+            border border-zinc-200/15 dark:border-zinc-800/40
+            shadow-[0_8px_30px_rgba(0,0,0,0.02)]
+            dark:shadow-[0_8px_30px_rgba(0,0,0,0.2)]
             transition-all duration-300"
           >
             {/* Left Section */}
@@ -84,7 +84,7 @@ function Header() {
             {/* Right Section */}
             <div className="flex items-center gap-4">
               <div className="hidden sm:block h-5 w-px bg-zinc-300 dark:bg-zinc-700" />
-              <AnimatedThemeToggler />
+              <AnimatedThemeToggler className="p-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white/50 dark:bg-zinc-950/50 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors text-zinc-700 dark:text-zinc-300" />
             </div>
           </div>
         </div>

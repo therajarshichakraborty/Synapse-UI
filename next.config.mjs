@@ -1,4 +1,13 @@
+import { execSync } from "child_process";
 import { createMDX } from "fumadocs-mdx/next";
+
+// Run registry builder script (trigger full-code rebuild) - Trigger Build 1
+try {
+  console.log("Building Synapse UI component registry...");
+  execSync("bun scripts/build-registry.mjs", { stdio: "inherit" });
+} catch (error) {
+  console.error("Failed to build registry:", error);
+}
 
 const withMDX = createMDX();
 
