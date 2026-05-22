@@ -1,0 +1,9 @@
+/*
+  Fumadocs styles — imported normally so heading typography, prose,
+  and component styles have full priority on the /docs pages.
+
+  The home page is protected from fumadocs CSS conflicts separately:
+  - Header uses max-sm:hidden (no dependency on hidden sm:block)
+  - globals.css has unlayered sm:/md: display overrides
+*/
+@import "fumadocs-ui/style.css";

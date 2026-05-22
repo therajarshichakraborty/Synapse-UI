@@ -1,4 +1,4 @@
-import fs from "fs";
+import fs from "node:fs";
 import path from "path";
 
 const REGISTRY_DIR = path.join("public", "r");
