@@ -92,9 +92,11 @@ export default function Footer() {
                   onChange={e => setEmail(e.target.value)}
                   className="w-full h-9 pl-3 pr-10 text-xs bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg focus:outline-hidden focus:border-zinc-400 dark:focus:border-zinc-700 text-zinc-900 dark:text-zinc-100"
                   required
+                  suppressHydrationWarning
                 />
                 <button
                   type="submit"
+                  suppressHydrationWarning
                   className={cn(
                     "absolute right-1 w-7 h-7 rounded-md flex items-center justify-center transition-all",
                     subscribed 

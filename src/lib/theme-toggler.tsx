@@ -74,6 +74,7 @@ export const AnimatedThemeToggler = ({
       ref={buttonRef}
       onClick={toggleTheme}
       className={cn(className)}
+      suppressHydrationWarning
       {...props}
     >
       {mounted ? (isDark ? <Sun /> : <Moon />) : <Moon className="opacity-0" />}

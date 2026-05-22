@@ -6,7 +6,7 @@ function Header() {
   return (
     <>
       {/* Top Promo Bar */}
-      <div className="w-full px-4 py-2 bg-zinc-50 dark:bg-gradient-to-b dark:from-[#09001a] dark:to-[#050012] border-b border-zinc-200/10 dark:border-zinc-800/20 cursor-pointer">
+      <div className="w-full px-4 py-2 dark:dark:bg-[#09001a] cursor-pointer  bg-white">
         <Link
           href="#"
           target="_blank"
@@ -23,17 +23,16 @@ function Header() {
       </div>
 
       {/* Main Header */}
-      <div className="sticky top-0 z-50 w-full bg-transparent">
+      <div className=" w-full bg-white dark:bg-[#09001a]">
         <div className="flex justify-center px-3 py-2">
           <div
-            className="
+            className=" sticky top-0 z-50
             w-full max-w-6xl
             flex items-center justify-between
             px-5 py-3
             rounded-2xl
             backdrop-blur-md
             bg-white/70 dark:bg-gradient-to-b dark:from-[#050012] dark:to-[#03000a]
-            border border-zinc-200/15 dark:border-zinc-800/40
             shadow-[0_8px_30px_rgba(0,0,0,0.02)]
             dark:shadow-[0_8px_30px_rgba(0,0,0,0.2)]
             transition-all duration-300"

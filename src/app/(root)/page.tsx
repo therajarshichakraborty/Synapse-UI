@@ -25,14 +25,14 @@ export default function Home() {
 
   if (!mounted) {
     return (
-      <main className="bg-white dark:bg-gradient-to-b dark:from-[#09001a] dark:via-[#03000a] dark:to-black overflow-x-hidden min-h-screen text-zinc-900 dark:text-zinc-50 relative pb-24 space-y-16">
+      <div className="bg-white dark:bg-gradient-to-b dark:from-[#09001a] dark:via-[#03000a] dark:to-black overflow-x-hidden min-h-screen text-zinc-900 dark:text-zinc-50 relative pb-24 space-y-16">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] bg-gradient-to-b from-purple-500/10 via-transparent to-transparent pointer-events-none blur-3xl" />
-      </main>
+      </div>
     );
   }
 
   return (
-    <main className="bg-white dark:bg-gradient-to-b dark:from-[#09001a] dark:via-[#03000a] dark:to-black overflow-x-hidden min-h-screen text-zinc-900 dark:text-zinc-50 relative pb-24 space-y-16">
+    <div className="bg-white top-0 dark:bg-gradient-to-b dark:from-[#09001a] dark:via-[#03000a] dark:to-black overflow-x-hidden min-h-screen text-zinc-900 dark:text-zinc-50 relative pb-24 space-y-16">
       {/* Ambient background glows */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] bg-gradient-to-b from-purple-500/10 via-transparent to-transparent pointer-events-none blur-3xl" />
 
@@ -204,6 +204,6 @@ export default function Home() {
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 gap-8 pt-8">
         <BuildInterfacesCard className="p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50" />
       </div>
-    </main>
+    </div>
   );
 }
