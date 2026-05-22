@@ -27,7 +27,7 @@ export default function Home() {
       <HeroSection />
 
       {/* Showcase Section */}
-      <ShowcaseSection />
+      {/* <ShowcaseSection /> */}
 
       {/* Interactive Preview Section */}
       <InteractivePreview />
