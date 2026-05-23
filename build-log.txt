@@ -1,0 +1,50 @@
+Stdout:
+Successfully generated registry index with 224 components/hooks.
+Successfully generated src/components/docs/registry.tsx
+Building Synapse UI component registry...
+Successfully generated registry index with 224 components/hooks.
+Successfully generated src/components/docs/registry.tsx
+▲ Next.js 16.2.6 (Turbopack)
+
+  Creating an optimized production build ...
+Building Synapse UI component registry...
+Successfully generated registry index with 224 components/hooks.
+Successfully generated src/components/docs/registry.tsx
+✓ Compiled successfully in 8.5s
+  Running TypeScript ...
+  Finished TypeScript in 12.3s ...
+  Collecting page data using 8 workers ...
+
+
+Stderr:
+$ next build
+⚠ You are using a non-standard "NODE_ENV" value in your environment. This creates inconsistencies in the project and is strongly advised against. Read more: https://nextjs.org/docs/messages/non-standard-node-env
+
+> Build error occurred
+Error: Next.js ERROR: Failed to read file D:\Rajarshi Chakraborty ( Arghya )\Projects\Synapse-UI\src\app\api\build-project\route.ts:
+ENOENT: no such file or directory, open 'D:\Rajarshi Chakraborty ( Arghya )\Projects\Synapse-UI\src\app\api\build-project\route.ts'
+    at ignore-listed frames {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'D:\\Rajarshi Chakraborty ( Arghya )\\Projects\\Synapse-UI\\src\\app\\api\\build-project\\route.ts'
+}
+error: script "build" exited with code 1
+
+
+Error:
+Command failed: node scripts/build-registry.mjs && bun run build
+$ next build
+⚠ You are using a non-standard "NODE_ENV" value in your environment. This creates inconsistencies in the project and is strongly advised against. Read more: https://nextjs.org/docs/messages/non-standard-node-env
+
+> Build error occurred
+Error: Next.js ERROR: Failed to read file D:\Rajarshi Chakraborty ( Arghya )\Projects\Synapse-UI\src\app\api\build-project\route.ts:
+ENOENT: no such file or directory, open 'D:\Rajarshi Chakraborty ( Arghya )\Projects\Synapse-UI\src\app\api\build-project\route.ts'
+    at ignore-listed frames {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'D:\\Rajarshi Chakraborty ( Arghya )\\Projects\\Synapse-UI\\src\\app\\api\\build-project\\route.ts'
+}
+error: script "build" exited with code 1
+

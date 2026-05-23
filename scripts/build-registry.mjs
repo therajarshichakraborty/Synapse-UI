@@ -174,7 +174,9 @@ if (fs.existsSync(hooksDir)) {
 }
 
 // Group of components to import in src/components/docs/registry.tsx
-const docsRegistryDemos = {};
+const docsRegistryDemos = {
+  useAutoResizeTextarea: [],
+};
 Object.values(CATEGORY_MAP).forEach(cat => {
   docsRegistryDemos[cat] = [];
 });

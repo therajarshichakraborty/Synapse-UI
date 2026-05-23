@@ -196,6 +196,33 @@ function demo(
 }
 
 export const demos: Record<DemoCategory, DemoEntry[]> = {
+  "useAutoResizeTextarea": [
+    {
+      id: "use-auto-resize-textarea",
+      title: "Live demo",
+      component: UseAutoResizeTextareaDemo,
+      code: `"use client";
+
+import { useAutoResizeTextarea } from "@/hooks/use-auto-resize-textarea";
+
+export default function ChatInput() {
+  const { textareaRef, adjustHeight } = useAutoResizeTextarea({
+    minHeight: 52,
+    maxHeight: 200,
+  });
+
+  return (
+    <textarea
+      ref={textareaRef}
+      onInput={() => adjustHeight()}
+      placeholder="Type a message..."
+      className="w-full resize-none rounded-xl border px-4 py-3"
+    />
+  );
+}`,
+      previewClassName: "min-h-[120px] w-full max-w-md",
+    },
+  ],
   "ai-input": [
     demo(
       "ai-input-01",
