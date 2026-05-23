@@ -47,7 +47,20 @@ export function ComponentDemo({ demo, className }: ComponentDemoProps) {
               demo.previewClassName ?? "min-h-[120px]",
             )}
           >
-            <Component {...(demo.props ?? {})} />
+            <div
+              className={cn(
+                "w-full flex justify-center",
+                registryId.startsWith("block-") &&
+                  registryId !== "block-ai-card-generation" &&
+                  (registryId === "block-saas-landing" ||
+                  registryId === "block-landing-hero" ||
+                  registryId === "block-landing-showcase"
+                    ? "min-w-[950px] shrink-0"
+                    : "min-w-[850px] shrink-0"),
+              )}
+            >
+              <Component {...(demo.props ?? {})} />
+            </div>
           </div>
         </CodeBlockTab>
         <CodeBlockTab value="cli">

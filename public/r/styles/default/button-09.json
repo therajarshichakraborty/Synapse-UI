@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "components/synapse-ui-components/buttons/button-09.tsx",
+      "path": "components/synapse-ui/buttons/button-09.tsx",
       "content": "import { Button } from \"@/components/ui/button\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ninterface Button09Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {\r\n  children?: React.ReactNode;\r\n}\r\n\r\nexport default function Button09({\r\n  className,\r\n  children = \"Scale Button\",\r\n  ...props\r\n}: Button09Props) {\r\n  return (\r\n    <Button\r\n      className={cn(\r\n        \"relative h-11 px-8\",\r\n        \"bg-rose-500 dark:bg-rose-600\",\r\n        \"text-white\",\r\n        \"hover:bg-rose-600 dark:hover:bg-rose-700\",\r\n        \"hover:scale-105\",\r\n        \"rounded-lg\",\r\n        \"transition-all duration-300\",\r\n        \"shadow-lg shadow-rose-500/30\",\r\n        \"active:scale-95\",\r\n        className,\r\n      )}\r\n      {...props}\r\n    >\r\n      {children}\r\n    </Button>\r\n  );\r\n}\r\n",
       "type": "registry:ui"
     }

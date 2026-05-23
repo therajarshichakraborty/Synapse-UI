@@ -1,9 +1,10 @@
 /*
-  Fumadocs styles — imported normally so heading typography, prose,
-  and component styles render correctly on /docs pages.
-
-  The landing page is protected from fumadocs CSS bleed-over by the
-  comprehensive unlayered responsive overrides in globals.css, which
-  cover all breakpoints and display/flex/grid utilities.
+  Fumadocs styles — imported inside the 'fumadocs' cascade layer so
+  Tailwind utilities (in the higher priority 'utilities' layer) always win.
 */
-@import "fumadocs-ui/style.css";
+@import "fumadocs-ui/style.css" layer(fumadocs);
+
+
+
+
+

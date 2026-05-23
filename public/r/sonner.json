@@ -3,7 +3,8 @@
   "type": "registry:ui",
   "dependencies": [
     "next-themes",
-    "sonner"
+    "sonner",
+    "lucide-react"
   ],
   "registryDependencies": [],
   "files": [

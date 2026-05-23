@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "components/synapse-ui-components/buttons/button-12.tsx",
+      "path": "components/synapse-ui/buttons/button-12.tsx",
       "content": "import { Button } from \"@/components/ui/button\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ninterface Button12Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {\r\n  children?: React.ReactNode;\r\n}\r\n\r\nexport default function Button12({ className, children = \"Neon Button\", ...props }: Button12Props) {\r\n  return (\r\n    <Button\r\n      className={cn(\r\n        \"relative h-11 px-8\",\r\n        \"bg-black dark:bg-white\",\r\n        \"text-lime-400 dark:text-lime-600\",\r\n        \"border-2 border-lime-400 dark:border-lime-600\",\r\n        \"rounded-lg\",\r\n        \"transition-all duration-300\",\r\n        \"shadow-[0_0_10px_rgba(196,181,253,0.5)]\",\r\n        \"hover:shadow-[0_0_20px_rgba(196,181,253,0.8)]\",\r\n        \"font-bold\",\r\n        className,\r\n      )}\r\n      {...props}\r\n    >\r\n      {children}\r\n    </Button>\r\n  );\r\n}\r\n",
       "type": "registry:ui"
     }

@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "components/synapse-ui-components/buttons/button-20.tsx",
+      "path": "components/synapse-ui/buttons/button-20.tsx",
       "content": "import { Button } from \"@/components/ui/button\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ninterface Button20Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {\r\n  children?: React.ReactNode;\r\n}\r\n\r\nexport default function Button20({\r\n  className,\r\n  children = \"Aurora Button\",\r\n  ...props\r\n}: Button20Props) {\r\n  return (\r\n    <Button\r\n      className={cn(\r\n        \"relative h-11 px-8\",\r\n        \"bg-gradient-to-r from-green-400 via-cyan-500 to-blue-600\",\r\n        \"text-white\",\r\n        \"hover:shadow-2xl hover:shadow-cyan-500/50\",\r\n        \"rounded-lg\",\r\n        \"transition-all duration-300\",\r\n        \"font-semibold\",\r\n        \"overflow-hidden\",\r\n        \"before:content-['']\",\r\n        \"before:absolute\",\r\n        \"before:top-0\",\r\n        \"before:left-0\",\r\n        \"before:w-full\",\r\n        \"before:h-full\",\r\n        \"before:bg-gradient-to-r\",\r\n        \"before:from-white/0\",\r\n        \"before:via-white/30\",\r\n        \"before:to-white/0\",\r\n        \"before:-translate-x-full\",\r\n        \"hover:before:translate-x-full\",\r\n        \"before:transition-transform\",\r\n        \"before:duration-700\",\r\n        className,\r\n      )}\r\n      {...props}\r\n    >\r\n      <span className=\"relative z-10\">{children}</span>\r\n    </Button>\r\n  );\r\n}\r\n",
       "type": "registry:ui"
     }

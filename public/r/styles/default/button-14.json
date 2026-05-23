@@ -9,7 +9,7 @@
   ],
   "files": [
     {
-      "path": "components/synapse-ui-components/buttons/button-14.tsx",
+      "path": "components/synapse-ui/buttons/button-14.tsx",
       "content": "import { Button } from \"@/components/ui/button\";\r\nimport { cn } from \"@/lib/utils\";\r\nimport { Zap } from \"lucide-react\";\r\n\r\ninterface Button14Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {\r\n  children?: React.ReactNode;\r\n}\r\n\r\nexport default function Button14({\r\n  className,\r\n  children = \"Electric Button\",\r\n  ...props\r\n}: Button14Props) {\r\n  return (\r\n    <Button\r\n      className={cn(\r\n        \"relative h-11 px-6\",\r\n        \"bg-gradient-to-r from-yellow-400 to-orange-500\",\r\n        \"text-white\",\r\n        \"hover:shadow-xl hover:shadow-yellow-500/40\",\r\n        \"rounded-lg\",\r\n        \"transition-all duration-300\",\r\n        \"group\",\r\n        \"font-bold\",\r\n        className,\r\n      )}\r\n      {...props}\r\n    >\r\n      <div className=\"flex items-center gap-2\">\r\n        <Zap className={cn(\"w-4 h-4\", \"group-hover:animate-pulse\")} />\r\n        <span>{children}</span>\r\n      </div>\r\n    </Button>\r\n  );\r\n}\r\n",
       "type": "registry:ui"
     }

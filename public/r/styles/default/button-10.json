@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "components/synapse-ui-components/buttons/button-10.tsx",
+      "path": "components/synapse-ui/buttons/button-10.tsx",
       "content": "import { Button } from \"@/components/ui/button\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ninterface Button10Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {\r\n  children?: React.ReactNode;\r\n}\r\n\r\nexport default function Button10({\r\n  className,\r\n  children = \"Ripple Button\",\r\n  ...props\r\n}: Button10Props) {\r\n  return (\r\n    <Button\r\n      className={cn(\r\n        \"relative h-11 px-8\",\r\n        \"bg-blue-600 dark:bg-blue-700\",\r\n        \"text-white\",\r\n        \"rounded-lg\",\r\n        \"transition-all duration-300\",\r\n        \"overflow-hidden\",\r\n        \"group\",\r\n        \"before:content-['']\",\r\n        \"before:absolute\",\r\n        \"before:top-1/2\",\r\n        \"before:left-1/2\",\r\n        \"before:w-0\",\r\n        \"before:h-0\",\r\n        \"before:-translate-x-1/2\",\r\n        \"before:-translate-y-1/2\",\r\n        \"before:bg-white/30\",\r\n        \"before:rounded-full\",\r\n        \"group-hover:before:w-96\",\r\n        \"group-hover:before:h-96\",\r\n        \"before:transition-all\",\r\n        \"before:duration-500\",\r\n        className,\r\n      )}\r\n      {...props}\r\n    >\r\n      <span className=\"relative z-10\">{children}</span>\r\n    </Button>\r\n  );\r\n}\r\n",
       "type": "registry:ui"
     }

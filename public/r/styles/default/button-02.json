@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "components/synapse-ui-components/buttons/button-02.tsx",
+      "path": "components/synapse-ui/buttons/button-02.tsx",
       "content": "import { Button } from \"@/components/ui/button\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ninterface Button02Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {\r\n  children?: React.ReactNode;\r\n}\r\n\r\nexport default function Button02({\r\n  className,\r\n  children = \"Premium Button\",\r\n  ...props\r\n}: Button02Props) {\r\n  return (\r\n    <Button\r\n      className={cn(\r\n        \"relative h-11 px-8\",\r\n        \"bg-gradient-to-r from-blue-600 to-purple-600\",\r\n        \"text-white\",\r\n        \"hover:shadow-lg hover:shadow-purple-500/50\",\r\n        \"rounded-lg\",\r\n        \"transition-all duration-300\",\r\n        \"border border-purple-400/20\",\r\n        className,\r\n      )}\r\n      {...props}\r\n    >\r\n      <span className=\"relative z-10\">{children}</span>\r\n    </Button>\r\n  );\r\n}\r\n",
       "type": "registry:ui"
     }

@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "components/synapse-ui-components/buttons/button-16.tsx",
+      "path": "components/synapse-ui/buttons/button-16.tsx",
       "content": "import { Button } from \"@/components/ui/button\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ninterface Button16Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {\r\n  children?: React.ReactNode;\r\n}\r\n\r\nexport default function Button16({\r\n  className,\r\n  children = \"Expand Button\",\r\n  ...props\r\n}: Button16Props) {\r\n  return (\r\n    <Button\r\n      className={cn(\r\n        \"relative h-11 px-8\",\r\n        \"bg-violet-600 dark:bg-violet-700\",\r\n        \"text-white\",\r\n        \"hover:px-10\",\r\n        \"rounded-lg\",\r\n        \"transition-all duration-300\",\r\n        \"shadow-lg shadow-violet-600/30\",\r\n        \"group\",\r\n        className,\r\n      )}\r\n      {...props}\r\n    >\r\n      <span className=\"relative z-10 transition-all duration-300\">{children}</span>\r\n    </Button>\r\n  );\r\n}\r\n",
       "type": "registry:ui"
     }

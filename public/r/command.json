@@ -6,6 +6,7 @@
     "lucide-react"
   ],
   "registryDependencies": [
+    "dialog",
     "input-group"
   ],
   "files": [
