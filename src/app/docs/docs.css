@@ -1,9 +1,10 @@
 /*
-  Fumadocs styles — imported normally so heading typography, prose,
-  and component styles have full priority on the /docs pages.
+  Fumadocs styles — imported into the 'fumadocs' cascade layer (declared
+  in globals.css) so its utility resets (.hidden, .flex, .block, etc.)
+  have LOWER cascade priority than Tailwind's responsive variants and
+  our unlayered overrides in globals.css.
 
-  The home page is protected from fumadocs CSS conflicts separately:
-  - Header uses max-sm:hidden (no dependency on hidden sm:block)
-  - globals.css has unlayered sm:/md: display overrides
+  This prevents fumadocs CSS (which persists in <head> after client-side
+  navigation away from /docs) from clobbering landing page layouts.
 */
-@import "fumadocs-ui/style.css";
+@import "fumadocs-ui/style.css" layer(fumadocs);
