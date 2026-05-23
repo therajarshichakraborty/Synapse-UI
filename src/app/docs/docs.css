@@ -1,10 +1,9 @@
 /*
-  Fumadocs styles — imported into the 'fumadocs' cascade layer (declared
-  in globals.css) so its utility resets (.hidden, .flex, .block, etc.)
-  have LOWER cascade priority than Tailwind's responsive variants and
-  our unlayered overrides in globals.css.
+  Fumadocs styles — imported normally so heading typography, prose,
+  and component styles render correctly on /docs pages.
 
-  This prevents fumadocs CSS (which persists in <head> after client-side
-  navigation away from /docs) from clobbering landing page layouts.
+  The landing page is protected from fumadocs CSS bleed-over by the
+  comprehensive unlayered responsive overrides in globals.css, which
+  cover all breakpoints and display/flex/grid utilities.
 */
-@import "fumadocs-ui/style.css" layer(fumadocs);
+@import "fumadocs-ui/style.css";

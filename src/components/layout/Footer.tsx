@@ -20,31 +20,31 @@ export default function Footer() {
 
   const footerLinks = [
     {
-      title: "Explore",
+      title: "Components",
       links: [
         { label: "AI Inputs", href: "/docs/components/ai-input" },
         { label: "Buttons", href: "/docs/components/button" },
         { label: "Cards", href: "/docs/components/card" },
         { label: "Pricings", href: "/docs/components/pricing" },
         { label: "Blocks", href: "/docs/components/block" },
+        { label: "Lists", href: "/docs/components/list" },
       ],
     },
     {
-      title: "Resources",
+      title: "Docs",
       links: [
-        { label: "Documentation", href: "/docs" },
+        { label: "Getting Started", href: "/docs" },
+        { label: "Installation", href: "/docs" },
         { label: "CLI Installer", href: "/docs/cli" },
         { label: "Hooks Registry", href: "/docs/hooks/use-auto-resize-textarea" },
-        { label: "GitHub Code", href: "https://github.com" },
       ],
     },
     {
       title: "Community",
       links: [
-        { label: "Discord Server", href: "#" },
-        { label: "Twitter / X", href: "#" },
-        { label: "Figma Library", href: "#" },
-        { label: "Creator Portfolio", href: "#" },
+        { label: "GitHub", href: "https://github.com/therajarshichakraborty/Synapse-UI" },
+        { label: "Twitter / X", href: "https://x.com/IamRajarshi_Dev" },
+        { label: "LinkedIn", href: "https://www.linkedin.com/in/rajarshi-c-06a3402b7/" },
       ],
     },
     {
@@ -122,16 +122,20 @@ export default function Footer() {
                 {col.title}
               </h4>
               <ul className="space-y-2.5">
-                {col.links.map((link, lIdx) => (
-                  <li key={lIdx}>
-                    <Link
-                      href={link.href}
-                      className="text-xs text-zinc-500 hover:text-zinc-900 dark:text-zinc-500 dark:hover:text-zinc-200 transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
+                {col.links.map((link, lIdx) => {
+                  const isExternal = link.href.startsWith("http");
+                  return (
+                    <li key={lIdx}>
+                      <Link
+                        href={link.href}
+                        {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                        className="text-xs text-zinc-500 hover:text-zinc-900 dark:text-zinc-500 dark:hover:text-zinc-200 transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
@@ -145,7 +149,7 @@ export default function Footer() {
 
           <div className="flex items-center gap-3">
             <Link
-              href="https://github.com"
+              href="https://github.com/therajarshichakraborty/Synapse-UI"
               target="_blank"
               className="w-8 h-8 rounded-lg border border-zinc-200 dark:border-zinc-900 bg-zinc-100/50 dark:bg-zinc-900/50 flex items-center justify-center text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors"
               aria-label="GitHub"
@@ -155,7 +159,8 @@ export default function Footer() {
               </svg>
             </Link>
             <Link
-              href="#"
+              href="https://x.com/IamRajarshi_Dev"
+              target="_blank"
               className="w-8 h-8 rounded-lg border border-zinc-200 dark:border-zinc-900 bg-zinc-100/50 dark:bg-zinc-900/50 flex items-center justify-center text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors"
               aria-label="Twitter / X"
             >
@@ -164,11 +169,14 @@ export default function Footer() {
               </svg>
             </Link>
             <Link
-              href="#"
+              href="https://www.linkedin.com/in/rajarshi-c-06a3402b7/"
+              target="_blank"
               className="w-8 h-8 rounded-lg border border-zinc-200 dark:border-zinc-900 bg-zinc-100/50 dark:bg-zinc-900/50 flex items-center justify-center text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors"
-              aria-label="Discord"
+              aria-label="LinkedIn"
             >
-              <MessageSquare className="w-4 h-4" />
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
             </Link>
           </div>
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import HeroSection from "@/components/landing/Hero";
 import { ShowcaseSection } from "@/components/landing/showcase";
 import { InteractivePreview } from "@/components/landing/interactive-preview";
@@ -17,19 +17,7 @@ import { motion, AnimatePresence } from "motion/react";
 export default function Home() {
   const [activeTab, setActiveTab] = useState<"blocks" | "components">("blocks");
   const [activeSubTab, setActiveSubTab] = useState<string>("saas");
-  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return (
-      <div className="bg-white dark:bg-gradient-to-b dark:from-[#09001a] dark:via-[#03000a] dark:to-black overflow-x-hidden min-h-screen text-zinc-900 dark:text-zinc-50 relative pb-24 space-y-16">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] bg-gradient-to-b from-purple-500/10 via-transparent to-transparent pointer-events-none blur-3xl" />
-      </div>
-    );
-  }
 
   return (
     <div className="bg-white top-0 dark:bg-gradient-to-b dark:from-[#09001a] dark:via-[#03000a] dark:to-black overflow-x-hidden min-h-screen text-zinc-900 dark:text-zinc-50 relative pb-24 space-y-16">
