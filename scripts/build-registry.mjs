@@ -75,15 +75,12 @@ function scanFileDependencies(filePath) {
       registryDependencies.add(depName);
     } else if (importPath.startsWith("@/hooks/")) {
       const depName = importPath.substring("@/hooks/".length).split("/")[0].replace(/\.(tsx|ts)$/, "");
-      registryDependencies.add(depName);
+      registryDependencies.add(`hook:${depName}`);
     } else if (importPath.startsWith("@/components/synapse-ui-components/")) {
-      const parts = importPath.substring("@/components/synapse-ui-components/".length).split("/");
-      const depName = parts[parts.length - 1].replace(/\.(tsx|ts)$/, "");
-      registryDependencies.add(depName);
+      registryDependencies.add(`synapse:${importPath}`);
     } else if (importPath.startsWith("@/components/synapse-ui/")) {
-      const parts = importPath.substring("@/components/synapse-ui/".length).split("/");
-      const depName = parts[parts.length - 1].replace(/\.(tsx|ts)$/, "");
-      registryDependencies.add(depName);
+      const mappedPath = importPath.replace("@/components/synapse-ui/", "@/components/synapse-ui-components/");
+      registryDependencies.add(`synapse:${mappedPath}`);
     } else if (!importPath.startsWith(".") && !importPath.startsWith("@/")) {
       // Check if it's an NPM package dependency
       const pkgName = getPackageName(importPath);
@@ -402,6 +399,92 @@ if (fs.existsSync(synapseComponentsDir)) {
       }
     }
   }
+}
+
+// Post-process registryItems to recursively inline local hook and synapse-component dependencies
+for (const item of registryItems) {
+  const filesMap = new Map();
+  item.files.forEach(f => filesMap.set(f.path, f));
+  
+  const finalRegDeps = new Set();
+  const finalDeps = new Set(item.dependencies);
+  
+  const queue = [...item.registryDependencies];
+  const processed = new Set();
+  
+  while (queue.length > 0) {
+    const dep = queue.shift();
+    if (processed.has(dep)) continue;
+    processed.add(dep);
+    
+    if (dep.startsWith("hook:")) {
+      const hookName = dep.substring("hook:".length);
+      let hookPath = path.join("src", "hooks", `${hookName}.ts`);
+      let relativePath = `hooks/${hookName}.ts`;
+      if (!fs.existsSync(hookPath)) {
+        hookPath = path.join("src", "hooks", `${hookName}.tsx`);
+        relativePath = `hooks/${hookName}.tsx`;
+      }
+      
+      if (fs.existsSync(hookPath)) {
+        const fileContent = fs.readFileSync(hookPath, "utf-8");
+        const registryContent = fileContent.replace(/@\/components\/synapse-ui-components\//g, "@/components/synapse-ui/");
+        
+        filesMap.set(relativePath, {
+          path: relativePath,
+          content: registryContent,
+          type: "registry:hook",
+        });
+        
+        const subDeps = scanFileDependencies(hookPath);
+        subDeps.dependencies.forEach(d => finalDeps.add(d));
+        subDeps.registryDependencies.forEach(r => queue.push(r));
+      }
+    } else if (dep.startsWith("synapse:")) {
+      const importPath = dep.substring("synapse:".length);
+      const relativePart = importPath.substring("@/components/synapse-ui-components/".length);
+      
+      let compPath = "";
+      let relativePath = "";
+      
+      const possiblePaths = [
+        path.join("src", "components", "synapse-ui-components", `${relativePart}.tsx`),
+        path.join("src", "components", "synapse-ui-components", `${relativePart}.ts`),
+        path.join("src", "components", "synapse-ui-components", relativePart, `index.tsx`),
+        path.join("src", "components", "synapse-ui-components", relativePart, `index.ts`),
+      ];
+      
+      for (const p of possiblePaths) {
+        if (fs.existsSync(p)) {
+          compPath = p;
+          const ext = p.endsWith(".tsx") ? ".tsx" : ".ts";
+          relativePath = `components/synapse-ui/${relativePart}${p.endsWith("index.tsx") || p.endsWith("index.ts") ? "/index" : ""}${ext}`;
+          break;
+        }
+      }
+      
+      if (compPath && fs.existsSync(compPath)) {
+        const fileContent = fs.readFileSync(compPath, "utf-8");
+        const registryContent = fileContent.replace(/@\/components\/synapse-ui-components\//g, "@/components/synapse-ui/");
+        
+        filesMap.set(relativePath, {
+          path: relativePath,
+          content: registryContent,
+          type: "registry:ui",
+        });
+        
+        const subDeps = scanFileDependencies(compPath);
+        subDeps.dependencies.forEach(d => finalDeps.add(d));
+        subDeps.registryDependencies.forEach(r => queue.push(r));
+      }
+    } else {
+      finalRegDeps.add(dep);
+    }
+  }
+  
+  item.files = Array.from(filesMap.values());
+  item.dependencies = Array.from(finalDeps);
+  item.registryDependencies = Array.from(finalRegDeps);
 }
 
 // 4. Output shadcn registry JSONs
