@@ -29,7 +29,11 @@ export function FormGeneration({
       <div className="grid gap-3">
         <label className="text-xs font-medium text-zinc-600 dark:text-zinc-400">
           Style
-          <select className={fieldClass} value={settings.style} onChange={(e) => update("style", e.target.value)}>
+          <select
+            className={fieldClass}
+            value={settings.style}
+            onChange={(e) => update("style", e.target.value)}
+          >
             <option value="artistic">Artistic</option>
             <option value="realistic">Realistic</option>
             <option value="minimal">Minimal</option>
@@ -49,7 +53,11 @@ export function FormGeneration({
         </label>
         <label className="text-xs font-medium text-zinc-600 dark:text-zinc-400">
           Lighting
-          <select className={fieldClass} value={settings.lighting} onChange={(e) => update("lighting", e.target.value)}>
+          <select
+            className={fieldClass}
+            value={settings.lighting}
+            onChange={(e) => update("lighting", e.target.value)}
+          >
             <option value="studio">Studio</option>
             <option value="soft">Soft</option>
             <option value="dramatic">Dramatic</option>
@@ -57,7 +65,11 @@ export function FormGeneration({
         </label>
         <label className="text-xs font-medium text-zinc-600 dark:text-zinc-400">
           Pose
-          <select className={fieldClass} value={settings.pose} onChange={(e) => update("pose", e.target.value)}>
+          <select
+            className={fieldClass}
+            value={settings.pose}
+            onChange={(e) => update("pose", e.target.value)}
+          >
             <option value="profile">Profile</option>
             <option value="front">Front</option>
             <option value="three-quarter">Three-quarter</option>

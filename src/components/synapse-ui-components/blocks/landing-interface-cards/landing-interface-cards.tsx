@@ -18,7 +18,8 @@ export default function LandingInterfaceCards() {
               </span>
             </h2>
             <p className="mt-4 text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              A curated collection of beautiful, copy-paste-ready UI components that speed up your React and Next.js development.
+              A curated collection of beautiful, copy-paste-ready UI components that speed up your
+              React and Next.js development.
             </p>
             <p className="mt-2 text-xs font-bold text-zinc-400 dark:text-zinc-500 tracking-wide uppercase">
               Accessible. Fully Styled. Open Source.

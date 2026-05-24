@@ -28,11 +28,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<PageParams>;
-}) {
+export default async function Page({ params }: { params: Promise<PageParams> }) {
   const { slug } = await params;
   const page = source.getPage(slug ?? []);
   if (!page) notFound();
@@ -56,10 +52,7 @@ export default async function Page({
       <div className="flex-1 min-w-0">
         <article className="mx-auto max-w-3xl px-6 py-10 xl:py-12">
           <DocsBreadcrumb items={breadcrumbItems} />
-          <DocsPageHeader
-            title={page.data.title}
-            description={page.data.description}
-          />
+          <DocsPageHeader title={page.data.title} description={page.data.description} />
           <DocsBody>
             <MDX components={getMDXComponents()} />
           </DocsBody>

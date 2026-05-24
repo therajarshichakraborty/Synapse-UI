@@ -21,15 +21,16 @@ function pascalCase(str) {
 // Map subdirectories to categories in the docs registry
 const CATEGORY_MAP = {
   "ai-inputs": "ai-input",
-  "alerts": "alert",
-  "buttons": "button",
-  "cards": "card",
-  "FAQs": "faq",
-  "inputs": "input",
-  "lists": "list",
-  "pricings": "pricing",
-  "texts": "text",
-  "blocks": "block",
+  alerts: "alert",
+  buttons: "button",
+  cards: "card",
+  FAQs: "faq",
+  inputs: "input",
+  lists: "list",
+  pricings: "pricing",
+  texts: "text",
+  blocks: "block",
+  messages: "message",
 };
 
 // Scan imports to determine npm dependencies and registry dependencies
@@ -71,15 +72,24 @@ function scanFileDependencies(filePath) {
     const importPath = match[2];
 
     if (importPath.startsWith("@/components/ui/")) {
-      const depName = importPath.substring("@/components/ui/".length).split("/")[0].replace(/\.(tsx|ts)$/, "");
+      const depName = importPath
+        .substring("@/components/ui/".length)
+        .split("/")[0]
+        .replace(/\.(tsx|ts)$/, "");
       registryDependencies.add(depName);
     } else if (importPath.startsWith("@/hooks/")) {
-      const depName = importPath.substring("@/hooks/".length).split("/")[0].replace(/\.(tsx|ts)$/, "");
+      const depName = importPath
+        .substring("@/hooks/".length)
+        .split("/")[0]
+        .replace(/\.(tsx|ts)$/, "");
       registryDependencies.add(`hook:${depName}`);
     } else if (importPath.startsWith("@/components/synapse-ui-components/")) {
       registryDependencies.add(`synapse:${importPath}`);
     } else if (importPath.startsWith("@/components/synapse-ui/")) {
-      const mappedPath = importPath.replace("@/components/synapse-ui/", "@/components/synapse-ui-components/");
+      const mappedPath = importPath.replace(
+        "@/components/synapse-ui/",
+        "@/components/synapse-ui-components/",
+      );
       registryDependencies.add(`synapse:${mappedPath}`);
     } else if (!importPath.startsWith(".") && !importPath.startsWith("@/")) {
       // Check if it's an NPM package dependency
@@ -113,7 +123,7 @@ const registryItems = [];
 // 1. Scan UI Primitives (src/components/ui/)
 const uiDir = path.join("src", "components", "ui");
 if (fs.existsSync(uiDir)) {
-  const uiFiles = fs.readdirSync(uiDir).filter(f => f.endsWith(".tsx") || f.endsWith(".ts"));
+  const uiFiles = fs.readdirSync(uiDir).filter((f) => f.endsWith(".tsx") || f.endsWith(".ts"));
   for (const file of uiFiles) {
     const filePath = path.join(uiDir, file);
     const stat = fs.statSync(filePath);
@@ -122,7 +132,10 @@ if (fs.existsSync(uiDir)) {
     const name = file.replace(/\.(tsx|ts)$/, "");
     const { dependencies, registryDependencies } = scanFileDependencies(filePath);
     const content = fs.readFileSync(filePath, "utf-8");
-    const registryContent = content.replace(/@\/components\/synapse-ui-components\//g, "@/components/synapse-ui/");
+    const registryContent = content.replace(
+      /@\/components\/synapse-ui-components\//g,
+      "@/components/synapse-ui/",
+    );
 
     registryItems.push({
       name,
@@ -143,7 +156,7 @@ if (fs.existsSync(uiDir)) {
 // 2. Scan Hooks (src/hooks/)
 const hooksDir = path.join("src", "hooks");
 if (fs.existsSync(hooksDir)) {
-  const hooksFiles = fs.readdirSync(hooksDir).filter(f => f.endsWith(".ts"));
+  const hooksFiles = fs.readdirSync(hooksDir).filter((f) => f.endsWith(".ts"));
   for (const file of hooksFiles) {
     const filePath = path.join(hooksDir, file);
     const stat = fs.statSync(filePath);
@@ -152,7 +165,10 @@ if (fs.existsSync(hooksDir)) {
     const name = file.replace(/\.ts$/, "");
     const { dependencies, registryDependencies } = scanFileDependencies(filePath);
     const content = fs.readFileSync(filePath, "utf-8");
-    const registryContent = content.replace(/@\/components\/synapse-ui-components\//g, "@/components/synapse-ui/");
+    const registryContent = content.replace(
+      /@\/components\/synapse-ui-components\//g,
+      "@/components/synapse-ui/",
+    );
 
     registryItems.push({
       name,
@@ -174,7 +190,7 @@ if (fs.existsSync(hooksDir)) {
 const docsRegistryDemos = {
   useAutoResizeTextarea: [],
 };
-Object.values(CATEGORY_MAP).forEach(cat => {
+Object.values(CATEGORY_MAP).forEach((cat) => {
   docsRegistryDemos[cat] = [];
 });
 
@@ -198,7 +214,9 @@ if (fs.existsSync(synapseComponentsDir)) {
         for (const blockDirName of childFiles) {
           const blockDirPath = path.join(itemPath, blockDirName);
           if (fs.statSync(blockDirPath).isDirectory()) {
-            const blockFiles = fs.readdirSync(blockDirPath).filter(f => f.endsWith(".tsx") || f.endsWith(".ts"));
+            const blockFiles = fs
+              .readdirSync(blockDirPath)
+              .filter((f) => f.endsWith(".tsx") || f.endsWith(".ts"));
             const filesPayload = [];
             const allDeps = new Set();
             const allRegDeps = new Set();
@@ -211,11 +229,14 @@ if (fs.existsSync(synapseComponentsDir)) {
               if (fileStat.size === 0) continue;
 
               const content = fs.readFileSync(filePath, "utf-8");
-              const registryContent = content.replace(/@\/components\/synapse-ui-components\//g, "@/components/synapse-ui/");
+              const registryContent = content.replace(
+                /@\/components\/synapse-ui-components\//g,
+                "@/components/synapse-ui/",
+              );
               const { dependencies, registryDependencies } = scanFileDependencies(filePath);
 
-              dependencies.forEach(d => allDeps.add(d));
-              registryDependencies.forEach(r => allRegDeps.add(r));
+              dependencies.forEach((d) => allDeps.add(d));
+              registryDependencies.forEach((r) => allRegDeps.add(r));
 
               filesPayload.push({
                 path: `components/synapse-ui/blocks/${blockDirName}/${file}`,
@@ -266,7 +287,10 @@ if (fs.existsSync(synapseComponentsDir)) {
                 uniqueName: uniqueImportName,
                 originalName: exportName,
                 previewClassName,
-                code: mainBlockFileContent.replace(/@\/components\/synapse-ui-components\//g, "@/components/synapse-ui/"),
+                code: mainBlockFileContent.replace(
+                  /@\/components\/synapse-ui-components\//g,
+                  "@/components/synapse-ui/",
+                ),
               });
             }
           }
@@ -281,7 +305,10 @@ if (fs.existsSync(synapseComponentsDir)) {
 
           const name = file.replace(/\.(tsx|ts)$/, "");
           const content = fs.readFileSync(filePath, "utf-8");
-          const registryContent = content.replace(/@\/components\/synapse-ui-components\//g, "@/components/synapse-ui/");
+          const registryContent = content.replace(
+            /@\/components\/synapse-ui-components\//g,
+            "@/components/synapse-ui/",
+          );
           const { dependencies, registryDependencies } = scanFileDependencies(filePath);
 
           const registryItem = {
@@ -317,7 +344,11 @@ if (fs.existsSync(synapseComponentsDir)) {
           } else if (defaultConstMatch) {
             exportName = defaultConstMatch[1];
             isDefault = true;
-          } else if (defaultSimpleMatch && defaultSimpleMatch[1] !== "function" && defaultSimpleMatch[1] !== "class") {
+          } else if (
+            defaultSimpleMatch &&
+            defaultSimpleMatch[1] !== "function" &&
+            defaultSimpleMatch[1] !== "class"
+          ) {
             exportName = defaultSimpleMatch[1];
             isDefault = true;
           } else if (content.includes("export default")) {
@@ -349,7 +380,8 @@ if (fs.existsSync(synapseComponentsDir)) {
           let extraProps = "";
           if (category === "ai-input") previewClassName = "min-h-[200px] w-full max-w-2xl";
           else if (category === "alert") previewClassName = "min-h-[120px] w-full max-w-lg";
-          else if (category === "button") previewClassName = "min-h-[120px] flex justify-center items-center";
+          else if (category === "button")
+            previewClassName = "min-h-[120px] flex justify-center items-center";
           else if (category === "card") {
             previewClassName = "min-h-[200px] w-full max-w-md";
             extraProps = "props: { href: '#' }, ";
@@ -360,6 +392,8 @@ if (fs.existsSync(synapseComponentsDir)) {
           else if (category === "text") {
             previewClassName = "min-h-[80px] w-full";
             extraProps = "props: { text: 'Synapse UI' }, ";
+          } else if (category === "message") {
+            previewClassName = "min-h-[600px] w-full max-w-2xl";
           }
 
           docsRegistryDemos[category].push({
@@ -369,7 +403,10 @@ if (fs.existsSync(synapseComponentsDir)) {
             originalName: exportName,
             previewClassName,
             extraProps,
-            code: content.replace(/@\/components\/synapse-ui-components\//g, "@/components/synapse-ui/"),
+            code: content.replace(
+              /@\/components\/synapse-ui-components\//g,
+              "@/components/synapse-ui/",
+            ),
           });
         }
       }
@@ -379,7 +416,10 @@ if (fs.existsSync(synapseComponentsDir)) {
       if (fileStat.size > 0) {
         const name = item.replace(/\.(tsx|ts)$/, "");
         const content = fs.readFileSync(itemPath, "utf-8");
-        const registryContent = content.replace(/@\/components\/synapse-ui-components\//g, "@/components/synapse-ui/");
+        const registryContent = content.replace(
+          /@\/components\/synapse-ui-components\//g,
+          "@/components/synapse-ui/",
+        );
         const { dependencies, registryDependencies } = scanFileDependencies(itemPath);
 
         const registryItem = {
@@ -404,19 +444,19 @@ if (fs.existsSync(synapseComponentsDir)) {
 // Post-process registryItems to recursively inline local hook and synapse-component dependencies
 for (const item of registryItems) {
   const filesMap = new Map();
-  item.files.forEach(f => filesMap.set(f.path, f));
-  
+  item.files.forEach((f) => filesMap.set(f.path, f));
+
   const finalRegDeps = new Set();
   const finalDeps = new Set(item.dependencies);
-  
+
   const queue = [...item.registryDependencies];
   const processed = new Set();
-  
+
   while (queue.length > 0) {
     const dep = queue.shift();
     if (processed.has(dep)) continue;
     processed.add(dep);
-    
+
     if (dep.startsWith("hook:")) {
       const hookName = dep.substring("hook:".length);
       let hookPath = path.join("src", "hooks", `${hookName}.ts`);
@@ -425,35 +465,38 @@ for (const item of registryItems) {
         hookPath = path.join("src", "hooks", `${hookName}.tsx`);
         relativePath = `hooks/${hookName}.tsx`;
       }
-      
+
       if (fs.existsSync(hookPath)) {
         const fileContent = fs.readFileSync(hookPath, "utf-8");
-        const registryContent = fileContent.replace(/@\/components\/synapse-ui-components\//g, "@/components/synapse-ui/");
-        
+        const registryContent = fileContent.replace(
+          /@\/components\/synapse-ui-components\//g,
+          "@/components/synapse-ui/",
+        );
+
         filesMap.set(relativePath, {
           path: relativePath,
           content: registryContent,
           type: "registry:hook",
         });
-        
+
         const subDeps = scanFileDependencies(hookPath);
-        subDeps.dependencies.forEach(d => finalDeps.add(d));
-        subDeps.registryDependencies.forEach(r => queue.push(r));
+        subDeps.dependencies.forEach((d) => finalDeps.add(d));
+        subDeps.registryDependencies.forEach((r) => queue.push(r));
       }
     } else if (dep.startsWith("synapse:")) {
       const importPath = dep.substring("synapse:".length);
       const relativePart = importPath.substring("@/components/synapse-ui-components/".length);
-      
+
       let compPath = "";
       let relativePath = "";
-      
+
       const possiblePaths = [
         path.join("src", "components", "synapse-ui-components", `${relativePart}.tsx`),
         path.join("src", "components", "synapse-ui-components", `${relativePart}.ts`),
         path.join("src", "components", "synapse-ui-components", relativePart, `index.tsx`),
         path.join("src", "components", "synapse-ui-components", relativePart, `index.ts`),
       ];
-      
+
       for (const p of possiblePaths) {
         if (fs.existsSync(p)) {
           compPath = p;
@@ -462,26 +505,29 @@ for (const item of registryItems) {
           break;
         }
       }
-      
+
       if (compPath && fs.existsSync(compPath)) {
         const fileContent = fs.readFileSync(compPath, "utf-8");
-        const registryContent = fileContent.replace(/@\/components\/synapse-ui-components\//g, "@/components/synapse-ui/");
-        
+        const registryContent = fileContent.replace(
+          /@\/components\/synapse-ui-components\//g,
+          "@/components/synapse-ui/",
+        );
+
         filesMap.set(relativePath, {
           path: relativePath,
           content: registryContent,
           type: "registry:ui",
         });
-        
+
         const subDeps = scanFileDependencies(compPath);
-        subDeps.dependencies.forEach(d => finalDeps.add(d));
-        subDeps.registryDependencies.forEach(r => queue.push(r));
+        subDeps.dependencies.forEach((d) => finalDeps.add(d));
+        subDeps.registryDependencies.forEach((r) => queue.push(r));
       }
     } else {
       finalRegDeps.add(dep);
     }
   }
-  
+
   item.files = Array.from(filesMap.values());
   item.dependencies = Array.from(finalDeps);
   item.registryDependencies = Array.from(finalRegDeps);
@@ -504,7 +550,7 @@ console.log(`Successfully generated registry index with ${registryItems.length} 
 
 // 5. Generate src/components/docs/registry.tsx
 const generatedImports = importsList
-  .map(imp => {
+  .map((imp) => {
     if (imp.isDefault) {
       return `import ${imp.uniqueName} from "${imp.path}";`;
     } else {
@@ -596,6 +642,7 @@ export type DemoCategory =
   | "pricing"
   | "text"
   | "block"
+  | "message"
   | "useAutoResizeTextarea";
 
 function demo(

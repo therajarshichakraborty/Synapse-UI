@@ -5,29 +5,29 @@ import { Check, Copy, Terminal } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const languageLabels: Record<string, string> = {
-  tsx:        "TypeScript JSX",
-  ts:         "TypeScript",
-  jsx:        "JavaScript JSX",
-  js:         "JavaScript",
-  bash:       "Shell",
-  sh:         "Shell",
-  css:        "CSS",
-  json:       "JSON",
-  mdx:        "MDX",
-  html:       "HTML",
-  python:     "Python",
-  py:         "Python",
+  tsx: "TypeScript JSX",
+  ts: "TypeScript",
+  jsx: "JavaScript JSX",
+  js: "JavaScript",
+  bash: "Shell",
+  sh: "Shell",
+  css: "CSS",
+  json: "JSON",
+  mdx: "MDX",
+  html: "HTML",
+  python: "Python",
+  py: "Python",
 };
 
 const languageColors: Record<string, string> = {
-  tsx:    "text-blue-400   bg-blue-500/10   border-blue-500/20",
-  ts:     "text-blue-400   bg-blue-500/10   border-blue-500/20",
-  jsx:    "text-yellow-400 bg-yellow-500/10 border-yellow-500/20",
-  js:     "text-yellow-400 bg-yellow-500/10 border-yellow-500/20",
-  bash:   "text-green-400  bg-green-500/10  border-green-500/20",
-  sh:     "text-green-400  bg-green-500/10  border-green-500/20",
-  css:    "text-fuchsia-400 bg-fuchsia-500/10 border-fuchsia-500/20",
-  json:   "text-orange-400 bg-orange-500/10 border-orange-500/20",
+  tsx: "text-blue-400   bg-blue-500/10   border-blue-500/20",
+  ts: "text-blue-400   bg-blue-500/10   border-blue-500/20",
+  jsx: "text-yellow-400 bg-yellow-500/10 border-yellow-500/20",
+  js: "text-yellow-400 bg-yellow-500/10 border-yellow-500/20",
+  bash: "text-green-400  bg-green-500/10  border-green-500/20",
+  sh: "text-green-400  bg-green-500/10  border-green-500/20",
+  css: "text-fuchsia-400 bg-fuchsia-500/10 border-fuchsia-500/20",
+  json: "text-orange-400 bg-orange-500/10 border-orange-500/20",
   python: "text-sky-400    bg-sky-500/10    border-sky-500/20",
 };
 
@@ -103,7 +103,8 @@ export function PremiumCodeBlock({
   }
 
   const label = languageLabels[resolvedLang] ?? resolvedLang.toUpperCase();
-  const badgeColor = languageColors[resolvedLang] ?? "text-zinc-400 bg-zinc-500/10 border-zinc-500/20";
+  const badgeColor =
+    languageColors[resolvedLang] ?? "text-zinc-400 bg-zinc-500/10 border-zinc-500/20";
   const isBash = resolvedLang === "bash" || resolvedLang === "sh";
 
   return (
@@ -113,7 +114,7 @@ export function PremiumCodeBlock({
         "border border-zinc-800",
         "bg-zinc-950",
         "shadow-md",
-        "group"
+        "group",
       )}
     >
       {/* Header bar */}
@@ -126,7 +127,7 @@ export function PremiumCodeBlock({
             <span
               className={cn(
                 "text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md border",
-                badgeColor
+                badgeColor,
               )}
             >
               {label || "CODE"}
@@ -142,14 +143,20 @@ export function PremiumCodeBlock({
             "border",
             copied
               ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-400"
-              : "border-white/[0.06] bg-white/[0.03] text-zinc-500 hover:text-zinc-300 hover:bg-white/[0.07] hover:border-white/[0.1]"
+              : "border-white/[0.06] bg-white/[0.03] text-zinc-500 hover:text-zinc-300 hover:bg-white/[0.07] hover:border-white/[0.1]",
           )}
           aria-label="Copy code"
         >
           {copied ? (
-            <><Check className="h-3 w-3" /><span>Copied!</span></>
+            <>
+              <Check className="h-3 w-3" />
+              <span>Copied!</span>
+            </>
           ) : (
-            <><Copy className="h-3 w-3" /><span>Copy</span></>
+            <>
+              <Copy className="h-3 w-3" />
+              <span>Copy</span>
+            </>
           )}
         </button>
       </div>

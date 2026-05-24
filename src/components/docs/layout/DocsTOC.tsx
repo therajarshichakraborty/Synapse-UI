@@ -31,7 +31,7 @@ export function DocsTOC({ items }: DocsTOCProps) {
           }
         }
       },
-      { rootMargin: "-20% 0% -60% 0%", threshold: 0 }
+      { rootMargin: "-20% 0% -60% 0%", threshold: 0 },
     );
 
     headingIds.forEach((id) => {
@@ -72,7 +72,7 @@ export function DocsTOC({ items }: DocsTOCProps) {
                   depth === 4 && "pl-5 text-[11px]",
                   isActive
                     ? "text-zinc-950 dark:text-zinc-50 font-medium -ml-[17px] pl-[16px] border-l border-zinc-900 dark:border-zinc-50"
-                    : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
+                    : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200",
                 )}
               >
                 {item.title}

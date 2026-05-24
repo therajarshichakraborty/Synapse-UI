@@ -60,14 +60,14 @@ export function useAutoResizeTextarea({
 
 ## API
 
-| Option | Type | Default | Description |
-| ------ | ---- | ------- | ----------- |
-| `minHeight` | `number` | `52` | Minimum height in pixels |
-| `maxHeight` | `number` | `200` | Maximum height in pixels |
+| Option      | Type     | Default | Description              |
+| ----------- | -------- | ------- | ------------------------ |
+| `minHeight` | `number` | `52`    | Minimum height in pixels |
+| `maxHeight` | `number` | `200`   | Maximum height in pixels |
 
 ## Returns
 
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| `textareaRef` | `RefObject<HTMLTextAreaElement>` | Ref to attach to the textarea |
-| `adjustHeight` | `(reset?: boolean) => void` | Recalculate height; pass `true` to reset |
+| Property       | Type                             | Description                              |
+| -------------- | -------------------------------- | ---------------------------------------- |
+| `textareaRef`  | `RefObject<HTMLTextAreaElement>` | Ref to attach to the textarea            |
+| `adjustHeight` | `(reset?: boolean) => void`      | Recalculate height; pass `true` to reset |

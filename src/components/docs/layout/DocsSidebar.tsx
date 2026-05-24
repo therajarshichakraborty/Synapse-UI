@@ -26,7 +26,7 @@ function SidebarItem({ item }: { item: PageTree.Node }) {
           "relative flex items-center gap-2.5 rounded-md px-3 py-1.5 text-sm transition-all duration-150",
           isActive
             ? "bg-zinc-100 text-zinc-900 font-medium dark:bg-zinc-800 dark:text-zinc-50"
-            : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200 hover:bg-zinc-50 dark:hover:bg-zinc-900/50"
+            : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200 hover:bg-zinc-50 dark:hover:bg-zinc-900/50",
         )}
       >
         <span className="truncate">{item.name}</span>
@@ -82,7 +82,7 @@ function SidebarFolder({ item }: { item: PageTree.Folder }) {
           "hover:bg-zinc-50 dark:hover:bg-zinc-900/50",
           isChildActive(item.children)
             ? "text-zinc-900 dark:text-zinc-200 font-semibold"
-            : "text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300"
+            : "text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300",
         )}
       >
         <span className="truncate">{item.name}</span>
@@ -106,9 +106,7 @@ function SidebarFolder({ item }: { item: PageTree.Folder }) {
             className="overflow-hidden"
           >
             <div className="ml-3 mt-0.5 border-l border-[var(--fd-border)] pl-3 pb-1 space-y-0.5">
-              {indexPage && (
-                <SidebarItem item={{ ...indexPage, type: "page" } as PageTree.Item} />
-              )}
+              {indexPage && <SidebarItem item={{ ...indexPage, type: "page" } as PageTree.Item} />}
               {item.children.map((child, i) => (
                 <SidebarItem key={i} item={child} />
               ))}
@@ -164,7 +162,7 @@ export function DocsSidebar({ tree }: DocsSidebarProps) {
               className={cn(
                 "fixed left-0 top-0 bottom-0 z-[70] w-72 lg:hidden",
                 "border-r border-[var(--fd-border)] bg-[var(--fd-background)]/98 backdrop-blur-2xl",
-                "overflow-y-auto"
+                "overflow-y-auto",
               )}
               initial={{ x: "-100%" }}
               animate={{ x: 0 }}
@@ -173,7 +171,9 @@ export function DocsSidebar({ tree }: DocsSidebarProps) {
             >
               {/* Mobile header */}
               <div className="sticky top-0 flex items-center justify-between px-4 py-3.5 border-b border-[var(--fd-border)] bg-[var(--fd-background)]/90 backdrop-blur-md">
-                <span className="text-sm font-semibold text-[var(--fd-foreground)]">Navigation</span>
+                <span className="text-sm font-semibold text-[var(--fd-foreground)]">
+                  Navigation
+                </span>
                 <button
                   onClick={() => setMobileOpen(false)}
                   className="p-1.5 rounded-lg hover:bg-black/[0.04] dark:hover:bg-white/[0.06] text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300 transition-colors"
@@ -195,7 +195,7 @@ export function DocsSidebar({ tree }: DocsSidebarProps) {
           "w-60 xl:w-64 shrink-0",
           "border-r border-[var(--fd-sidebar-border)]",
           "bg-[var(--fd-sidebar)]/60 backdrop-blur-md",
-          "overflow-y-auto"
+          "overflow-y-auto",
         )}
       >
         {/* Subtle top gradient */}

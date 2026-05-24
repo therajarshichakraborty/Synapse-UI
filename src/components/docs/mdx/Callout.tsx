@@ -81,12 +81,12 @@ export function Callout({ type = "info", title, children, className }: CalloutPr
         config.bg,
         // Left accent bar via before pseudo
         "before:absolute before:left-0 before:top-4 before:bottom-4 before:w-0.5 before:rounded-full",
-        type === "info"    && "before:bg-blue-400/60",
+        type === "info" && "before:bg-blue-400/60",
         type === "warning" && "before:bg-amber-400/60",
-        type === "danger"  && "before:bg-rose-400/60",
+        type === "danger" && "before:bg-rose-400/60",
         type === "success" && "before:bg-emerald-400/60",
-        type === "tip"     && "before:bg-zinc-400/60",
-        className
+        type === "tip" && "before:bg-zinc-400/60",
+        className,
       )}
       role={type === "danger" || type === "warning" ? "alert" : undefined}
     >

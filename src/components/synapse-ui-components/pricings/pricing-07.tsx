@@ -52,10 +52,8 @@ export default function Pricing_07({
         className={cn(
           "relative h-full w-full rounded-3xl p-6",
           "border border-zinc-200 dark:border-zinc-800",
-          popular 
-            ? "bg-white/95 dark:bg-zinc-950/95" 
-            : "bg-white dark:bg-zinc-950",
-          "shadow-xl dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
+          popular ? "bg-white/95 dark:bg-zinc-950/95" : "bg-white dark:bg-zinc-950",
+          "shadow-xl dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)]",
         )}
       >
         {/* Top Badges */}
@@ -77,9 +75,7 @@ export default function Pricing_07({
           <h3 className="text-xl font-extrabold text-zinc-900 dark:text-zinc-50 tracking-tight">
             {title}
           </h3>
-          <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-            {description}
-          </p>
+          <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">{description}</p>
         </div>
 
         {/* Pricing Selector & Values */}
@@ -92,7 +88,7 @@ export default function Pricing_07({
                 "px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200",
                 billingPeriod === "monthly"
                   ? "bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 shadow-sm"
-                  : "text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300"
+                  : "text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300",
               )}
             >
               Monthly
@@ -103,11 +99,13 @@ export default function Pricing_07({
                 "px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 flex items-center gap-1",
                 billingPeriod === "annually"
                   ? "bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 shadow-sm"
-                  : "text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300"
+                  : "text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300",
               )}
             >
               <span>Yearly</span>
-              <span className="text-[9px] bg-emerald-500 text-white px-1.5 py-0.5 rounded-sm">Save 25%</span>
+              <span className="text-[9px] bg-emerald-500 text-white px-1.5 py-0.5 rounded-sm">
+                Save 25%
+              </span>
             </button>
           </div>
 
@@ -134,7 +132,7 @@ export default function Pricing_07({
             "w-full h-11 rounded-xl mt-6 flex items-center justify-center font-bold text-sm tracking-wide transition-all duration-200 active:scale-[0.98]",
             popular
               ? "bg-linear-to-r from-indigo-600 to-purple-600 text-white hover:opacity-95 shadow-md shadow-indigo-600/10 hover:shadow-indigo-600/20"
-              : "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 hover:opacity-90"
+              : "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 hover:opacity-90",
           )}
         >
           Upgrade to {title}
@@ -146,16 +144,16 @@ export default function Pricing_07({
             <span>Core capabilities</span>
             <HelpCircle className="w-3 h-3 cursor-pointer" />
           </p>
-          
+
           <ul className="space-y-3">
             {features.map((feat, idx) => (
               <li
                 key={idx}
                 className={cn(
                   "flex items-start gap-2.5 text-xs",
-                  feat.included 
-                    ? "text-zinc-700 dark:text-zinc-300" 
-                    : "text-zinc-400 dark:text-zinc-600 line-through"
+                  feat.included
+                    ? "text-zinc-700 dark:text-zinc-300"
+                    : "text-zinc-400 dark:text-zinc-600 line-through",
                 )}
               >
                 <div
@@ -163,7 +161,7 @@ export default function Pricing_07({
                     "mt-0.5 w-4 h-4 rounded-full flex items-center justify-center shrink-0",
                     feat.included
                       ? "bg-emerald-50 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-400"
-                      : "bg-zinc-100 dark:bg-zinc-900 text-zinc-400 dark:text-zinc-600"
+                      : "bg-zinc-100 dark:bg-zinc-900 text-zinc-400 dark:text-zinc-600",
                   )}
                 >
                   <Check className="w-3.5 h-3.5" />

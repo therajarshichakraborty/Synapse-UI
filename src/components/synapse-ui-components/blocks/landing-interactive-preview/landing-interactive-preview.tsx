@@ -41,7 +41,10 @@ const FEATURES: Feature[] = [
         ].map((color, i) => (
           <div
             key={i}
-            className={cn("aspect-square rounded-lg transition-transform hover:scale-105 cursor-pointer", color)}
+            className={cn(
+              "aspect-square rounded-lg transition-transform hover:scale-105 cursor-pointer",
+              color,
+            )}
           />
         ))}
       </div>
@@ -96,7 +99,9 @@ export default function LandingInteractivePreview() {
                   {feature.icon}
                 </div>
                 <div>
-                  <h3 className="font-bold text-base mb-1 text-zinc-900 dark:text-zinc-50">{feature.title}</h3>
+                  <h3 className="font-bold text-base mb-1 text-zinc-900 dark:text-zinc-50">
+                    {feature.title}
+                  </h3>
                   <p className="text-xs text-zinc-500 dark:text-zinc-400">{feature.description}</p>
                 </div>
               </div>

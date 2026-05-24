@@ -44,7 +44,7 @@ export default function Card_24({
     const y = height - padding - (val * (height - padding * 2)) / 100;
     return `${x},${y}`;
   });
-  
+
   const pathD = `M ${points.join(" L ")}`;
   const areaD = `${pathD} L ${width - padding},${height} L ${padding},${height} Z`;
 
@@ -67,7 +67,7 @@ export default function Card_24({
           className="h-full w-full object-cover opacity-90 transition-transform duration-700 hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-white/10 to-transparent dark:from-zinc-950/20" />
-        
+
         {/* Status Badge */}
         <span className="absolute top-4 right-4 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 backdrop-blur-md">
           <span className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
@@ -80,11 +80,7 @@ export default function Card_24({
         <div className="flex justify-between items-end -mt-10 mb-4">
           <div className="relative">
             <div className="w-20 h-20 rounded-2xl overflow-hidden border-4 border-white dark:border-zinc-950 bg-zinc-100 shadow-md">
-              <img
-                src={avatarUrl}
-                alt={name}
-                className="w-full h-full object-cover"
-              />
+              <img src={avatarUrl} alt={name} className="w-full h-full object-cover" />
             </div>
             <div className="absolute -bottom-1 -right-1 p-1 bg-indigo-600 rounded-lg text-white shadow-xs">
               <Award className="w-3.5 h-3.5" />
@@ -98,7 +94,7 @@ export default function Card_24({
                 "h-9 px-3 rounded-xl flex items-center justify-center gap-1.5 text-xs font-semibold tracking-wide transition-all duration-200 active:scale-[0.97]",
                 isFollowing
                   ? "bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200"
-                  : "bg-indigo-600 text-white hover:bg-indigo-500 shadow-xs hover:shadow-indigo-500/20"
+                  : "bg-indigo-600 text-white hover:bg-indigo-500 shadow-xs hover:shadow-indigo-500/20",
               )}
             >
               {isFollowing ? (
@@ -116,7 +112,7 @@ export default function Card_24({
 
             <button
               className={cn(
-                "h-9 w-9 rounded-xl flex items-center justify-center border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors"
+                "h-9 w-9 rounded-xl flex items-center justify-center border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors",
               )}
             >
               <MessageSquare className="w-4 h-4" />
@@ -129,12 +125,8 @@ export default function Card_24({
           <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-50 tracking-tight">
             {name}
           </h3>
-          <p className="text-xs font-medium text-indigo-600 dark:text-indigo-400">
-            {handle}
-          </p>
-          <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed mt-2">
-            {bio}
-          </p>
+          <p className="text-xs font-medium text-indigo-600 dark:text-indigo-400">{handle}</p>
+          <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed mt-2">{bio}</p>
         </div>
 
         {/* Stats Grid */}
