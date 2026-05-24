@@ -24,7 +24,7 @@ export function PropsTable({ props: rows, className }: PropsTableProps) {
       className={cn(
         "my-6 overflow-hidden rounded-xl border border-zinc-200 dark:border-white/[0.07]",
         "bg-black/[0.01] dark:bg-white/[0.02] backdrop-blur-sm",
-        className
+        className,
       )}
     >
       <div className="overflow-x-auto">

@@ -61,7 +61,10 @@ export default function LandingHero() {
           </h1>
           <p className="mt-6 text-sm sm:text-base md:text-lg text-zinc-600 dark:text-zinc-400 max-w-lg leading-relaxed">
             A curated collection of{" "}
-            <span className="font-semibold text-zinc-800 dark:text-zinc-200">100+ premium UI components</span> crafted with{" "}
+            <span className="font-semibold text-zinc-800 dark:text-zinc-200">
+              100+ premium UI components
+            </span>{" "}
+            crafted with{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-fuchsia-500 dark:from-rose-400 dark:to-fuchsia-400 font-bold">
               Tailwind CSS
             </span>{" "}
@@ -109,7 +112,7 @@ export default function LandingHero() {
             </Link>
           </div>
         </motion.div>
-        
+
         <Features />
       </div>
 
@@ -124,7 +127,9 @@ export default function LandingHero() {
         >
           {/* Card component */}
           <div className="w-full flex flex-col items-center justify-center">
-            <span className="text-xs text-zinc-400 dark:text-zinc-500 block mb-2 font-mono">card-01</span>
+            <span className="text-xs text-zinc-400 dark:text-zinc-500 block mb-2 font-mono">
+              card-01
+            </span>
             <div className="w-full max-w-xs">
               <Card_01 href="/docs/components/card" />
             </div>
@@ -132,7 +137,9 @@ export default function LandingHero() {
 
           {/* Action Search Bar */}
           <div className="w-full flex flex-col items-center justify-center">
-            <span className="text-xs text-zinc-400 dark:text-zinc-500 block mb-2 font-mono">card-25</span>
+            <span className="text-xs text-zinc-400 dark:text-zinc-500 block mb-2 font-mono">
+              card-25
+            </span>
             <div className="w-full max-w-xs">
               <Card_25 />
             </div>
@@ -146,7 +153,9 @@ export default function LandingHero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="w-full flex flex-col items-center"
         >
-          <span className="text-xs text-zinc-400 dark:text-zinc-500 block mb-2 font-mono">ai-input-04</span>
+          <span className="text-xs text-zinc-400 dark:text-zinc-500 block mb-2 font-mono">
+            ai-input-04
+          </span>
           <div className="w-full max-w-md p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 flex items-center justify-center">
             <AIInput04 />
           </div>
@@ -161,7 +170,9 @@ export default function LandingHero() {
         >
           {/* Left side - Buttons Stack */}
           <div className="w-full flex flex-col items-center">
-            <span className="text-xs text-zinc-400 dark:text-zinc-500 block mb-2 font-mono">buttons showcase</span>
+            <span className="text-xs text-zinc-400 dark:text-zinc-500 block mb-2 font-mono">
+              buttons showcase
+            </span>
             <div className="w-full max-w-xs flex flex-col items-center gap-3 p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/30 dark:bg-zinc-900/20">
               <Link href="/docs/components/button">
                 <Button02 className="w-40 py-2.5" />
@@ -180,7 +191,9 @@ export default function LandingHero() {
 
           {/* Right side - Inputs Stack */}
           <div className="w-full flex flex-col items-center">
-            <span className="text-xs text-zinc-400 dark:text-zinc-500 block mb-2 font-mono">inputs showcase</span>
+            <span className="text-xs text-zinc-400 dark:text-zinc-500 block mb-2 font-mono">
+              inputs showcase
+            </span>
             <div className="w-full max-w-xs flex flex-col gap-6 p-4 justify-center h-full">
               <Link href="/docs/components/input" className="w-full block">
                 <Input_01 />

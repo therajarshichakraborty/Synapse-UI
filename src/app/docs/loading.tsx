@@ -18,7 +18,9 @@ export default function DocsLoading() {
           {/* Glow pulse */}
           <div
             className="absolute inset-1 rounded-full animate-pulse"
-            style={{ background: "radial-gradient(circle, rgba(139,92,246,0.15) 0%, transparent 70%)" }}
+            style={{
+              background: "radial-gradient(circle, rgba(139,92,246,0.15) 0%, transparent 70%)",
+            }}
           />
           {/* Center dot */}
           <div className="absolute inset-0 flex items-center justify-center">
@@ -39,9 +41,7 @@ export default function DocsLoading() {
           </div>
         </div>
 
-        <p className="text-xs text-zinc-600 font-medium tracking-wide animate-pulse">
-          Loading…
-        </p>
+        <p className="text-xs text-zinc-600 font-medium tracking-wide animate-pulse">Loading…</p>
       </div>
 
       <style>{`

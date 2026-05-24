@@ -23,9 +23,7 @@ export function DocsSearch() {
     delayMs: 150,
   });
 
-  const results = searchQueryResult.isLoading
-    ? "loading"
-    : (searchQueryResult.data ?? "empty");
+  const results = searchQueryResult.isLoading ? "loading" : (searchQueryResult.data ?? "empty");
 
   // Cmd+K / Ctrl+K shortcut
   useEffect(() => {
@@ -68,7 +66,7 @@ export function DocsSearch() {
           "flex items-center gap-2 px-3 py-1.5 rounded-lg",
           "border border-[var(--fd-border)] bg-black/[0.02] dark:bg-white/[0.03] hover:bg-black/[0.04] dark:hover:bg-white/[0.07]",
           "text-xs text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-300 transition-all duration-200",
-          "group"
+          "group",
         )}
         aria-label="Search docs"
       >
@@ -99,7 +97,7 @@ export function DocsSearch() {
                 "fixed left-1/2 top-[15%] z-[101] w-full max-w-xl -translate-x-1/2",
                 "rounded-lg border border-[var(--fd-border)] bg-[var(--fd-popover)] text-[var(--fd-foreground)]",
                 "shadow-2xl",
-                "overflow-hidden"
+                "overflow-hidden",
               )}
               initial={{ opacity: 0, y: -20, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -116,7 +114,7 @@ export function DocsSearch() {
                   placeholder="Search documentation…"
                   className={cn(
                     "flex-1 bg-transparent text-sm text-[var(--fd-foreground)] placeholder-zinc-400 dark:placeholder-zinc-600",
-                    "outline-none border-none ring-0 caret-zinc-950 dark:caret-zinc-50"
+                    "outline-none border-none ring-0 caret-zinc-950 dark:caret-zinc-50",
                   )}
                 />
                 {query && (
@@ -140,13 +138,17 @@ export function DocsSearch() {
                 {query.length === 0 && (
                   <div className="py-8 text-center">
                     <FileText className="h-8 w-8 text-zinc-400 dark:text-zinc-600 mx-auto mb-3" />
-                    <p className="text-xs text-zinc-500 dark:text-zinc-400">Start typing to search…</p>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400">
+                      Start typing to search…
+                    </p>
                   </div>
                 )}
 
                 {query.length > 0 && results === "empty" && (
                   <div className="py-8 text-center">
-                    <p className="text-xs text-zinc-500 dark:text-zinc-400">No results for &ldquo;{query}&rdquo;</p>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400">
+                      No results for &ldquo;{query}&rdquo;
+                    </p>
                   </div>
                 )}
 
@@ -159,7 +161,7 @@ export function DocsSearch() {
                       className={cn(
                         "w-full flex items-center gap-3 px-3 py-2 rounded-lg",
                         "text-left hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors group",
-                        "border border-transparent"
+                        "border border-transparent",
                       )}
                     >
                       <div className="flex h-7 w-7 items-center justify-center rounded-md bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shrink-0">
@@ -167,9 +169,7 @@ export function DocsSearch() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-zinc-800 dark:text-zinc-200 truncate">
-                          {result.type === "page"
-                            ? String(result.content)
-                            : String(result.content)}
+                          {result.type === "page" ? String(result.content) : String(result.content)}
                         </p>
                         {result.breadcrumbs && result.breadcrumbs.length > 0 && (
                           <p className="text-xs text-zinc-500 dark:text-zinc-400 truncate">
@@ -193,11 +193,15 @@ export function DocsSearch() {
                 <p className="text-[10px] text-zinc-500">Synapse UI Docs</p>
                 <div className="flex items-center gap-3 text-[10px] text-zinc-500">
                   <span className="flex items-center gap-1">
-                    <kbd className="px-1 py-0.5 rounded bg-black/[0.02] dark:bg-white/[0.04] border border-[var(--fd-border)] font-mono">↑↓</kbd>
+                    <kbd className="px-1 py-0.5 rounded bg-black/[0.02] dark:bg-white/[0.04] border border-[var(--fd-border)] font-mono">
+                      ↑↓
+                    </kbd>
                     navigate
                   </span>
                   <span className="flex items-center gap-1">
-                    <kbd className="px-1 py-0.5 rounded bg-black/[0.02] dark:bg-white/[0.04] border border-[var(--fd-border)] font-mono">↵</kbd>
+                    <kbd className="px-1 py-0.5 rounded bg-black/[0.02] dark:bg-white/[0.04] border border-[var(--fd-border)] font-mono">
+                      ↵
+                    </kbd>
                     open
                   </span>
                 </div>

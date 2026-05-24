@@ -1,5 +1,6 @@
 "use client";
 
+
 import React, { useState } from "react";
 import HeroSection from "@/components/landing/Hero";
 import { ShowcaseSection } from "@/components/landing/showcase";
@@ -11,17 +12,15 @@ import Input_07 from "@/components/synapse-ui-components/inputs/input-07";
 import Pricing_07 from "@/components/synapse-ui-components/pricings/pricing-07";
 import SaasLanding from "@/components/synapse-ui-components/blocks/saas-landing/saas-landing";
 import AiChat from "@/components/synapse-ui-components/blocks/ai-chat/ai-chat";
+import Message01 from "@/components/synapse-ui-components/messages/message-01";
 import { Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-
 export default function Home() {
   const [activeTab, setActiveTab] = useState<"blocks" | "components">("blocks");
   const [activeSubTab, setActiveSubTab] = useState<string>("saas");
 
-
   return (
     <div className="bg-background text-foreground overflow-x-hidden min-h-screen relative pb-24 space-y-16">
-
       {/* Hero Section */}
       <HeroSection />
 
@@ -42,7 +41,8 @@ export default function Home() {
             Explore Premium Blocks & Components
           </h2>
           <p className="mt-4 text-sm sm:text-base text-zinc-600 dark:text-zinc-400">
-            Highly-interactive, meticulously crafted templates and elements ready to copy-paste into your application.
+            Highly-interactive, meticulously crafted templates and elements ready to copy-paste into
+            your application.
           </p>
         </div>
 
@@ -145,6 +145,16 @@ export default function Home() {
               >
                 Pricing Tier
               </button>
+              <button
+                onClick={() => setActiveSubTab("message")}
+                className={`px-4 py-2 rounded-lg text-xs font-semibold border transition-all ${
+                  activeSubTab === "message"
+                    ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-850 dark:text-zinc-100 border-zinc-250 dark:border-zinc-700 shadow-xs"
+                    : "border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200"
+                }`}
+              >
+                Chat Message
+              </button>
             </>
           )}
         </div>
@@ -178,6 +188,11 @@ export default function Home() {
                 </div>
               )}
               {activeSubTab === "pricing" && <Pricing_07 />}
+              {activeSubTab === "message" && (
+                <div className="p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 max-w-2xl w-full flex justify-center h-[600px] items-center">
+                  <Message01 />
+                </div>
+              )}
             </motion.div>
           </AnimatePresence>
         </div>

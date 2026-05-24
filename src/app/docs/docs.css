@@ -13,124 +13,124 @@
 @layer fumadocs {
   /* ── Core background / surface tokens ───────────────────────────────── */
   :root {
-    --fd-background:          #ffffff;
-    --fd-foreground:          #09090b;
+    --fd-background: #ffffff;
+    --fd-foreground: #09090b;
 
-    --fd-muted:               #f4f4f5;
-    --fd-muted-foreground:    #71717a;
+    --fd-muted: #f4f4f5;
+    --fd-muted-foreground: #71717a;
 
-    --fd-popover:             #ffffff;
-    --fd-popover-foreground:  #09090b;
+    --fd-popover: #ffffff;
+    --fd-popover-foreground: #09090b;
 
-    --fd-card:                #ffffff;
-    --fd-card-foreground:     #09090b;
+    --fd-card: #ffffff;
+    --fd-card-foreground: #09090b;
 
-    --fd-border:              #e4e4e7;
-    --fd-input:               #e4e4e7;
-    --fd-ring:                #18181b;
+    --fd-border: #e4e4e7;
+    --fd-input: #e4e4e7;
+    --fd-ring: #18181b;
 
     /* Primary = dark zinc */
-    --fd-primary:             #18181b;
-    --fd-primary-foreground:  #ffffff;
+    --fd-primary: #18181b;
+    --fd-primary-foreground: #ffffff;
 
-    --fd-secondary:           #f4f4f5;
+    --fd-secondary: #f4f4f5;
     --fd-secondary-foreground: #18181b;
 
-    --fd-accent:              #f4f4f5;
-    --fd-accent-foreground:   #18181b;
+    --fd-accent: #f4f4f5;
+    --fd-accent-foreground: #18181b;
 
-    --fd-destructive:         #ef4444;
+    --fd-destructive: #ef4444;
 
     /* Sidebar */
-    --fd-sidebar:             #fafafa;
-    --fd-sidebar-foreground:  #09090b;
-    --fd-sidebar-border:      #e4e4e7;
-    --fd-sidebar-accent:      #f4f4f5;
+    --fd-sidebar: #fafafa;
+    --fd-sidebar-foreground: #09090b;
+    --fd-sidebar-border: #e4e4e7;
+    --fd-sidebar-accent: #f4f4f5;
     --fd-sidebar-accent-foreground: #18181b;
 
     /* Scrollbar */
-    --fd-scrollbar:           transparent;
-    --fd-scrollbar-thumb:     #e4e4e7;
+    --fd-scrollbar: transparent;
+    --fd-scrollbar-thumb: #e4e4e7;
   }
 
   .dark {
-    --fd-background:          #09090b;
-    --fd-foreground:          #fafafa;
+    --fd-background: #09090b;
+    --fd-foreground: #fafafa;
 
-    --fd-muted:               #18181b;
-    --fd-muted-foreground:    #a1a1aa;
+    --fd-muted: #18181b;
+    --fd-muted-foreground: #a1a1aa;
 
-    --fd-popover:             #09090b;
-    --fd-popover-foreground:  #fafafa;
+    --fd-popover: #09090b;
+    --fd-popover-foreground: #fafafa;
 
-    --fd-card:                #09090b;
-    --fd-card-foreground:     #fafafa;
+    --fd-card: #09090b;
+    --fd-card-foreground: #fafafa;
 
-    --fd-border:              #27272a;
-    --fd-input:               #27272a;
-    --fd-ring:                #fafafa;
+    --fd-border: #27272a;
+    --fd-input: #27272a;
+    --fd-ring: #fafafa;
 
     /* Primary = light zinc */
-    --fd-primary:             #fafafa;
-    --fd-primary-foreground:  #09090b;
+    --fd-primary: #fafafa;
+    --fd-primary-foreground: #09090b;
 
-    --fd-secondary:           #18181b;
+    --fd-secondary: #18181b;
     --fd-secondary-foreground: #fafafa;
 
-    --fd-accent:              #18181b;
-    --fd-accent-foreground:   #fafafa;
+    --fd-accent: #18181b;
+    --fd-accent-foreground: #fafafa;
 
-    --fd-destructive:         #7f1d1d;
+    --fd-destructive: #7f1d1d;
 
     /* Sidebar */
-    --fd-sidebar:             #09090b;
-    --fd-sidebar-foreground:  #fafafa;
-    --fd-sidebar-border:      #27272a;
-    --fd-sidebar-accent:      #18181b;
+    --fd-sidebar: #09090b;
+    --fd-sidebar-foreground: #fafafa;
+    --fd-sidebar-border: #27272a;
+    --fd-sidebar-accent: #18181b;
     --fd-sidebar-accent-foreground: #fafafa;
 
     /* Scrollbar */
-    --fd-scrollbar:           transparent;
-    --fd-scrollbar-thumb:     #27272a;
+    --fd-scrollbar: transparent;
+    --fd-scrollbar-thumb: #27272a;
   }
 
   /* ── Typography overrides ────────────────────────────────────────────── */
   .fd-prose {
-    --fd-prose-body:          var(--fd-foreground);
-    --fd-prose-headings:      var(--fd-foreground);
-    --fd-prose-lead:          var(--fd-muted-foreground);
-    --fd-prose-links:         var(--fd-foreground);
-    --fd-prose-bold:          var(--fd-foreground);
-    --fd-prose-counters:      var(--fd-muted-foreground);
-    --fd-prose-bullets:       var(--fd-muted-foreground);
-    --fd-prose-hr:            var(--fd-border);
-    --fd-prose-quotes:        var(--fd-foreground);
+    --fd-prose-body: var(--fd-foreground);
+    --fd-prose-headings: var(--fd-foreground);
+    --fd-prose-lead: var(--fd-muted-foreground);
+    --fd-prose-links: var(--fd-foreground);
+    --fd-prose-bold: var(--fd-foreground);
+    --fd-prose-counters: var(--fd-muted-foreground);
+    --fd-prose-bullets: var(--fd-muted-foreground);
+    --fd-prose-hr: var(--fd-border);
+    --fd-prose-quotes: var(--fd-foreground);
     --fd-prose-quote-borders: var(--fd-border);
-    --fd-prose-captions:      var(--fd-muted-foreground);
-    --fd-prose-code:          var(--fd-foreground);
-    --fd-prose-pre-code:      var(--fd-foreground);
-    --fd-prose-pre-bg:        var(--fd-muted);
-    --fd-prose-th-borders:    var(--fd-border);
-    --fd-prose-td-borders:    var(--fd-border);
+    --fd-prose-captions: var(--fd-muted-foreground);
+    --fd-prose-code: var(--fd-foreground);
+    --fd-prose-pre-code: var(--fd-foreground);
+    --fd-prose-pre-bg: var(--fd-muted);
+    --fd-prose-th-borders: var(--fd-border);
+    --fd-prose-td-borders: var(--fd-border);
   }
 
   .dark .fd-prose {
-    --fd-prose-body:          var(--fd-foreground);
-    --fd-prose-headings:      var(--fd-foreground);
-    --fd-prose-lead:          var(--fd-muted-foreground);
-    --fd-prose-links:         var(--fd-foreground);
-    --fd-prose-bold:          var(--fd-foreground);
-    --fd-prose-counters:      var(--fd-muted-foreground);
-    --fd-prose-bullets:       var(--fd-muted-foreground);
-    --fd-prose-hr:            var(--fd-border);
-    --fd-prose-quotes:        var(--fd-foreground);
+    --fd-prose-body: var(--fd-foreground);
+    --fd-prose-headings: var(--fd-foreground);
+    --fd-prose-lead: var(--fd-muted-foreground);
+    --fd-prose-links: var(--fd-foreground);
+    --fd-prose-bold: var(--fd-foreground);
+    --fd-prose-counters: var(--fd-muted-foreground);
+    --fd-prose-bullets: var(--fd-muted-foreground);
+    --fd-prose-hr: var(--fd-border);
+    --fd-prose-quotes: var(--fd-foreground);
     --fd-prose-quote-borders: var(--fd-border);
-    --fd-prose-captions:      var(--fd-muted-foreground);
-    --fd-prose-code:          var(--fd-foreground);
-    --fd-prose-pre-code:      var(--fd-foreground);
-    --fd-prose-pre-bg:        var(--fd-muted);
-    --fd-prose-th-borders:    var(--fd-border);
-    --fd-prose-td-borders:    var(--fd-border);
+    --fd-prose-captions: var(--fd-muted-foreground);
+    --fd-prose-code: var(--fd-foreground);
+    --fd-prose-pre-code: var(--fd-foreground);
+    --fd-prose-pre-bg: var(--fd-muted);
+    --fd-prose-th-borders: var(--fd-border);
+    --fd-prose-td-borders: var(--fd-border);
   }
 
   /* ── Scrollbar (webkit) ──────────────────────────────────────────────── */

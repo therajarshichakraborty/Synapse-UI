@@ -22,9 +22,7 @@ export default function LandingShowcase() {
       <div className="relative max-w-4xl mx-auto px-4">
         {/* Floating Side Badges (Desktop only) */}
         <div className="hidden lg:block absolute -left-8 top-1/4 transform -translate-x-full text-left">
-          <p className="text-sm font-bold text-zinc-800 dark:text-zinc-200 mb-1">
-            50+ Components
-          </p>
+          <p className="text-sm font-bold text-zinc-800 dark:text-zinc-200 mb-1">50+ Components</p>
           <p className="text-xs text-zinc-500 dark:text-zinc-400">Ready to Use</p>
         </div>
 

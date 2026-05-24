@@ -93,7 +93,8 @@ export default function PricingClient() {
 
           <FadeIn direction="up" delay={0.15}>
             <p className="mt-4 text-sm sm:text-base text-zinc-500 dark:text-zinc-400 max-w-md mx-auto leading-relaxed">
-              Transparent pricing that scales with your team. Start free, upgrade when you need more.
+              Transparent pricing that scales with your team. Start free, upgrade when you need
+              more.
             </p>
           </FadeIn>
         </div>
@@ -108,7 +109,7 @@ export default function PricingClient() {
                   "px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer",
                   billingCycle === "monthly"
                     ? "bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-50 shadow-sm"
-                    : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
+                    : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200",
                 )}
               >
                 Monthly
@@ -119,7 +120,7 @@ export default function PricingClient() {
                   "px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer",
                   billingCycle === "annually"
                     ? "bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-50 shadow-sm"
-                    : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
+                    : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200",
                 )}
               >
                 Annually
@@ -150,9 +151,7 @@ export default function PricingClient() {
                           </span>
                         )}
                       </div>
-                      <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                        {plan.description}
-                      </p>
+                      <p className="text-xs text-zinc-500 dark:text-zinc-400">{plan.description}</p>
                       <button
                         onClick={() => toggleExpand(plan.name)}
                         className="flex items-center gap-1 mt-3 text-xs font-semibold text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors cursor-pointer"
@@ -191,7 +190,7 @@ export default function PricingClient() {
                           "flex items-center justify-center w-full md:w-auto md:min-w-[180px] h-10 px-5 rounded-lg text-xs font-semibold transition-all duration-200",
                           plan.popular
                             ? "bg-zinc-900 text-zinc-50 hover:bg-zinc-800 dark:bg-zinc-50 dark:text-zinc-950 dark:hover:bg-zinc-200 shadow-sm"
-                            : "border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900 text-zinc-900 dark:text-zinc-50"
+                            : "border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900 text-zinc-900 dark:text-zinc-50",
                         )}
                       >
                         {plan.ctaText}
@@ -241,27 +240,40 @@ export default function PricingClient() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
             <div className="space-y-2">
-              <h4 className="font-bold text-sm text-zinc-900 dark:text-zinc-50">Is Synapse UI really free?</h4>
+              <h4 className="font-bold text-sm text-zinc-900 dark:text-zinc-50">
+                Is Synapse UI really free?
+              </h4>
               <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                Yes! Synapse UI is fully open-source and MIT-licensed. You can use it in both personal and commercial projects without attribution.
+                Yes! Synapse UI is fully open-source and MIT-licensed. You can use it in both
+                personal and commercial projects without attribution.
               </p>
             </div>
             <div className="space-y-2">
-              <h4 className="font-bold text-sm text-zinc-900 dark:text-zinc-50">What do supporters get?</h4>
+              <h4 className="font-bold text-sm text-zinc-900 dark:text-zinc-50">
+                What do supporters get?
+              </h4>
               <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                Supporters help fund development of the library, and get access to private Discord channels, prioritised requests for custom components, and premium full-page landing templates.
+                Supporters help fund development of the library, and get access to private Discord
+                channels, prioritised requests for custom components, and premium full-page landing
+                templates.
               </p>
             </div>
             <div className="space-y-2">
-              <h4 className="font-bold text-sm text-zinc-900 dark:text-zinc-50">Can I request a custom component?</h4>
+              <h4 className="font-bold text-sm text-zinc-900 dark:text-zinc-50">
+                Can I request a custom component?
+              </h4>
               <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                Yes! Supporters can submit custom components requests in Discord or by email, which will be prioritised and built for the community.
+                Yes! Supporters can submit custom components requests in Discord or by email, which
+                will be prioritised and built for the community.
               </p>
             </div>
             <div className="space-y-2">
-              <h4 className="font-bold text-sm text-zinc-900 dark:text-zinc-50">Does it support Tailwind CSS v4?</h4>
+              <h4 className="font-bold text-sm text-zinc-900 dark:text-zinc-50">
+                Does it support Tailwind CSS v4?
+              </h4>
               <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                Yes! All components are fully styled using standard Tailwind CSS v4.0 features, making them clean and compatible with the latest builds.
+                Yes! All components are fully styled using standard Tailwind CSS v4.0 features,
+                making them clean and compatible with the latest builds.
               </p>
             </div>
           </div>

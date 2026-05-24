@@ -29,7 +29,8 @@ export default function SaasLanding() {
           </h2>
 
           <p className="text-sm sm:text-base text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-lg mx-auto lg:mx-0">
-            Synapse provides a unified dashboard to monitor performance, optimize conversion funnels, and trigger smart automations automatically.
+            Synapse provides a unified dashboard to monitor performance, optimize conversion
+            funnels, and trigger smart automations automatically.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
@@ -78,9 +79,7 @@ export default function SaasLanding() {
                   <span className="text-[10px] font-semibold uppercase">Daily Visitors</span>
                   <Users className="w-3.5 h-3.5" />
                 </div>
-                <div className="text-lg font-extrabold text-zinc-900 dark:text-zinc-50">
-                  12,842
-                </div>
+                <div className="text-lg font-extrabold text-zinc-900 dark:text-zinc-50">12,842</div>
                 <span className="text-[9px] font-semibold text-emerald-600 dark:text-emerald-400">
                   +12.4% vs yesterday
                 </span>
@@ -91,9 +90,7 @@ export default function SaasLanding() {
                   <span className="text-[10px] font-semibold uppercase">Conversion</span>
                   <Activity className="w-3.5 h-3.5" />
                 </div>
-                <div className="text-lg font-extrabold text-zinc-900 dark:text-zinc-50">
-                  3.48%
-                </div>
+                <div className="text-lg font-extrabold text-zinc-900 dark:text-zinc-50">3.48%</div>
                 <span className="text-[9px] font-semibold text-purple-600 dark:text-purple-400">
                   +0.8% this week
                 </span>

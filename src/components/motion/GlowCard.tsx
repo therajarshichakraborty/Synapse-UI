@@ -25,7 +25,10 @@ export function GlowCard({
 
   return (
     <div
-      className={cn("relative group rounded-xl p-[1px] overflow-hidden transition-all duration-300", className)}
+      className={cn(
+        "relative group rounded-xl p-[1px] overflow-hidden transition-all duration-300",
+        className,
+      )}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -34,7 +37,7 @@ export function GlowCard({
         className={cn(
           "absolute -inset-10 -z-10 rounded-3xl opacity-0 blur-3xl transition-opacity duration-500 pointer-events-none bg-gradient-to-r",
           glowColor,
-          isHovered && "opacity-15"
+          isHovered && "opacity-15",
         )}
       />
 
@@ -43,7 +46,7 @@ export function GlowCard({
         className={cn(
           "absolute inset-0 -z-10 rounded-xl bg-gradient-to-r",
           glowColor,
-          animate && "animate-glow-spin"
+          animate && "animate-glow-spin",
         )}
         style={{
           backgroundSize: "200% 200%",
@@ -51,9 +54,7 @@ export function GlowCard({
       />
 
       {/* Main card body */}
-      <div
-        className="relative h-full w-full rounded-[11px] bg-zinc-950/90 hover:bg-zinc-950/80 backdrop-blur-xl border border-white/5 p-6 transition-colors duration-300"
-      >
+      <div className="relative h-full w-full rounded-[11px] bg-zinc-950/90 hover:bg-zinc-950/80 backdrop-blur-xl border border-white/5 p-6 transition-colors duration-300">
         {children}
       </div>
 
