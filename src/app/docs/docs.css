@@ -4,7 +4,91 @@
 */
 @import "fumadocs-ui/style.css" layer(fumadocs);
 
+/*
+  ── Synapse UI × Fumadocs Deep Override ────────────────────────────────────────
+  Override every Fumadocs CSS custom property to match the landing page
+  visual language. The futuristic dark palette (#09001a) is applied here.
+  These run inside the 'fumadocs' layer, so Tailwind utilities still win.
+*/
+@layer fumadocs {
+  /* ── Core background / surface tokens ───────────────────────────────── */
+  :root {
+    --fd-background:          #09001a;
+    --fd-foreground:          oklch(0.96 0 0);
 
+    --fd-muted:               rgba(255, 255, 255, 0.04);
+    --fd-muted-foreground:    oklch(0.62 0.03 275);
 
+    --fd-popover:             #110028;
+    --fd-popover-foreground:  oklch(0.96 0 0);
 
+    --fd-card:                rgba(255, 255, 255, 0.025);
+    --fd-card-foreground:     oklch(0.96 0 0);
 
+    --fd-border:              rgba(255, 255, 255, 0.07);
+    --fd-input:               rgba(255, 255, 255, 0.08);
+    --fd-ring:                rgba(139, 92, 246, 0.5);
+
+    /* Primary = violet brand */
+    --fd-primary:             oklch(0.62 0.26 290);
+    --fd-primary-foreground:  oklch(0.98 0 0);
+
+    --fd-secondary:           rgba(255, 255, 255, 0.06);
+    --fd-secondary-foreground: oklch(0.96 0 0);
+
+    --fd-accent:              rgba(139, 92, 246, 0.12);
+    --fd-accent-foreground:   oklch(0.82 0.14 290);
+
+    --fd-destructive:         oklch(0.65 0.24 10);
+
+    /* Sidebar */
+    --fd-sidebar:             rgba(13, 0, 32, 0.95);
+    --fd-sidebar-foreground:  oklch(0.96 0 0);
+    --fd-sidebar-border:      rgba(255, 255, 255, 0.06);
+    --fd-sidebar-accent:      rgba(139, 92, 246, 0.1);
+    --fd-sidebar-accent-foreground: oklch(0.82 0.14 290);
+
+    /* Scrollbar */
+    --fd-scrollbar:           rgba(255, 255, 255, 0.08);
+    --fd-scrollbar-thumb:     rgba(139, 92, 246, 0.3);
+  }
+
+  /* ── Typography overrides ────────────────────────────────────────────── */
+  .fd-prose {
+    --fd-prose-body:          oklch(0.82 0.01 270);
+    --fd-prose-headings:      oklch(0.96 0 0);
+    --fd-prose-lead:          oklch(0.72 0.02 270);
+    --fd-prose-links:         oklch(0.72 0.22 290);
+    --fd-prose-bold:          oklch(0.96 0 0);
+    --fd-prose-counters:      oklch(0.62 0.03 275);
+    --fd-prose-bullets:       oklch(0.42 0.03 275);
+    --fd-prose-hr:            rgba(255, 255, 255, 0.08);
+    --fd-prose-quotes:        oklch(0.96 0 0);
+    --fd-prose-quote-borders: oklch(0.62 0.26 290);
+    --fd-prose-captions:      oklch(0.62 0.03 275);
+    --fd-prose-code:          oklch(0.82 0.14 290);
+    --fd-prose-pre-code:      oklch(0.92 0 0);
+    --fd-prose-pre-bg:        rgba(0, 0, 0, 0.5);
+    --fd-prose-th-borders:    rgba(255, 255, 255, 0.1);
+    --fd-prose-td-borders:    rgba(255, 255, 255, 0.06);
+  }
+
+  /* ── Scrollbar (webkit) ──────────────────────────────────────────────── */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(139, 92, 246, 0.25);
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(139, 92, 246, 0.45);
+  }
+}
