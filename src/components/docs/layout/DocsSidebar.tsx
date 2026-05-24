@@ -26,8 +26,8 @@ function SidebarItem({ item }: { item: PageTree.Node }) {
           "relative flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm transition-all duration-200",
           "group",
           isActive
-            ? "text-violet-200 font-medium"
-            : "text-zinc-400 hover:text-zinc-200"
+            ? "text-violet-600 dark:text-violet-200 font-medium"
+            : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
         )}
       >
         {/* Active indicator background */}
@@ -40,7 +40,7 @@ function SidebarItem({ item }: { item: PageTree.Node }) {
         )}
         {/* Hover background */}
         {!isActive && (
-          <div className="absolute inset-0 rounded-lg bg-white/0 group-hover:bg-white/[0.04] transition-colors duration-150" />
+          <div className="absolute inset-0 rounded-lg bg-black/0 group-hover:bg-black/[0.03] dark:group-hover:bg-white/[0.04] transition-colors duration-150" />
         )}
 
         {/* Left accent line for active */}
@@ -102,8 +102,8 @@ function SidebarFolder({ item }: { item: PageTree.Folder }) {
         className={cn(
           "w-full flex items-center justify-between gap-2 rounded-lg px-3 py-2",
           "text-sm font-medium transition-colors duration-150 group",
-          "hover:bg-white/[0.04]",
-          isChildActive(item.children) ? "text-zinc-200" : "text-zinc-500 hover:text-zinc-300"
+          "hover:bg-black/[0.03] dark:hover:bg-white/[0.04]",
+          isChildActive(item.children) ? "text-zinc-900 dark:text-zinc-200" : "text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300"
         )}
       >
         <span className="truncate">{item.name}</span>
@@ -126,7 +126,7 @@ function SidebarFolder({ item }: { item: PageTree.Folder }) {
             exit="closed"
             className="overflow-hidden"
           >
-            <div className="ml-3 mt-0.5 border-l border-white/[0.07] pl-3 pb-1 space-y-0.5">
+            <div className="ml-3 mt-0.5 border-l border-[var(--fd-border)] pl-3 pb-1 space-y-0.5">
               {indexPage && (
                 <SidebarItem item={{ ...indexPage, type: "page" } as PageTree.Item} />
               )}
@@ -184,7 +184,7 @@ export function DocsSidebar({ tree }: DocsSidebarProps) {
             <motion.aside
               className={cn(
                 "fixed left-0 top-0 bottom-0 z-[70] w-72 lg:hidden",
-                "border-r border-white/[0.07] bg-[#09001a]/98 backdrop-blur-2xl",
+                "border-r border-[var(--fd-border)] bg-[var(--fd-background)]/98 backdrop-blur-2xl",
                 "overflow-y-auto"
               )}
               initial={{ x: "-100%" }}
@@ -193,11 +193,11 @@ export function DocsSidebar({ tree }: DocsSidebarProps) {
               transition={{ type: "spring", stiffness: 320, damping: 32 }}
             >
               {/* Mobile header */}
-              <div className="sticky top-0 flex items-center justify-between px-4 py-3.5 border-b border-white/[0.07] bg-[#09001a]/90 backdrop-blur-md">
-                <span className="text-sm font-semibold text-zinc-200">Navigation</span>
+              <div className="sticky top-0 flex items-center justify-between px-4 py-3.5 border-b border-[var(--fd-border)] bg-[var(--fd-background)]/90 backdrop-blur-md">
+                <span className="text-sm font-semibold text-[var(--fd-foreground)]">Navigation</span>
                 <button
                   onClick={() => setMobileOpen(false)}
-                  className="p-1.5 rounded-lg hover:bg-white/[0.06] text-zinc-500 hover:text-zinc-300 transition-colors"
+                  className="p-1.5 rounded-lg hover:bg-black/[0.04] dark:hover:bg-white/[0.06] text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300 transition-colors"
                 >
                   <X className="h-4 w-4" />
                 </button>
@@ -214,16 +214,16 @@ export function DocsSidebar({ tree }: DocsSidebarProps) {
           "hidden lg:block",
           "sticky top-14 h-[calc(100vh-3.5rem)]", // 3.5rem = header height
           "w-60 xl:w-64 shrink-0",
-          "border-r border-white/[0.06]",
-          "bg-[#09001a]/60 backdrop-blur-md",
+          "border-r border-[var(--fd-sidebar-border)]",
+          "bg-[var(--fd-sidebar)]/60 backdrop-blur-md",
           "overflow-y-auto"
         )}
       >
         {/* Subtle top gradient */}
-        <div className="pointer-events-none absolute top-0 inset-x-0 h-6 bg-gradient-to-b from-[#09001a] to-transparent z-10" />
+        <div className="pointer-events-none absolute top-0 inset-x-0 h-6 bg-gradient-to-b from-[var(--fd-background)] to-transparent z-10" />
         <SidebarContent />
         {/* Subtle bottom gradient */}
-        <div className="pointer-events-none sticky bottom-0 inset-x-0 h-8 bg-gradient-to-t from-[#09001a] to-transparent" />
+        <div className="pointer-events-none sticky bottom-0 inset-x-0 h-8 bg-gradient-to-t from-[var(--fd-background)] to-transparent" />
       </aside>
     </>
   );

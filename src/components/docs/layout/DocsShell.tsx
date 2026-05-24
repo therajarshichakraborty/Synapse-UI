@@ -16,7 +16,7 @@ interface DocsShellProps {
  */
 export function DocsShell({ children, tree }: DocsShellProps) {
   return (
-    <div className="relative min-h-screen bg-[#09001a] text-zinc-100">
+    <div className="relative min-h-screen bg-[var(--fd-background)] text-[var(--fd-foreground)] transition-colors duration-200">
       {/* Shared animated gradient background */}
       <AnimatedGradient className="fixed" intensity={0.7} />
 

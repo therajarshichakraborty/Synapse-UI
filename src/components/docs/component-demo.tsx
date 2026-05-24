@@ -41,25 +41,27 @@ export function ComponentDemo({ demo, className }: ComponentDemoProps) {
           <CodeBlockTabsTrigger value="code">Code</CodeBlockTabsTrigger>
         </CodeBlockTabsList>
         <CodeBlockTab value="preview">
-          <div
-            className={cn(
-              "flex items-center justify-center p-6",
-              demo.previewClassName ?? "min-h-[120px]",
-            )}
-          >
+          <div className="w-full overflow-x-auto rounded-xl border border-zinc-200 dark:border-white/[0.06] bg-zinc-50/20 dark:bg-white/[0.01]">
             <div
               className={cn(
-                "w-full flex justify-center",
-                registryId.startsWith("block-") &&
-                  registryId !== "block-ai-card-generation" &&
-                  (registryId === "block-saas-landing" ||
-                  registryId === "block-landing-hero" ||
-                  registryId === "block-landing-showcase"
-                    ? "min-w-[950px] shrink-0"
-                    : "min-w-[850px] shrink-0"),
+                "flex items-center justify-center p-6 mx-auto",
+                demo.previewClassName ?? "min-h-[120px]",
               )}
             >
-              <Component {...(demo.props ?? {})} />
+              <div
+                className={cn(
+                  "w-full flex justify-center",
+                  registryId.startsWith("block-") &&
+                    registryId !== "block-ai-card-generation" &&
+                    (registryId === "block-saas-landing" ||
+                    registryId === "block-landing-hero" ||
+                    registryId === "block-landing-showcase"
+                      ? "min-w-[950px] shrink-0"
+                      : "min-w-[850px] shrink-0"),
+                )}
+              >
+                <Component {...(demo.props ?? {})} />
+              </div>
             </div>
           </div>
         </CodeBlockTab>

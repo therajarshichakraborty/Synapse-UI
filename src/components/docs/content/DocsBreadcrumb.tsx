@@ -25,11 +25,11 @@ export function DocsBreadcrumb({ items, className }: DocsBreadcrumbProps) {
     >
       {items.map((item, i) => (
         <span key={i} className="flex items-center gap-1.5">
-          {i > 0 && <ChevronRight className="h-3 w-3 text-zinc-700" />}
+          {i > 0 && <ChevronRight className="h-3 w-3 text-zinc-400 dark:text-zinc-600" />}
           {item.url && i < items.length - 1 ? (
             <Link
               href={item.url}
-              className="text-xs text-zinc-600 hover:text-zinc-300 transition-colors"
+              className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
             >
               {item.name}
             </Link>
@@ -37,7 +37,7 @@ export function DocsBreadcrumb({ items, className }: DocsBreadcrumbProps) {
             <span
               className={cn(
                 "text-xs",
-                i === items.length - 1 ? "text-zinc-400 font-medium" : "text-zinc-600"
+                i === items.length - 1 ? "text-zinc-800 dark:text-zinc-200 font-medium" : "text-zinc-500 dark:text-zinc-400"
               )}
             >
               {item.name}

@@ -66,15 +66,15 @@ export function DocsSearch() {
         onClick={() => setOpen(true)}
         className={cn(
           "flex items-center gap-2 px-3 py-1.5 rounded-lg",
-          "border border-white/[0.08] bg-white/[0.03] hover:bg-white/[0.07]",
-          "text-xs text-zinc-500 hover:text-zinc-300 transition-all duration-200",
+          "border border-[var(--fd-border)] bg-black/[0.02] dark:bg-white/[0.03] hover:bg-black/[0.04] dark:hover:bg-white/[0.07]",
+          "text-xs text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-300 transition-all duration-200",
           "group"
         )}
         aria-label="Search docs"
       >
-        <Search className="h-3.5 w-3.5 text-zinc-500 group-hover:text-zinc-300 transition-colors" />
+        <Search className="h-3.5 w-3.5 text-zinc-500 group-hover:text-zinc-900 dark:group-hover:text-zinc-300 transition-colors" />
         <span className="hidden sm:inline">Search docs…</span>
-        <kbd className="hidden sm:flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-white/[0.06] border border-white/[0.08] text-[10px] text-zinc-600 font-mono">
+        <kbd className="hidden sm:flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-black/[0.02] dark:bg-white/[0.06] border border-[var(--fd-border)] text-[10px] text-zinc-500 dark:text-zinc-400 font-mono">
           <Command className="h-2.5 w-2.5" />K
         </kbd>
       </button>
@@ -97,7 +97,7 @@ export function DocsSearch() {
             <motion.div
               className={cn(
                 "fixed left-1/2 top-[15%] z-[101] w-full max-w-xl -translate-x-1/2",
-                "rounded-2xl border border-white/10 bg-[#0d0020]/95 backdrop-blur-2xl",
+                "rounded-2xl border border-[var(--fd-border)] bg-[var(--fd-popover)]/95 backdrop-blur-2xl text-[var(--fd-foreground)]",
                 "shadow-[0_0_80px_rgba(139,92,246,0.15),0_25px_50px_rgba(0,0,0,0.5)]",
                 "overflow-hidden"
               )}
@@ -107,7 +107,7 @@ export function DocsSearch() {
               transition={{ duration: 0.22, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
               {/* Input row */}
-              <div className="flex items-center gap-3 border-b border-white/[0.07] px-4 py-3">
+              <div className="flex items-center gap-3 border-b border-[var(--fd-border)] px-4 py-3">
                 <Search className="h-4 w-4 text-zinc-500 shrink-0" />
                 <input
                   ref={inputRef}
@@ -115,20 +115,20 @@ export function DocsSearch() {
                   onChange={(e) => handleSearch(e.target.value)}
                   placeholder="Search documentation…"
                   className={cn(
-                    "flex-1 bg-transparent text-sm text-zinc-100 placeholder-zinc-600",
+                    "flex-1 bg-transparent text-sm text-[var(--fd-foreground)] placeholder-zinc-400 dark:placeholder-zinc-600",
                     "outline-none border-none ring-0 caret-violet-400"
                   )}
                 />
                 {query && (
                   <button
                     onClick={() => handleSearch("")}
-                    className="p-1 rounded-md hover:bg-white/[0.06] text-zinc-500 hover:text-zinc-300 transition-colors"
+                    className="p-1 rounded-md hover:bg-black/[0.04] dark:hover:bg-white/[0.06] text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300 transition-colors"
                   >
                     <X className="h-3.5 w-3.5" />
                   </button>
                 )}
                 <kbd
-                  className="px-1.5 py-0.5 rounded border border-white/[0.08] bg-white/[0.04] text-[10px] text-zinc-600 font-mono cursor-pointer"
+                  className="px-1.5 py-0.5 rounded border border-[var(--fd-border)] bg-black/[0.02] dark:bg-white/[0.04] text-[10px] text-zinc-500 dark:text-zinc-400 font-mono cursor-pointer"
                   onClick={() => setOpen(false)}
                 >
                   ESC
@@ -139,46 +139,45 @@ export function DocsSearch() {
               <div className="max-h-[360px] overflow-y-auto p-2">
                 {query.length === 0 && (
                   <div className="py-8 text-center">
-                    <FileText className="h-8 w-8 text-zinc-700 mx-auto mb-3" />
-                    <p className="text-xs text-zinc-600">Start typing to search…</p>
+                    <FileText className="h-8 w-8 text-zinc-400 dark:text-zinc-600 mx-auto mb-3" />
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400">Start typing to search…</p>
                   </div>
                 )}
 
                 {query.length > 0 && results === "empty" && (
                   <div className="py-8 text-center">
-                    <p className="text-xs text-zinc-600">No results for &ldquo;{query}&rdquo;</p>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400">No results for &ldquo;{query}&rdquo;</p>
                   </div>
                 )}
 
                 {query.length > 0 &&
-                  results !== "empty" &&
-                  results !== "loading" &&
+                  Array.isArray(results) &&
                   results.map((result) => (
                     <button
                       key={result.id}
                       onClick={() => handleSelect(result.url)}
                       className={cn(
                         "w-full flex items-center gap-3 px-3 py-2.5 rounded-xl",
-                        "text-left hover:bg-white/[0.05] transition-colors group",
-                        "border border-transparent hover:border-white/[0.06]"
+                        "text-left hover:bg-black/[0.03] dark:hover:bg-white/[0.05] transition-colors group",
+                        "border border-transparent hover:border-black/[0.04] dark:hover:border-white/[0.06]"
                       )}
                     >
                       <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-violet-500/10 border border-violet-500/20 shrink-0">
                         <FileText className="h-3.5 w-3.5 text-violet-400" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-zinc-200 truncate">
+                        <p className="text-sm font-medium text-zinc-800 dark:text-zinc-200 truncate">
                           {result.type === "page"
                             ? String(result.content)
                             : String(result.content)}
                         </p>
                         {result.breadcrumbs && result.breadcrumbs.length > 0 && (
-                          <p className="text-xs text-zinc-600 truncate">
+                          <p className="text-xs text-zinc-500 dark:text-zinc-400 truncate">
                             {result.breadcrumbs.map(String).join(" › ")}
                           </p>
                         )}
                       </div>
-                      <ArrowRight className="h-3.5 w-3.5 text-zinc-700 group-hover:text-zinc-400 shrink-0 transition-colors" />
+                      <ArrowRight className="h-3.5 w-3.5 text-zinc-400 group-hover:text-zinc-700 dark:group-hover:text-zinc-400 shrink-0 transition-colors" />
                     </button>
                   ))}
 
@@ -190,15 +189,15 @@ export function DocsSearch() {
               </div>
 
               {/* Footer hint */}
-              <div className="border-t border-white/[0.06] px-4 py-2 flex items-center justify-between">
-                <p className="text-[10px] text-zinc-700">Synapse UI Docs</p>
-                <div className="flex items-center gap-3 text-[10px] text-zinc-700">
+              <div className="border-t border-[var(--fd-border)] px-4 py-2 flex items-center justify-between">
+                <p className="text-[10px] text-zinc-500">Synapse UI Docs</p>
+                <div className="flex items-center gap-3 text-[10px] text-zinc-500">
                   <span className="flex items-center gap-1">
-                    <kbd className="px-1 py-0.5 rounded bg-white/[0.04] border border-white/[0.06] font-mono">↑↓</kbd>
+                    <kbd className="px-1 py-0.5 rounded bg-black/[0.02] dark:bg-white/[0.04] border border-[var(--fd-border)] font-mono">↑↓</kbd>
                     navigate
                   </span>
                   <span className="flex items-center gap-1">
-                    <kbd className="px-1 py-0.5 rounded bg-white/[0.04] border border-white/[0.06] font-mono">↵</kbd>
+                    <kbd className="px-1 py-0.5 rounded bg-black/[0.02] dark:bg-white/[0.04] border border-[var(--fd-border)] font-mono">↵</kbd>
                     open
                   </span>
                 </div>

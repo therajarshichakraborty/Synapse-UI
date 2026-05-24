@@ -11,10 +11,10 @@ interface DocsPageHeaderProps {
 }
 
 const badgeStyles = {
-  new:        "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
-  beta:       "bg-amber-500/10  text-amber-400  border-amber-500/20",
-  deprecated: "bg-red-500/10    text-red-400    border-red-500/20",
-  updated:    "bg-blue-500/10   text-blue-400   border-blue-500/20",
+  new:        "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
+  beta:       "bg-amber-500/10  text-amber-700  dark:text-amber-400  border-amber-500/20",
+  deprecated: "bg-red-500/10    text-red-600    dark:text-red-400    border-red-500/20",
+  updated:    "bg-blue-500/10   text-blue-600   dark:text-blue-400   border-blue-500/20",
 };
 
 /**
@@ -56,7 +56,7 @@ export function DocsPageHeader({
         className={cn(
           "text-3xl sm:text-4xl font-bold tracking-tight leading-tight",
           "bg-clip-text text-transparent",
-          "bg-gradient-to-br from-zinc-100 via-zinc-200 to-zinc-400"
+          "bg-gradient-to-br from-zinc-900 to-zinc-600 dark:from-zinc-100 dark:to-zinc-400"
         )}
       >
         {title}
@@ -76,7 +76,7 @@ export function DocsPageHeader({
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45, delay: 0.25 }}
-          className="mt-4 text-base leading-relaxed text-zinc-400 max-w-2xl"
+          className="mt-4 text-base leading-relaxed text-zinc-600 dark:text-zinc-400 max-w-2xl"
         >
           {description}
         </motion.p>

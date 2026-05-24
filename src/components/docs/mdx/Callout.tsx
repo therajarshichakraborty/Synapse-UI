@@ -16,42 +16,42 @@ interface CalloutConfig {
 const calloutConfig: Record<CalloutType, CalloutConfig> = {
   info: {
     icon: Info,
-    border: "border-blue-500/25",
-    bg: "bg-blue-500/[0.06]",
-    iconColor: "text-blue-400",
-    titleColor: "text-blue-300",
+    border: "border-blue-500/15 dark:border-blue-500/25",
+    bg: "bg-blue-500/[0.04] dark:bg-blue-500/[0.06]",
+    iconColor: "text-blue-500 dark:text-blue-400",
+    titleColor: "text-blue-600 dark:text-blue-300",
     defaultTitle: "Info",
   },
   warning: {
     icon: AlertTriangle,
-    border: "border-amber-500/25",
-    bg: "bg-amber-500/[0.06]",
-    iconColor: "text-amber-400",
-    titleColor: "text-amber-300",
+    border: "border-amber-500/15 dark:border-amber-500/25",
+    bg: "bg-amber-500/[0.04] dark:bg-amber-500/[0.06]",
+    iconColor: "text-amber-600 dark:text-amber-400",
+    titleColor: "text-amber-700 dark:text-amber-300",
     defaultTitle: "Warning",
   },
   danger: {
     icon: XCircle,
-    border: "border-rose-500/25",
-    bg: "bg-rose-500/[0.06]",
-    iconColor: "text-rose-400",
-    titleColor: "text-rose-300",
+    border: "border-rose-500/15 dark:border-rose-500/25",
+    bg: "bg-rose-500/[0.04] dark:bg-rose-500/[0.06]",
+    iconColor: "text-rose-500 dark:text-rose-400",
+    titleColor: "text-rose-600 dark:text-rose-300",
     defaultTitle: "Danger",
   },
   success: {
     icon: CheckCircle,
-    border: "border-emerald-500/25",
-    bg: "bg-emerald-500/[0.06]",
-    iconColor: "text-emerald-400",
-    titleColor: "text-emerald-300",
+    border: "border-emerald-500/15 dark:border-emerald-500/25",
+    bg: "bg-emerald-500/[0.04] dark:bg-emerald-500/[0.06]",
+    iconColor: "text-emerald-500 dark:text-emerald-400",
+    titleColor: "text-emerald-600 dark:text-emerald-300",
     defaultTitle: "Success",
   },
   tip: {
     icon: Lightbulb,
-    border: "border-violet-500/25",
-    bg: "bg-violet-500/[0.06]",
-    iconColor: "text-violet-400",
-    titleColor: "text-violet-300",
+    border: "border-violet-500/15 dark:border-violet-500/25",
+    bg: "bg-violet-500/[0.04] dark:bg-violet-500/[0.06]",
+    iconColor: "text-violet-500 dark:text-violet-400",
+    titleColor: "text-violet-600 dark:text-violet-300",
     defaultTitle: "Tip",
   },
 };
@@ -97,7 +97,7 @@ export function Callout({ type = "info", title, children, className }: CalloutPr
       </div>
 
       {/* Content */}
-      <div className="text-sm text-zinc-400 leading-relaxed [&>p]:m-0 [&>p+p]:mt-2">
+      <div className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed [&>p]:m-0 [&>p+p]:mt-2">
         {children}
       </div>
     </div>

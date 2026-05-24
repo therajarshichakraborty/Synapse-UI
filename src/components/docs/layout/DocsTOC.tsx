@@ -80,8 +80,8 @@ export function DocsTOC({ items }: DocsTOCProps) {
                   depth === 3 && "pl-5 text-[11px]",
                   depth === 4 && "pl-7 text-[11px]",
                   isActive
-                    ? "text-violet-300 font-medium"
-                    : "text-zinc-600 hover:text-zinc-300"
+                    ? "text-violet-600 dark:text-violet-300 font-medium"
+                    : "text-zinc-500 hover:text-zinc-800 dark:text-zinc-600 dark:hover:text-zinc-300"
                 )}
               >
                 {item.title}
