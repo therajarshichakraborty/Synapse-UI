@@ -20,9 +20,7 @@ export default function Home() {
 
 
   return (
-    <div className="bg-white top-0 dark:bg-gradient-to-b dark:from-[#09001a] dark:via-[#03000a] dark:to-black overflow-x-hidden min-h-screen text-zinc-900 dark:text-zinc-50 relative pb-24 space-y-16">
-      {/* Ambient background glows */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] bg-gradient-to-b from-purple-500/10 via-transparent to-transparent pointer-events-none blur-3xl" />
+    <div className="bg-background text-foreground overflow-x-hidden min-h-screen relative pb-24 space-y-16">
 
       {/* Hero Section */}
       <HeroSection />
@@ -36,15 +34,12 @@ export default function Home() {
       {/* Premium Offerings Live Explorer */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-12 relative">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-indigo-50 dark:bg-indigo-950/30 text-indigo-600 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-900/50 mb-4">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-200 dark:border-zinc-700 mb-4">
+            <Sparkles className="w-3.5 h-3.5 text-zinc-500" />
             <span>New Release v1.1</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-            Explore Premium{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-              Blocks & Components
-            </span>
+            Explore Premium Blocks & Components
           </h2>
           <p className="mt-4 text-sm sm:text-base text-zinc-600 dark:text-zinc-400">
             Highly-interactive, meticulously crafted templates and elements ready to copy-paste into your application.
@@ -91,7 +86,7 @@ export default function Home() {
                 onClick={() => setActiveSubTab("saas")}
                 className={`px-4 py-2 rounded-lg text-xs font-semibold border transition-all ${
                   activeSubTab === "saas"
-                    ? "bg-indigo-600/10 text-indigo-600 dark:text-indigo-400 border-indigo-600/30"
+                    ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-850 dark:text-zinc-100 border-zinc-250 dark:border-zinc-700 shadow-xs"
                     : "border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200"
                 }`}
               >
@@ -101,7 +96,7 @@ export default function Home() {
                 onClick={() => setActiveSubTab("aichat")}
                 className={`px-4 py-2 rounded-lg text-xs font-semibold border transition-all ${
                   activeSubTab === "aichat"
-                    ? "bg-indigo-600/10 text-indigo-600 dark:text-indigo-400 border-indigo-600/30"
+                    ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-850 dark:text-zinc-100 border-zinc-250 dark:border-zinc-700 shadow-xs"
                     : "border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200"
                 }`}
               >
@@ -114,7 +109,7 @@ export default function Home() {
                 onClick={() => setActiveSubTab("holographic")}
                 className={`px-4 py-2 rounded-lg text-xs font-semibold border transition-all ${
                   activeSubTab === "holographic"
-                    ? "bg-indigo-600/10 text-indigo-600 dark:text-indigo-400 border-indigo-600/30"
+                    ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-850 dark:text-zinc-100 border-zinc-250 dark:border-zinc-700 shadow-xs"
                     : "border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200"
                 }`}
               >
@@ -124,7 +119,7 @@ export default function Home() {
                 onClick={() => setActiveSubTab("profile")}
                 className={`px-4 py-2 rounded-lg text-xs font-semibold border transition-all ${
                   activeSubTab === "profile"
-                    ? "bg-indigo-600/10 text-indigo-600 dark:text-indigo-400 border-indigo-600/30"
+                    ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-850 dark:text-zinc-100 border-zinc-250 dark:border-zinc-700 shadow-xs"
                     : "border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200"
                 }`}
               >
@@ -134,7 +129,7 @@ export default function Home() {
                 onClick={() => setActiveSubTab("otp")}
                 className={`px-4 py-2 rounded-lg text-xs font-semibold border transition-all ${
                   activeSubTab === "otp"
-                    ? "bg-indigo-600/10 text-indigo-600 dark:text-indigo-400 border-indigo-600/30"
+                    ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-850 dark:text-zinc-100 border-zinc-250 dark:border-zinc-700 shadow-xs"
                     : "border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200"
                 }`}
               >
@@ -144,7 +139,7 @@ export default function Home() {
                 onClick={() => setActiveSubTab("pricing")}
                 className={`px-4 py-2 rounded-lg text-xs font-semibold border transition-all ${
                   activeSubTab === "pricing"
-                    ? "bg-indigo-600/10 text-indigo-600 dark:text-indigo-400 border-indigo-600/30"
+                    ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-850 dark:text-zinc-100 border-zinc-250 dark:border-zinc-700 shadow-xs"
                     : "border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200"
                 }`}
               >

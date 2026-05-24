@@ -54,25 +54,18 @@ export default function HeroSection() {
           style={{ transitionDelay: "0ms" }}
         >
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-zinc-900 dark:text-zinc-100">
-            Craft with{" "}
-            <span className="bg-clip-text text-transparent bg-linear-to-r from-rose-500 via-fuchsia-500 to-purple-500 dark:from-rose-400 dark:via-fuchsia-400 dark:to-purple-400">
-              precision
-            </span>
+            Craft with precision
             <br />
-            build with{" "}
-            <span className="bg-clip-text text-transparent bg-linear-to-r from-purple-500 via-fuchsia-500 to-rose-500 dark:from-purple-400 dark:via-fuchsia-400 dark:to-rose-400">
-              ease
-            </span>
-            .
+            build with ease.
           </h1>
-          <p className="mt-6 text-base md:text-xl text-zinc-700 dark:text-zinc-300 max-w-lg">
+          <p className="mt-6 text-base md:text-xl text-zinc-650 dark:text-zinc-300 max-w-lg leading-relaxed">
             A curated collection of{" "}
-            <span className="font-semibold">100+ premium UI components</span> crafted with{" "}
-            <span className="bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-fuchsia-500 dark:from-rose-400 dark:to-fuchsia-400">
+            <span className="font-semibold text-zinc-900 dark:text-zinc-100">100+ premium UI components</span> crafted with{" "}
+            <span className="font-semibold text-zinc-900 dark:text-zinc-100">
               Tailwind CSS
             </span>{" "}
             and{" "}
-            <span className="bg-clip-text text-transparent bg-linear-to-r from-fuchsia-500 to-purple-500 dark:from-fuchsia-400 dark:to-purple-400">
+            <span className="font-semibold text-zinc-900 dark:text-zinc-100">
               shadcn/ui
             </span>{" "}
             for modern React and Next.js applications.
@@ -88,8 +81,8 @@ export default function HeroSection() {
             <TailwindCSS />
             <span className="flex items-center gap-1.5">
               Now updated for Tailwind CSS 4.0!
-              <span className="inline-flex items-center rounded-md bg-purple-50 dark:bg-purple-900/30 px-2 py-1 text-xs font-medium text-purple-700 dark:text-purple-300">
-                <Sparkles className="h-3 w-3 mr-1" />
+              <span className="inline-flex items-center rounded-md bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 text-xs font-semibold text-zinc-900 dark:text-zinc-100 border border-zinc-200 dark:border-zinc-700">
+                <Sparkles className="h-3 w-3 mr-1 text-zinc-550" />
                 New
               </span>
             </span>

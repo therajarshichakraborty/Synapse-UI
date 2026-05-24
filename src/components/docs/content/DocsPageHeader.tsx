@@ -55,8 +55,7 @@ export function DocsPageHeader({
         transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.05 }}
         className={cn(
           "text-3xl sm:text-4xl font-bold tracking-tight leading-tight",
-          "bg-clip-text text-transparent",
-          "bg-gradient-to-br from-zinc-900 to-zinc-600 dark:from-zinc-100 dark:to-zinc-400"
+          "text-zinc-900 dark:text-zinc-50"
         )}
       >
         {title}
@@ -67,7 +66,7 @@ export function DocsPageHeader({
         initial={{ scaleX: 0, opacity: 0 }}
         animate={{ scaleX: 1, opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className="mt-4 origin-left h-px w-full bg-gradient-to-r from-violet-500/40 via-fuchsia-500/20 to-transparent"
+        className="mt-4 origin-left h-px w-full bg-zinc-200 dark:bg-zinc-800"
       />
 
       {/* Description */}

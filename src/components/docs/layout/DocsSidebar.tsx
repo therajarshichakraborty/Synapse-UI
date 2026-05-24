@@ -23,36 +23,13 @@ function SidebarItem({ item }: { item: PageTree.Node }) {
       <Link
         href={item.url}
         className={cn(
-          "relative flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm transition-all duration-200",
-          "group",
+          "relative flex items-center gap-2.5 rounded-md px-3 py-1.5 text-sm transition-all duration-150",
           isActive
-            ? "text-violet-600 dark:text-violet-200 font-medium"
-            : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
+            ? "bg-zinc-100 text-zinc-900 font-medium dark:bg-zinc-800 dark:text-zinc-50"
+            : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200 hover:bg-zinc-50 dark:hover:bg-zinc-900/50"
         )}
       >
-        {/* Active indicator background */}
-        {isActive && (
-          <motion.div
-            layoutId="sidebar-active-pill"
-            className="absolute inset-0 rounded-lg bg-violet-500/10 border border-violet-500/20"
-            transition={{ type: "spring", stiffness: 380, damping: 32 }}
-          />
-        )}
-        {/* Hover background */}
-        {!isActive && (
-          <div className="absolute inset-0 rounded-lg bg-black/0 group-hover:bg-black/[0.03] dark:group-hover:bg-white/[0.04] transition-colors duration-150" />
-        )}
-
-        {/* Left accent line for active */}
-        {isActive && (
-          <motion.div
-            layoutId="sidebar-accent-line"
-            className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-4 rounded-full bg-violet-400"
-            transition={{ type: "spring", stiffness: 380, damping: 32 }}
-          />
-        )}
-
-        <span className="relative z-10 truncate">{item.name}</span>
+        <span className="truncate">{item.name}</span>
       </Link>
     );
   }
@@ -100,10 +77,12 @@ function SidebarFolder({ item }: { item: PageTree.Folder }) {
       <button
         onClick={() => setOpen((v) => !v)}
         className={cn(
-          "w-full flex items-center justify-between gap-2 rounded-lg px-3 py-2",
+          "w-full flex items-center justify-between gap-2 rounded-md px-3 py-1.5",
           "text-sm font-medium transition-colors duration-150 group",
-          "hover:bg-black/[0.03] dark:hover:bg-white/[0.04]",
-          isChildActive(item.children) ? "text-zinc-900 dark:text-zinc-200" : "text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300"
+          "hover:bg-zinc-50 dark:hover:bg-zinc-900/50",
+          isChildActive(item.children)
+            ? "text-zinc-900 dark:text-zinc-200 font-semibold"
+            : "text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300"
         )}
       >
         <span className="truncate">{item.name}</span>
@@ -112,7 +91,7 @@ function SidebarFolder({ item }: { item: PageTree.Folder }) {
           animate={open ? "open" : "closed"}
           className="shrink-0"
         >
-          <ChevronRight className="h-3.5 w-3.5 text-zinc-600" />
+          <ChevronRight className="h-3.5 w-3.5 text-zinc-400 dark:text-zinc-500" />
         </motion.div>
       </button>
 
@@ -164,7 +143,7 @@ export function DocsSidebar({ tree }: DocsSidebarProps) {
       {/* ── Mobile toggle button ── */}
       <button
         onClick={() => setMobileOpen(true)}
-        className="lg:hidden fixed bottom-6 left-6 z-50 flex h-11 w-11 items-center justify-center rounded-xl bg-violet-600/90 border border-violet-500/30 text-white shadow-lg shadow-violet-900/30 backdrop-blur-md"
+        className="lg:hidden fixed bottom-6 left-6 z-50 flex h-11 w-11 items-center justify-center rounded-xl bg-zinc-900 dark:bg-zinc-100 border border-zinc-800 dark:border-zinc-200 text-zinc-50 dark:text-zinc-900 shadow-md backdrop-blur-md transition-colors"
         aria-label="Open navigation"
       >
         <Menu className="h-5 w-5" />

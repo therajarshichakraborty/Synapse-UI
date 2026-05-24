@@ -53,7 +53,7 @@ export function PropsTable({ props: rows, className }: PropsTableProps) {
               >
                 <td className="px-4 py-3 font-mono">
                   <span className="flex items-center gap-1.5">
-                    <code className="text-xs text-violet-600 dark:text-violet-300 bg-violet-500/5 dark:bg-violet-500/10 border border-violet-500/10 dark:border-violet-500/20 px-1.5 py-0.5 rounded-md">
+                    <code className="text-xs text-zinc-900 dark:text-zinc-50 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 px-1.5 py-0.5 rounded-md">
                       {row.prop}
                     </code>
                     {row.required && (
@@ -62,13 +62,13 @@ export function PropsTable({ props: rows, className }: PropsTableProps) {
                   </span>
                 </td>
                 <td className="px-4 py-3 font-mono">
-                  <code className="text-xs text-fuchsia-600 dark:text-fuchsia-300 bg-fuchsia-500/[0.04] dark:bg-fuchsia-500/[0.08] border border-fuchsia-500/10 dark:border-fuchsia-500/20 px-1.5 py-0.5 rounded-md whitespace-nowrap">
+                  <code className="text-xs text-zinc-900 dark:text-zinc-50 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 px-1.5 py-0.5 rounded-md whitespace-nowrap">
                     {row.type}
                   </code>
                 </td>
                 <td className="hidden sm:table-cell px-4 py-3 font-mono">
                   {row.defaultValue ? (
-                    <code className="text-xs text-zinc-600 dark:text-zinc-400 bg-zinc-500/5 dark:bg-zinc-500/10 border border-zinc-500/10 dark:border-zinc-500/20 px-1.5 py-0.5 rounded-md">
+                    <code className="text-xs text-zinc-600 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 px-1.5 py-0.5 rounded-md">
                       {row.defaultValue}
                     </code>
                   ) : (

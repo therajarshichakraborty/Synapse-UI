@@ -48,10 +48,10 @@ const calloutConfig: Record<CalloutType, CalloutConfig> = {
   },
   tip: {
     icon: Lightbulb,
-    border: "border-violet-500/15 dark:border-violet-500/25",
-    bg: "bg-violet-500/[0.04] dark:bg-violet-500/[0.06]",
-    iconColor: "text-violet-500 dark:text-violet-400",
-    titleColor: "text-violet-600 dark:text-violet-300",
+    border: "border-zinc-500/15 dark:border-zinc-500/25",
+    bg: "bg-zinc-500/[0.04] dark:bg-zinc-500/[0.06]",
+    iconColor: "text-zinc-500 dark:text-zinc-400",
+    titleColor: "text-zinc-600 dark:text-zinc-300",
     defaultTitle: "Tip",
   },
 };
@@ -85,7 +85,7 @@ export function Callout({ type = "info", title, children, className }: CalloutPr
         type === "warning" && "before:bg-amber-400/60",
         type === "danger"  && "before:bg-rose-400/60",
         type === "success" && "before:bg-emerald-400/60",
-        type === "tip"     && "before:bg-violet-400/60",
+        type === "tip"     && "before:bg-zinc-400/60",
         className
       )}
       role={type === "danger" || type === "warning" ? "alert" : undefined}

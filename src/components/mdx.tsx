@@ -17,8 +17,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
       <h1
         className={cn(
-          "mt-10 mb-4 scroll-mt-20 text-3xl font-bold tracking-tight",
-          "text-transparent bg-clip-text bg-gradient-to-br from-zinc-900 to-zinc-600 dark:from-zinc-100 dark:to-zinc-400",
+          "mt-10 mb-4 scroll-mt-20 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50",
           className
         )}
         {...props}
@@ -60,8 +59,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     a: ({ className, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
       <a
         className={cn(
-          "font-medium text-violet-600 dark:text-violet-400 underline underline-offset-2 decoration-violet-500/30",
-          "hover:text-violet-500 hover:decoration-violet-400/60 transition-colors",
+          "font-medium text-zinc-900 dark:text-zinc-50 underline underline-offset-2 decoration-zinc-500/30 hover:decoration-zinc-500/60 transition-colors",
           className
         )}
         {...props}
@@ -77,8 +75,8 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
       return (
         <code
           className={cn(
-            "relative rounded-md px-1.5 py-0.5 font-mono text-[0.8em]",
-            "text-violet-600 dark:text-violet-300 bg-violet-500/[0.05] dark:bg-violet-500/[0.1] border border-violet-500/10 dark:border-violet-500/20",
+            "relative rounded-md px-1.5 py-0.5 font-mono text-[0.85em]",
+            "text-zinc-900 dark:text-zinc-50 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700",
             className
           )}
           {...props}
@@ -93,7 +91,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
         className={cn(
           "my-4 ml-4 list-none space-y-2 text-zinc-600 dark:text-zinc-400 text-[0.9375rem]",
           "[&>li]:relative [&>li]:pl-4",
-          "[&>li::before]:absolute [&>li::before]:left-0 [&>li::before]:top-2.5 [&>li::before]:h-1 [&>li::before]:w-1 [&>li::before]:rounded-full [&>li::before]:bg-violet-500/60 [&>li::before]:content-['']",
+          "[&>li::before]:absolute [&>li::before]:left-0 [&>li::before]:top-2.5 [&>li::before]:h-1 [&>li::before]:w-1 [&>li::before]:rounded-full [&>li::before]:bg-zinc-400 dark:[&>li::before]:bg-zinc-650 [&>li::before]:content-['']",
           className
         )}
         {...props}
@@ -111,8 +109,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     blockquote: ({ className, ...props }: React.HTMLAttributes<HTMLQuoteElement>) => (
       <blockquote
         className={cn(
-          "my-6 rounded-r-xl border-l-2 border-violet-500/40 pl-5 italic",
-          "bg-violet-500/[0.02] dark:bg-violet-500/[0.04] py-3 pr-4",
+          "my-6 border-l-2 border-zinc-300 dark:border-zinc-700 pl-4 italic",
           "text-zinc-600 dark:text-zinc-400",
           className
         )}

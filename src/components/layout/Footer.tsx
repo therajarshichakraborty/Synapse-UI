@@ -59,18 +59,14 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full bg-zinc-50 dark:bg-zinc-950 text-zinc-600 dark:text-zinc-400 pt-16 pb-8 relative overflow-hidden">
-      {/* Ambient background glows for footer */}
-      <div className="absolute top-0 left-1/4 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
-
+    <footer className="w-full bg-white dark:bg-background text-zinc-600 dark:text-zinc-400 pt-16 pb-8 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr] gap-10 lg:gap-8 pb-12 border-b border-zinc-200 dark:border-zinc-900">
           {/* Brand Info & Newsletter */}
           <div className="space-y-6 lg:pr-6">
             <div className="flex items-center gap-2 text-zinc-950 dark:text-white font-bold text-lg">
-              <div className="w-8 h-8 rounded-xl bg-linear-to-tr from-rose-500 to-indigo-600 flex items-center justify-center">
-                <Bot className="w-4 h-4 text-white" />
+              <div className="w-8 h-8 rounded-xl bg-zinc-900 dark:bg-zinc-100 flex items-center justify-center">
+                <Bot className="w-4 h-4 text-white dark:text-zinc-900" />
               </div>
               <span className="tracking-tight">Synapse UI</span>
             </div>

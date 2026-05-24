@@ -13,124 +13,124 @@
 @layer fumadocs {
   /* ── Core background / surface tokens ───────────────────────────────── */
   :root {
-    --fd-background:          #faf9fe;
-    --fd-foreground:          oklch(0.205 0 0);
+    --fd-background:          #ffffff;
+    --fd-foreground:          #09090b;
 
-    --fd-muted:               rgba(139, 92, 246, 0.04);
-    --fd-muted-foreground:    oklch(0.556 0 0);
+    --fd-muted:               #f4f4f5;
+    --fd-muted-foreground:    #71717a;
 
     --fd-popover:             #ffffff;
-    --fd-popover-foreground:  oklch(0.205 0 0);
+    --fd-popover-foreground:  #09090b;
 
-    --fd-card:                rgba(139, 92, 246, 0.015);
-    --fd-card-foreground:     oklch(0.205 0 0);
+    --fd-card:                #ffffff;
+    --fd-card-foreground:     #09090b;
 
-    --fd-border:              rgba(139, 92, 246, 0.1);
-    --fd-input:               rgba(139, 92, 246, 0.1);
-    --fd-ring:                rgba(139, 92, 246, 0.3);
+    --fd-border:              #e4e4e7;
+    --fd-input:               #e4e4e7;
+    --fd-ring:                #18181b;
 
-    /* Primary = violet brand */
-    --fd-primary:             oklch(0.62 0.26 290);
+    /* Primary = dark zinc */
+    --fd-primary:             #18181b;
     --fd-primary-foreground:  #ffffff;
 
-    --fd-secondary:           rgba(139, 92, 246, 0.06);
-    --fd-secondary-foreground: oklch(0.205 0 0);
+    --fd-secondary:           #f4f4f5;
+    --fd-secondary-foreground: #18181b;
 
-    --fd-accent:              rgba(139, 92, 246, 0.08);
-    --fd-accent-foreground:   oklch(0.52 0.18 290);
+    --fd-accent:              #f4f4f5;
+    --fd-accent-foreground:   #18181b;
 
-    --fd-destructive:         oklch(0.577 0.245 27.325);
+    --fd-destructive:         #ef4444;
 
     /* Sidebar */
-    --fd-sidebar:             #f5f4fa;
-    --fd-sidebar-foreground:  oklch(0.205 0 0);
-    --fd-sidebar-border:      rgba(139, 92, 246, 0.08);
-    --fd-sidebar-accent:      rgba(139, 92, 246, 0.06);
-    --fd-sidebar-accent-foreground: oklch(0.52 0.18 290);
+    --fd-sidebar:             #fafafa;
+    --fd-sidebar-foreground:  #09090b;
+    --fd-sidebar-border:      #e4e4e7;
+    --fd-sidebar-accent:      #f4f4f5;
+    --fd-sidebar-accent-foreground: #18181b;
 
     /* Scrollbar */
-    --fd-scrollbar:           rgba(0, 0, 0, 0.05);
-    --fd-scrollbar-thumb:     rgba(139, 92, 246, 0.25);
+    --fd-scrollbar:           transparent;
+    --fd-scrollbar-thumb:     #e4e4e7;
   }
 
   .dark {
-    --fd-background:          #09001a;
-    --fd-foreground:          oklch(0.96 0 0);
+    --fd-background:          #09090b;
+    --fd-foreground:          #fafafa;
 
-    --fd-muted:               rgba(255, 255, 255, 0.04);
-    --fd-muted-foreground:    oklch(0.62 0.03 275);
+    --fd-muted:               #18181b;
+    --fd-muted-foreground:    #a1a1aa;
 
-    --fd-popover:             #110028;
-    --fd-popover-foreground:  oklch(0.96 0 0);
+    --fd-popover:             #09090b;
+    --fd-popover-foreground:  #fafafa;
 
-    --fd-card:                rgba(255, 255, 255, 0.025);
-    --fd-card-foreground:     oklch(0.96 0 0);
+    --fd-card:                #09090b;
+    --fd-card-foreground:     #fafafa;
 
-    --fd-border:              rgba(255, 255, 255, 0.07);
-    --fd-input:               rgba(255, 255, 255, 0.08);
-    --fd-ring:                rgba(139, 92, 246, 0.5);
+    --fd-border:              #27272a;
+    --fd-input:               #27272a;
+    --fd-ring:                #fafafa;
 
-    /* Primary = violet brand */
-    --fd-primary:             oklch(0.62 0.26 290);
-    --fd-primary-foreground:  oklch(0.98 0 0);
+    /* Primary = light zinc */
+    --fd-primary:             #fafafa;
+    --fd-primary-foreground:  #09090b;
 
-    --fd-secondary:           rgba(255, 255, 255, 0.06);
-    --fd-secondary-foreground: oklch(0.96 0 0);
+    --fd-secondary:           #18181b;
+    --fd-secondary-foreground: #fafafa;
 
-    --fd-accent:              rgba(139, 92, 246, 0.12);
-    --fd-accent-foreground:   oklch(0.82 0.14 290);
+    --fd-accent:              #18181b;
+    --fd-accent-foreground:   #fafafa;
 
-    --fd-destructive:         oklch(0.65 0.24 10);
+    --fd-destructive:         #7f1d1d;
 
     /* Sidebar */
-    --fd-sidebar:             rgba(13, 0, 32, 0.95);
-    --fd-sidebar-foreground:  oklch(0.96 0 0);
-    --fd-sidebar-border:      rgba(255, 255, 255, 0.06);
-    --fd-sidebar-accent:      rgba(139, 92, 246, 0.1);
-    --fd-sidebar-accent-foreground: oklch(0.82 0.14 290);
+    --fd-sidebar:             #09090b;
+    --fd-sidebar-foreground:  #fafafa;
+    --fd-sidebar-border:      #27272a;
+    --fd-sidebar-accent:      #18181b;
+    --fd-sidebar-accent-foreground: #fafafa;
 
     /* Scrollbar */
-    --fd-scrollbar:           rgba(255, 255, 255, 0.08);
-    --fd-scrollbar-thumb:     rgba(139, 92, 246, 0.3);
+    --fd-scrollbar:           transparent;
+    --fd-scrollbar-thumb:     #27272a;
   }
 
   /* ── Typography overrides ────────────────────────────────────────────── */
   .fd-prose {
-    --fd-prose-body:          oklch(0.45 0.01 270);
-    --fd-prose-headings:      oklch(0.205 0 0);
-    --fd-prose-lead:          oklch(0.35 0.01 270);
-    --fd-prose-links:         oklch(0.62 0.26 290);
-    --fd-prose-bold:          oklch(0.205 0 0);
-    --fd-prose-counters:      oklch(0.556 0 0);
-    --fd-prose-bullets:       oklch(0.556 0 0);
-    --fd-prose-hr:            rgba(139, 92, 246, 0.1);
-    --fd-prose-quotes:        oklch(0.205 0 0);
-    --fd-prose-quote-borders: oklch(0.62 0.26 290);
-    --fd-prose-captions:      oklch(0.556 0 0);
-    --fd-prose-code:          oklch(0.62 0.26 290);
-    --fd-prose-pre-code:      oklch(0.205 0 0);
-    --fd-prose-pre-bg:        rgba(0, 0, 0, 0.03);
-    --fd-prose-th-borders:    rgba(139, 92, 246, 0.15);
-    --fd-prose-td-borders:    rgba(139, 92, 246, 0.08);
+    --fd-prose-body:          var(--fd-foreground);
+    --fd-prose-headings:      var(--fd-foreground);
+    --fd-prose-lead:          var(--fd-muted-foreground);
+    --fd-prose-links:         var(--fd-foreground);
+    --fd-prose-bold:          var(--fd-foreground);
+    --fd-prose-counters:      var(--fd-muted-foreground);
+    --fd-prose-bullets:       var(--fd-muted-foreground);
+    --fd-prose-hr:            var(--fd-border);
+    --fd-prose-quotes:        var(--fd-foreground);
+    --fd-prose-quote-borders: var(--fd-border);
+    --fd-prose-captions:      var(--fd-muted-foreground);
+    --fd-prose-code:          var(--fd-foreground);
+    --fd-prose-pre-code:      var(--fd-foreground);
+    --fd-prose-pre-bg:        var(--fd-muted);
+    --fd-prose-th-borders:    var(--fd-border);
+    --fd-prose-td-borders:    var(--fd-border);
   }
 
   .dark .fd-prose {
-    --fd-prose-body:          oklch(0.82 0.01 270);
-    --fd-prose-headings:      oklch(0.96 0 0);
-    --fd-prose-lead:          oklch(0.72 0.02 270);
-    --fd-prose-links:         oklch(0.72 0.22 290);
-    --fd-prose-bold:          oklch(0.96 0 0);
-    --fd-prose-counters:      oklch(0.62 0.03 275);
-    --fd-prose-bullets:       oklch(0.42 0.03 275);
-    --fd-prose-hr:            rgba(255, 255, 255, 0.08);
-    --fd-prose-quotes:        oklch(0.96 0 0);
-    --fd-prose-quote-borders: oklch(0.62 0.26 290);
-    --fd-prose-captions:      oklch(0.62 0.03 275);
-    --fd-prose-code:          oklch(0.82 0.14 290);
-    --fd-prose-pre-code:      oklch(0.92 0 0);
-    --fd-prose-pre-bg:        rgba(0, 0, 0, 0.5);
-    --fd-prose-th-borders:    rgba(255, 255, 255, 0.1);
-    --fd-prose-td-borders:    rgba(255, 255, 255, 0.06);
+    --fd-prose-body:          var(--fd-foreground);
+    --fd-prose-headings:      var(--fd-foreground);
+    --fd-prose-lead:          var(--fd-muted-foreground);
+    --fd-prose-links:         var(--fd-foreground);
+    --fd-prose-bold:          var(--fd-foreground);
+    --fd-prose-counters:      var(--fd-muted-foreground);
+    --fd-prose-bullets:       var(--fd-muted-foreground);
+    --fd-prose-hr:            var(--fd-border);
+    --fd-prose-quotes:        var(--fd-foreground);
+    --fd-prose-quote-borders: var(--fd-border);
+    --fd-prose-captions:      var(--fd-muted-foreground);
+    --fd-prose-code:          var(--fd-foreground);
+    --fd-prose-pre-code:      var(--fd-foreground);
+    --fd-prose-pre-bg:        var(--fd-muted);
+    --fd-prose-th-borders:    var(--fd-border);
+    --fd-prose-td-borders:    var(--fd-border);
   }
 
   /* ── Scrollbar (webkit) ──────────────────────────────────────────────── */
@@ -144,11 +144,11 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: rgba(139, 92, 246, 0.25);
+    background: var(--fd-border);
     border-radius: 999px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(139, 92, 246, 0.45);
+    background: var(--fd-muted-foreground);
   }
 }

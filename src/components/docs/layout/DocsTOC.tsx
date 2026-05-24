@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import type { TOCItemType } from "fumadocs-core/toc";
 
@@ -58,30 +57,22 @@ export function DocsTOC({ items }: DocsTOCProps) {
       <p className="mb-3 px-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-zinc-600">
         On this page
       </p>
-      <nav className="relative space-y-0.5">
-        {/* Animated active bar */}
+      <nav className="relative space-y-1.5 border-l border-zinc-200 dark:border-zinc-800 pl-4 py-0.5">
         {items.map((item) => {
           const isActive = activeId === item.url.slice(1);
           const depth = item.depth ?? 2;
 
           return (
             <div key={item.url} className="relative">
-              {isActive && (
-                <motion.div
-                  layoutId="toc-active-bar"
-                  className="absolute left-0 inset-y-0 w-0.5 rounded-full bg-violet-400"
-                  transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                />
-              )}
               <button
                 onClick={() => scrollTo(item.url)}
                 className={cn(
-                  "w-full text-left px-3 py-1.5 rounded-md text-xs transition-all duration-200",
-                  depth === 3 && "pl-5 text-[11px]",
-                  depth === 4 && "pl-7 text-[11px]",
+                  "w-full text-left py-0.5 text-xs transition-all duration-150 block truncate",
+                  depth === 3 && "pl-3 text-[11px]",
+                  depth === 4 && "pl-5 text-[11px]",
                   isActive
-                    ? "text-violet-600 dark:text-violet-300 font-medium"
-                    : "text-zinc-500 hover:text-zinc-800 dark:text-zinc-600 dark:hover:text-zinc-300"
+                    ? "text-zinc-950 dark:text-zinc-50 font-medium -ml-[17px] pl-[16px] border-l border-zinc-900 dark:border-zinc-50"
+                    : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
                 )}
               >
                 {item.title}

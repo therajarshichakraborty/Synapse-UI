@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { Check, Copy, Terminal } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -70,7 +70,38 @@ export function PremiumCodeBlock({
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const resolvedLang = lang ?? className?.replace(/language-/, "") ?? "";
+  // 1. Try to find the language from the "data-language" or "lang" prop first.
+  let resolvedLang = lang || "";
+
+  // 2. If not found, try to extract it from the class names of the current element.
+  if (!resolvedLang && className) {
+    const match = className.split(" ").find((c) => c.startsWith("language-"));
+    if (match) {
+      resolvedLang = match.replace("language-", "");
+    }
+  }
+
+  // 3. If still not found, check if there's a <code> child and extract it from its classes.
+  if (!resolvedLang && children) {
+    React.Children.forEach(children, (child) => {
+      if (React.isValidElement(child) && typeof child.props === "object" && child.props !== null) {
+        const childClass = (child.props as any).className;
+        if (typeof childClass === "string") {
+          const match = childClass.split(" ").find((c: string) => c.startsWith("language-"));
+          if (match) {
+            resolvedLang = match.replace("language-", "");
+          }
+        }
+      }
+    });
+  }
+
+  // 4. Clean up resolvedLang (ensure we don't return shiki theme classes or other generic classes)
+  const shikiGenericClasses = ["shiki", "shiki-themes", "github-light", "github-dark"];
+  if (shikiGenericClasses.includes(resolvedLang.toLowerCase()) || resolvedLang.includes(" ")) {
+    resolvedLang = "";
+  }
+
   const label = languageLabels[resolvedLang] ?? resolvedLang.toUpperCase();
   const badgeColor = languageColors[resolvedLang] ?? "text-zinc-400 bg-zinc-500/10 border-zinc-500/20";
   const isBash = resolvedLang === "bash" || resolvedLang === "sh";
@@ -78,18 +109,15 @@ export function PremiumCodeBlock({
   return (
     <div
       className={cn(
-        "relative my-6 rounded-xl overflow-hidden",
-        "border border-white/[0.08]",
-        "bg-[#0a0014]/80 backdrop-blur-md",
-        "shadow-[0_4px_40px_rgba(0,0,0,0.4)]",
+        "relative my-6 rounded-lg overflow-hidden",
+        "border border-zinc-800",
+        "bg-zinc-950",
+        "shadow-md",
         "group"
       )}
     >
-      {/* Gradient top border */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-violet-500/50 via-fuchsia-500/30 to-transparent" />
-
       {/* Header bar */}
-      <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.06] bg-white/[0.02]">
+      <div className="flex items-center justify-between px-4 py-2.5 border-b border-zinc-800 bg-zinc-900/30">
         <div className="flex items-center gap-2.5">
           {isBash && <Terminal className="h-3.5 w-3.5 text-green-400" />}
           {filename ? (

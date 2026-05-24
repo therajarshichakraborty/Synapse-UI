@@ -97,18 +97,18 @@ export function DocsSearch() {
             <motion.div
               className={cn(
                 "fixed left-1/2 top-[15%] z-[101] w-full max-w-xl -translate-x-1/2",
-                "rounded-2xl border border-[var(--fd-border)] bg-[var(--fd-popover)]/95 backdrop-blur-2xl text-[var(--fd-foreground)]",
-                "shadow-[0_0_80px_rgba(139,92,246,0.15),0_25px_50px_rgba(0,0,0,0.5)]",
+                "rounded-lg border border-[var(--fd-border)] bg-[var(--fd-popover)] text-[var(--fd-foreground)]",
+                "shadow-2xl",
                 "overflow-hidden"
               )}
-              initial={{ opacity: 0, y: -20, scale: 0.96 }}
+              initial={{ opacity: 0, y: -20, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -12, scale: 0.97 }}
-              transition={{ duration: 0.22, ease: [0.25, 0.46, 0.45, 0.94] }}
+              exit={{ opacity: 0, y: -12, scale: 0.98 }}
+              transition={{ duration: 0.15, ease: "easeOut" }}
             >
               {/* Input row */}
               <div className="flex items-center gap-3 border-b border-[var(--fd-border)] px-4 py-3">
-                <Search className="h-4 w-4 text-zinc-500 shrink-0" />
+                <Search className="h-4 w-4 text-zinc-400 dark:text-zinc-500 shrink-0" />
                 <input
                   ref={inputRef}
                   value={query}
@@ -116,13 +116,13 @@ export function DocsSearch() {
                   placeholder="Search documentation…"
                   className={cn(
                     "flex-1 bg-transparent text-sm text-[var(--fd-foreground)] placeholder-zinc-400 dark:placeholder-zinc-600",
-                    "outline-none border-none ring-0 caret-violet-400"
+                    "outline-none border-none ring-0 caret-zinc-950 dark:caret-zinc-50"
                   )}
                 />
                 {query && (
                   <button
                     onClick={() => handleSearch("")}
-                    className="p-1 rounded-md hover:bg-black/[0.04] dark:hover:bg-white/[0.06] text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300 transition-colors"
+                    className="p-1 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-900 text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300 transition-colors"
                   >
                     <X className="h-3.5 w-3.5" />
                   </button>
@@ -157,13 +157,13 @@ export function DocsSearch() {
                       key={result.id}
                       onClick={() => handleSelect(result.url)}
                       className={cn(
-                        "w-full flex items-center gap-3 px-3 py-2.5 rounded-xl",
-                        "text-left hover:bg-black/[0.03] dark:hover:bg-white/[0.05] transition-colors group",
-                        "border border-transparent hover:border-black/[0.04] dark:hover:border-white/[0.06]"
+                        "w-full flex items-center gap-3 px-3 py-2 rounded-lg",
+                        "text-left hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors group",
+                        "border border-transparent"
                       )}
                     >
-                      <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-violet-500/10 border border-violet-500/20 shrink-0">
-                        <FileText className="h-3.5 w-3.5 text-violet-400" />
+                      <div className="flex h-7 w-7 items-center justify-center rounded-md bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shrink-0">
+                        <FileText className="h-3.5 w-3.5 text-zinc-500 dark:text-zinc-400" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-zinc-800 dark:text-zinc-200 truncate">
@@ -183,7 +183,7 @@ export function DocsSearch() {
 
                 {results === "loading" && (
                   <div className="py-6 flex justify-center">
-                    <div className="h-5 w-5 rounded-full border-2 border-violet-500/30 border-t-violet-500 animate-spin" />
+                    <div className="h-5 w-5 rounded-full border-2 border-zinc-500/20 border-t-zinc-950 dark:border-zinc-800/20 dark:border-t-zinc-200 animate-spin" />
                   </div>
                 )}
               </div>

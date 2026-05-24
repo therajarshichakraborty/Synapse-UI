@@ -36,11 +36,11 @@ export function Step({ title, children, className }: StepProps) {
       {/* Vertical connector line */}
       <div className="flex flex-col items-center">
         {/* Numbered circle */}
-        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-violet-500/20 dark:border-violet-500/30 bg-violet-500/5 dark:bg-violet-500/10 text-xs font-bold text-violet-600 dark:text-violet-300 z-10 counter-item">
+        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-850 bg-zinc-50 dark:bg-zinc-900 text-xs font-bold text-zinc-900 dark:text-zinc-100 z-10 counter-item">
           <span>●</span>
         </div>
         {/* Connector */}
-        <div className="mt-2 flex-1 w-px bg-gradient-to-b from-violet-500/25 dark:from-violet-500/30 to-transparent group-last:hidden" />
+        <div className="mt-2 flex-1 w-px bg-gradient-to-b from-zinc-200 dark:from-zinc-800 to-transparent group-last:hidden" />
       </div>
 
       {/* Content */}

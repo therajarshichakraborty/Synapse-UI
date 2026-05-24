@@ -1,4 +1,3 @@
-import { AnimatedGradient } from "@/components/motion/AnimatedGradient";
 import { DocsHeader } from "./DocsHeader";
 import { DocsSidebar } from "./DocsSidebar";
 import * as PageTree from "fumadocs-core/page-tree";
@@ -17,9 +16,6 @@ interface DocsShellProps {
 export function DocsShell({ children, tree }: DocsShellProps) {
   return (
     <div className="relative min-h-screen bg-[var(--fd-background)] text-[var(--fd-foreground)] transition-colors duration-200">
-      {/* Shared animated gradient background */}
-      <AnimatedGradient className="fixed" intensity={0.7} />
-
       {/* Sticky header */}
       <DocsHeader />
 
