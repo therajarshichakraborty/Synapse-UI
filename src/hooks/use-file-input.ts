@@ -29,7 +29,11 @@ export function useFileInput({ accept = "*", maxSize = 10 }: UseFileInputOptions
 
       if (accept !== "*" && accept !== "image/*") {
         const types = accept.split(",").map((t) => t.trim());
-        if (!types.some((t) => file.type === t || file.name.toLowerCase().endsWith(t.replace(".", "")))) {
+        if (
+          !types.some(
+            (t) => file.type === t || file.name.toLowerCase().endsWith(t.replace(".", "")),
+          )
+        ) {
           setError(`File type not accepted. Expected: ${accept}`);
           return;
         }

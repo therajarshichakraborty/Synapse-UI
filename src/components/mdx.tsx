@@ -18,7 +18,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
       <h1
         className={cn(
           "mt-10 mb-4 scroll-mt-20 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50",
-          className
+          className,
         )}
         {...props}
       />
@@ -28,7 +28,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
         className={cn(
           "mt-10 mb-3 scroll-mt-20 text-xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-200",
           "border-b border-zinc-200/80 dark:border-white/[0.06] pb-2",
-          className
+          className,
         )}
         {...props}
       />
@@ -37,7 +37,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
       <h3
         className={cn(
           "mt-7 mb-2.5 scroll-mt-20 text-base font-semibold text-zinc-800 dark:text-zinc-300",
-          className
+          className,
         )}
         {...props}
       />
@@ -46,7 +46,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
       <h4
         className={cn(
           "mt-5 mb-2 scroll-mt-20 text-sm font-semibold uppercase tracking-wide text-zinc-600 dark:text-zinc-400",
-          className
+          className,
         )}
         {...props}
       />
@@ -54,19 +54,28 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
 
     // ── Prose body overrides ──────────────────────
     p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
-      <p className={cn("my-4 leading-7 text-zinc-600 dark:text-zinc-400 text-[0.9375rem]", className)} {...props} />
+      <p
+        className={cn(
+          "my-4 leading-7 text-zinc-600 dark:text-zinc-400 text-[0.9375rem]",
+          className,
+        )}
+        {...props}
+      />
     ),
     a: ({ className, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
       <a
         className={cn(
           "font-medium text-zinc-900 dark:text-zinc-50 underline underline-offset-2 decoration-zinc-500/30 hover:decoration-zinc-500/60 transition-colors",
-          className
+          className,
         )}
         {...props}
       />
     ),
     strong: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
-      <strong className={cn("font-semibold text-zinc-900 dark:text-zinc-200", className)} {...props} />
+      <strong
+        className={cn("font-semibold text-zinc-900 dark:text-zinc-200", className)}
+        {...props}
+      />
     ),
     code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => {
       const isBlock =
@@ -79,7 +88,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
           className={cn(
             "relative rounded-md px-1.5 py-0.5 font-mono text-[0.85em]",
             "text-zinc-900 dark:text-zinc-50 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700",
-            className
+            className,
           )}
           {...props}
         />
@@ -94,14 +103,17 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
           "my-4 ml-4 list-none space-y-2 text-zinc-600 dark:text-zinc-400 text-[0.9375rem]",
           "[&>li]:relative [&>li]:pl-4",
           "[&>li::before]:absolute [&>li::before]:left-0 [&>li::before]:top-2.5 [&>li::before]:h-1 [&>li::before]:w-1 [&>li::before]:rounded-full [&>li::before]:bg-zinc-400 dark:[&>li::before]:bg-zinc-650 [&>li::before]:content-['']",
-          className
+          className,
         )}
         {...props}
       />
     ),
     ol: ({ className, ...props }: React.HTMLAttributes<HTMLOListElement>) => (
       <ol
-        className={cn("my-4 ml-5 list-decimal space-y-2 text-zinc-600 dark:text-zinc-400 text-[0.9375rem]", className)}
+        className={cn(
+          "my-4 ml-5 list-decimal space-y-2 text-zinc-600 dark:text-zinc-400 text-[0.9375rem]",
+          className,
+        )}
         {...props}
       />
     ),
@@ -113,14 +125,17 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
         className={cn(
           "my-6 border-l-2 border-zinc-300 dark:border-zinc-700 pl-4 italic",
           "text-zinc-600 dark:text-zinc-400",
-          className
+          className,
         )}
         {...props}
       />
     ),
     table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
       <div className="my-4 overflow-x-auto rounded-xl border border-zinc-200 dark:border-white/[0.07] bg-transparent p-0">
-        <table className={cn("w-full text-sm bg-transparent m-0 border-collapse", className)} {...props} />
+        <table
+          className={cn("w-full text-sm bg-transparent m-0 border-collapse", className)}
+          {...props}
+        />
       </div>
     ),
     th: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
@@ -128,7 +143,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
         className={cn(
           "px-4 py-2 text-left text-xs font-semibold uppercase tracking-wider text-zinc-500",
           "border-b border-zinc-200 dark:border-white/[0.07]",
-          className
+          className,
         )}
         {...props}
       />
@@ -137,14 +152,17 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
       <td
         className={cn(
           "px-4 py-2 text-zinc-600 dark:text-zinc-400 border-b border-zinc-100 dark:border-white/[0.04]",
-          className
+          className,
         )}
         {...props}
       />
     ),
     hr: ({ className, ...props }: React.HTMLAttributes<HTMLHRElement>) => (
       <hr
-        className={cn("my-10 border-0 h-px bg-gradient-to-r from-transparent via-zinc-200 dark:via-white/[0.08] to-transparent", className)}
+        className={cn(
+          "my-10 border-0 h-px bg-gradient-to-r from-transparent via-zinc-200 dark:via-white/[0.08] to-transparent",
+          className,
+        )}
         {...props}
       />
     ),

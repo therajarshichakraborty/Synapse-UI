@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 
 const pillBadgeVariants = cva(
   "inline-flex w-fit items-center justify-center rounded-full font-medium transition-all duration-200",
@@ -33,14 +33,13 @@ const pillBadgeVariants = cva(
       variant: "primary",
       state: "default",
     },
-  }
-)
+  },
+);
 
 interface PillBadgeProps
-  extends React.HTMLAttributes<HTMLSpanElement>,
-    VariantProps<typeof pillBadgeVariants> {
-  leftIcon?: React.ReactNode
-  rightIcon?: React.ReactNode
+  extends React.HTMLAttributes<HTMLSpanElement>, VariantProps<typeof pillBadgeVariants> {
+  leftIcon?: React.ReactNode;
+  rightIcon?: React.ReactNode;
 }
 
 function PillBadge({
@@ -54,15 +53,12 @@ function PillBadge({
   ...props
 }: PillBadgeProps) {
   return (
-    <span
-      className={cn(pillBadgeVariants({ size, variant, state }), className)}
-      {...props}
-    >
+    <span className={cn(pillBadgeVariants({ size, variant, state }), className)} {...props}>
       {leftIcon && <span className="[&>svg]:h-3.5 [&>svg]:w-3.5">{leftIcon}</span>}
       {children}
       {rightIcon && <span className="[&>svg]:h-3.5 [&>svg]:w-3.5">{rightIcon}</span>}
     </span>
-  )
+  );
 }
 
-export { PillBadge, pillBadgeVariants }
+export { PillBadge, pillBadgeVariants };

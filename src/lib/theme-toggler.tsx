@@ -77,7 +77,7 @@ export const AnimatedThemeToggler = ({
       suppressHydrationWarning
       {...props}
     >
-      {mounted ? (isDark ? <Sun /> : <Moon />) : <Moon className="opacity-0" />}
+      {mounted ? isDark ? <Sun /> : <Moon /> : <Moon className="opacity-0" />}
       <span className="sr-only">Toggle theme</span>
     </button>
   );

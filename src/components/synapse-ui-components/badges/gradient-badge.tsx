@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 
 const gradientBadgeVariants = cva(
   "inline-flex w-fit items-center justify-center rounded-md px-3 py-1 text-xs font-semibold text-white transition-all duration-300",
@@ -35,22 +35,28 @@ const gradientBadgeVariants = cva(
       gradient: "sunset",
       state: "default",
     },
-  }
-)
+  },
+);
 
 interface GradientBadgeProps
-  extends React.HTMLAttributes<HTMLSpanElement>,
-    VariantProps<typeof gradientBadgeVariants> {
-  shimmer?: boolean
+  extends React.HTMLAttributes<HTMLSpanElement>, VariantProps<typeof gradientBadgeVariants> {
+  shimmer?: boolean;
 }
 
-function GradientBadge({ className, gradient, state, shimmer = false, children, ...props }: GradientBadgeProps) {
+function GradientBadge({
+  className,
+  gradient,
+  state,
+  shimmer = false,
+  children,
+  ...props
+}: GradientBadgeProps) {
   return (
     <span
       className={cn(
         gradientBadgeVariants({ gradient, state }),
         shimmer && state !== "disabled" && "relative overflow-hidden",
-        className
+        className,
       )}
       {...props}
     >
@@ -68,7 +74,7 @@ function GradientBadge({ className, gradient, state, shimmer = false, children, 
       )}
       <span className="relative">{children}</span>
     </span>
-  )
+  );
 }
 
-export { GradientBadge, gradientBadgeVariants }
+export { GradientBadge, gradientBadgeVariants };

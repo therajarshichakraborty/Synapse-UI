@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import * as TooltipPrimitive from "@radix-ui/react-tooltip"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import * as TooltipPrimitive from "@radix-ui/react-tooltip";
+import { cn } from "@/lib/utils";
 
 interface ProgressTooltipProps {
-  children: React.ReactNode
-  label: string
-  value: number
-  max?: number
-  showPercentage?: boolean
-  color?: "default" | "success" | "warning" | "error"
-  side?: "top" | "right" | "bottom" | "left"
-  className?: string
+  children: React.ReactNode;
+  label: string;
+  value: number;
+  max?: number;
+  showPercentage?: boolean;
+  color?: "default" | "success" | "warning" | "error";
+  side?: "top" | "right" | "bottom" | "left";
+  className?: string;
 }
 
 const colorMap = {
@@ -20,7 +20,7 @@ const colorMap = {
   success: "bg-emerald-500",
   warning: "bg-amber-500",
   error: "bg-red-500",
-}
+};
 
 export function ProgressTooltip({
   children,
@@ -32,7 +32,7 @@ export function ProgressTooltip({
   side = "top",
   className,
 }: ProgressTooltipProps) {
-  const percentage = Math.min(Math.max((value / max) * 100, 0), 100)
+  const percentage = Math.min(Math.max((value / max) * 100, 0), 100);
 
   return (
     <TooltipPrimitive.Provider delayDuration={200}>
@@ -46,7 +46,7 @@ export function ProgressTooltip({
               "z-50 w-48 rounded-lg bg-foreground p-3 text-background shadow-lg",
               "animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
               "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
-              className
+              className,
             )}
           >
             <div className="flex items-center justify-between mb-2">
@@ -72,5 +72,5 @@ export function ProgressTooltip({
         </TooltipPrimitive.Portal>
       </TooltipPrimitive.Root>
     </TooltipPrimitive.Provider>
-  )
+  );
 }

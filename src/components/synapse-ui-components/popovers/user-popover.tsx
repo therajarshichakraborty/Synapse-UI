@@ -1,29 +1,29 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import * as PopoverPrimitive from "@radix-ui/react-popover"
-import { cn } from "@/lib/utils"
-import { MapPin, Calendar, Link as LinkIcon, Mail } from "lucide-react"
+import * as React from "react";
+import * as PopoverPrimitive from "@radix-ui/react-popover";
+import { cn } from "@/lib/utils";
+import { MapPin, Calendar, Link as LinkIcon, Mail } from "lucide-react";
 
 interface UserPopoverProps {
-  children: React.ReactNode
+  children: React.ReactNode;
   user?: {
-    name: string
-    username?: string
-    avatar?: string
-    bio?: string
-    location?: string
-    joinDate?: string
-    website?: string
-    email?: string
+    name: string;
+    username?: string;
+    avatar?: string;
+    bio?: string;
+    location?: string;
+    joinDate?: string;
+    website?: string;
+    email?: string;
     stats?: {
-      label: string
-      value: string | number
-    }[]
-  }
-  side?: "top" | "right" | "bottom" | "left"
-  className?: string
-  actions?: React.ReactNode
+      label: string;
+      value: string | number;
+    }[];
+  };
+  side?: "top" | "right" | "bottom" | "left";
+  className?: string;
+  actions?: React.ReactNode;
 }
 
 export function UserPopover({
@@ -45,12 +45,12 @@ export function UserPopover({
             "z-50 w-80 rounded-xl border border-border bg-card shadow-xl overflow-hidden",
             "animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
             "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
-            className
+            className,
           )}
         >
           {/* Header with gradient */}
           <div className="h-16 bg-gradient-to-r from-primary/20 via-primary/10 to-transparent" />
-          
+
           {/* Avatar overlapping header */}
           <div className="px-4 -mt-10">
             <div className="relative inline-block">
@@ -73,17 +73,13 @@ export function UserPopover({
             <div className="flex items-start justify-between gap-2">
               <div>
                 <h4 className="font-semibold text-card-foreground">{user.name}</h4>
-                {user.username && (
-                  <p className="text-sm text-muted-foreground">@{user.username}</p>
-                )}
+                {user.username && <p className="text-sm text-muted-foreground">@{user.username}</p>}
               </div>
               {actions}
             </div>
 
             {user.bio && (
-              <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
-                {user.bio}
-              </p>
+              <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{user.bio}</p>
             )}
 
             {/* Meta info */}
@@ -128,13 +124,9 @@ export function UserPopover({
                 {user.stats.map((stat, index) => (
                   <div key={index}>
                     <span className="font-semibold text-card-foreground">
-                      {typeof stat.value === "number"
-                        ? stat.value.toLocaleString()
-                        : stat.value}
+                      {typeof stat.value === "number" ? stat.value.toLocaleString() : stat.value}
                     </span>
-                    <span className="ml-1 text-xs text-muted-foreground">
-                      {stat.label}
-                    </span>
+                    <span className="ml-1 text-xs text-muted-foreground">{stat.label}</span>
                   </div>
                 ))}
               </div>
@@ -143,5 +135,5 @@ export function UserPopover({
         </PopoverPrimitive.Content>
       </PopoverPrimitive.Portal>
     </PopoverPrimitive.Root>
-  )
+  );
 }

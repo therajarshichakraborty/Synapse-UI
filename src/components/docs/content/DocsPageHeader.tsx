@@ -11,10 +11,10 @@ interface DocsPageHeaderProps {
 }
 
 const badgeStyles = {
-  new:        "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
-  beta:       "bg-amber-500/10  text-amber-700  dark:text-amber-400  border-amber-500/20",
+  new: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
+  beta: "bg-amber-500/10  text-amber-700  dark:text-amber-400  border-amber-500/20",
   deprecated: "bg-red-500/10    text-red-600    dark:text-red-400    border-red-500/20",
-  updated:    "bg-blue-500/10   text-blue-600   dark:text-blue-400   border-blue-500/20",
+  updated: "bg-blue-500/10   text-blue-600   dark:text-blue-400   border-blue-500/20",
 };
 
 /**
@@ -40,7 +40,7 @@ export function DocsPageHeader({
           <span
             className={cn(
               "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold border tracking-wide uppercase",
-              badgeStyles[badgeVariant]
+              badgeStyles[badgeVariant],
             )}
           >
             {badge}
@@ -55,7 +55,7 @@ export function DocsPageHeader({
         transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.05 }}
         className={cn(
           "text-3xl sm:text-4xl font-bold tracking-tight leading-tight",
-          "text-zinc-900 dark:text-zinc-50"
+          "text-zinc-900 dark:text-zinc-50",
         )}
       >
         {title}

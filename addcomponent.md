@@ -18,41 +18,44 @@ Map the Category in the Build Script: Open scripts/build-registry.mjs and find t
 
 javascript
 const CATEGORY_MAP = {
-  // ... existing categories ...
-  tables: "table", // <-- Add this
+// ... existing categories ...
+tables: "table", // <-- Add this
 };
 Update the TypeScript Types in the Build Script: Scroll down to the bottom of scripts/build-registry.mjs (around line 634) where the DemoCategory type is hardcoded as a string, and add your new category:
 
 javascript
 export type DemoCategory =
-  | "ai-input"
-  // ... existing types ...
-  | "message"
-  | "table" // <-- Add this
-  | "useAutoResizeTextarea";
+| "ai-input"
+// ... existing types ...
+| "message"
+| "table" // <-- Add this
+| "useAutoResizeTextarea";
 Rebuild the Registry: Open your terminal and run:
 
 bash
 node scripts/build-registry.mjs
 Create the Documentation Page: Create a new file at src/content/docs/components/table.mdx and add the following:
 
-mdx
----
+## mdx
+
 title: Tables
 description: Data table components.
+
 ---
+
 # Tables
+
 <ComponentShowcase category="table" />
 Add to the Docs Sidebar: Open src/content/docs/components/meta.json and add your category to the list so it appears in the navigation menu:
 
 json
 {
-  "title": "Components",
-  "pages": [
-    // ... existing items ...
-    "message",
-    "table"
-  ]
+"title": "Components",
+"pages": [
+// ... existing items ...
+"message",
+"table"
+]
 }
 Summary: If it's just a new file in an existing folder, just drop it in and run the node script. If it's a brand new category, you have to map the category, update the types, run the script, and create the .mdx doc page!
 

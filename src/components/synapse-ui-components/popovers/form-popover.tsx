@@ -1,25 +1,25 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import * as PopoverPrimitive from "@radix-ui/react-popover"
-import { cn } from "@/lib/utils"
-import { X } from "lucide-react"
+import * as React from "react";
+import * as PopoverPrimitive from "@radix-ui/react-popover";
+import { cn } from "@/lib/utils";
+import { X } from "lucide-react";
 
 interface FormPopoverProps {
-  children: React.ReactNode
-  title?: string
-  submitLabel?: string
-  onSubmit?: (data: Record<string, string>) => void
+  children: React.ReactNode;
+  title?: string;
+  submitLabel?: string;
+  onSubmit?: (data: Record<string, string>) => void;
   fields?: {
-    name: string
-    label: string
-    type?: "text" | "email" | "number" | "textarea"
-    placeholder?: string
-    required?: boolean
-    defaultValue?: string
-  }[]
-  side?: "top" | "right" | "bottom" | "left"
-  className?: string
+    name: string;
+    label: string;
+    type?: "text" | "email" | "number" | "textarea";
+    placeholder?: string;
+    required?: boolean;
+    defaultValue?: string;
+  }[];
+  side?: "top" | "right" | "bottom" | "left";
+  className?: string;
 }
 
 export function FormPopover({
@@ -31,22 +31,22 @@ export function FormPopover({
   side = "bottom",
   className,
 }: FormPopoverProps) {
-  const [open, setOpen] = React.useState(false)
-  const [formData, setFormData] = React.useState<Record<string, string>>({})
+  const [open, setOpen] = React.useState(false);
+  const [formData, setFormData] = React.useState<Record<string, string>>({});
 
   React.useEffect(() => {
-    const initialData: Record<string, string> = {}
+    const initialData: Record<string, string> = {};
     fields.forEach((field) => {
-      initialData[field.name] = field.defaultValue || ""
-    })
-    setFormData(initialData)
-  }, [fields])
+      initialData[field.name] = field.defaultValue || "";
+    });
+    setFormData(initialData);
+  }, [fields]);
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    onSubmit?.(formData)
-    setOpen(false)
-  }
+    e.preventDefault();
+    onSubmit?.(formData);
+    setOpen(false);
+  };
 
   return (
     <PopoverPrimitive.Root open={open} onOpenChange={setOpen}>
@@ -60,7 +60,7 @@ export function FormPopover({
             "z-50 w-80 rounded-xl border border-border bg-card shadow-xl",
             "animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
             "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
-            className
+            className,
           )}
         >
           {title && (
@@ -85,9 +85,7 @@ export function FormPopover({
                   {field.type === "textarea" ? (
                     <textarea
                       value={formData[field.name] || ""}
-                      onChange={(e) =>
-                        setFormData({ ...formData, [field.name]: e.target.value })
-                      }
+                      onChange={(e) => setFormData({ ...formData, [field.name]: e.target.value })}
                       placeholder={field.placeholder}
                       required={field.required}
                       rows={3}
@@ -97,9 +95,7 @@ export function FormPopover({
                     <input
                       type={field.type || "text"}
                       value={formData[field.name] || ""}
-                      onChange={(e) =>
-                        setFormData({ ...formData, [field.name]: e.target.value })
-                      }
+                      onChange={(e) => setFormData({ ...formData, [field.name]: e.target.value })}
                       placeholder={field.placeholder}
                       required={field.required}
                       className="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
@@ -118,5 +114,5 @@ export function FormPopover({
         </PopoverPrimitive.Content>
       </PopoverPrimitive.Portal>
     </PopoverPrimitive.Root>
-  )
+  );
 }

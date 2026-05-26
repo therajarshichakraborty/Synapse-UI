@@ -21,7 +21,7 @@ export default function Card_23({
   brand = "SYNAPSE PLATINUM",
 }: Card23Props) {
   const cardRef = useRef<HTMLDivElement>(null);
-  
+
   // Motion values for 3D rotation
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -39,11 +39,11 @@ export default function Card_23({
     const rect = cardRef.current.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
-    
+
     // Relative mouse positions from center (-0.5 to 0.5)
     const relativeX = (e.clientX - rect.left) / width - 0.5;
     const relativeY = (e.clientY - rect.top) / height - 0.5;
-    
+
     // Rotate values (max 20 degrees)
     x.set(relativeX * 30);
     y.set(-relativeY * 30);
@@ -107,9 +107,9 @@ export default function Card_23({
 
         {/* Ambient base design lines */}
         <div className="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-zinc-400 via-zinc-200 to-zinc-100 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-800" />
-        
+
         {/* Card Content Grid */}
-        <div 
+        <div
           className="absolute inset-0 p-6 flex flex-col justify-between z-20"
           style={{ transform: "translateZ(30px)" }}
         >
@@ -133,7 +133,7 @@ export default function Card_23({
                 <Wifi className="w-4 h-4 text-white/60 dark:text-zinc-400 rotate-90" />
               </div>
             </div>
-            
+
             <div className="flex flex-col items-end">
               <CreditCard className="w-7 h-7 text-white/80 dark:text-zinc-300" />
             </div>
@@ -166,7 +166,7 @@ export default function Card_23({
                   {expiry}
                 </span>
               </div>
-              
+
               <div className="flex flex-col items-end">
                 <span className="text-[8px] tracking-wider text-white/40 dark:text-zinc-500 uppercase">
                   CVV

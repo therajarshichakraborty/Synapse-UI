@@ -23,11 +23,7 @@ interface StepProps {
  * </Steps>
  */
 export function Steps({ children, className }: StepsProps) {
-  return (
-    <div className={cn("my-8 relative", className)}>
-      {children}
-    </div>
-  );
+  return <div className={cn("my-8 relative", className)}>{children}</div>;
 }
 
 export function Step({ title, children, className }: StepProps) {

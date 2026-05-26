@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 
 const countBadgeVariants = cva(
   "inline-flex w-fit items-center justify-center font-mono font-semibold tabular-nums transition-all duration-200",
@@ -16,7 +16,8 @@ const countBadgeVariants = cva(
       variant: {
         filled: "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900",
         subtle: "bg-zinc-100 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300",
-        ghost: "bg-transparent text-zinc-600 border border-zinc-200 dark:border-zinc-700 dark:text-zinc-400",
+        ghost:
+          "bg-transparent text-zinc-600 border border-zinc-200 dark:border-zinc-700 dark:text-zinc-400",
       },
       state: {
         default: "",
@@ -30,16 +31,15 @@ const countBadgeVariants = cva(
       variant: "filled",
       state: "default",
     },
-  }
-)
+  },
+);
 
 interface CountBadgeProps
-  extends React.HTMLAttributes<HTMLSpanElement>,
-    VariantProps<typeof countBadgeVariants> {
-  count?: number
-  max?: number
-  prefix?: string
-  suffix?: string
+  extends React.HTMLAttributes<HTMLSpanElement>, VariantProps<typeof countBadgeVariants> {
+  count?: number;
+  max?: number;
+  prefix?: string;
+  suffix?: string;
 }
 
 function CountBadge({
@@ -53,18 +53,15 @@ function CountBadge({
   suffix,
   ...props
 }: CountBadgeProps) {
-  const displayCount = count > max ? `${max}+` : count.toString()
+  const displayCount = count > max ? `${max}+` : count.toString();
 
   return (
-    <span
-      className={cn(countBadgeVariants({ size, variant, state }), className)}
-      {...props}
-    >
+    <span className={cn(countBadgeVariants({ size, variant, state }), className)} {...props}>
       {prefix}
       {displayCount}
       {suffix}
     </span>
-  )
+  );
 }
 
-export { CountBadge, countBadgeVariants }
+export { CountBadge, countBadgeVariants };

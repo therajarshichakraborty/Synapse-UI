@@ -3,7 +3,13 @@
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
-import { fadeInUp, fadeInDown, fadeInLeft, fadeInRight, fadeIn } from "@/design-system/motion-variants";
+import {
+  fadeInUp,
+  fadeInDown,
+  fadeInLeft,
+  fadeInRight,
+  fadeIn,
+} from "@/design-system/motion-variants";
 import type { Variants, UseInViewOptions } from "motion/react";
 
 type Direction = "up" | "down" | "left" | "right" | "none";

@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 
 const multiColorBadgeVariants = cva(
   "inline-flex w-fit items-center gap-2 rounded-lg px-3 py-1.5 text-xs font-medium transition-all duration-200",
@@ -23,18 +23,17 @@ const multiColorBadgeVariants = cva(
       variant: "split",
       state: "default",
     },
-  }
-)
+  },
+);
 
 interface ColorSegment {
-  label: string
-  color: "red" | "orange" | "amber" | "emerald" | "blue" | "violet" | "pink" | "zinc"
+  label: string;
+  color: "red" | "orange" | "amber" | "emerald" | "blue" | "violet" | "pink" | "zinc";
 }
 
 interface MultiColorBadgeProps
-  extends React.HTMLAttributes<HTMLSpanElement>,
-    VariantProps<typeof multiColorBadgeVariants> {
-  segments?: ColorSegment[]
+  extends React.HTMLAttributes<HTMLSpanElement>, VariantProps<typeof multiColorBadgeVariants> {
+  segments?: ColorSegment[];
 }
 
 const colorClasses = {
@@ -78,27 +77,36 @@ const colorClasses = {
     text: "text-zinc-700 dark:text-zinc-300",
     dot: "bg-zinc-500",
   },
-}
+};
 
-function MultiColorBadge({ className, variant, state, segments = [], ...props }: MultiColorBadgeProps) {
+function MultiColorBadge({
+  className,
+  variant,
+  state,
+  segments = [],
+  ...props
+}: MultiColorBadgeProps) {
   if (variant === "stacked") {
     return (
       <span
         className={cn(
           multiColorBadgeVariants({ variant, state }),
           "bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700",
-          className
+          className,
         )}
         {...props}
       >
         {segments.map((segment, index) => (
-          <span key={index} className={cn("inline-flex items-center gap-1.5", colorClasses[segment.color].text)}>
+          <span
+            key={index}
+            className={cn("inline-flex items-center gap-1.5", colorClasses[segment.color].text)}
+          >
             <span className={cn("h-1.5 w-1.5 rounded-full", colorClasses[segment.color].dot)} />
             {segment.label}
           </span>
         ))}
       </span>
-    )
+    );
   }
 
   return (
@@ -109,7 +117,7 @@ function MultiColorBadge({ className, variant, state, segments = [], ...props }:
         state === "active" && "scale-95 shadow-none translate-y-0",
         state === "disabled" && "opacity-40 cursor-not-allowed",
         "transition-all duration-200",
-        className
+        className,
       )}
       {...props}
     >
@@ -120,14 +128,14 @@ function MultiColorBadge({ className, variant, state, segments = [], ...props }:
             "px-2.5 py-1 text-xs font-medium",
             colorClasses[segment.color].bg,
             colorClasses[segment.color].text,
-            index !== segments.length - 1 && "border-r border-zinc-200 dark:border-zinc-700"
+            index !== segments.length - 1 && "border-r border-zinc-200 dark:border-zinc-700",
           )}
         >
           {segment.label}
         </span>
       ))}
     </span>
-  )
+  );
 }
 
-export { MultiColorBadge, multiColorBadgeVariants }
+export { MultiColorBadge, multiColorBadgeVariants };

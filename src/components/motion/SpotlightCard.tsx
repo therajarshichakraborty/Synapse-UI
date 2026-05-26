@@ -41,7 +41,7 @@ export function SpotlightCard({
   const background = useTransform(
     [springX, springY],
     ([x, y]) =>
-      `radial-gradient(${spotlightRadius}px circle at ${x}px ${y}px, ${spotlightColor}, transparent 80%)`
+      `radial-gradient(${spotlightRadius}px circle at ${x}px ${y}px, ${spotlightColor}, transparent 80%)`,
   );
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {

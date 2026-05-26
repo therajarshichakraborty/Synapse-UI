@@ -54,6 +54,7 @@ npx shadcn@latest add http://localhost:3000/r/tag-badge.json
 Here are some common ways to use these badge components in your application layouts:
 
 ### 1. Avatar with Status Badge
+
 Overlay a `StatusBadge` on an avatar to show a user's presence state (Online, Away, Busy, Offline):
 
 ```tsx
@@ -67,9 +68,9 @@ export default function UserProfile() {
         alt="Avatar"
         className="size-12 rounded-full object-cover"
       />
-      <StatusBadge 
-        status="online" 
-        pulse={true} 
+      <StatusBadge
+        status="online"
+        pulse={true}
         className="absolute bottom-0 right-0 border-2 border-white dark:border-zinc-950"
       />
     </div>
@@ -78,6 +79,7 @@ export default function UserProfile() {
 ```
 
 ### 2. Icon with Notification Bubble
+
 Overlay a `NotificationBadge` on a button or navigation link:
 
 ```tsx
@@ -88,18 +90,14 @@ export default function InboxIcon() {
   return (
     <button className="relative p-2 text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100">
       <Mail className="size-6" />
-      <NotificationBadge 
-        count={5} 
-        max={99} 
-        showZero={false} 
-        className="absolute -top-1 -right-1"
-      />
+      <NotificationBadge count={5} max={99} showZero={false} className="absolute -top-1 -right-1" />
     </button>
   );
 }
 ```
 
 ### 3. Segmented Metadata Tags
+
 Use `MultiColorBadge` to display multi-part labels (such as package version, repository status, or git branch status):
 
 ```tsx
@@ -121,24 +119,24 @@ export default function ReleaseInfo() {
 
 ### StatusBadge
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `status` | `'online' \| 'offline' \| 'busy' \| 'away' \| 'error'` | `'online'` | Presence state color of the indicator dot |
-| `pulse` | `boolean` | `true` | When true, renders a pulsing ring animation behind the dot |
-| `state` | `'default' \| 'hover' \| 'active' \| 'disabled'` | `'default'` | Interactive state styles |
+| Prop     | Type                                                   | Default     | Description                                                |
+| :------- | :----------------------------------------------------- | :---------- | :--------------------------------------------------------- |
+| `status` | `'online' \| 'offline' \| 'busy' \| 'away' \| 'error'` | `'online'`  | Presence state color of the indicator dot                  |
+| `pulse`  | `boolean`                                              | `true`      | When true, renders a pulsing ring animation behind the dot |
+| `state`  | `'default' \| 'hover' \| 'active' \| 'disabled'`       | `'default'` | Interactive state styles                                   |
 
 ### CountBadge
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `count` | `number` | `0` | Number to display |
-| `max` | `number` | `999` | Maximum number to display before showing `+` (e.g. `999+`) |
-| `prefix` | `string` | — | Text to prepend (e.g. `$`) |
-| `suffix` | `string` | — | Text to append (e.g. `items`) |
+| Prop     | Type     | Default | Description                                                |
+| :------- | :------- | :------ | :--------------------------------------------------------- |
+| `count`  | `number` | `0`     | Number to display                                          |
+| `max`    | `number` | `999`   | Maximum number to display before showing `+` (e.g. `999+`) |
+| `prefix` | `string` | —       | Text to prepend (e.g. `$`)                                 |
+| `suffix` | `string` | —       | Text to append (e.g. `items`)                              |
 
 ### MultiColorBadge
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `segments` | `Array<{ label: string, color: string }>` | `[]` | Array of labels with specific colors to render in order |
-| `variant` | `'split' \| 'stacked'` | `'split'` | Display style (horizontal split block or vertical stack) |
+| Prop       | Type                                      | Default   | Description                                              |
+| :--------- | :---------------------------------------- | :-------- | :------------------------------------------------------- |
+| `segments` | `Array<{ label: string, color: string }>` | `[]`      | Array of labels with specific colors to render in order  |
+| `variant`  | `'split' \| 'stacked'`                    | `'split'` | Display style (horizontal split block or vertical stack) |

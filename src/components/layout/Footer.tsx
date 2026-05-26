@@ -70,9 +70,10 @@ export default function Footer() {
               </div>
               <span className="tracking-tight">Synapse UI</span>
             </div>
-            
+
             <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-sm">
-              An open-source library of highly aesthetic React & Next.js interfaces. Built using Tailwind CSS 4.0 and shadcn/ui specifications.
+              An open-source library of highly aesthetic React & Next.js interfaces. Built using
+              Tailwind CSS 4.0 and shadcn/ui specifications.
             </p>
 
             {/* Newsletter form */}
@@ -85,7 +86,7 @@ export default function Footer() {
                   type="email"
                   placeholder="name@domain.com"
                   value={email}
-                  onChange={e => setEmail(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="w-full h-9 pl-3 pr-10 text-xs bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg focus:outline-hidden focus:border-zinc-400 dark:focus:border-zinc-700 text-zinc-900 dark:text-zinc-100"
                   required
                   suppressHydrationWarning
@@ -95,12 +96,16 @@ export default function Footer() {
                   suppressHydrationWarning
                   className={cn(
                     "absolute right-1 w-7 h-7 rounded-md flex items-center justify-center transition-all",
-                    subscribed 
-                      ? "bg-emerald-600 text-white" 
-                      : "bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700"
+                    subscribed
+                      ? "bg-emerald-600 text-white"
+                      : "bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700",
                   )}
                 >
-                  {subscribed ? <Check className="w-3.5 h-3.5" /> : <ArrowRight className="w-3.5 h-3.5" />}
+                  {subscribed ? (
+                    <Check className="w-3.5 h-3.5" />
+                  ) : (
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  )}
                 </button>
               </form>
               {subscribed && (

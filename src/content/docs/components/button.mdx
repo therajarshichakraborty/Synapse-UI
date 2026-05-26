@@ -33,16 +33,13 @@ npx shadcn@latest add http://localhost:3000/r/button-10.json
 Here are some common ways to use these custom button animations in your interfaces:
 
 ### 1. Sliding Arrow Action Button
+
 Renders a button with an arrow icon that slides outwards on hover:
 
 ```tsx
 import Btn01 from "@/components/ui/button-01";
 
 export default function StartForm() {
-  return (
-    <Btn01 onClick={() => console.log("Form started")}>
-      Get Started
-    </Btn01>
-  );
+  return <Btn01 onClick={() => console.log("Form started")}>Get Started</Btn01>;
 }
 ```

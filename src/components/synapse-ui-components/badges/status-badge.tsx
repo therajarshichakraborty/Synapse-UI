@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 
 const statusBadgeVariants = cva(
   "inline-flex w-fit items-center gap-1.5 rounded-md px-2.5 py-1 text-xs font-medium transition-all duration-200",
@@ -33,48 +33,48 @@ const statusBadgeVariants = cva(
       status: "online",
       state: "default",
     },
-  }
-)
+  },
+);
 
 interface StatusBadgeProps
-  extends React.HTMLAttributes<HTMLSpanElement>,
-    VariantProps<typeof statusBadgeVariants> {
-  pulse?: boolean
+  extends React.HTMLAttributes<HTMLSpanElement>, VariantProps<typeof statusBadgeVariants> {
+  pulse?: boolean;
 }
 
-function StatusBadge({ className, status, state, pulse = true, children, ...props }: StatusBadgeProps) {
+function StatusBadge({
+  className,
+  status,
+  state,
+  pulse = true,
+  children,
+  ...props
+}: StatusBadgeProps) {
   const dotColors = {
     online: "bg-emerald-500",
     offline: "bg-zinc-400",
     busy: "bg-amber-500",
     away: "bg-orange-500",
     error: "bg-red-500",
-  }
+  };
 
   return (
-    <span
-      className={cn(statusBadgeVariants({ status, state }), className)}
-      {...props}
-    >
+    <span className={cn(statusBadgeVariants({ status, state }), className)} {...props}>
       <span className="relative flex h-2 w-2">
         {pulse && status !== "offline" && state !== "disabled" && (
           <span
             className={cn(
               "absolute inline-flex h-full w-full animate-ping rounded-full opacity-75",
-              dotColors[status || "online"]
+              dotColors[status || "online"],
             )}
           />
         )}
         <span
-          className={cn(
-            "relative inline-flex h-2 w-2 rounded-full",
-            dotColors[status || "online"]
-          )}
+          className={cn("relative inline-flex h-2 w-2 rounded-full", dotColors[status || "online"])}
         />
       </span>
       {children}
     </span>
-  )
+  );
 }
 
-export { StatusBadge, statusBadgeVariants }
+export { StatusBadge, statusBadgeVariants };

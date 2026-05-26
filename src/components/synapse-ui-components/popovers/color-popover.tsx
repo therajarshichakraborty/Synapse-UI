@@ -1,26 +1,42 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import * as PopoverPrimitive from "@radix-ui/react-popover"
-import { cn } from "@/lib/utils"
-import { Check, Pipette } from "lucide-react"
+import * as React from "react";
+import * as PopoverPrimitive from "@radix-ui/react-popover";
+import { cn } from "@/lib/utils";
+import { Check, Pipette } from "lucide-react";
 
 const presetColors = [
-  "#ef4444", "#f97316", "#f59e0b", "#eab308", "#84cc16",
-  "#22c55e", "#10b981", "#14b8a6", "#06b6d4", "#0ea5e9",
-  "#3b82f6", "#6366f1", "#8b5cf6", "#a855f7", "#d946ef",
-  "#ec4899", "#f43f5e", "#64748b", "#1e293b", "#000000",
-]
+  "#ef4444",
+  "#f97316",
+  "#f59e0b",
+  "#eab308",
+  "#84cc16",
+  "#22c55e",
+  "#10b981",
+  "#14b8a6",
+  "#06b6d4",
+  "#0ea5e9",
+  "#3b82f6",
+  "#6366f1",
+  "#8b5cf6",
+  "#a855f7",
+  "#d946ef",
+  "#ec4899",
+  "#f43f5e",
+  "#64748b",
+  "#1e293b",
+  "#000000",
+];
 
 interface ColorPopoverProps {
-  children: React.ReactNode
-  value?: string
-  onChange?: (color: string) => void
-  showInput?: boolean
-  showPresets?: boolean
-  presets?: string[]
-  side?: "top" | "right" | "bottom" | "left"
-  className?: string
+  children: React.ReactNode;
+  value?: string;
+  onChange?: (color: string) => void;
+  showInput?: boolean;
+  showPresets?: boolean;
+  presets?: string[];
+  side?: "top" | "right" | "bottom" | "left";
+  className?: string;
 }
 
 export function ColorPopover({
@@ -33,28 +49,28 @@ export function ColorPopover({
   side = "bottom",
   className,
 }: ColorPopoverProps) {
-  const [color, setColor] = React.useState(value)
-  const [inputValue, setInputValue] = React.useState(value)
+  const [color, setColor] = React.useState(value);
+  const [inputValue, setInputValue] = React.useState(value);
 
   React.useEffect(() => {
-    setColor(value)
-    setInputValue(value)
-  }, [value])
+    setColor(value);
+    setInputValue(value);
+  }, [value]);
 
   const handleColorSelect = (newColor: string) => {
-    setColor(newColor)
-    setInputValue(newColor)
-    onChange?.(newColor)
-  }
+    setColor(newColor);
+    setInputValue(newColor);
+    onChange?.(newColor);
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = e.target.value
-    setInputValue(newValue)
+    const newValue = e.target.value;
+    setInputValue(newValue);
     if (/^#[0-9A-Fa-f]{6}$/.test(newValue)) {
-      setColor(newValue)
-      onChange?.(newValue)
+      setColor(newValue);
+      onChange?.(newValue);
     }
-  }
+  };
 
   return (
     <PopoverPrimitive.Root>
@@ -68,7 +84,7 @@ export function ColorPopover({
             "z-50 w-64 rounded-xl border border-border bg-card p-3 shadow-xl",
             "animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
             "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
-            className
+            className,
           )}
         >
           {/* Color preview */}
@@ -78,12 +94,8 @@ export function ColorPopover({
               style={{ backgroundColor: color }}
             />
             <div className="flex-1">
-              <div className="text-sm font-medium text-card-foreground">
-                Selected Color
-              </div>
-              <div className="text-xs text-muted-foreground font-mono">
-                {color.toUpperCase()}
-              </div>
+              <div className="text-sm font-medium text-card-foreground">Selected Color</div>
+              <div className="text-xs text-muted-foreground font-mono">{color.toUpperCase()}</div>
             </div>
           </div>
 
@@ -98,11 +110,11 @@ export function ColorPopover({
                   type="text"
                   value={inputValue.replace("#", "")}
                   onChange={(e) => {
-                    const newValue = `#${e.target.value}`
-                    setInputValue(newValue)
+                    const newValue = `#${e.target.value}`;
+                    setInputValue(newValue);
                     if (/^#[0-9A-Fa-f]{6}$/.test(newValue)) {
-                      setColor(newValue)
-                      onChange?.(newValue)
+                      setColor(newValue);
+                      onChange?.(newValue);
                     }
                   }}
                   className="w-full rounded-lg border border-input bg-background pl-7 pr-3 py-2 text-sm font-mono placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
@@ -135,7 +147,7 @@ export function ColorPopover({
                     "h-5 w-5 rounded-md border transition-all hover:scale-110",
                     color === presetColor
                       ? "border-foreground ring-2 ring-foreground ring-offset-2 ring-offset-card"
-                      : "border-transparent"
+                      : "border-transparent",
                   )}
                   style={{ backgroundColor: presetColor }}
                 >
@@ -149,5 +161,5 @@ export function ColorPopover({
         </PopoverPrimitive.Content>
       </PopoverPrimitive.Portal>
     </PopoverPrimitive.Root>
-  )
+  );
 }

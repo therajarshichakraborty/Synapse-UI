@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { X } from "lucide-react"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { X } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const tagBadgeVariants = cva(
   "inline-flex w-fit items-center gap-1 rounded-md px-2 py-0.5 text-xs font-medium transition-all duration-200",
@@ -32,22 +32,26 @@ const tagBadgeVariants = cva(
       color: "gray",
       state: "default",
     },
-  }
-)
+  },
+);
 
 interface TagBadgeProps
-  extends React.HTMLAttributes<HTMLSpanElement>,
-    VariantProps<typeof tagBadgeVariants> {
-  removable?: boolean
-  onRemove?: () => void
+  extends React.HTMLAttributes<HTMLSpanElement>, VariantProps<typeof tagBadgeVariants> {
+  removable?: boolean;
+  onRemove?: () => void;
 }
 
-function TagBadge({ className, color, state, removable, onRemove, children, ...props }: TagBadgeProps) {
+function TagBadge({
+  className,
+  color,
+  state,
+  removable,
+  onRemove,
+  children,
+  ...props
+}: TagBadgeProps) {
   return (
-    <span
-      className={cn(tagBadgeVariants({ color, state }), className)}
-      {...props}
-    >
+    <span className={cn(tagBadgeVariants({ color, state }), className)} {...props}>
       <span className="leading-none">{children}</span>
       {removable && state !== "disabled" && (
         <button
@@ -60,7 +64,7 @@ function TagBadge({ className, color, state, removable, onRemove, children, ...p
         </button>
       )}
     </span>
-  )
+  );
 }
 
-export { TagBadge, tagBadgeVariants }
+export { TagBadge, tagBadgeVariants };

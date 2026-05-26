@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 
 const notificationBadgeVariants = cva(
   "inline-flex w-fit items-center justify-center font-semibold transition-all duration-200",
@@ -37,59 +37,43 @@ const notificationBadgeVariants = cva(
       color: "red",
       state: "default",
     },
-  }
-)
+  },
+);
 
 interface NotificationBadgeProps
-  extends Omit<React.HTMLAttributes<HTMLSpanElement>, "color">,
+  extends
+    Omit<React.HTMLAttributes<HTMLSpanElement>, "color">,
     VariantProps<typeof notificationBadgeVariants> {
-  count?: number
-  max?: number
-  showZero?: boolean
+  count?: number;
+  max?: number;
+  showZero?: boolean;
 }
 
 const NotificationBadge = React.forwardRef<HTMLSpanElement, NotificationBadgeProps>(
-  (
-    {
-      className,
-      variant,
-      color,
-      state,
-      count = 0,
-      max = 99,
-      showZero = false,
-      ...props
-    },
-    ref
-  ) => {
-    const resolvedVariant = variant || "count"
+  ({ className, variant, color, state, count = 0, max = 99, showZero = false, ...props }, ref) => {
+    const resolvedVariant = variant || "count";
 
     if (resolvedVariant !== "dot" && !showZero && count === 0) {
-      return null
+      return null;
     }
 
-    const displayCount =
-      resolvedVariant === "dot"
-        ? null
-        : count > max
-        ? `${max}+`
-        : count
+    const displayCount = resolvedVariant === "dot" ? null : count > max ? `${max}+` : count;
 
     return (
       <span
         ref={ref}
         className={cn(
           notificationBadgeVariants({ variant: resolvedVariant, color, state }),
-          className
+          className,
         )}
         {...props}
       >
         {displayCount}
       </span>
-    )
-  }
-)
+    );
+  },
+);
 
-NotificationBadge.displayName = "NotificationBadge"
+NotificationBadge.displayName = "NotificationBadge";
 
-export { NotificationBadge, notificationBadgeVariants }
+export { NotificationBadge, notificationBadgeVariants };

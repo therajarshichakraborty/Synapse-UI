@@ -7,7 +7,7 @@ import { ArrowRight, Sparkles, Activity, Users, Zap, BarChart2, Shield } from "l
 
 export default function SaasLanding() {
   return (
-    <div className="w-full max-w-4xl rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-linear-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-900/50 p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+    <div className="w-full max-w-4xl rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-linear-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-900/50 p-6 sm:p-10 shadow-2xl relative">
       {/* Ambient background glows */}
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-zinc-500/5 dark:bg-zinc-800/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-zinc-500/5 dark:bg-zinc-800/5 rounded-full blur-3xl pointer-events-none" />
@@ -29,7 +29,8 @@ export default function SaasLanding() {
           </h2>
 
           <p className="text-sm sm:text-base text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-lg mx-auto lg:mx-0">
-            Synapse provides a unified dashboard to monitor performance, optimize conversion funnels, and trigger smart automations automatically.
+            Synapse provides a unified dashboard to monitor performance, optimize conversion
+            funnels, and trigger smart automations automatically.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
@@ -57,7 +58,7 @@ export default function SaasLanding() {
         </div>
 
         {/* Right Preview Column (Mock Dashboard UI) */}
-        <div className="w-full lg:w-[420px] relative">
+        <div className="w-full lg:w-[420px] relative pb-8 sm:pb-12">
           {/* Main Simulated App Card */}
           <div className="w-full bg-white dark:bg-zinc-950 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 p-5 shadow-xl relative">
             <div className="flex justify-between items-center pb-4 border-b border-zinc-100 dark:border-zinc-900">
@@ -78,9 +79,7 @@ export default function SaasLanding() {
                   <span className="text-[10px] font-semibold uppercase">Daily Visitors</span>
                   <Users className="w-3.5 h-3.5" />
                 </div>
-                <div className="text-lg font-extrabold text-zinc-900 dark:text-zinc-50">
-                  12,842
-                </div>
+                <div className="text-lg font-extrabold text-zinc-900 dark:text-zinc-50">12,842</div>
                 <span className="text-[9px] font-semibold text-zinc-600 dark:text-zinc-400">
                   +12.4% vs yesterday
                 </span>
@@ -91,9 +90,7 @@ export default function SaasLanding() {
                   <span className="text-[10px] font-semibold uppercase">Conversion</span>
                   <Activity className="w-3.5 h-3.5" />
                 </div>
-                <div className="text-lg font-extrabold text-zinc-900 dark:text-zinc-50">
-                  3.48%
-                </div>
+                <div className="text-lg font-extrabold text-zinc-900 dark:text-zinc-50">3.48%</div>
                 <span className="text-[9px] font-semibold text-zinc-600 dark:text-zinc-400">
                   +0.8% this week
                 </span>

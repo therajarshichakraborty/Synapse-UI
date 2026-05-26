@@ -39,6 +39,7 @@ npx shadcn@latest add http://localhost:3000/r/rich-tooltip.json
 Here are some common ways to use these tooltip components in your application layouts:
 
 ### 1. Basic Tooltip
+
 Show descriptive subtext when hover/focused on an icon button:
 
 ```tsx
@@ -57,6 +58,7 @@ export default function HelpButton() {
 ```
 
 ### 2. Hotkey Helper Tooltip
+
 Add keyboard shortcut indicators inside tooltips to guide users:
 
 ```tsx
@@ -75,6 +77,7 @@ export default function SaveAction() {
 ```
 
 ### 3. Action Progress Tooltip
+
 Show progress indicators inside tooltips while long actions are taking place:
 
 ```tsx
@@ -82,16 +85,14 @@ import { ProgressTooltip } from "@/components/ui/progress-tooltip";
 
 export default function UploadStatus() {
   return (
-    <ProgressTooltip 
-      label="Uploading files" 
-      value={75} 
-      max={100} 
+    <ProgressTooltip
+      label="Uploading files"
+      value={75}
+      max={100}
       showPercentage={true}
       color="success"
     >
-      <button className="text-sm font-semibold hover:underline">
-        Checking status...
-      </button>
+      <button className="text-sm font-semibold hover:underline">Checking status...</button>
     </ProgressTooltip>
   );
 }
@@ -100,27 +101,30 @@ export default function UploadStatus() {
 ## Component APIs
 
 ### BasicTooltip
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `children` | `React.ReactNode` | Required | Target trigger element |
-| `content` | `React.ReactNode` | Required | Content inside the tooltip popup |
-| `side` | `'top' \| 'right' \| 'bottom' \| 'left'` | `'top'` | Tooltip pop position |
-| `align` | `'start' \| 'center' \| 'end'` | `'center'` | Alignment offset direction |
-| `delayDuration` | `number` | `200` | Open delay in milliseconds |
-| `showArrow` | `boolean` | `true` | Show/hide the arrow |
+
+| Prop            | Type                                     | Default    | Description                      |
+| :-------------- | :--------------------------------------- | :--------- | :------------------------------- |
+| `children`      | `React.ReactNode`                        | Required   | Target trigger element           |
+| `content`       | `React.ReactNode`                        | Required   | Content inside the tooltip popup |
+| `side`          | `'top' \| 'right' \| 'bottom' \| 'left'` | `'top'`    | Tooltip pop position             |
+| `align`         | `'start' \| 'center' \| 'end'`           | `'center'` | Alignment offset direction       |
+| `delayDuration` | `number`                                 | `200`      | Open delay in milliseconds       |
+| `showArrow`     | `boolean`                                | `true`     | Show/hide the arrow              |
 
 ### HotkeyTooltip
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `children` | `React.ReactNode` | Required | Target trigger element |
-| `content` | `string` | Required | Description text |
-| `keys` | `string[]` | `[]` | Array of keys to display (e.g. `['⌘', 'S']`) |
+
+| Prop       | Type              | Default  | Description                                  |
+| :--------- | :---------------- | :------- | :------------------------------------------- |
+| `children` | `React.ReactNode` | Required | Target trigger element                       |
+| `content`  | `string`          | Required | Description text                             |
+| `keys`     | `string[]`        | `[]`     | Array of keys to display (e.g. `['⌘', 'S']`) |
 
 ### ProgressTooltip
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `children` | `React.ReactNode` | Required | Target trigger element |
-| `label` | `string` | Required | Label header text |
-| `value` | `number` | Required | Value of current progress state |
-| `max` | `number` | `100` | Max bounds of progress |
-| `color` | `'default' \| 'success' \| 'warning' \| 'error'` | `'default'` | Progress bar fill color |
+
+| Prop       | Type                                             | Default     | Description                     |
+| :--------- | :----------------------------------------------- | :---------- | :------------------------------ |
+| `children` | `React.ReactNode`                                | Required    | Target trigger element          |
+| `label`    | `string`                                         | Required    | Label header text               |
+| `value`    | `number`                                         | Required    | Value of current progress state |
+| `max`      | `number`                                         | `100`       | Max bounds of progress          |
+| `color`    | `'default' \| 'success' \| 'warning' \| 'error'` | `'default'` | Progress bar fill color         |

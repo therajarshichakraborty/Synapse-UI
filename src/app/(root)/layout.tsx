@@ -13,9 +13,7 @@ export default function HomeLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <Header />
-      <main className="relative w-full pt-0 md:pt-0 bg-background">
-        {children}
-      </main>
+      <main className="relative w-full pt-0 md:pt-0 bg-background">{children}</main>
       <Footer />
     </>
   );

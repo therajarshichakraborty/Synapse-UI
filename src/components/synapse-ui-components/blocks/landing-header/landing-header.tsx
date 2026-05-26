@@ -22,10 +22,7 @@ export default function LandingHeader() {
     <div className="w-full flex flex-col">
       {/* Top Promo Bar */}
       <div className="w-full px-4 py-2 bg-zinc-50 dark:bg-gradient-to-b dark:from-[#09001a] dark:to-[#050012] border-b border-zinc-200/10 dark:border-zinc-800/20">
-        <Link
-          href="#"
-          className="flex items-center justify-center gap-3 text-sm group"
-        >
+        <Link href="#" className="flex items-center justify-center gap-3 text-sm group">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-indigo-500 to-blue-600 dark:from-violet-300 dark:via-fuchsia-400 dark:to-rose-300 font-medium tracking-tight">
             Explore new components & templates
           </span>
@@ -39,9 +36,7 @@ export default function LandingHeader() {
       {/* Main Header Container */}
       <header className="sticky top-0 z-50 w-full bg-transparent">
         <div className="flex justify-center px-3 py-2">
-          <div
-            className="w-full max-w-6xl flex items-center justify-between px-5 py-3 rounded-2xl backdrop-blur-md bg-white/70 dark:bg-gradient-to-b dark:from-[#050012] dark:to-[#03000a] border border-zinc-200/15 dark:border-zinc-800/40 shadow-[0_8px_30px_rgba(0,0,0,0.02)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.2)] transition-all duration-300"
-          >
+          <div className="w-full max-w-6xl flex items-center justify-between px-5 py-3 rounded-2xl backdrop-blur-md bg-white/70 dark:bg-gradient-to-b dark:from-[#050012] dark:to-[#03000a] border border-zinc-200/15 dark:border-zinc-800/40 shadow-[0_8px_30px_rgba(0,0,0,0.02)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.2)] transition-all duration-300">
             {/* Left Section (Logo & Nav) */}
             <div className="flex items-center gap-6">
               {/* Logo */}

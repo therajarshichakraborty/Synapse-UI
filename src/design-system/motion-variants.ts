@@ -121,7 +121,10 @@ export const sidebarAccordionContent: Variants = {
   open: {
     height: "auto",
     opacity: 1,
-    transition: { height: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }, opacity: { duration: 0.2, delay: 0.05 } },
+    transition: {
+      height: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] },
+      opacity: { duration: 0.2, delay: 0.05 },
+    },
   },
 };
 

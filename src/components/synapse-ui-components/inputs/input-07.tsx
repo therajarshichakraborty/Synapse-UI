@@ -10,11 +10,7 @@ interface Input07Props {
   error?: boolean;
 }
 
-export default function Input_07({
-  length = 6,
-  onComplete,
-  error = false,
-}: Input07Props) {
+export default function Input_07({ length = 6, onComplete, error = false }: Input07Props) {
   const [values, setValues] = useState<string[]>(Array(length).fill(""));
   const [shake, setShake] = useState(false);
   const inputsRef = useRef<(HTMLInputElement | null)[]>([]);
@@ -22,7 +18,7 @@ export default function Input_07({
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
     const val = e.target.value;
     const lastChar = val.substring(val.length - 1);
-    
+
     // Only allow numbers
     if (lastChar && !/^\d+$/.test(lastChar)) return;
 
@@ -69,7 +65,7 @@ export default function Input_07({
 
     const codeChars = pastedText.split("").slice(0, length);
     const newValues = [...values];
-    
+
     codeChars.forEach((char, idx) => {
       newValues[idx] = char;
       if (inputsRef.current[idx]) {
@@ -78,7 +74,7 @@ export default function Input_07({
     });
 
     setValues(newValues);
-    
+
     // Focus the last filled box or the final box
     const focusIndex = Math.min(codeChars.length, length - 1);
     inputsRef.current[focusIndex]?.focus();
@@ -111,7 +107,7 @@ export default function Input_07({
       <div
         className={cn(
           "flex justify-center gap-2",
-          shake && "animate-bounce" // Fallback shake/bounce effect
+          shake && "animate-bounce", // Fallback shake/bounce effect
         )}
       >
         {values.map((val, index) => (
@@ -134,7 +130,7 @@ export default function Input_07({
                 ? "bg-zinc-50 border-zinc-900 dark:bg-zinc-900/50 dark:border-zinc-100 text-zinc-900 dark:text-zinc-50 shadow-xs"
                 : "bg-white border-zinc-200 dark:bg-zinc-900 dark:border-zinc-800 text-zinc-400 dark:text-zinc-500",
               "focus:border-zinc-900 focus:ring-4 focus:ring-zinc-900/5 dark:focus:border-zinc-100 dark:focus:ring-zinc-100/5",
-              error && "border-red-500 ring-red-500/10 dark:border-red-400 dark:ring-red-400/10"
+              error && "border-red-500 ring-red-500/10 dark:border-red-400 dark:ring-red-400/10",
             )}
           />
         ))}

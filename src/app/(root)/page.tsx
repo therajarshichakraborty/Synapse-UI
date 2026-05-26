@@ -17,18 +17,17 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState<"blocks" | "components">("blocks");
   const [activeSubTab, setActiveSubTab] = useState<string>("saas");
 
-
   return (
-    <div className="bg-background text-foreground overflow-x-hidden min-h-screen relative pb-24 space-y-16">
-
+    <div className="bg-background text-foreground overflow-x-hidden min-h-screen relative">
       {/* Hero Section */}
-      <HeroSection />
-
-      {/* Showcase Section */}
-      {/* <ShowcaseSection /> */}
+      <section>
+        <HeroSection />
+      </section>
 
       {/* Interactive Preview Section */}
-      <InteractivePreview />
+      <section>
+        <InteractivePreview />
+      </section>
 
       {/* Premium Offerings Live Explorer */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-12 relative">
@@ -41,7 +40,8 @@ export default function Home() {
             Explore Premium Blocks & Components
           </h2>
           <p className="mt-4 text-sm sm:text-base text-zinc-600 dark:text-zinc-400">
-            Highly-interactive, meticulously crafted templates and elements ready to copy-paste into your application.
+            Highly-interactive, meticulously crafted templates and elements ready to copy-paste into
+            your application.
           </p>
         </div>
 
@@ -149,7 +149,7 @@ export default function Home() {
         </div>
 
         {/* Display Panel */}
-        <div className="w-full flex justify-center items-center min-h-[480px]">
+        <div className="w-full flex justify-center items-start min-h-[600px] pb-10">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeSubTab}
@@ -183,12 +183,9 @@ export default function Home() {
       </section>
 
       {/* Bottom Showcase / CTA Cards */}
-      <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 gap-8 pt-8">
+      <section className="max-w-6xl mx-auto px-4 pb-24 pt-4">
         <BuildInterfacesCard className="p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50" />
-      </div>
-
-
-      
+      </section>
     </div>
   );
 }

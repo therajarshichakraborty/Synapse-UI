@@ -123,62 +123,66 @@
 /* ── Synapse UI Design System Tokens ─────────────────────────────────── */
 :root {
   /* Minimal shadcn-like zinc theme */
-  --synapse-bg-deep:      #ffffff;
-  --synapse-bg-surface:   #fafafa;       /* zinc-50 */
-  --synapse-bg-elevated:  #f4f4f5;       /* zinc-100 */
-  --synapse-bg-glass:     rgba(0, 0, 0, 0.015);
-  --synapse-border:       #e4e4e7;       /* zinc-200 */
-  --synapse-border-glow:  rgba(0, 0, 0, 0.02);
+  --synapse-bg-deep: #ffffff;
+  --synapse-bg-surface: #fafafa; /* zinc-50 */
+  --synapse-bg-elevated: #f4f4f5; /* zinc-100 */
+  --synapse-bg-glass: rgba(0, 0, 0, 0.015);
+  --synapse-border: #e4e4e7; /* zinc-200 */
+  --synapse-border-glow: rgba(0, 0, 0, 0.02);
 
   /* Brand gradient palette (subtle, clean purple accents) */
-  --synapse-violet:        #7c3aed;
-  --synapse-fuchsia:       #d946ef;
-  --synapse-rose:          #f43f5e;
-  --synapse-blue:          #2563eb;
+  --synapse-violet: #7c3aed;
+  --synapse-fuchsia: #d946ef;
+  --synapse-rose: #f43f5e;
+  --synapse-blue: #2563eb;
 
   /* Text scale */
-  --synapse-text-primary:  #09090b;       /* zinc-950 */
-  --synapse-text-secondary: #52525b;       /* zinc-600 */
-  --synapse-text-muted:    #71717a;       /* zinc-500 */
+  --synapse-text-primary: #09090b; /* zinc-950 */
+  --synapse-text-secondary: #52525b; /* zinc-600 */
+  --synapse-text-muted: #71717a; /* zinc-500 */
 
   /* Glow effects (highly minimized or transparent) */
-  --synapse-glow-violet:   rgba(124, 58, 237, 0.02);
-  --synapse-glow-fuchsia:  rgba(217, 70, 239, 0.02);
-  --synapse-glow-rose:     rgba(244, 63, 94, 0.02);
+  --synapse-glow-violet: rgba(124, 58, 237, 0.02);
+  --synapse-glow-fuchsia: rgba(217, 70, 239, 0.02);
+  --synapse-glow-rose: rgba(244, 63, 94, 0.02);
 
   /* Motion */
-  --synapse-ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
-  --synapse-ease-spring:   cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  --synapse-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --synapse-ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.1);
 }
 
 .dark {
   /* Minimal dark zinc theme */
-  --synapse-bg-deep:      #09090b;       /* zinc-950 */
-  --synapse-bg-surface:   #09090b;       /* zinc-950 */
-  --synapse-bg-elevated:  #18181b;       /* zinc-900 */
-  --synapse-bg-glass:     rgba(255, 255, 255, 0.015);
-  --synapse-border:       #27272a;       /* zinc-800 */
-  --synapse-border-glow:  rgba(255, 255, 255, 0.02);
+  --synapse-bg-deep: #09090b; /* zinc-950 */
+  --synapse-bg-surface: #09090b; /* zinc-950 */
+  --synapse-bg-elevated: #18181b; /* zinc-900 */
+  --synapse-bg-glass: rgba(255, 255, 255, 0.015);
+  --synapse-border: #27272a; /* zinc-800 */
+  --synapse-border-glow: rgba(255, 255, 255, 0.02);
 
   /* Brand accents */
-  --synapse-violet:        #a78bfa;
-  --synapse-fuchsia:       #f472b6;
-  --synapse-rose:          #fb7185;
-  --synapse-blue:          #60a5fa;
+  --synapse-violet: #a78bfa;
+  --synapse-fuchsia: #f472b6;
+  --synapse-rose: #fb7185;
+  --synapse-blue: #60a5fa;
 
   /* Text scale */
-  --synapse-text-primary:  #fafafa;       /* zinc-50 */
-  --synapse-text-secondary: #a1a1aa;       /* zinc-400 */
-  --synapse-text-muted:    #71717a;       /* zinc-500 */
+  --synapse-text-primary: #fafafa; /* zinc-50 */
+  --synapse-text-secondary: #a1a1aa; /* zinc-400 */
+  --synapse-text-muted: #71717a; /* zinc-500 */
 
   /* Glow effects */
-  --synapse-glow-violet:   rgba(167, 139, 250, 0.03);
-  --synapse-glow-fuchsia:  rgba(244, 114, 182, 0.03);
-  --synapse-glow-rose:     rgba(251, 113, 133, 0.03);
+  --synapse-glow-violet: rgba(167, 139, 250, 0.03);
+  --synapse-glow-fuchsia: rgba(244, 114, 182, 0.03);
+  --synapse-glow-rose: rgba(251, 113, 133, 0.03);
 }
 
 @layer base {
-  *, ::after, ::before, ::backdrop, ::file-selector-button {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
     border-color: var(--border);
     border-width: 0;
   }

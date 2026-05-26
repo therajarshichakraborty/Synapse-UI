@@ -29,30 +29,24 @@ export default function HeroSection() {
     return () => cancelAnimationFrame(frame);
   }, []);
 
-  const base =
-    "transition-all duration-700 ease-out";
+  const base = "transition-all duration-700 ease-out";
   const hidden = "opacity-0 translate-y-5";
   const visible = "opacity-100 translate-y-0";
 
-  const topRowBase =
-    "transition-all duration-500 ease-out";
+  const topRowBase = "transition-all duration-500 ease-out";
   const hiddenScale = "opacity-0 -translate-y-5 scale-95";
   const visibleScale = "opacity-100 translate-y-0 scale-100";
 
-  const bottomBase =
-    "transition-all duration-500 ease-out";
+  const bottomBase = "transition-all duration-500 ease-out";
   const hiddenBottom = "opacity-0 translate-y-5 scale-95";
   const visibleBottom = "opacity-100 translate-y-0 scale-100";
 
   return (
-    <div className="mx-auto w-full max-w-7xl min-h-screen flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 px-4 sm:px-6 py-12 md:py-16 lg:py-20">
+    <div className="mx-auto w-full max-w-7xl min-h-[calc(100vh-4rem)] flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 px-4 sm:px-6 py-12 md:py-16 lg:py-20">
       {/* Left side - Title and CTA */}
-      <div className="w-full lg:w-[45%] flex flex-col items-start text-left space-y-8 lg:-mt-70">
+      <div className="w-full lg:w-[45%] flex flex-col items-start text-left space-y-8">
         {/* Hero headline + description */}
-        <div
-          className={`${base} ${mounted ? visible : hidden}`}
-          style={{ transitionDelay: "0ms" }}
-        >
+        <div className={`${base} ${mounted ? visible : hidden}`} style={{ transitionDelay: "0ms" }}>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-zinc-900 dark:text-zinc-100">
             Craft with precision
             <br />
@@ -60,15 +54,13 @@ export default function HeroSection() {
           </h1>
           <p className="mt-6 text-base md:text-xl text-zinc-650 dark:text-zinc-300 max-w-lg leading-relaxed">
             A curated collection of{" "}
-            <span className="font-semibold text-zinc-900 dark:text-zinc-100">100+ premium UI components</span> crafted with{" "}
             <span className="font-semibold text-zinc-900 dark:text-zinc-100">
-              Tailwind CSS
+              100+ premium UI components
             </span>{" "}
-            and{" "}
-            <span className="font-semibold text-zinc-900 dark:text-zinc-100">
-              shadcn/ui
-            </span>{" "}
-            for modern React and Next.js applications.
+            crafted with{" "}
+            <span className="font-semibold text-zinc-900 dark:text-zinc-100">Tailwind CSS</span> and{" "}
+            <span className="font-semibold text-zinc-900 dark:text-zinc-100">shadcn/ui</span> for
+            modern React and Next.js applications.
           </p>
         </div>
 

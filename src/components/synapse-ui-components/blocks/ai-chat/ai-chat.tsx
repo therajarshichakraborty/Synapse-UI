@@ -3,19 +3,19 @@
 import { motion } from "motion/react";
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
-import { 
-  Bot, 
-  Send, 
-  Plus, 
-  Settings, 
-  User, 
-  Terminal, 
-  Code2, 
+import {
+  Bot,
+  Send,
+  Plus,
+  Settings,
+  User,
+  Terminal,
+  Code2,
   Sparkles,
   Search,
   MessageSquare,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
 } from "lucide-react";
 
 interface Message {
@@ -51,12 +51,12 @@ export default function AiChat() {
       sender: "user",
       text: inputText,
     };
-    setMessages(prev => [...prev, newMsg]);
+    setMessages((prev) => [...prev, newMsg]);
     setInputText("");
 
     // Simulate bot thinking and reply
     setTimeout(() => {
-      setMessages(prev => [
+      setMessages((prev) => [
         ...prev,
         {
           id: (Date.now() + 1).toString(),
@@ -68,12 +68,12 @@ export default function AiChat() {
   };
 
   return (
-    <div className="w-full max-w-4xl h-[550px] rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 flex overflow-hidden shadow-2xl relative">
+    <div className="w-full max-w-4xl rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 flex overflow-hidden shadow-2xl relative" style={{ minHeight: "520px", maxHeight: "600px" }}>
       {/* Sidebar Navigation */}
       <div
         className={cn(
           "h-full border-r border-zinc-200 dark:border-zinc-900 bg-zinc-50/50 dark:bg-zinc-950/20 transition-all duration-300 flex flex-col justify-between shrink-0 relative",
-          sidebarOpen ? "w-[220px]" : "w-0 overflow-hidden border-r-0"
+          sidebarOpen ? "w-[220px]" : "w-0 overflow-hidden border-r-0",
         )}
       >
         <div className="p-4 flex-1 overflow-y-auto space-y-4">
@@ -118,7 +118,7 @@ export default function AiChat() {
                 "w-full h-8 px-2 rounded-lg text-left text-xs font-semibold truncate flex items-center gap-2",
                 idx === 0
                   ? "bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 border border-zinc-200/50 dark:border-zinc-800/50"
-                  : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900/30"
+                  : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900/30",
               )}
             >
               <MessageSquare className="w-3.5 h-3.5" />
@@ -144,16 +144,16 @@ export default function AiChat() {
         </div>
       </div>
 
-      {/* Collapse Toggle Handle Button */}
+      {/* Collapse Toggle Handle Button - sits at the boundary between sidebar and main */}
       <button
         onClick={() => setSidebarOpen(!sidebarOpen)}
-        className="absolute left-[214px] top-6 z-30 p-1 bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-full hover:shadow-xs transition-transform hidden lg:block"
-        style={{ transform: sidebarOpen ? "none" : "translateX(-214px)" }}
+        className="shrink-0 w-5 self-stretch flex items-center justify-center bg-zinc-50 dark:bg-zinc-900/50 border-r border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors hidden lg:flex"
+        aria-label="Toggle Sidebar"
       >
         {sidebarOpen ? (
-          <ChevronLeft className="w-3 h-3 text-zinc-500" />
+          <ChevronLeft className="w-3 h-3 text-zinc-400" />
         ) : (
-          <ChevronRight className="w-3 h-3 text-zinc-500" />
+          <ChevronRight className="w-3 h-3 text-zinc-400" />
         )}
       </button>
 
@@ -169,9 +169,7 @@ export default function AiChat() {
               <h4 className="text-xs font-bold text-zinc-900 dark:text-zinc-50">
                 React Scroll Progress
               </h4>
-              <p className="text-[9px] text-zinc-400 dark:text-zinc-500">
-                Powered by Synapse 2.5
-              </p>
+              <p className="text-[9px] text-zinc-400 dark:text-zinc-500">Powered by Synapse 2.5</p>
             </div>
           </div>
           <div className="flex items-center gap-1">
@@ -184,12 +182,12 @@ export default function AiChat() {
 
         {/* Message Feed Viewport */}
         <div className="flex-1 overflow-y-auto p-6 space-y-4">
-          {messages.map(msg => (
+          {messages.map((msg) => (
             <div
               key={msg.id}
               className={cn(
                 "flex gap-3 max-w-[85%]",
-                msg.sender === "user" ? "ml-auto flex-row-reverse" : "mr-auto"
+                msg.sender === "user" ? "ml-auto flex-row-reverse" : "mr-auto",
               )}
             >
               <div
@@ -197,7 +195,7 @@ export default function AiChat() {
                   "w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-xs font-bold",
                   msg.sender === "user"
                     ? "bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-950"
-                    : "bg-zinc-200 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200"
+                    : "bg-zinc-200 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200",
                 )}
               >
                 {msg.sender === "user" ? "U" : <Bot className="w-4 h-4" />}
@@ -209,7 +207,7 @@ export default function AiChat() {
                     "p-3 rounded-2xl text-xs leading-relaxed",
                     msg.sender === "user"
                       ? "bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-950 rounded-tr-none"
-                      : "bg-white dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800 text-zinc-800 dark:text-zinc-200 rounded-tl-none shadow-xs"
+                      : "bg-white dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800 text-zinc-800 dark:text-zinc-200 rounded-tl-none shadow-xs",
                   )}
                 >
                   {msg.text}
@@ -241,8 +239,8 @@ export default function AiChat() {
               type="text"
               placeholder="Ask Synapse anything..."
               value={inputText}
-              onChange={e => setInputText(e.target.value)}
-              onKeyDown={e => e.key === "Enter" && handleSend()}
+              onChange={(e) => setInputText(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleSend()}
               className="w-full h-11 pl-4 pr-12 text-xs bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-xl focus:outline-hidden focus:ring-4 focus:ring-zinc-900/5 dark:focus:ring-zinc-100/5 focus:border-zinc-600 dark:focus:border-zinc-400 text-zinc-800 dark:text-zinc-100"
             />
             <button
@@ -253,11 +251,7 @@ export default function AiChat() {
             </button>
           </div>
           <div className="flex gap-2 mt-2">
-            {[
-              "Optimize code",
-              "Explain imports",
-              "Add responsive styles",
-            ].map((pill, idx) => (
+            {["Optimize code", "Explain imports", "Add responsive styles"].map((pill, idx) => (
               <button
                 key={idx}
                 onClick={() => setInputText(pill)}
