@@ -104,17 +104,13 @@ export default function HeroSection() {
           style={{ transitionDelay: "0ms" }}
         >
           {/* Card component */}
-          <div className="w-full flex flex-col items-center justify-center">
-            <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
-              <Card_01 href="/docs/components/card" />
-            </span>
+          <div className="w-full flex justify-center">
+            <Card_01 href="/docs/components/card" />
           </div>
 
           {/* Action Search Bar */}
-          <div className="w-full max-w-150 bg-transparent mx-8">
-            <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
-              <Card_25 />
-            </span>
+          <div className="w-full max-w-md mx-auto flex justify-center">
+            <Card_25 />
           </div>
         </div>
 
@@ -123,8 +119,7 @@ export default function HeroSection() {
           className={`${topRowBase} w-full ${mounted ? visibleScale : hiddenScale}`}
           style={{ transitionDelay: "200ms" }}
         >
-          <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2"></span>
-          <div className="w-full h-48 rounded-xl border border-zinc-200 dark:border-zinc-800 flex items-center justify-center">
+          <div className="w-full p-6 sm:p-8 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/20 dark:bg-zinc-950/20 flex items-center justify-center">
             <AIInput04 />
           </div>
         </div>
@@ -135,32 +130,30 @@ export default function HeroSection() {
           style={{ transitionDelay: "400ms" }}
         >
           {/* Left side - Buttons */}
-          <div className="w-full">
-            <span className="text-sm text-zinc-500 dark:text-zinc-400 block text-center mb-2">
-              <div className="w-full h-68 rounded-xl flex flex-col items-center justify-center gap-3 bg-transparent">
-                <Link href="/docs/components/button">
-                  <Button02 className=" w-42 py-5" />
-                </Link>
-                <Link href="/docs/components/button">
-                  <Button09 className=" w-42 py-5" />
-                </Link>
-                <Link href="/docs/components/button">
-                  <Btn01 className=" w-42 py-5" />
-                </Link>
-                <Link href="/docs/components/button">
-                  <Button08 className=" w-42 py-5" />
-                </Link>
-              </div>
-            </span>
+          <div className="w-full flex justify-center">
+            <div className="w-full max-w-md p-6 rounded-xl border border-zinc-200/50 dark:border-zinc-800/50 bg-zinc-50/20 dark:bg-zinc-950/20 flex flex-col items-center justify-center gap-3">
+              <Link href="/docs/components/button">
+                <Button02 className="w-48 py-5" />
+              </Link>
+              <Link href="/docs/components/button">
+                <Button09 className="w-48 py-5" />
+              </Link>
+              <Link href="/docs/components/button">
+                <Btn01 className="w-48 py-5" />
+              </Link>
+              <Link href="/docs/components/button">
+                <Button08 className="w-48 py-5" />
+              </Link>
+            </div>
           </div>
 
           {/* Right side - Input */}
-          <div className="w-full mx-10 mt-4">
-            <div className="flex flex-col gap-8">
-              <Link href="/docs/components/input">
+          <div className="w-full max-w-md mx-auto mt-4 px-2 flex flex-col justify-center">
+            <div className="flex flex-col gap-8 w-full">
+              <Link href="/docs/components/input" className="w-full">
                 <Input_01 />
               </Link>
-              <Link href="/docs/components/input">
+              <Link href="/docs/components/input" className="w-full">
                 <Input_06 />
               </Link>
             </div>

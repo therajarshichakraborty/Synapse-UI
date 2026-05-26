@@ -9,21 +9,21 @@ export default function SaasLanding() {
   return (
     <div className="w-full max-w-4xl rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-linear-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-900/50 p-6 sm:p-10 shadow-2xl relative overflow-hidden">
       {/* Ambient background glows */}
-      <div className="absolute -top-40 -right-40 w-96 h-96 bg-purple-500/10 dark:bg-purple-500/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-indigo-500/10 dark:bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -top-40 -right-40 w-96 h-96 bg-zinc-500/5 dark:bg-zinc-800/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-zinc-500/5 dark:bg-zinc-800/5 rounded-full blur-3xl pointer-events-none" />
 
       {/* Main SaaS Hero Block */}
       <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12">
         {/* Left Content Column */}
         <div className="flex-1 space-y-6 text-center lg:text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-purple-50 dark:bg-purple-950/30 text-purple-600 dark:text-purple-400 border border-purple-100 dark:border-purple-900/50 w-fit">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800 w-fit">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Next-Gen Analytics Engine</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-zinc-900 dark:text-zinc-50 leading-tight">
             Analyze your data in{" "}
-            <span className="bg-clip-text text-transparent bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500">
+            <span className="bg-clip-text text-transparent bg-linear-to-r from-zinc-900 to-zinc-550 dark:from-zinc-50 dark:to-zinc-400">
               real-time
             </span>
           </h2>
@@ -62,9 +62,9 @@ export default function SaasLanding() {
           <div className="w-full bg-white dark:bg-zinc-950 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 p-5 shadow-xl relative">
             <div className="flex justify-between items-center pb-4 border-b border-zinc-100 dark:border-zinc-900">
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-500" />
-                <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                <span className="w-2.5 h-2.5 rounded-full bg-zinc-200 dark:bg-zinc-800" />
+                <span className="w-2.5 h-2.5 rounded-full bg-zinc-200 dark:bg-zinc-800" />
+                <span className="w-2.5 h-2.5 rounded-full bg-zinc-200 dark:bg-zinc-800" />
               </div>
               <span className="text-[10px] font-mono text-zinc-400 dark:text-zinc-600">
                 dashboard.synapse.sh
@@ -81,7 +81,7 @@ export default function SaasLanding() {
                 <div className="text-lg font-extrabold text-zinc-900 dark:text-zinc-50">
                   12,842
                 </div>
-                <span className="text-[9px] font-semibold text-emerald-600 dark:text-emerald-400">
+                <span className="text-[9px] font-semibold text-zinc-600 dark:text-zinc-400">
                   +12.4% vs yesterday
                 </span>
               </div>
@@ -94,7 +94,7 @@ export default function SaasLanding() {
                 <div className="text-lg font-extrabold text-zinc-900 dark:text-zinc-50">
                   3.48%
                 </div>
-                <span className="text-[9px] font-semibold text-purple-600 dark:text-purple-400">
+                <span className="text-[9px] font-semibold text-zinc-600 dark:text-zinc-400">
                   +0.8% this week
                 </span>
               </div>
@@ -106,8 +106,8 @@ export default function SaasLanding() {
                 <span className="text-[10px] font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-wider">
                   Real-time Queries
                 </span>
-                <span className="text-[9px] bg-red-500/10 text-red-600 dark:text-red-400 font-bold px-1.5 py-0.5 rounded-sm uppercase tracking-wide flex items-center gap-1">
-                  <span className="w-1 h-1 rounded-full bg-red-500 animate-ping" />
+                <span className="text-[9px] bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold px-1.5 py-0.5 rounded-sm uppercase tracking-wide flex items-center gap-1 border border-zinc-200 dark:border-zinc-700">
+                  <span className="w-1 h-1 rounded-full bg-zinc-400 dark:bg-zinc-500 animate-ping" />
                   Live
                 </span>
               </div>
@@ -116,7 +116,7 @@ export default function SaasLanding() {
                 {[40, 60, 35, 70, 50, 95, 80, 60, 45, 75, 90, 85].map((val, idx) => (
                   <motion.div
                     key={idx}
-                    className="w-full rounded-xs bg-linear-to-t from-indigo-500 to-purple-500"
+                    className="w-full rounded-xs bg-linear-to-t from-zinc-900 to-zinc-455 dark:from-zinc-100 dark:to-zinc-700"
                     initial={{ height: 0 }}
                     animate={{ height: `${val}%` }}
                     transition={{
@@ -139,7 +139,7 @@ export default function SaasLanding() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.5 }}
           >
-            <div className="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+            <div className="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-zinc-100 flex items-center justify-center shrink-0">
               <Zap className="w-4 h-4" />
             </div>
             <div>

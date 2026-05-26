@@ -97,7 +97,7 @@ export default function Input_07({
   return (
     <div className="w-full max-w-sm p-6 rounded-3xl border border-zinc-200/60 dark:border-zinc-800 bg-white dark:bg-zinc-950 shadow-xs">
       <div className="flex flex-col items-center text-center mb-6">
-        <div className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-3 border border-indigo-100 dark:border-indigo-950/80">
+        <div className="w-10 h-10 rounded-xl bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center text-zinc-700 dark:text-zinc-300 mb-3 border border-zinc-200 dark:border-zinc-800">
           <ShieldCheck className="w-5 h-5" />
         </div>
         <h3 className="text-base font-bold text-zinc-950 dark:text-zinc-50 tracking-tight">
@@ -131,9 +131,9 @@ export default function Input_07({
             className={cn(
               "w-12 h-14 text-center text-xl font-bold rounded-xl border transition-all duration-200 outline-hidden font-mono",
               val !== ""
-                ? "bg-zinc-50 border-indigo-500 dark:bg-zinc-900/50 dark:border-indigo-400 text-zinc-900 dark:text-zinc-50 shadow-[0_0_10px_rgba(99,102,241,0.1)]"
+                ? "bg-zinc-50 border-zinc-900 dark:bg-zinc-900/50 dark:border-zinc-100 text-zinc-900 dark:text-zinc-50 shadow-xs"
                 : "bg-white border-zinc-200 dark:bg-zinc-900 dark:border-zinc-800 text-zinc-400 dark:text-zinc-500",
-              "focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 dark:focus:border-indigo-400 dark:focus:ring-indigo-400/10",
+              "focus:border-zinc-900 focus:ring-4 focus:ring-zinc-900/5 dark:focus:border-zinc-100 dark:focus:ring-zinc-100/5",
               error && "border-red-500 ring-red-500/10 dark:border-red-400 dark:ring-red-400/10"
             )}
           />
@@ -144,7 +144,7 @@ export default function Input_07({
         <span className="text-zinc-400 dark:text-zinc-500">Didn't receive code?</span>
         <button
           onClick={triggerErrorShake}
-          className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline"
+          className="text-zinc-950 dark:text-zinc-50 font-semibold hover:underline"
         >
           Resend code
         </button>

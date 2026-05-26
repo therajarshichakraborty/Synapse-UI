@@ -44,7 +44,7 @@ export default function Pricing_07({
     <div className="w-full max-w-sm relative">
       {/* Popular Glow Effect */}
       {popular && (
-        <div className="absolute -inset-[1px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-3xl blur-md opacity-75 dark:opacity-50 animate-pulse pointer-events-none" />
+        <div className="absolute -inset-[1px] bg-gradient-to-r from-zinc-800 via-zinc-400 to-zinc-800 dark:from-zinc-300 dark:via-zinc-600 dark:to-zinc-300 rounded-3xl blur-md opacity-75 dark:opacity-50 animate-pulse pointer-events-none" />
       )}
 
       {/* Main Container */}
@@ -60,13 +60,13 @@ export default function Pricing_07({
       >
         {/* Top Badges */}
         <div className="flex justify-between items-center mb-6">
-          <div className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 dark:bg-indigo-950/30 text-indigo-600 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-950/60">
+          <div className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Scale Plan</span>
           </div>
 
           {popular && (
-            <span className="text-[10px] font-bold tracking-wider text-purple-600 dark:text-purple-400 uppercase bg-purple-50 dark:bg-purple-950/30 px-2.5 py-1 rounded-md border border-purple-100 dark:border-purple-950/50">
+            <span className="text-[10px] font-bold tracking-wider text-zinc-950 dark:text-zinc-50 uppercase bg-zinc-100 dark:bg-zinc-900 px-2.5 py-1 rounded-md border border-zinc-200 dark:border-zinc-800">
               Most Popular
             </span>
           )}
@@ -107,7 +107,7 @@ export default function Pricing_07({
               )}
             >
               <span>Yearly</span>
-              <span className="text-[9px] bg-emerald-500 text-white px-1.5 py-0.5 rounded-sm">Save 25%</span>
+              <span className="text-[9px] bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-950 px-1.5 py-0.5 rounded-sm">Save 25%</span>
             </button>
           </div>
 
@@ -122,7 +122,7 @@ export default function Pricing_07({
           </div>
 
           {billingPeriod === "annually" && (
-            <p className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">
+            <p className="text-[10px] font-semibold text-zinc-600 dark:text-zinc-400">
               Billed annually (${currentPrice * 12}/yr). Save ${savings} per year.
             </p>
           )}
@@ -133,7 +133,7 @@ export default function Pricing_07({
           className={cn(
             "w-full h-11 rounded-xl mt-6 flex items-center justify-center font-bold text-sm tracking-wide transition-all duration-200 active:scale-[0.98]",
             popular
-              ? "bg-linear-to-r from-indigo-600 to-purple-600 text-white hover:opacity-95 shadow-md shadow-indigo-600/10 hover:shadow-indigo-600/20"
+              ? "bg-zinc-900 hover:bg-zinc-900/90 text-white dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100 shadow-md shadow-zinc-950/10 hover:shadow-zinc-950/20"
               : "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 hover:opacity-90"
           )}
         >
@@ -162,8 +162,8 @@ export default function Pricing_07({
                   className={cn(
                     "mt-0.5 w-4 h-4 rounded-full flex items-center justify-center shrink-0",
                     feat.included
-                      ? "bg-emerald-50 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-400"
-                      : "bg-zinc-100 dark:bg-zinc-900 text-zinc-400 dark:text-zinc-600"
+                      ? "bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100"
+                      : "bg-zinc-100 dark:bg-zinc-900 text-zinc-400 dark:text-zinc-650"
                   )}
                 >
                   <Check className="w-3.5 h-3.5" />

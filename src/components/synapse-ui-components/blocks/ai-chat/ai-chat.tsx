@@ -80,15 +80,17 @@ export default function AiChat() {
           {/* Header Actions */}
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1.5 font-bold text-zinc-900 dark:text-zinc-100 text-sm">
-              <Bot className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+              <Bot className="w-4 h-4 text-zinc-700 dark:text-zinc-350" />
               <span>Synapse AI</span>
             </div>
             <button className="p-1 rounded-lg border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900/60 transition-colors">
               <Plus className="w-3.5 h-3.5" />
             </button>
           </div>
+        </div>
 
-          {/* Search bar */}
+        {/* Search bar */}
+        <div className="px-4">
           <div className="relative">
             <Search className="absolute left-2.5 top-2.5 w-3.5 h-3.5 text-zinc-400" />
             <input
@@ -97,32 +99,32 @@ export default function AiChat() {
               className="w-full h-8 pl-8 pr-3 text-xs bg-zinc-100 dark:bg-zinc-900/50 border border-zinc-200/50 dark:border-zinc-800/80 rounded-lg focus:outline-hidden text-zinc-800 dark:text-zinc-200"
             />
           </div>
+        </div>
 
-          {/* Chat List */}
-          <div className="space-y-1">
-            <p className="text-[9px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest px-1">
-              Recent Chats
-            </p>
-            {[
-              "Scroll Progress Hook",
-              "Responsive Grid Layouts",
-              "Tailwind V4 Themes",
-              "AI Input Prototypes",
-            ].map((title, idx) => (
-              <button
-                key={idx}
-                className={cn(
-                  "w-full h-8 px-2 rounded-lg text-left text-xs font-semibold truncate flex items-center gap-2",
-                  idx === 0
-                    ? "bg-zinc-100 dark:bg-zinc-900 text-indigo-600 dark:text-indigo-400"
-                    : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900/30"
-                )}
-              >
-                <MessageSquare className="w-3.5 h-3.5" />
-                <span>{title}</span>
-              </button>
-            ))}
-          </div>
+        {/* Chat List */}
+        <div className="px-4 flex-1 overflow-y-auto space-y-1">
+          <p className="text-[9px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest px-1">
+            Recent Chats
+          </p>
+          {[
+            "Scroll Progress Hook",
+            "Responsive Grid Layouts",
+            "Tailwind V4 Themes",
+            "AI Input Prototypes",
+          ].map((title, idx) => (
+            <button
+              key={idx}
+              className={cn(
+                "w-full h-8 px-2 rounded-lg text-left text-xs font-semibold truncate flex items-center gap-2",
+                idx === 0
+                  ? "bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 border border-zinc-200/50 dark:border-zinc-800/50"
+                  : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900/30"
+              )}
+            >
+              <MessageSquare className="w-3.5 h-3.5" />
+              <span>{title}</span>
+            </button>
+          ))}
         </div>
 
         {/* User Footer Settings */}
@@ -160,7 +162,7 @@ export default function AiChat() {
         {/* Top Header info */}
         <div className="h-14 px-6 border-b border-zinc-200 dark:border-zinc-900 flex items-center justify-between bg-white dark:bg-zinc-950/80">
           <div className="flex items-center gap-2">
-            <div className="p-1 rounded-md bg-indigo-50 dark:bg-indigo-950/30 text-indigo-600 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-950/50">
+            <div className="p-1 rounded-md bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-355 border border-zinc-200 dark:border-zinc-800">
               <Sparkles className="w-3.5 h-3.5" />
             </div>
             <div>
@@ -173,7 +175,7 @@ export default function AiChat() {
             </div>
           </div>
           <div className="flex items-center gap-1">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+            <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 dark:bg-zinc-650" />
             <span className="text-[10px] font-semibold text-zinc-500 dark:text-zinc-400">
               Online
             </span>
@@ -194,7 +196,7 @@ export default function AiChat() {
                 className={cn(
                   "w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-xs font-bold",
                   msg.sender === "user"
-                    ? "bg-indigo-600 text-white"
+                    ? "bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-950"
                     : "bg-zinc-200 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200"
                 )}
               >
@@ -206,7 +208,7 @@ export default function AiChat() {
                   className={cn(
                     "p-3 rounded-2xl text-xs leading-relaxed",
                     msg.sender === "user"
-                      ? "bg-indigo-600 text-white rounded-tr-none"
+                      ? "bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-950 rounded-tr-none"
                       : "bg-white dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800 text-zinc-800 dark:text-zinc-200 rounded-tl-none shadow-xs"
                   )}
                 >
@@ -241,11 +243,11 @@ export default function AiChat() {
               value={inputText}
               onChange={e => setInputText(e.target.value)}
               onKeyDown={e => e.key === "Enter" && handleSend()}
-              className="w-full h-11 pl-4 pr-12 text-xs bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-xl focus:outline-hidden focus:ring-4 focus:ring-indigo-600/10 dark:focus:ring-indigo-500/10 focus:border-indigo-600 dark:focus:border-indigo-500 text-zinc-800 dark:text-zinc-100"
+              className="w-full h-11 pl-4 pr-12 text-xs bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-xl focus:outline-hidden focus:ring-4 focus:ring-zinc-900/5 dark:focus:ring-zinc-100/5 focus:border-zinc-600 dark:focus:border-zinc-400 text-zinc-800 dark:text-zinc-100"
             />
             <button
               onClick={handleSend}
-              className="absolute right-2.5 p-1.5 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500 transition-colors"
+              className="absolute right-2.5 p-1.5 rounded-lg bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-950 hover:opacity-90 transition-colors"
             >
               <Send className="w-3.5 h-3.5" />
             </button>

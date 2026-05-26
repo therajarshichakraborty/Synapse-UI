@@ -9,7 +9,7 @@ export function ShowcaseSection() {
         <h2 className="text-2xl sm:text-4xl font-bold tracking-tight">
           <Text02
             text="Showcase"
-            className="bg-clip-text text-transparent bg-linear-to-r from-pink-500 to-amber-500 dark:from-pink-400 dark:to-amber-400 text-4xl sm:text-7xl"
+            className="bg-clip-text text-transparent bg-linear-to-r from-zinc-900 via-zinc-700 to-zinc-500 dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-500 text-4xl sm:text-7xl"
           />
         </h2>
       </div>
