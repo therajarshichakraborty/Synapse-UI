@@ -1,0 +1,15 @@
+{
+  "name": "progress-tooltip",
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-tooltip"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/synapse-ui/tooltips/progress-tooltip.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport * as TooltipPrimitive from \"@radix-ui/react-tooltip\"\nimport { cn } from \"@/lib/utils\"\n\ninterface ProgressTooltipProps {\n  children: React.ReactNode\n  label: string\n  value: number\n  max?: number\n  showPercentage?: boolean\n  color?: \"default\" | \"success\" | \"warning\" | \"error\"\n  side?: \"top\" | \"right\" | \"bottom\" | \"left\"\n  className?: string\n}\n\nconst colorMap = {\n  default: \"bg-primary\",\n  success: \"bg-emerald-500\",\n  warning: \"bg-amber-500\",\n  error: \"bg-red-500\",\n}\n\nexport function ProgressTooltip({\n  children,\n  label,\n  value,\n  max = 100,\n  showPercentage = true,\n  color = \"default\",\n  side = \"top\",\n  className,\n}: ProgressTooltipProps) {\n  const percentage = Math.min(Math.max((value / max) * 100, 0), 100)\n\n  return (\n    <TooltipPrimitive.Provider delayDuration={200}>\n      <TooltipPrimitive.Root>\n        <TooltipPrimitive.Trigger asChild>{children}</TooltipPrimitive.Trigger>\n        <TooltipPrimitive.Portal>\n          <TooltipPrimitive.Content\n            side={side}\n            sideOffset={6}\n            className={cn(\n              \"z-50 w-48 rounded-lg bg-foreground p-3 text-background shadow-lg\",\n              \"animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95\",\n              \"data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2\",\n              className\n            )}\n          >\n            <div className=\"flex items-center justify-between mb-2\">\n              <span className=\"text-sm font-medium\">{label}</span>\n              {showPercentage && (\n                <span className=\"text-xs text-background/70 font-mono\">\n                  {percentage.toFixed(0)}%\n                </span>\n              )}\n            </div>\n            <div className=\"h-1.5 w-full overflow-hidden rounded-full bg-background/20\">\n              <div\n                className={cn(\"h-full rounded-full transition-all duration-300\", colorMap[color])}\n                style={{ width: `${percentage}%` }}\n              />\n            </div>\n            <div className=\"mt-1.5 flex justify-between text-[10px] text-background/60\">\n              <span>{value.toLocaleString()}</span>\n              <span>{max.toLocaleString()}</span>\n            </div>\n            <TooltipPrimitive.Arrow className=\"fill-foreground h-1.5 w-3\" />\n          </TooltipPrimitive.Content>\n        </TooltipPrimitive.Portal>\n      </TooltipPrimitive.Root>\n    </TooltipPrimitive.Provider>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

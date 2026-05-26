@@ -3,6 +3,7 @@
   "pages": [
     "ai-input",
     "alert",
+    "badge",
     "button",
     "card",
     "faq",
@@ -11,6 +12,8 @@
     "pricing",
     "profile",
     "text",
-    "block"
+    "block",
+    "popover",
+    "tooltip"
   ]
 }

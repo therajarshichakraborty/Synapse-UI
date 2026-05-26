@@ -69,8 +69,10 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
       <strong className={cn("font-semibold text-zinc-900 dark:text-zinc-200", className)} {...props} />
     ),
     code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => {
-      // Inline code only — block code is handled by <pre>
-      const isBlock = className?.includes("language-");
+      const isBlock =
+        className?.includes("language-") ||
+        className?.includes("shiki") ||
+        className?.includes("hljs");
       if (isBlock) return <code className={className} {...props} />;
       return (
         <code
@@ -117,15 +119,15 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
       />
     ),
     table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
-      <div className="my-6 overflow-x-auto rounded-xl border border-zinc-200 dark:border-white/[0.07]">
-        <table className={cn("w-full text-sm", className)} {...props} />
+      <div className="my-4 overflow-x-auto rounded-xl border border-zinc-200 dark:border-white/[0.07] bg-transparent p-0">
+        <table className={cn("w-full text-sm bg-transparent m-0 border-collapse", className)} {...props} />
       </div>
     ),
     th: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
       <th
         className={cn(
-          "px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-zinc-500",
-          "border-b border-zinc-200 dark:border-white/[0.07] bg-zinc-50 dark:bg-white/[0.03]",
+          "px-4 py-2 text-left text-xs font-semibold uppercase tracking-wider text-zinc-500",
+          "border-b border-zinc-200 dark:border-white/[0.07]",
           className
         )}
         {...props}
@@ -134,7 +136,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     td: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
       <td
         className={cn(
-          "px-4 py-3 text-zinc-600 dark:text-zinc-400 border-b border-zinc-100 dark:border-white/[0.04]",
+          "px-4 py-2 text-zinc-600 dark:text-zinc-400 border-b border-zinc-100 dark:border-white/[0.04]",
           className
         )}
         {...props}

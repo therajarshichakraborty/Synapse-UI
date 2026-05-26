@@ -1,0 +1,15 @@
+{
+  "name": "animated-badge",
+  "type": "registry:ui",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/synapse-ui/badges/animated-badge.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\nimport { cn } from \"@/lib/utils\"\n\nconst animatedBadgeVariants = cva(\n  \"inline-flex w-fit items-center justify-center rounded-md px-3 py-1 text-xs font-semibold transition-all duration-300\",\n  {\n    variants: {\n      variant: {\n        glow: \"relative bg-zinc-900 text-white dark:bg-white dark:text-zinc-900\",\n        pulse: \"bg-blue-500 text-white\",\n        bounce: \"bg-emerald-500 text-white\",\n        shake: \"bg-red-500 text-white\",\n        border: \"bg-transparent border-2 border-zinc-300 text-zinc-700 dark:border-zinc-600 dark:text-zinc-300\",\n      },\n      state: {\n        default: \"\",\n        hover: \"\",\n        active: \"scale-90\",\n        disabled: \"opacity-40 cursor-not-allowed\",\n      },\n    },\n    compoundVariants: [\n      { variant: \"glow\", state: \"hover\", className: \"shadow-[0_0_20px_rgba(0,0,0,0.3)] dark:shadow-[0_0_20px_rgba(255,255,255,0.3)]\" },\n      { variant: \"pulse\", state: \"hover\", className: \"animate-pulse\" },\n      { variant: \"bounce\", state: \"hover\", className: \"animate-bounce\" },\n      { variant: \"shake\", state: \"hover\", className: \"animate-[shake_0.5s_ease-in-out]\" },\n      { variant: \"border\", state: \"hover\", className: \"border-zinc-900 dark:border-zinc-100\" },\n    ],\n    defaultVariants: {\n      variant: \"glow\",\n      state: \"default\",\n    },\n  }\n)\n\ninterface AnimatedBadgeProps\n  extends React.HTMLAttributes<HTMLSpanElement>,\n    VariantProps<typeof animatedBadgeVariants> {}\n\nfunction AnimatedBadge({ className, variant, state, children, ...props }: AnimatedBadgeProps) {\n  const needsStyles = variant === \"glow\" || variant === \"shake\";\n\n  return (\n    <span\n      className={cn(\n        animatedBadgeVariants({ variant, state }),\n        variant === \"glow\" && state === \"hover\" && \"before:absolute before:inset-0 before:rounded-md before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:animate-[shimmer_2s_infinite]\",\n        className\n      )}\n      {...props}\n    >\n      {needsStyles && (\n        <style>{`\n          @keyframes shimmer {\n            100% {\n              transform: translateX(100%);\n            }\n          }\n          @keyframes shake {\n            0%, 100% { transform: translateX(0); }\n            25% { transform: translateX(-4px); }\n            75% { transform: translateX(4px); }\n          }\n        `}</style>\n      )}\n      {children}\n    </span>\n  )\n}\n\nexport { AnimatedBadge, animatedBadgeVariants }\n",
+      "type": "registry:ui"
+    }
+  ]
+}

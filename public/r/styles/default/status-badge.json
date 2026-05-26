@@ -1,0 +1,15 @@
+{
+  "name": "status-badge",
+  "type": "registry:ui",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/synapse-ui/badges/status-badge.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\nimport { cn } from \"@/lib/utils\"\n\nconst statusBadgeVariants = cva(\n  \"inline-flex w-fit items-center gap-1.5 rounded-md px-2.5 py-1 text-xs font-medium transition-all duration-200\",\n  {\n    variants: {\n      status: {\n        online: \"bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-400\",\n        offline: \"bg-zinc-100 text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400\",\n        busy: \"bg-amber-50 text-amber-700 dark:bg-amber-950/50 dark:text-amber-400\",\n        away: \"bg-orange-50 text-orange-700 dark:bg-orange-950/50 dark:text-orange-400\",\n        error: \"bg-red-50 text-red-700 dark:bg-red-950/50 dark:text-red-400\",\n      },\n      state: {\n        default: \"\",\n        hover: \"ring-2 ring-offset-1\",\n        active: \"scale-95\",\n        disabled: \"opacity-50 cursor-not-allowed\",\n      },\n    },\n    compoundVariants: [\n      { status: \"online\", state: \"hover\", className: \"ring-emerald-200 dark:ring-emerald-800\" },\n      { status: \"offline\", state: \"hover\", className: \"ring-zinc-200 dark:ring-zinc-700\" },\n      { status: \"busy\", state: \"hover\", className: \"ring-amber-200 dark:ring-amber-800\" },\n      { status: \"away\", state: \"hover\", className: \"ring-orange-200 dark:ring-orange-800\" },\n      { status: \"error\", state: \"hover\", className: \"ring-red-200 dark:ring-red-800\" },\n    ],\n    defaultVariants: {\n      status: \"online\",\n      state: \"default\",\n    },\n  }\n)\n\ninterface StatusBadgeProps\n  extends React.HTMLAttributes<HTMLSpanElement>,\n    VariantProps<typeof statusBadgeVariants> {\n  pulse?: boolean\n}\n\nfunction StatusBadge({ className, status, state, pulse = true, children, ...props }: StatusBadgeProps) {\n  const dotColors = {\n    online: \"bg-emerald-500\",\n    offline: \"bg-zinc-400\",\n    busy: \"bg-amber-500\",\n    away: \"bg-orange-500\",\n    error: \"bg-red-500\",\n  }\n\n  return (\n    <span\n      className={cn(statusBadgeVariants({ status, state }), className)}\n      {...props}\n    >\n      <span className=\"relative flex h-2 w-2\">\n        {pulse && status !== \"offline\" && state !== \"disabled\" && (\n          <span\n            className={cn(\n              \"absolute inline-flex h-full w-full animate-ping rounded-full opacity-75\",\n              dotColors[status || \"online\"]\n            )}\n          />\n        )}\n        <span\n          className={cn(\n            \"relative inline-flex h-2 w-2 rounded-full\",\n            dotColors[status || \"online\"]\n          )}\n        />\n      </span>\n      {children}\n    </span>\n  )\n}\n\nexport { StatusBadge, statusBadgeVariants }\n",
+      "type": "registry:ui"
+    }
+  ]
+}

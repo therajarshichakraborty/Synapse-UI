@@ -151,4 +151,38 @@
   ::-webkit-scrollbar-thumb:hover {
     background: var(--fd-muted-foreground);
   }
+
+  /* ── Shiki syntax highlighting dark-theme override ────────────────────── */
+  .dark pre.shiki,
+  .dark pre.shiki span {
+    color: var(--shiki-dark) !important;
+  }
+
+  /* ── Compact inline code inside table cells ───────────────────────────── */
+  .fd-prose td code {
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    background-color: transparent !important;
+  }
+
+  /* ── Fully transparent and tight table layouts ───────────────────────── */
+  .fd-prose table {
+    margin: 0 !important;
+    padding: 0 !important;
+    border-collapse: collapse !important;
+  }
+  .fd-prose table,
+  .fd-prose tr,
+  .fd-prose th,
+  .fd-prose td {
+    background: transparent !important;
+    background-color: transparent !important;
+  }
+  .fd-prose div:has(> table) {
+    padding: 0 !important;
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
 }

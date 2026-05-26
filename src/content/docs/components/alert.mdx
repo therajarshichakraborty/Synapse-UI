@@ -1,16 +1,51 @@
 ---
 title: Alerts
-description: Alert components and notification layouts.
+description: Alert components and inline feedback banners.
 ---
 
 # Alerts
 
-Alert and notification components for status messages, banners, and inline feedback.
+Alerts provide contextual feedback messages for user actions, displaying system states, warnings, validations, or calls to action.
 
-## Examples
+## Interactive Showcase
+
+Browse all the interactive alert designs and variants included in Synapse UI.
 
 <ComponentShowcase category="alert" />
 
-## Variants
+## Installation
 
-Synapse UI includes **20** alert variants (`alert-01` through `alert-20`) in `src/components/synapse-ui-components/alerts/`.
+Install any of the alert components directly into your project via the CLI:
+
+```bash
+# Install Alert 01 (Simple Banner Alert)
+npx shadcn@latest add http://localhost:3000/r/alert-01.json
+
+# Install Alert 02 (Alert with Action Buttons)
+npx shadcn@latest add http://localhost:3000/r/alert-02.json
+
+# Install Alert 06 (Collapsible Info Alert)
+npx shadcn@latest add http://localhost:3000/r/alert-06.json
+```
+
+## Usage Examples
+
+Here are some common ways to use alert components to display contextual state banners:
+
+### 1. Alert with Action Links
+An alert box displaying warning information along with primary action buttons:
+
+```tsx
+import { Alert } from "@/components/ui/alert-02";
+
+export default function SecurityWarning() {
+  return (
+    <Alert
+      title="Security Update Needed"
+      description="We've detected that your profile lacks two-factor authentication. Protect your account now."
+      confirmLabel="Enable 2FA"
+      onConfirm={() => console.log("Enable 2FA Clicked")}
+    />
+  );
+}
+```

@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "components/synapse-ui/buttons/button-13.tsx",
-      "content": "import { Button } from \"@/components/ui/button\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ninterface Button13Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {\r\n  children?: React.ReactNode;\r\n}\r\n\r\nexport default function Button13({ className, children = \"Soft Button\", ...props }: Button13Props) {\r\n  return (\r\n    <Button\r\n      className={cn(\r\n        \"relative h-11 px-8\",\r\n        \"bg-fuchsia-100 dark:bg-fuchsia-950\",\r\n        \"text-fuchsia-600 dark:text-fuchsia-300\",\r\n        \"hover:bg-fuchsia-200 dark:hover:bg-fuchsia-900\",\r\n        \"rounded-lg\",\r\n        \"transition-all duration-300\",\r\n        \"font-medium\",\r\n        className,\r\n      )}\r\n      {...props}\r\n    >\r\n      {children}\r\n    </Button>\r\n  );\r\n}\r\n",
+      "content": "import { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\ninterface Button13Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  children?: React.ReactNode;\n}\n\nexport default function Button13({ className, children = \"Soft Button\", ...props }: Button13Props) {\n  return (\n    <Button\n      className={cn(\n        \"relative h-11 px-8\",\n        \"bg-fuchsia-100 dark:bg-fuchsia-950\",\n        \"text-fuchsia-600 dark:text-fuchsia-300\",\n        \"hover:bg-fuchsia-200 dark:hover:bg-fuchsia-900\",\n        \"rounded-lg\",\n        \"transition-all duration-300\",\n        \"font-medium\",\n        className,\n      )}\n      {...props}\n    >\n      {children}\n    </Button>\n  );\n}\n",
       "type": "registry:ui"
     }
   ]

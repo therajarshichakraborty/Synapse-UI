@@ -22,13 +22,16 @@ function pascalCase(str) {
 const CATEGORY_MAP = {
   "ai-inputs": "ai-input",
   "alerts": "alert",
+  "badges": "badge",
   "buttons": "button",
   "cards": "card",
   "FAQs": "faq",
   "inputs": "input",
   "lists": "list",
+  "popovers": "popover",
   "pricings": "pricing",
   "texts": "text",
+  "tooltips": "tooltip",
   "blocks": "block",
 };
 
@@ -349,6 +352,58 @@ if (fs.existsSync(synapseComponentsDir)) {
           let extraProps = "";
           if (category === "ai-input") previewClassName = "min-h-[200px] w-full max-w-2xl";
           else if (category === "alert") previewClassName = "min-h-[120px] w-full max-w-lg";
+          else if (category === "badge") {
+            previewClassName = "min-h-[120px] flex justify-center items-center gap-2";
+            if (name === "status-badge") {
+              extraProps = 'props: { children: "Online", status: "online" }, ';
+            } else if (name === "count-badge") {
+              extraProps = 'props: { count: 8 }, ';
+            } else if (name === "gradient-badge") {
+              extraProps = 'props: { children: "Gradient" }, ';
+            } else if (name === "icon-badge") {
+              extraProps = 'props: { icon: <span>✨</span> }, ';
+            } else if (name === "notification-badge") {
+              extraProps = 'props: { count: 4, showZero: true }, ';
+            } else if (name === "outline-badge") {
+              extraProps = 'props: { children: "Outline" }, ';
+            } else if (name === "pill-badge") {
+              extraProps = 'props: { children: "Pill Badge" }, ';
+            } else if (name === "tag-badge") {
+              extraProps = 'props: { children: "Tag" }, ';
+            } else if (name === "multi-color-badge") {
+              extraProps = 'props: { segments: [{ label: "Beta", color: "blue" }, { label: "v1.0", color: "zinc" }] }, ';
+            } else if (name === "animated-badge") {
+              extraProps = 'props: { children: "Animated" }, ';
+            }
+          }
+          else if (category === "popover") {
+            previewClassName = "min-h-[260px] flex justify-center items-center";
+            if (name === "color-popover") {
+              extraProps = 'props: { children: <button className="rounded-lg border px-4 py-2 text-sm font-medium hover:bg-zinc-100 bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-50">Pick Color</button> }, ';
+            } else if (name === "action-popover") {
+              extraProps = 'props: { children: <button className="rounded-lg border px-4 py-2 text-sm font-medium hover:bg-zinc-100 bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-50">Actions</button> }, ';
+            } else if (name === "form-popover") {
+              extraProps = 'props: { children: <button className="rounded-lg border px-4 py-2 text-sm font-medium hover:bg-zinc-100 bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-50">Feedback</button>, fields: [{ name: "email", label: "Email Address", type: "email", placeholder: "you@example.com", required: true }, { name: "message", label: "Feedback", type: "textarea", placeholder: "What can we improve?", required: true }] }, ';
+            } else if (name === "menu-popover") {
+              extraProps = 'props: { children: <button className="rounded-lg border px-4 py-2 text-sm font-medium hover:bg-zinc-100 bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-50">Open Menu</button>, items: [{ label: "Profile", shortcut: "⇧⌘P" }, { label: "Settings", shortcut: "⌘S" }, { label: "Billing", shortcut: "⌘B" }, { label: "Logout", danger: true }] }, ';
+            } else if (name === "user-popover") {
+              extraProps = 'props: { children: <button className="rounded-lg border px-4 py-2 text-sm font-medium hover:bg-zinc-100 bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-50">User Profile</button>, user: { name: "Sarah Connor", username: "sarah", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face", bio: "Tech enthusiast. Building the future of AI interfaces at Synapse UI.", location: "Los Angeles, CA", joinDate: "Joined Jan 2024", stats: [{ label: "Followers", value: 1240 }, { label: "Following", value: 480 }] } }, ';
+            }
+          }
+          else if (category === "tooltip") {
+            previewClassName = "min-h-[120px] flex justify-center items-center";
+            if (name === "basic-tooltip") {
+              extraProps = 'props: { children: <button className="rounded-lg border px-4 py-2 text-sm font-medium hover:bg-zinc-100 bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-50">Hover me</button>, content: "This is a simple tooltip" }, ';
+            } else if (name === "hotkey-tooltip") {
+              extraProps = 'props: { children: <button className="rounded-lg border px-4 py-2 text-sm font-medium hover:bg-zinc-100 bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-50">Save</button>, content: "Save file", keys: ["⌘", "S"] }, ';
+            } else if (name === "icon-tooltip") {
+              extraProps = 'props: { children: <button className="rounded-lg border px-4 py-2 text-sm font-medium hover:bg-zinc-100 bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-50">Info</button>, content: "Helpful icon description info." }, ';
+            } else if (name === "progress-tooltip") {
+              extraProps = 'props: { children: <button className="rounded-lg border px-4 py-2 text-sm font-medium hover:bg-zinc-100 bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-50">Downloading</button>, label: "Status update", value: 65 }, ';
+            } else if (name === "rich-tooltip") {
+              extraProps = 'props: { children: <button className="rounded-lg border px-4 py-2 text-sm font-medium hover:bg-zinc-100 bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-50">Analytics</button>, title: "Performance Data", description: "Real-time user analytics and session details." }, ';
+            }
+          }
           else if (category === "button") previewClassName = "min-h-[120px] flex justify-center items-center";
           else if (category === "card") {
             previewClassName = "min-h-[200px] w-full max-w-md";
@@ -588,13 +643,16 @@ export type DemoEntry = {
 export type DemoCategory =
   | "ai-input"
   | "alert"
+  | "badge"
   | "button"
   | "card"
   | "faq"
   | "input"
   | "list"
+  | "popover"
   | "pricing"
   | "text"
+  | "tooltip"
   | "block"
   | "useAutoResizeTextarea";
 

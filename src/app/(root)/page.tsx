@@ -13,7 +13,6 @@ import SaasLanding from "@/components/synapse-ui-components/blocks/saas-landing/
 import AiChat from "@/components/synapse-ui-components/blocks/ai-chat/ai-chat";
 import { Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-
 export default function Home() {
   const [activeTab, setActiveTab] = useState<"blocks" | "components">("blocks");
   const [activeSubTab, setActiveSubTab] = useState<string>("saas");
@@ -187,6 +186,9 @@ export default function Home() {
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 gap-8 pt-8">
         <BuildInterfacesCard className="p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50" />
       </div>
+
+
+      
     </div>
   );
 }
