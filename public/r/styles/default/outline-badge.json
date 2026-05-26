@@ -1,0 +1,15 @@
+{
+  "name": "outline-badge",
+  "type": "registry:ui",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/synapse-ui/badges/outline-badge.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport { cn } from \"@/lib/utils\";\n\nconst outlineBadgeVariants = cva(\n  \"inline-flex w-fit items-center gap-1.5 rounded-md border-[1.5px] px-2.5 py-1 text-xs font-medium transition-all duration-200\",\n  {\n    variants: {\n      color: {\n        neutral: \"border-zinc-300 text-zinc-700 dark:border-zinc-600 dark:text-zinc-300\",\n        primary: \"border-blue-300 text-blue-700 dark:border-blue-600 dark:text-blue-400\",\n        success:\n          \"border-emerald-300 text-emerald-700 dark:border-emerald-600 dark:text-emerald-400\",\n        warning: \"border-amber-300 text-amber-700 dark:border-amber-600 dark:text-amber-400\",\n        danger: \"border-red-300 text-red-700 dark:border-red-600 dark:text-red-400\",\n        purple: \"border-violet-300 text-violet-700 dark:border-violet-600 dark:text-violet-400\",\n      },\n      state: {\n        default: \"\",\n        hover: \"shadow-sm\",\n        active: \"scale-95\",\n        disabled: \"opacity-40 cursor-not-allowed border-dashed\",\n      },\n    },\n    compoundVariants: [\n      { color: \"neutral\", state: \"hover\", className: \"bg-zinc-50 dark:bg-zinc-900/50\" },\n      { color: \"primary\", state: \"hover\", className: \"bg-blue-50 dark:bg-blue-950/30\" },\n      { color: \"success\", state: \"hover\", className: \"bg-emerald-50 dark:bg-emerald-950/30\" },\n      { color: \"warning\", state: \"hover\", className: \"bg-amber-50 dark:bg-amber-950/30\" },\n      { color: \"danger\", state: \"hover\", className: \"bg-red-50 dark:bg-red-950/30\" },\n      { color: \"purple\", state: \"hover\", className: \"bg-violet-50 dark:bg-violet-950/30\" },\n    ],\n    defaultVariants: {\n      color: \"neutral\",\n      state: \"default\",\n    },\n  },\n);\n\ninterface OutlineBadgeProps\n  extends\n    Omit<React.HTMLAttributes<HTMLSpanElement>, \"color\">,\n    VariantProps<typeof outlineBadgeVariants> {\n  icon?: React.ReactNode;\n}\n\nconst OutlineBadge = React.forwardRef<HTMLSpanElement, OutlineBadgeProps>(\n  ({ className, color, state, icon, children, ...props }, ref) => {\n    return (\n      <span ref={ref} className={cn(outlineBadgeVariants({ color, state }), className)} {...props}>\n        {icon && <span className=\"[&>svg]:h-3 [&>svg]:w-3\">{icon}</span>}\n        {children}\n      </span>\n    );\n  },\n);\n\nOutlineBadge.displayName = \"OutlineBadge\";\n\nexport { OutlineBadge, outlineBadgeVariants };\n",
+      "type": "registry:ui"
+    }
+  ]
+}

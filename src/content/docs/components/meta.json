@@ -3,6 +3,7 @@
   "pages": [
     "ai-input",
     "alert",
+    "badge",
     "button",
     "card",
     "faq",
@@ -12,6 +13,11 @@
     "profile",
     "text",
     "block",
+<<<<<<< HEAD
     "message"
+=======
+    "popover",
+    "tooltip"
+>>>>>>> new-components
   ]
 }

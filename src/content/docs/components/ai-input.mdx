@@ -1,16 +1,80 @@
 ---
-title: AI Input
-description: Modern AI chat interface components for conversational UIs.
+title: AI Inputs
+description: Smart text areas and input layouts for AI streaming, voice inputs, and autocomplete.
 ---
 
-# AI Input
+# AI Inputs
 
-Copy-paste AI chat input components designed for conversational interfaces, prompt bars, and agent UIs.
+AI Inputs are advanced, client-side textareas designed for LLM prompts, chat interfaces, streaming responses, and voice recognition integrations.
 
-## Examples
+## Interactive Showcase
+
+Browse all the interactive AI input designs and variants included in Synapse UI.
 
 <ComponentShowcase category="ai-input" />
 
-## Variants
+## Installation
 
-Synapse UI includes **20** AI input variants (`ai-input-01` through `ai-input-20`) in `src/components/synapse-ui-components/ai-inputs/`.
+Install any of the AI Input components directly into your project via the CLI:
+
+```bash
+# Install AI Input 09 (Streaming Gradient Border)
+npx shadcn@latest add http://localhost:3000/r/ai-input-09.json
+
+# Install AI Input 15 (Spinning Glow Background)
+npx shadcn@latest add http://localhost:3000/r/ai-input-15.json
+
+# Install AI Input 16 (Voice Visualizer Waveform)
+npx shadcn@latest add http://localhost:3000/r/ai-input-16.json
+```
+
+## Usage Examples
+
+Here are some common ways to use these AI Input components in your LLM application layouts:
+
+### 1. Simple Streaming Input
+
+Integrate an input that displays a custom gradient border and a bouncing loading indicator during text generation:
+
+```tsx
+import { AIInput09 } from "@/components/ui/ai-input-09";
+import { useState } from "react";
+
+export default function ChatBox() {
+  const [value, setValue] = useState("");
+  const [isStreaming, setIsStreaming] = useState(false);
+
+  const handleSubmit = (text: string) => {
+    setIsStreaming(true);
+    // Mock API Call
+    setTimeout(() => setIsStreaming(false), 3000);
+  };
+
+  return (
+    <AIInput09
+      value={value}
+      onChange={setValue}
+      onSubmit={handleSubmit}
+      isStreaming={isStreaming}
+      placeholder="Ask about our documentation..."
+    />
+  );
+}
+```
+
+### 2. Multi-mode input (Voice and Text)
+
+Allows toggling between a typing textarea and an active voice recorder Visualizer:
+
+```tsx
+import { AIInput16 } from "@/components/ui/ai-input-16";
+
+export default function AssistantInput() {
+  return (
+    <AIInput16
+      placeholder="Speak or type your prompt..."
+      onSubmit={(prompt) => console.log("Prompt sent:", prompt)}
+    />
+  );
+}
+```

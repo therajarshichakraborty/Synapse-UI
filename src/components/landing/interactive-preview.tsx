@@ -31,12 +31,12 @@ const FEATURES: Feature[] = [
     preview: (
       <div className="grid grid-cols-3 gap-2">
         {[
-          "bg-blue-500",
-          "bg-emerald-500",
-          "bg-purple-500",
-          "bg-amber-500",
-          "bg-pink-500",
-          "bg-cyan-500",
+          "bg-zinc-950 dark:bg-zinc-50 border border-zinc-900 dark:border-zinc-100",
+          "bg-zinc-800 dark:bg-zinc-200 border border-zinc-700 dark:border-zinc-300",
+          "bg-zinc-600 dark:bg-zinc-400 border border-zinc-550 dark:border-zinc-450",
+          "bg-zinc-400 dark:bg-zinc-600 border border-zinc-350 dark:border-zinc-650",
+          "bg-zinc-200 dark:bg-zinc-800 border border-zinc-100 dark:border-zinc-900",
+          "bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/50 dark:border-zinc-800/50",
         ].map((color, i) => (
           <div
             key={i}
@@ -53,7 +53,7 @@ const FEATURES: Feature[] = [
     preview: (
       <div className="flex items-center justify-center">
         <div
-          className="w-16 h-16 bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl animate-spin"
+          className="w-16 h-16 bg-linear-to-tr from-zinc-900 via-zinc-400 to-zinc-100 dark:from-zinc-100 dark:via-zinc-650 dark:to-zinc-900 rounded-2xl animate-spin border border-zinc-200 dark:border-zinc-800"
           style={{ animationDuration: "2s", animationTimingFunction: "ease-in-out" }}
         />
       </div>

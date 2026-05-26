@@ -1,0 +1,15 @@
+{
+  "name": "notification-badge",
+  "type": "registry:ui",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/synapse-ui/badges/notification-badge.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport { cn } from \"@/lib/utils\";\n\nconst notificationBadgeVariants = cva(\n  \"inline-flex w-fit items-center justify-center font-semibold transition-all duration-200\",\n  {\n    variants: {\n      variant: {\n        dot: \"h-2.5 w-2.5 rounded-full p-0\",\n        count: \"min-w-5 h-5 rounded-full px-1.5 text-[10px]\",\n        indicator: \"min-w-4 h-4 rounded-full px-1 text-[9px]\",\n      },\n      color: {\n        red: \"bg-red-500 text-white\",\n        blue: \"bg-blue-500 text-white\",\n        green: \"bg-emerald-500 text-white\",\n        amber: \"bg-amber-500 text-white\",\n      },\n      state: {\n        default: \"\",\n        hover: \"scale-110 shadow-lg\",\n        active: \"scale-90\",\n        disabled: \"opacity-40 cursor-not-allowed\",\n      },\n    },\n    compoundVariants: [\n      { color: \"red\", state: \"hover\", className: \"shadow-red-500/40\" },\n      { color: \"blue\", state: \"hover\", className: \"shadow-blue-500/40\" },\n      { color: \"green\", state: \"hover\", className: \"shadow-emerald-500/40\" },\n      { color: \"amber\", state: \"hover\", className: \"shadow-amber-500/40\" },\n    ],\n    defaultVariants: {\n      variant: \"count\",\n      color: \"red\",\n      state: \"default\",\n    },\n  },\n);\n\ninterface NotificationBadgeProps\n  extends\n    Omit<React.HTMLAttributes<HTMLSpanElement>, \"color\">,\n    VariantProps<typeof notificationBadgeVariants> {\n  count?: number;\n  max?: number;\n  showZero?: boolean;\n}\n\nconst NotificationBadge = React.forwardRef<HTMLSpanElement, NotificationBadgeProps>(\n  ({ className, variant, color, state, count = 0, max = 99, showZero = false, ...props }, ref) => {\n    const resolvedVariant = variant || \"count\";\n\n    if (resolvedVariant !== \"dot\" && !showZero && count === 0) {\n      return null;\n    }\n\n    const displayCount = resolvedVariant === \"dot\" ? null : count > max ? `${max}+` : count;\n\n    return (\n      <span\n        ref={ref}\n        className={cn(\n          notificationBadgeVariants({ variant: resolvedVariant, color, state }),\n          className,\n        )}\n        {...props}\n      >\n        {displayCount}\n      </span>\n    );\n  },\n);\n\nNotificationBadge.displayName = \"NotificationBadge\";\n\nexport { NotificationBadge, notificationBadgeVariants };\n",
+      "type": "registry:ui"
+    }
+  ]
+}

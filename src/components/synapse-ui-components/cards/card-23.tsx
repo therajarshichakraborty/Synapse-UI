@@ -71,9 +71,8 @@ export default function Card_23({
   const holographicGradient = useMotionTemplate`
     radial-gradient(
       350px circle at ${mouseX}px ${mouseY}px,
-      rgba(236, 72, 153, 0.12) 0%,
-      rgba(139, 92, 246, 0.12) 30%,
-      rgba(59, 130, 246, 0.12) 60%,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(200, 200, 200, 0.05) 50%,
       transparent 100%
     )
   `;
@@ -107,7 +106,11 @@ export default function Card_23({
         />
 
         {/* Ambient base design lines */}
+<<<<<<< HEAD
         <div className="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-indigo-500 via-purple-500 to-pink-500" />
+=======
+        <div className="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-zinc-400 via-zinc-200 to-zinc-100 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-800" />
+>>>>>>> new-components
 
         {/* Card Content Grid */}
         <div
@@ -121,14 +124,14 @@ export default function Card_23({
                 {brand}
               </span>
               <div className="flex items-center gap-1.5 mt-2">
-                <div className="w-8 h-6 bg-amber-500/20 rounded-md border border-amber-500/40 flex items-center justify-center">
-                  <div className="w-5 h-4 border border-amber-500/50 rounded-xs grid grid-cols-3 gap-0.5 p-0.5 opacity-80">
-                    <div className="border-r border-b border-amber-500/40" />
-                    <div className="border-r border-b border-amber-500/40" />
-                    <div className="border-b border-amber-500/40" />
-                    <div className="border-r border-amber-500/40" />
-                    <div className="border-r border-amber-500/40" />
-                    <div className="border-amber-500/40" />
+                <div className="w-8 h-6 bg-zinc-500/20 rounded-md border border-zinc-500/40 flex items-center justify-center">
+                  <div className="w-5 h-4 border border-zinc-500/50 rounded-xs grid grid-cols-3 gap-0.5 p-0.5 opacity-80">
+                    <div className="border-r border-b border-zinc-500/40" />
+                    <div className="border-r border-b border-zinc-500/40" />
+                    <div className="border-b border-zinc-500/40" />
+                    <div className="border-r border-zinc-500/40" />
+                    <div className="border-r border-zinc-500/40" />
+                    <div className="border-zinc-500/40" />
                   </div>
                 </div>
                 <Wifi className="w-4 h-4 text-white/60 dark:text-zinc-400 rotate-90" />

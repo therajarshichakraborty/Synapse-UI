@@ -1,7 +1,6 @@
 import { execSync } from "child_process";
 import { createMDX } from "fumadocs-mdx/next";
 
-// Run registry builder script (trigger full-code rebuild) - Trigger Build 3
 try {
   console.log("Building Synapse UI component registry...");
   execSync("bun scripts/build-registry.mjs", { stdio: "inherit" });

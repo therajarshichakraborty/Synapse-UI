@@ -1,16 +1,45 @@
 ---
-title: Button
-description: Interactive button components with animations.
+title: Buttons
+description: Interactive button components with custom hover animations and layouts.
 ---
 
-# Button
+# Buttons
 
-Animated button components with hover effects, icons, and multiple visual styles.
+Buttons trigger actions, submit forms, or link pages. Synapse UI includes specialized layouts with sliding icons, loading states, and premium micro-animations.
 
-## Examples
+## Interactive Showcase
+
+Browse all the interactive button designs and variants included in Synapse UI.
 
 <ComponentShowcase category="button" />
 
-## Variants
+## Installation
 
-Synapse UI includes **20** button variants (`button-01` through `button-20`) in `src/components/synapse-ui-components/buttons/`.
+Install any of the button components directly into your project via the CLI:
+
+```bash
+# Install Button 01 (Sliding Right Arrow)
+npx shadcn@latest add http://localhost:3000/r/button-01.json
+
+# Install Button 05 (Shimmer Button)
+npx shadcn@latest add http://localhost:3000/r/button-05.json
+
+# Install Button 10 (Loading Indicator Button)
+npx shadcn@latest add http://localhost:3000/r/button-10.json
+```
+
+## Usage Examples
+
+Here are some common ways to use these custom button animations in your interfaces:
+
+### 1. Sliding Arrow Action Button
+
+Renders a button with an arrow icon that slides outwards on hover:
+
+```tsx
+import Btn01 from "@/components/ui/button-01";
+
+export default function StartForm() {
+  return <Btn01 onClick={() => console.log("Form started")}>Get Started</Btn01>;
+}
+```

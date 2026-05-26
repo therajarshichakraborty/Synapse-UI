@@ -23,34 +23,33 @@ function Header() {
       </div>
 
       {/* Main Header */}
-      <div className="sticky top-0 z-50 w-full bg-white dark:bg-background">
+      <div className="sticky top-0 z-50 w-full bg-white/80 dark:bg-background/80 backdrop-blur-md">
         <div className="flex justify-center px-4 py-3">
           <div
-            className="w-full md:w-[75%] max-w-6xl
+            className="w-full max-w-6xl
             flex items-center justify-between
-            px-5 py-2.5
+            px-4 sm:px-6 py-2.5
             rounded-xl
-            backdrop-blur-md
-            bg-background/80
-            border border-border
-            shadow-sm
+            bg-white/50 dark:bg-zinc-950/50
+            border border-zinc-200 dark:border-zinc-850
+            shadow-xs
             transition-all duration-300"
           >
             {/* Left Section */}
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-4 sm:gap-6">
               {/* Logo */}
               <Link href="/" className="flex items-center gap-2 group">
                 <Blocks className="w-5 h-5 text-zinc-900 dark:text-zinc-50 transition-transform duration-300 group-hover:scale-105" />
-                <span className="max-sm:hidden font-semibold text-zinc-900 dark:text-zinc-50 text-sm tracking-tight">
+                <span className="font-semibold text-zinc-900 dark:text-zinc-50 text-sm tracking-tight">
                   Synapse UI
                 </span>
               </Link>
 
               {/* Divider */}
-              <div className="max-sm:hidden h-4 w-px bg-zinc-200 dark:bg-zinc-800" />
+              <div className="hidden sm:block h-4 w-px bg-zinc-200 dark:bg-zinc-800" />
 
               {/* Navigation */}
-              <div className="max-sm:hidden flex items-center gap-5">
+              <div className="flex items-center gap-4 sm:gap-5">
                 <Link
                   href="/docs"
                   className="text-xs font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
@@ -60,7 +59,7 @@ function Header() {
 
                 <Link
                   href="/pricing"
-                  className="text-xs font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                  className="hidden sm:inline-block text-xs font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
                 >
                   Pricing
                 </Link>
@@ -69,10 +68,10 @@ function Header() {
                   href="#"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-xs font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-1.5"
+                  className="hidden sm:flex text-xs font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors items-center gap-1.5"
                 >
                   Templates
-                  <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700">
+                  <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-650 dark:text-zinc-350 border border-zinc-200 dark:border-zinc-700">
                     NEW
                   </span>
                 </Link>
@@ -81,8 +80,8 @@ function Header() {
 
             {/* Right Section */}
             <div className="flex items-center gap-4">
-              <div className="max-sm:hidden h-4 w-px bg-zinc-200 dark:bg-zinc-800" />
-              <AnimatedThemeToggler className="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white/50 dark:bg-zinc-950/50 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors text-zinc-500 dark:text-zinc-400" />
+              <div className="hidden sm:block h-4 w-px bg-zinc-200 dark:bg-zinc-800" />
+              <AnimatedThemeToggler className="p-2 rounded-lg border border-zinc-200 dark:border-zinc-850 bg-white/50 dark:bg-zinc-950/50 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors text-zinc-500 dark:text-zinc-400" />
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 // @ts-nocheck
+<<<<<<< HEAD
 import * as __fd_glob_17 from "../src/content/docs/hooks/useAutoResizeTextarea.mdx?collection=docs"
 import * as __fd_glob_16 from "../src/content/docs/components/text.mdx?collection=docs"
 import * as __fd_glob_15 from "../src/content/docs/components/profile.mdx?collection=docs"
@@ -10,6 +11,21 @@ import * as __fd_glob_10 from "../src/content/docs/components/faq.mdx?collection
 import * as __fd_glob_9 from "../src/content/docs/components/card.mdx?collection=docs"
 import * as __fd_glob_8 from "../src/content/docs/components/button.mdx?collection=docs"
 import * as __fd_glob_7 from "../src/content/docs/components/block.mdx?collection=docs"
+=======
+import * as __fd_glob_19 from "../src/content/docs/hooks/useAutoResizeTextarea.mdx?collection=docs"
+import * as __fd_glob_18 from "../src/content/docs/components/tooltip.mdx?collection=docs"
+import * as __fd_glob_17 from "../src/content/docs/components/text.mdx?collection=docs"
+import * as __fd_glob_16 from "../src/content/docs/components/profile.mdx?collection=docs"
+import * as __fd_glob_15 from "../src/content/docs/components/pricing.mdx?collection=docs"
+import * as __fd_glob_14 from "../src/content/docs/components/popover.mdx?collection=docs"
+import * as __fd_glob_13 from "../src/content/docs/components/list.mdx?collection=docs"
+import * as __fd_glob_12 from "../src/content/docs/components/input.mdx?collection=docs"
+import * as __fd_glob_11 from "../src/content/docs/components/faq.mdx?collection=docs"
+import * as __fd_glob_10 from "../src/content/docs/components/card.mdx?collection=docs"
+import * as __fd_glob_9 from "../src/content/docs/components/button.mdx?collection=docs"
+import * as __fd_glob_8 from "../src/content/docs/components/block.mdx?collection=docs"
+import * as __fd_glob_7 from "../src/content/docs/components/badge.mdx?collection=docs"
+>>>>>>> new-components
 import * as __fd_glob_6 from "../src/content/docs/components/alert.mdx?collection=docs"
 import * as __fd_glob_5 from "../src/content/docs/components/ai-input.mdx?collection=docs"
 import * as __fd_glob_4 from "../src/content/docs/buttons/index.mdx?collection=docs"
@@ -25,4 +41,8 @@ const create = server<typeof Config, import("fumadocs-mdx/runtime/types").Intern
   }
 }>({"doc":{"passthroughs":["extractedReferences"]}});
 
+<<<<<<< HEAD
 export const docs = await create.docs("docs", "src/content/docs", {"meta.json": __fd_glob_0, "components/meta.json": __fd_glob_1, "hooks/meta.json": __fd_glob_2, }, {"index.mdx": __fd_glob_3, "buttons/index.mdx": __fd_glob_4, "components/ai-input.mdx": __fd_glob_5, "components/alert.mdx": __fd_glob_6, "components/block.mdx": __fd_glob_7, "components/button.mdx": __fd_glob_8, "components/card.mdx": __fd_glob_9, "components/faq.mdx": __fd_glob_10, "components/input.mdx": __fd_glob_11, "components/list.mdx": __fd_glob_12, "components/message.mdx": __fd_glob_13, "components/pricing.mdx": __fd_glob_14, "components/profile.mdx": __fd_glob_15, "components/text.mdx": __fd_glob_16, "hooks/useAutoResizeTextarea.mdx": __fd_glob_17, });
+=======
+export const docs = await create.docs("docs", "src/content/docs", {"meta.json": __fd_glob_0, "components/meta.json": __fd_glob_1, "hooks/meta.json": __fd_glob_2, }, {"index.mdx": __fd_glob_3, "buttons/index.mdx": __fd_glob_4, "components/ai-input.mdx": __fd_glob_5, "components/alert.mdx": __fd_glob_6, "components/badge.mdx": __fd_glob_7, "components/block.mdx": __fd_glob_8, "components/button.mdx": __fd_glob_9, "components/card.mdx": __fd_glob_10, "components/faq.mdx": __fd_glob_11, "components/input.mdx": __fd_glob_12, "components/list.mdx": __fd_glob_13, "components/popover.mdx": __fd_glob_14, "components/pricing.mdx": __fd_glob_15, "components/profile.mdx": __fd_glob_16, "components/text.mdx": __fd_glob_17, "components/tooltip.mdx": __fd_glob_18, "hooks/useAutoResizeTextarea.mdx": __fd_glob_19, });
+>>>>>>> new-components

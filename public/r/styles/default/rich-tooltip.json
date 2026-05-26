@@ -1,0 +1,16 @@
+{
+  "name": "rich-tooltip",
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-tooltip",
+    "lucide-react"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/synapse-ui/tooltips/rich-tooltip.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport * as TooltipPrimitive from \"@radix-ui/react-tooltip\";\nimport { cn } from \"@/lib/utils\";\nimport { X } from \"lucide-react\";\n\ninterface RichTooltipProps {\n  children: React.ReactNode;\n  title?: string;\n  description?: string;\n  image?: string;\n  footer?: React.ReactNode;\n  side?: \"top\" | \"right\" | \"bottom\" | \"left\";\n  className?: string;\n  showClose?: boolean;\n  onClose?: () => void;\n}\n\nexport function RichTooltip({\n  children,\n  title,\n  description,\n  image,\n  footer,\n  side = \"top\",\n  className,\n  showClose = false,\n  onClose,\n}: RichTooltipProps) {\n  const [open, setOpen] = React.useState(false);\n\n  return (\n    <TooltipPrimitive.Provider delayDuration={300}>\n      <TooltipPrimitive.Root open={open} onOpenChange={setOpen}>\n        <TooltipPrimitive.Trigger asChild>{children}</TooltipPrimitive.Trigger>\n        <TooltipPrimitive.Portal>\n          <TooltipPrimitive.Content\n            side={side}\n            sideOffset={8}\n            className={cn(\n              \"z-50 w-72 overflow-hidden rounded-xl border border-border bg-card text-card-foreground shadow-xl\",\n              \"animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95\",\n              \"data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2\",\n              className,\n            )}\n          >\n            {image && (\n              <div className=\"relative h-32 w-full overflow-hidden\">\n                <img src={image} alt=\"\" className=\"h-full w-full object-cover\" />\n                <div className=\"absolute inset-0 bg-gradient-to-t from-card/80 to-transparent\" />\n              </div>\n            )}\n            <div className=\"p-4\">\n              <div className=\"flex items-start justify-between gap-2\">\n                {title && <h4 className=\"font-semibold leading-tight\">{title}</h4>}\n                {showClose && (\n                  <button\n                    onClick={() => {\n                      setOpen(false);\n                      onClose?.();\n                    }}\n                    className=\"rounded-md p-0.5 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors\"\n                  >\n                    <X className=\"h-3.5 w-3.5\" />\n                  </button>\n                )}\n              </div>\n              {description && (\n                <p className=\"mt-1 text-sm text-muted-foreground leading-relaxed\">{description}</p>\n              )}\n              {footer && <div className=\"mt-3 pt-3 border-t border-border\">{footer}</div>}\n            </div>\n          </TooltipPrimitive.Content>\n        </TooltipPrimitive.Portal>\n      </TooltipPrimitive.Root>\n    </TooltipPrimitive.Provider>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

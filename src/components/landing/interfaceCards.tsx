@@ -5,15 +5,13 @@ import { AIInput04 } from "@/components/synapse-ui-components/ai-inputs/ai-input
 function Header() {
   return (
     <div>
-      <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">
-        <span className="bg-clip-text text-transparent bg-linear-to-r from-amber-500 to-pink-500 dark:from-amber-400 dark:to-pink-400">
-          Build beautiful interfaces
-        </span>
+      <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
+        Build beautiful interfaces
       </h2>
-      <p className="mt-6 text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
+      <p className="mt-6 text-base sm:text-lg text-zinc-650 dark:text-zinc-400 leading-relaxed">
         A collection of UI components that you can copy and paste into your apps.
       </p>
-      <p className="mt-2 text-base text-zinc-500 dark:text-zinc-400">Accessible. Open Source.</p>
+      <p className="mt-2 text-base text-zinc-500 dark:text-zinc-550">Accessible. Open Source.</p>
     </div>
   );
 }
