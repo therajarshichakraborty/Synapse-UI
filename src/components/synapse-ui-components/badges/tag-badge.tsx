@@ -36,7 +36,8 @@ const tagBadgeVariants = cva(
 );
 
 interface TagBadgeProps
-  extends React.HTMLAttributes<HTMLSpanElement>, VariantProps<typeof tagBadgeVariants> {
+  extends Omit<React.HTMLAttributes<HTMLSpanElement>, "color">,
+    VariantProps<typeof tagBadgeVariants> {
   removable?: boolean;
   onRemove?: () => void;
 }
