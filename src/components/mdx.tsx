@@ -141,13 +141,8 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     th: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
       <th
         className={cn(
-<<<<<<< HEAD
-          "px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-zinc-500",
-          "border-b border-zinc-200 dark:border-white/[0.07] bg-zinc-50 dark:bg-white/[0.03]",
-=======
           "px-4 py-2 text-left text-xs font-semibold uppercase tracking-wider text-zinc-500",
           "border-b border-zinc-200 dark:border-white/[0.07]",
->>>>>>> new-components
           className,
         )}
         {...props}
@@ -156,11 +151,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     td: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
       <td
         className={cn(
-<<<<<<< HEAD
-          "px-4 py-3 text-zinc-600 dark:text-zinc-400 border-b border-zinc-100 dark:border-white/[0.04]",
-=======
           "px-4 py-2 text-zinc-600 dark:text-zinc-400 border-b border-zinc-100 dark:border-white/[0.04]",
->>>>>>> new-components
           className,
         )}
         {...props}

@@ -22,10 +22,7 @@ export default function HeroSection() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Small rAF delay ensures the class swap triggers a real CSS transition
-    const frame = requestAnimationFrame(() => {
-      setMounted(true);
-    });
+    const frame = requestAnimationFrame(() => setMounted(true));
     return () => cancelAnimationFrame(frame);
   }, []);
 
@@ -42,17 +39,30 @@ export default function HeroSection() {
   const visibleBottom = "opacity-100 translate-y-0 scale-100";
 
   return (
-    <div className="mx-auto w-full max-w-7xl min-h-[calc(100vh-4rem)] flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 px-4 sm:px-6 py-12 md:py-16 lg:py-20">
-      {/* Left side - Title and CTA */}
+    <div className="mx-auto w-full max-w-7xl min-h-[calc(100vh-4rem)] flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16 px-4 sm:px-6 py-12 md:py-16 lg:py-20">
+      {/* ── Left side ── */}
       <div className="w-full lg:w-[45%] flex flex-col items-start text-left space-y-8">
-        {/* Hero headline + description */}
+        {/* Gradient headline */}
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1]">
+          <span className="text-zinc-900 dark:text-zinc-100">Welcome to </span>
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500">
+            Synapse UI ...
+          </span>
+          <br />
+          <span className="text-zinc-900 dark:text-zinc-100">Craft with </span>
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-500">
+            ease
+          </span>
+          <br />
+          <span className="text-zinc-900 dark:text-zinc-100">Build with </span>
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-blue-500 to-cyan-500">
+            precision
+          </span>
+        </h1>
+
+        {/* Sub-headline */}
         <div className={`${base} ${mounted ? visible : hidden}`} style={{ transitionDelay: "0ms" }}>
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-zinc-900 dark:text-zinc-100">
-            Craft with precision
-            <br />
-            build with ease.
-          </h1>
-          <p className="mt-6 text-base md:text-xl text-zinc-650 dark:text-zinc-300 max-w-lg leading-relaxed">
+          <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-lg leading-relaxed">
             A curated collection of{" "}
             <span className="font-semibold text-zinc-900 dark:text-zinc-100">
               100+ premium UI components
@@ -64,22 +74,22 @@ export default function HeroSection() {
           </p>
         </div>
 
-        {/* CTA buttons + Tailwind badge */}
+        {/* CTA */}
         <div
           className={`${base} flex flex-col justify-start w-full ${mounted ? visible : hidden}`}
           style={{ transitionDelay: "200ms" }}
         >
-          <span className="text-sm text-zinc-500 dark:text-zinc-300 pb-3 text-start flex items-center gap-2">
+          <span className="text-sm text-zinc-500 dark:text-zinc-400 pb-3 flex items-center gap-2">
             <TailwindCSS />
             <span className="flex items-center gap-1.5">
               Now updated for Tailwind CSS 4.0!
               <span className="inline-flex items-center rounded-md bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 text-xs font-semibold text-zinc-900 dark:text-zinc-100 border border-zinc-200 dark:border-zinc-700">
-                <Sparkles className="h-3 w-3 mr-1 text-zinc-550" />
+                <Sparkles className="h-3 w-3 mr-1" />
                 New
               </span>
             </span>
           </span>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-3">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
             <BrowseComponentsButton />
             <BrowseBlocksButton />
           </div>
@@ -88,67 +98,62 @@ export default function HeroSection() {
         <Features />
       </div>
 
-      {/* Right side - Components Layout */}
-      <div className="w-full lg:w-[55%] flex flex-col justify-between gap-6 lg:pl-8">
-        {/* Top row: Card + Profile Card */}
+      {/* ── Right side ── */}
+      <div className="w-full lg:w-[55%] flex flex-col gap-5 lg:pl-4">
+        {/* Row 1 — two cards side by side */}
         <div
-          className={`${topRowBase} w-full grid grid-cols-1 md:grid-cols-2 gap-6 items-center justify-center ${mounted ? visibleScale : hiddenScale}`}
+          className={`${topRowBase} grid grid-cols-1 sm:grid-cols-2 gap-15 ${mounted ? visibleScale : hiddenScale}`}
           style={{ transitionDelay: "0ms" }}
         >
-          {/* Card component */}
-          <div className="w-full flex justify-center">
+          <div className="flex items-center justify-center">
             <Card_01 href="/docs/components/card" />
           </div>
-
-          {/* Action Search Bar */}
-          <div className="w-full max-w-md mx-auto flex justify-center">
+          <div className="flex items-center justify-center">
             <Card_25 />
           </div>
         </div>
 
-        {/* Middle row: AI Chat */}
+        {/* Row 2 — AI input */}
         <div
-          className={`${topRowBase} w-full ${mounted ? visibleScale : hiddenScale}`}
-          style={{ transitionDelay: "200ms" }}
+          className={`${topRowBase} ${mounted ? visibleScale : hiddenScale}`}
+          style={{ transitionDelay: "150ms" }}
         >
-          <div className="w-full p-6 sm:p-8 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/20 dark:bg-zinc-950/20 flex items-center justify-center">
-            <AIInput04 />
+          <div className="w-full flex items-center justify-center py-2">
+            <div className="w-full max-w-xl">
+              <AIInput04 />
+            </div>
           </div>
         </div>
 
-        {/* Bottom row: Buttons on left, Input on right */}
+        {/* Row 3 — buttons + inputs */}
         <div
-          className={`${bottomBase} w-full grid grid-cols-1 md:grid-cols-2 gap-6 ${mounted ? visibleBottom : hiddenBottom}`}
-          style={{ transitionDelay: "400ms" }}
+          className={`${bottomBase} grid grid-cols-1 sm:grid-cols-2 gap-5 ${mounted ? visibleBottom : hiddenBottom}`}
+          style={{ transitionDelay: "300ms" }}
         >
-          {/* Left side - Buttons */}
-          <div className="w-full flex justify-center">
-            <div className="w-full max-w-md p-6 rounded-xl border border-zinc-200/50 dark:border-zinc-800/50 bg-zinc-50/20 dark:bg-zinc-950/20 flex flex-col items-center justify-center gap-3">
-              <Link href="/docs/components/button">
-                <Button02 className="w-48 py-5" />
-              </Link>
-              <Link href="/docs/components/button">
-                <Button09 className="w-48 py-5" />
-              </Link>
-              <Link href="/docs/components/button">
-                <Btn01 className="w-48 py-5" />
-              </Link>
-              <Link href="/docs/components/button">
-                <Button08 className="w-48 py-5" />
-              </Link>
-            </div>
+          {/* Buttons */}
+          <div className="flex flex-col items-center gap-2.5">
+            <Link href="/docs/components/button" className="w-full max-w-[220px]">
+              <Button02 className="w-full" />
+            </Link>
+            <Link href="/docs/components/button" className="w-full max-w-[220px]">
+              <Button09 className="w-full" />
+            </Link>
+            <Link href="/docs/components/button" className="w-full max-w-[220px]">
+              <Btn01 className="w-full" />
+            </Link>
+            <Link href="/docs/components/button" className="w-full max-w-[220px]">
+              <Button08 className="w-full" />
+            </Link>
           </div>
 
-          {/* Right side - Input */}
-          <div className="w-full max-w-md mx-auto mt-4 px-2 flex flex-col justify-center">
-            <div className="flex flex-col gap-8 w-full">
-              <Link href="/docs/components/input" className="w-full">
-                <Input_01 />
-              </Link>
-              <Link href="/docs/components/input" className="w-full">
-                <Input_06 />
-              </Link>
-            </div>
+          {/* Inputs */}
+          <div className="flex flex-col justify-center gap-7 px-2">
+            <Link href="/docs/components/input" className="w-full">
+              <Input_01 />
+            </Link>
+            <Link href="/docs/components/input" className="w-full">
+              <Input_06 />
+            </Link>
           </div>
         </div>
       </div>

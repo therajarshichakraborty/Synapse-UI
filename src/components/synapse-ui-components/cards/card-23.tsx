@@ -106,11 +106,7 @@ export default function Card_23({
         />
 
         {/* Ambient base design lines */}
-<<<<<<< HEAD
-        <div className="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-indigo-500 via-purple-500 to-pink-500" />
-=======
         <div className="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-zinc-400 via-zinc-200 to-zinc-100 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-800" />
->>>>>>> new-components
 
         {/* Card Content Grid */}
         <div

@@ -1,6 +1,5 @@
 "use client";
 
-
 import React, { useState } from "react";
 import HeroSection from "@/components/landing/Hero";
 import { ShowcaseSection } from "@/components/landing/showcase";
@@ -20,11 +19,7 @@ export default function Home() {
   const [activeSubTab, setActiveSubTab] = useState<string>("saas");
 
   return (
-<<<<<<< HEAD
-    <div className="bg-background text-foreground overflow-x-hidden min-h-screen relative pb-24 space-y-16">
-=======
     <div className="bg-background text-foreground overflow-x-hidden min-h-screen relative">
->>>>>>> new-components
       {/* Hero Section */}
       <section>
         <HeroSection />
@@ -38,7 +33,7 @@ export default function Home() {
       {/* Premium Offerings Live Explorer */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-12 relative">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-200 dark:border-zinc-700 mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 mb-4">
             <Sparkles className="w-3.5 h-3.5 text-zinc-500" />
             <span>New Release v1.1</span>
           </div>
@@ -74,7 +69,7 @@ export default function Home() {
               }}
               className={`px-6 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all ${
                 activeTab === "components"
-                  ? "bg-white dark:bg-zinc-800 text-zinc-950 dark:text-zinc-50 shadow-md"
+                  ? "bg-white dark:bg-zinc-800 text-zinc-950 dark:text-zinc-50 shadow-md dark:text-black"
                   : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200"
               }`}
             >
@@ -89,10 +84,10 @@ export default function Home() {
             <>
               <button
                 onClick={() => setActiveSubTab("saas")}
-                className={`px-4 py-2 rounded-lg text-xs font-semibold border transition-all ${
+                className={`px-4 py-2 rounded-lg text-xs font-semibold border transition-all dark:text-black ${
                   activeSubTab === "saas"
-                    ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-850 dark:text-zinc-100 border-zinc-250 dark:border-zinc-700 shadow-xs"
-                    : "border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200"
+                    ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-850 dark:text-black border-zinc-250 dark:border-zinc-700 shadow-xs dark:text-black"
+                    : "border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 dark:text-white"
                 }`}
               >
                 SaaS Landing Hero
@@ -101,8 +96,8 @@ export default function Home() {
                 onClick={() => setActiveSubTab("aichat")}
                 className={`px-4 py-2 rounded-lg text-xs font-semibold border transition-all ${
                   activeSubTab === "aichat"
-                    ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-850 dark:text-zinc-100 border-zinc-250 dark:border-zinc-700 shadow-xs"
-                    : "border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200"
+                    ? "bg-zinc-100 text-black dark:bg-zinc-850 dark:text-black border-zinc-250 dark:border-zinc-700 shadow-xs"
+                    : "border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 dark:text-white"
                 }`}
               >
                 AI Chat Mockup
@@ -114,8 +109,8 @@ export default function Home() {
                 onClick={() => setActiveSubTab("holographic")}
                 className={`px-4 py-2 rounded-lg text-xs font-semibold border transition-all ${
                   activeSubTab === "holographic"
-                    ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-850 dark:text-zinc-100 border-zinc-250 dark:border-zinc-700 shadow-xs"
-                    : "border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200"
+                    ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-850 dark:text-black border-zinc-250 dark:border-zinc-700 shadow-xs"
+                    : "border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 dark:text-white"
                 }`}
               >
                 Holographic Card
@@ -124,8 +119,8 @@ export default function Home() {
                 onClick={() => setActiveSubTab("profile")}
                 className={`px-4 py-2 rounded-lg text-xs font-semibold border transition-all ${
                   activeSubTab === "profile"
-                    ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-850 dark:text-zinc-100 border-zinc-250 dark:border-zinc-700 shadow-xs"
-                    : "border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200"
+                    ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-850 dark:text-black border-zinc-250 dark:border-zinc-700 shadow-xs"
+                    : "border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 dark:text-white"
                 }`}
               >
                 Profile Dashboard
@@ -134,8 +129,8 @@ export default function Home() {
                 onClick={() => setActiveSubTab("otp")}
                 className={`px-4 py-2 rounded-lg text-xs font-semibold border transition-all ${
                   activeSubTab === "otp"
-                    ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-850 dark:text-zinc-100 border-zinc-250 dark:border-zinc-700 shadow-xs"
-                    : "border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200"
+                    ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-850 dark:text-black border-zinc-250 dark:border-zinc-700 shadow-xs"
+                    : "border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 dark:text-white"
                 }`}
               >
                 OTP Verification
@@ -144,8 +139,8 @@ export default function Home() {
                 onClick={() => setActiveSubTab("pricing")}
                 className={`px-4 py-2 rounded-lg text-xs font-semibold border transition-all ${
                   activeSubTab === "pricing"
-                    ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-850 dark:text-zinc-100 border-zinc-250 dark:border-zinc-700 shadow-xs"
-                    : "border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200"
+                    ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-850 dark:text-black border-zinc-250 dark:border-zinc-700 shadow-xs"
+                    : "border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 dark:text-white"
                 }`}
               >
                 Pricing Tier
@@ -154,8 +149,8 @@ export default function Home() {
                 onClick={() => setActiveSubTab("message")}
                 className={`px-4 py-2 rounded-lg text-xs font-semibold border transition-all ${
                   activeSubTab === "message"
-                    ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-850 dark:text-zinc-100 border-zinc-250 dark:border-zinc-700 shadow-xs"
-                    : "border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200"
+                    ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-850 dark:text-black border-zinc-250 dark:border-zinc-700 shadow-xs"
+                    : "border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 dark:text-white"
                 }`}
               >
                 Chat Message

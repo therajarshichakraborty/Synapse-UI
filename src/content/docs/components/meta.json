@@ -13,11 +13,8 @@
     "profile",
     "text",
     "block",
-<<<<<<< HEAD
-    "message"
-=======
+    "message",
     "popover",
     "tooltip"
->>>>>>> new-components
   ]
 }

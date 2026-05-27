@@ -22,27 +22,18 @@ function pascalCase(str) {
 const CATEGORY_MAP = {
   "ai-inputs": "ai-input",
   alerts: "alert",
-<<<<<<< HEAD
-=======
   badges: "badge",
->>>>>>> new-components
   buttons: "button",
   cards: "card",
   FAQs: "faq",
   inputs: "input",
   lists: "list",
-<<<<<<< HEAD
-  pricings: "pricing",
-  texts: "text",
-  blocks: "block",
-  messages: "message",
-=======
   popovers: "popover",
   pricings: "pricing",
   texts: "text",
   tooltips: "tooltip",
   blocks: "block",
->>>>>>> new-components
+  messages: "message",
 };
 
 // Scan imports to determine npm dependencies and registry dependencies
@@ -392,9 +383,6 @@ if (fs.existsSync(synapseComponentsDir)) {
           let extraProps = "";
           if (category === "ai-input") previewClassName = "min-h-[200px] w-full max-w-2xl";
           else if (category === "alert") previewClassName = "min-h-[120px] w-full max-w-lg";
-<<<<<<< HEAD
-          else if (category === "button")
-=======
           else if (category === "badge") {
             previewClassName = "min-h-[120px] flex justify-center items-center gap-2";
             if (name === "status-badge") {
@@ -456,7 +444,6 @@ if (fs.existsSync(synapseComponentsDir)) {
                 'props: { children: <button className="rounded-lg border px-4 py-2 text-sm font-medium hover:bg-zinc-100 bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-50">Analytics</button>, title: "Performance Data", description: "Real-time user analytics and session details." }, ';
             }
           } else if (category === "button")
->>>>>>> new-components
             previewClassName = "min-h-[120px] flex justify-center items-center";
           else if (category === "card") {
             previewClassName = "min-h-[200px] w-full max-w-md";

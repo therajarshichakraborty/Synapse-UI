@@ -1,14 +1,6 @@
 "use client";
 
-import {
-  Copy,
-  Flag,
-  MoreHorizontal,
-  MoreVertical,
-  Reply,
-  Trash2,
-  UserMinus2,
-} from "lucide-react";
+import { Copy, Flag, MoreHorizontal, MoreVertical, Reply, Trash2, UserMinus2 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -46,7 +38,7 @@ function StatusBadge({ status }: { status: StatusType }) {
       aria-label={status}
       className={cn(
         "inline-block size-3 rounded-full border-2 border-background",
-        STATUS_COLORS[status]
+        STATUS_COLORS[status],
       )}
       title={status.charAt(0).toUpperCase() + status.slice(1)}
     />
@@ -126,11 +118,7 @@ function UserActionsMenu() {
           type="button"
           variant="outline"
         >
-          <MoreVertical
-            aria-hidden="true"
-            className="size-4"
-            focusable="false"
-          />
+          <MoreVertical aria-hidden="true" className="size-4" focusable="false" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="min-w-36 rounded-lg bg-popover p-1 shadow-xl">
@@ -141,11 +129,7 @@ function UserActionsMenu() {
             type="button"
             variant="ghost"
           >
-            <UserMinus2
-              aria-hidden="true"
-              className="size-4"
-              focusable="false"
-            />
+            <UserMinus2 aria-hidden="true" className="size-4" focusable="false" />
             <span className="font-medium text-xs">Block User</span>
           </Button>
           <Button
@@ -184,17 +168,10 @@ function MessageActions({ isMe }: { isMe: boolean }) {
           type="button"
           variant="ghost"
         >
-          <MoreHorizontal
-            aria-hidden="true"
-            className="size-3.5"
-            focusable="false"
-          />
+          <MoreHorizontal aria-hidden="true" className="size-3.5" focusable="false" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent
-        align="center"
-        className="w-40 rounded-lg bg-popover p-1 shadow-xl"
-      >
+      <DropdownMenuContent align="center" className="w-40 rounded-lg bg-popover p-1 shadow-xl">
         <div className="flex flex-col gap-1">
           <Button
             aria-label="Reply"
@@ -244,16 +221,12 @@ function MessageActions({ isMe }: { isMe: boolean }) {
   );
 }
 
-export default function Message01({
-  className,
-}: {
-  className?: string;
-}) {
+export default function Message01({ className }: { className?: string }) {
   return (
     <Card
       className={cn(
         "mx-auto flex h-[75vh] min-h-0 max-w-2xl w-full grow flex-col overflow-hidden shadow-none",
-        className
+        className,
       )}
     >
       {/* Header */}
@@ -288,32 +261,24 @@ export default function Message01({
             const isMe = msg.sender.id === DEMO_USER.id;
             return (
               <div
-                className={cn(
-                  "group my-4 flex gap-2",
-                  isMe ? "justify-end" : "justify-start"
-                )}
+                className={cn("group my-4 flex gap-2", isMe ? "justify-end" : "justify-start")}
                 key={msg.id}
               >
                 <div
                   className={cn(
                     "flex max-w-[80%] items-start gap-2",
-                    isMe ? "flex-row-reverse" : undefined
+                    isMe ? "flex-row-reverse" : undefined,
                   )}
                 >
                   <Avatar className="size-8">
-                    <AvatarImage
-                      alt={msg.sender.name}
-                      src={msg.sender.avatar}
-                    />
+                    <AvatarImage alt={msg.sender.name} src={msg.sender.avatar} />
                     <AvatarFallback>{msg.sender.name[0]}</AvatarFallback>
                   </Avatar>
                   <div>
                     <div
                       className={cn(
                         "rounded-md px-3 py-2 text-sm",
-                        isMe
-                          ? "bg-primary text-primary-foreground"
-                          : "bg-accent text-foreground"
+                        isMe ? "bg-primary text-primary-foreground" : "bg-accent text-foreground",
                       )}
                     >
                       {msg.text}

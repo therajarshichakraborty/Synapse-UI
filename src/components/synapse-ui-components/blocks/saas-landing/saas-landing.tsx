@@ -80,11 +80,7 @@ export default function SaasLanding() {
                   <Users className="w-3.5 h-3.5" />
                 </div>
                 <div className="text-lg font-extrabold text-zinc-900 dark:text-zinc-50">12,842</div>
-<<<<<<< HEAD
-                <span className="text-[9px] font-semibold text-emerald-600 dark:text-emerald-400">
-=======
                 <span className="text-[9px] font-semibold text-zinc-600 dark:text-zinc-400">
->>>>>>> new-components
                   +12.4% vs yesterday
                 </span>
               </div>
@@ -95,11 +91,7 @@ export default function SaasLanding() {
                   <Activity className="w-3.5 h-3.5" />
                 </div>
                 <div className="text-lg font-extrabold text-zinc-900 dark:text-zinc-50">3.48%</div>
-<<<<<<< HEAD
-                <span className="text-[9px] font-semibold text-purple-600 dark:text-purple-400">
-=======
                 <span className="text-[9px] font-semibold text-zinc-600 dark:text-zinc-400">
->>>>>>> new-components
                   +0.8% this week
                 </span>
               </div>

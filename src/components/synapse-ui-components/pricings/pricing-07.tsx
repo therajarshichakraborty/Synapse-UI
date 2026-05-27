@@ -103,11 +103,7 @@ export default function Pricing_07({
               )}
             >
               <span>Yearly</span>
-<<<<<<< HEAD
-              <span className="text-[9px] bg-emerald-500 text-white px-1.5 py-0.5 rounded-sm">
-=======
               <span className="text-[9px] bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-950 px-1.5 py-0.5 rounded-sm">
->>>>>>> new-components
                 Save 25%
               </span>
             </button>
@@ -135,11 +131,7 @@ export default function Pricing_07({
           className={cn(
             "w-full h-11 rounded-xl mt-6 flex items-center justify-center font-bold text-sm tracking-wide transition-all duration-200 active:scale-[0.98]",
             popular
-<<<<<<< HEAD
-              ? "bg-linear-to-r from-indigo-600 to-purple-600 text-white hover:opacity-95 shadow-md shadow-indigo-600/10 hover:shadow-indigo-600/20"
-=======
               ? "bg-zinc-900 hover:bg-zinc-900/90 text-white dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100 shadow-md shadow-zinc-950/10 hover:shadow-zinc-950/20"
->>>>>>> new-components
               : "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 hover:opacity-90",
           )}
         >
@@ -168,13 +160,8 @@ export default function Pricing_07({
                   className={cn(
                     "mt-0.5 w-4 h-4 rounded-full flex items-center justify-center shrink-0",
                     feat.included
-<<<<<<< HEAD
-                      ? "bg-emerald-50 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-400"
-                      : "bg-zinc-100 dark:bg-zinc-900 text-zinc-400 dark:text-zinc-600",
-=======
                       ? "bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100"
                       : "bg-zinc-100 dark:bg-zinc-900 text-zinc-400 dark:text-zinc-650",
->>>>>>> new-components
                   )}
                 >
                   <Check className="w-3.5 h-3.5" />

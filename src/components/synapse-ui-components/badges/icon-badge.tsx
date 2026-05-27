@@ -112,7 +112,8 @@ const iconBadgeVariants = cva(
 );
 
 interface IconBadgeProps
-  extends Omit<React.HTMLAttributes<HTMLSpanElement>, "color">,
+  extends
+    Omit<React.HTMLAttributes<HTMLSpanElement>, "color">,
     VariantProps<typeof iconBadgeVariants> {
   icon: React.ReactNode;
 }

@@ -129,11 +129,7 @@ export default function Input_07({ length = 6, onComplete, error = false }: Inpu
               val !== ""
                 ? "bg-zinc-50 border-zinc-900 dark:bg-zinc-900/50 dark:border-zinc-100 text-zinc-900 dark:text-zinc-50 shadow-xs"
                 : "bg-white border-zinc-200 dark:bg-zinc-900 dark:border-zinc-800 text-zinc-400 dark:text-zinc-500",
-<<<<<<< HEAD
-              "focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 dark:focus:border-indigo-400 dark:focus:ring-indigo-400/10",
-=======
               "focus:border-zinc-900 focus:ring-4 focus:ring-zinc-900/5 dark:focus:border-zinc-100 dark:focus:ring-zinc-100/5",
->>>>>>> new-components
               error && "border-red-500 ring-red-500/10 dark:border-red-400 dark:ring-red-400/10",
             )}
           />

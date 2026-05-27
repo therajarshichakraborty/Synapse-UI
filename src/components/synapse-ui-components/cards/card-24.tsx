@@ -94,11 +94,7 @@ export default function Card_24({
                 "h-9 px-3 rounded-xl flex items-center justify-center gap-1.5 text-xs font-semibold tracking-wide transition-all duration-200 active:scale-[0.97]",
                 isFollowing
                   ? "bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200"
-<<<<<<< HEAD
-                  : "bg-indigo-600 text-white hover:bg-indigo-500 shadow-xs hover:shadow-indigo-500/20",
-=======
                   : "bg-zinc-900 text-white hover:bg-zinc-850 dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-zinc-200 shadow-xs",
->>>>>>> new-components
               )}
             >
               {isFollowing ? (
@@ -129,11 +125,7 @@ export default function Card_24({
           <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-50 tracking-tight">
             {name}
           </h3>
-<<<<<<< HEAD
-          <p className="text-xs font-medium text-indigo-600 dark:text-indigo-400">{handle}</p>
-=======
           <p className="text-xs font-medium text-zinc-650 dark:text-zinc-400">{handle}</p>
->>>>>>> new-components
           <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed mt-2">{bio}</p>
         </div>
 

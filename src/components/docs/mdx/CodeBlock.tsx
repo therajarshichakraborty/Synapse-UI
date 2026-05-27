@@ -20,17 +20,6 @@ const languageLabels: Record<string, string> = {
 };
 
 const languageColors: Record<string, string> = {
-<<<<<<< HEAD
-  tsx: "text-blue-400   bg-blue-500/10   border-blue-500/20",
-  ts: "text-blue-400   bg-blue-500/10   border-blue-500/20",
-  jsx: "text-yellow-400 bg-yellow-500/10 border-yellow-500/20",
-  js: "text-yellow-400 bg-yellow-500/10 border-yellow-500/20",
-  bash: "text-green-400  bg-green-500/10  border-green-500/20",
-  sh: "text-green-400  bg-green-500/10  border-green-500/20",
-  css: "text-fuchsia-400 bg-fuchsia-500/10 border-fuchsia-500/20",
-  json: "text-orange-400 bg-orange-500/10 border-orange-500/20",
-  python: "text-sky-400    bg-sky-500/10    border-sky-500/20",
-=======
   tsx: "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-500/10 border-blue-200 dark:border-blue-500/20",
   ts: "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-500/10 border-blue-200 dark:border-blue-500/20",
   jsx: "text-amber-600 dark:text-yellow-400 bg-amber-50 dark:bg-yellow-500/10 border-amber-200 dark:border-yellow-500/20",
@@ -41,7 +30,6 @@ const languageColors: Record<string, string> = {
   json: "text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-500/10 border-orange-200 dark:border-orange-500/20",
   python:
     "text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-500/10 border-sky-200 dark:border-sky-500/20",
->>>>>>> new-components
 };
 
 interface PremiumCodeBlockProps extends React.HTMLAttributes<HTMLPreElement> {
@@ -159,27 +147,17 @@ export function PremiumCodeBlock({
 
   const label = languageLabels[resolvedLang] ?? resolvedLang.toUpperCase();
   const badgeColor =
-<<<<<<< HEAD
-    languageColors[resolvedLang] ?? "text-zinc-400 bg-zinc-500/10 border-zinc-500/20";
-=======
     languageColors[resolvedLang] ??
     "text-zinc-600 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-500/10 border-zinc-200 dark:border-zinc-500/20";
->>>>>>> new-components
   const isBash = resolvedLang === "bash" || resolvedLang === "sh";
 
   return (
     <div
       className={cn(
         "relative my-6 rounded-lg overflow-hidden",
-<<<<<<< HEAD
-        "border border-zinc-800",
-        "bg-zinc-950",
-        "shadow-md",
-=======
         "border border-zinc-200 dark:border-zinc-800",
         "bg-zinc-50 dark:bg-zinc-950",
         "shadow-sm dark:shadow-md",
->>>>>>> new-components
         "group",
       )}
     >
@@ -206,13 +184,8 @@ export function PremiumCodeBlock({
             "flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs transition-all duration-200",
             "border",
             copied
-<<<<<<< HEAD
-              ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-400"
-              : "border-white/[0.06] bg-white/[0.03] text-zinc-500 hover:text-zinc-300 hover:bg-white/[0.07] hover:border-white/[0.1]",
-=======
               ? "border-emerald-200 dark:border-emerald-500/30 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
               : "border-zinc-200 dark:border-white/[0.06] bg-white dark:bg-white/[0.03] text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-white/[0.07] hover:border-zinc-300 dark:hover:border-white/[0.1]",
->>>>>>> new-components
           )}
           aria-label="Copy code"
         >

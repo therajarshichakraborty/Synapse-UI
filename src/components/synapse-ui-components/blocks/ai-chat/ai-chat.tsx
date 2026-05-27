@@ -68,7 +68,10 @@ export default function AiChat() {
   };
 
   return (
-    <div className="w-full max-w-4xl rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 flex overflow-hidden shadow-2xl relative" style={{ minHeight: "520px", maxHeight: "600px" }}>
+    <div
+      className="w-full max-w-4xl rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 flex overflow-hidden shadow-2xl relative"
+      style={{ minHeight: "520px", maxHeight: "600px" }}
+    >
       {/* Sidebar Navigation */}
       <div
         className={cn(
@@ -101,33 +104,6 @@ export default function AiChat() {
           </div>
         </div>
 
-<<<<<<< HEAD
-          {/* Chat List */}
-          <div className="space-y-1">
-            <p className="text-[9px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest px-1">
-              Recent Chats
-            </p>
-            {[
-              "Scroll Progress Hook",
-              "Responsive Grid Layouts",
-              "Tailwind V4 Themes",
-              "AI Input Prototypes",
-            ].map((title, idx) => (
-              <button
-                key={idx}
-                className={cn(
-                  "w-full h-8 px-2 rounded-lg text-left text-xs font-semibold truncate flex items-center gap-2",
-                  idx === 0
-                    ? "bg-zinc-100 dark:bg-zinc-900 text-indigo-600 dark:text-indigo-400"
-                    : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900/30",
-                )}
-              >
-                <MessageSquare className="w-3.5 h-3.5" />
-                <span>{title}</span>
-              </button>
-            ))}
-          </div>
-=======
         {/* Chat List */}
         <div className="px-4 flex-1 overflow-y-auto space-y-1">
           <p className="text-[9px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest px-1">
@@ -152,7 +128,6 @@ export default function AiChat() {
               <span>{title}</span>
             </button>
           ))}
->>>>>>> new-components
         </div>
 
         {/* User Footer Settings */}
@@ -222,11 +197,7 @@ export default function AiChat() {
                 className={cn(
                   "w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-xs font-bold",
                   msg.sender === "user"
-<<<<<<< HEAD
-                    ? "bg-indigo-600 text-white"
-=======
                     ? "bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-950"
->>>>>>> new-components
                     : "bg-zinc-200 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200",
                 )}
               >
@@ -238,11 +209,7 @@ export default function AiChat() {
                   className={cn(
                     "p-3 rounded-2xl text-xs leading-relaxed",
                     msg.sender === "user"
-<<<<<<< HEAD
-                      ? "bg-indigo-600 text-white rounded-tr-none"
-=======
                       ? "bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-950 rounded-tr-none"
->>>>>>> new-components
                       : "bg-white dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800 text-zinc-800 dark:text-zinc-200 rounded-tl-none shadow-xs",
                   )}
                 >
@@ -277,11 +244,7 @@ export default function AiChat() {
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend()}
-<<<<<<< HEAD
-              className="w-full h-11 pl-4 pr-12 text-xs bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-xl focus:outline-hidden focus:ring-4 focus:ring-indigo-600/10 dark:focus:ring-indigo-500/10 focus:border-indigo-600 dark:focus:border-indigo-500 text-zinc-800 dark:text-zinc-100"
-=======
               className="w-full h-11 pl-4 pr-12 text-xs bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-xl focus:outline-hidden focus:ring-4 focus:ring-zinc-900/5 dark:focus:ring-zinc-100/5 focus:border-zinc-600 dark:focus:border-zinc-400 text-zinc-800 dark:text-zinc-100"
->>>>>>> new-components
             />
             <button
               onClick={handleSend}
