@@ -79,6 +79,8 @@ export function AIInput07({
     setFiles((prev) => prev.filter((f) => f.id !== id));
   };
 
+  
+  
   return (
     <div className={cn("w-full max-w-xl mx-auto", className)}>
       <div
