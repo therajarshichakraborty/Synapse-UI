@@ -1,0 +1,65 @@
+---
+title: "Toggle"
+description: "A two-state button that can be either on or off."
+---
+
+<ComponentPreview name="toggle-demo" />
+
+## Installation
+
+<ComponentInstall name="toggle" />
+
+## Usage
+
+```tsx
+import { Toggle } from "@/components/ui/toggle";
+```
+
+```tsx
+<Toggle aria-label="Toggle italic">
+  <ItalicIcon />
+</Toggle>
+```
+
+## API Reference
+
+### Toggle
+
+<PropsTable
+  props={[
+    {
+      prop: "pressed / defaultPressed",
+      type: "boolean",
+      description: "Controlled or initial state.",
+    },
+    {
+      prop: "onPressedChange",
+      type: "(pressed: boolean) => void",
+      description: "Called on toggle.",
+    },
+    {
+      prop: "variant",
+      type: '"default" | "outline"',
+      defaultValue: '"default"',
+      description: "Visual style.",
+    },
+    {
+      prop: "size",
+      type: '"sm" | "default" | "lg"',
+      defaultValue: '"default"',
+      description: "Size.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+### Keyboard interactions
+
+<KeyboardTable
+  keys={[
+    ["Space", "Toggles the pressed state."],
+    ["Enter", "Toggles the pressed state."],
+  ]}
+/>

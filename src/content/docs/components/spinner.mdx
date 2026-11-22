@@ -1,0 +1,36 @@
+---
+title: "Spinner"
+description: "An indicator that can be used to show a loading state."
+---
+
+<ComponentPreview name="spinner-demo" />
+
+## Installation
+
+<ComponentInstall name="spinner" />
+
+## Usage
+
+```tsx
+import { Spinner } from "@/components/ui/spinner";
+```
+
+```tsx
+<Spinner />
+```
+
+## API Reference
+
+### Spinner
+
+Accepts every SVG attribute.
+
+<PropsTable
+  props={[
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+Renders `role="status"` with `aria-label="Loading"`. Override the label when the context is more specific.

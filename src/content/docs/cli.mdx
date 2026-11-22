@@ -1,0 +1,60 @@
+---
+title: CLI
+description: Add components, their dependencies and the design tokens with one command.
+---
+
+## init
+
+Sets up a project: installs base dependencies, writes `lib/utils.ts` and appends the Synapse tokens to your global CSS.
+
+<PmCommand dlx="synapse-ui@latest init" />
+
+| Option         | Description                                                                          |
+| -------------- | ------------------------------------------------------------------------------------ |
+| `--cwd <path>` | Run in a different directory                                                         |
+| `--css <path>` | Path to your global stylesheet (default: `app/globals.css` or `src/app/globals.css`) |
+| `-y, --yes`    | Skip prompts                                                                         |
+
+## add
+
+Adds one or more components. Registry dependencies are resolved recursively. For example, `date-picker` also pulls in `popover`, `calendar` and `button`.
+
+<PmCommand dlx="synapse-ui@latest add dialog sheet marquee" />
+
+| Option             | Description                                                             |
+| ------------------ | ----------------------------------------------------------------------- |
+| `--overwrite`      | Overwrite existing files                                                |
+| `--registry <url>` | Use a self-hosted registry (default: `https://synapse-ui.vercel.app/r`) |
+| `--dry-run`        | Print the files that would be written                                   |
+
+## list
+
+Prints every available component, animated component and block.
+
+<PmCommand dlx="synapse-ui@latest list" />
+
+## Registry format
+
+The registry follows the [shadcn registry schema](https://ui.shadcn.com/docs/registry). Each item is served at `/r/<name>.json`:
+
+```json title="/r/button.json"
+{
+  "name": "button",
+  "type": "registry:ui",
+  "dependencies": ["class-variance-authority", "radix-ui"],
+  "registryDependencies": [],
+  "files": [{ "path": "components/ui/button.tsx", "type": "registry:ui", "content": "..." }]
+}
+```
+
+Because the format is compatible, you can also use the shadcn CLI or add Synapse as a namespaced registry in `components.json`:
+
+```json title="components.json"
+{
+  "registries": {
+    "@synapse": "https://synapse-ui.vercel.app/r/{name}.json"
+  }
+}
+```
+
+<PmCommand dlx="shadcn@latest add @synapse/spotlight" />

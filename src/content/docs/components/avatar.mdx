@@ -1,0 +1,78 @@
+---
+title: "Avatar"
+description: "An image element with a fallback for representing the user."
+---
+
+<ComponentPreview name="avatar-demo" />
+
+## Installation
+
+<ComponentInstall name="avatar" />
+
+## Usage
+
+```tsx
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+```
+
+```tsx
+<Avatar>
+  <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+  <AvatarFallback>CN</AvatarFallback>
+</Avatar>
+```
+
+## Examples
+
+### Group
+
+Stack avatars with `AvatarGroup` and show overflow with `AvatarGroupCount`.
+
+<ComponentPreview name="avatar-group" />
+
+## API Reference
+
+### Avatar
+
+<PropsTable
+  props={[
+    {
+      prop: "size",
+      type: '"sm" | "default" | "lg"',
+      defaultValue: '"default"',
+      description: "Avatar size.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### AvatarImage
+
+<PropsTable
+  props={[
+    { prop: "src", type: "string", description: "Image URL." },
+    { prop: "alt", type: "string", description: "Accessible description." },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### AvatarFallback
+
+<PropsTable
+  props={[
+    {
+      prop: "delayMs",
+      type: "number",
+      description: "Delay before showing the fallback, to avoid flashing.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### AvatarBadge / AvatarGroup / AvatarGroupCount
+
+<PropsTable
+  props={[
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>

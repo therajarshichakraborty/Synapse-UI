@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Terminal, X, Copy, Check } from "lucide-react";
+import { X, Copy, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface Alert10Props {

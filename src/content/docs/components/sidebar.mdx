@@ -1,0 +1,114 @@
+---
+title: "Sidebar"
+description: "A composable, themeable and customizable sidebar component."
+---
+
+A composable, collapsible application sidebar. It persists its state in a cookie, collapses to icons, and becomes a sheet on mobile. Press `⌘B` / `Ctrl+B` to toggle it.
+
+<ComponentPreview name="sidebar-demo" iframe height={560} />
+
+## Installation
+
+<ComponentInstall name="sidebar" />
+
+## Usage
+
+```tsx
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar";
+```
+
+```tsx
+<SidebarProvider>
+  <Sidebar collapsible="icon">
+    <SidebarContent>...</SidebarContent>
+  </Sidebar>
+  <SidebarInset>
+    <SidebarTrigger />
+    <main>...</main>
+  </SidebarInset>
+</SidebarProvider>
+```
+
+## API Reference
+
+### SidebarProvider
+
+<PropsTable
+  props={[
+    { prop: "defaultOpen", type: "boolean", defaultValue: "true", description: "Initial state." },
+    {
+      prop: "open / onOpenChange",
+      type: "boolean / (open) => void",
+      description: "Controlled state.",
+    },
+  ]}
+/>
+
+### Sidebar
+
+<PropsTable
+  props={[
+    { prop: "side", type: '"left" | "right"', defaultValue: '"left"', description: "Edge." },
+    {
+      prop: "variant",
+      type: '"sidebar" | "floating" | "inset"',
+      defaultValue: '"sidebar"',
+      description: "Visual style.",
+    },
+    {
+      prop: "collapsible",
+      type: '"offcanvas" | "icon" | "none"',
+      defaultValue: '"offcanvas"',
+      description: "Collapse behavior.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### SidebarMenuButton
+
+<PropsTable
+  props={[
+    {
+      prop: "isActive",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Marks the current item.",
+    },
+    {
+      prop: "tooltip",
+      type: "string | TooltipContentProps",
+      description: "Shown when collapsed to icons.",
+    },
+    {
+      prop: "size",
+      type: '"sm" | "default" | "lg"',
+      defaultValue: '"default"',
+      description: "Item height.",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Render the child element instead, merging props and behavior.",
+    },
+  ]}
+/>
+
+### useSidebar()
+
+Returns `state`, `open`, `setOpen`, `openMobile`, `setOpenMobile`, `isMobile` and `toggleSidebar`.
+
+<PropsTable props={[]} />
+
+## Accessibility
+
+### Keyboard interactions
+
+<KeyboardTable keys={[["⌘ + B / Ctrl + B", "Toggles the sidebar."]]} />

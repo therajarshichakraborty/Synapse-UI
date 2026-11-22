@@ -1,0 +1,43 @@
+---
+title: "Aurora Background"
+description: "A slow, drifting aurora gradient for hero sections."
+---
+
+<ComponentPreview name="aurora-background-demo" className="p-0 sm:p-0" />
+
+## Installation
+
+<ComponentInstall name="aurora-background" />
+
+## Usage
+
+```tsx
+import { AuroraBackground } from "@/components/animated/aurora-background";
+```
+
+```tsx
+<AuroraBackground className="h-screen">
+  <h1>Hello</h1>
+</AuroraBackground>
+```
+
+## API Reference
+
+### AuroraBackground
+
+<PropsTable
+  props={[
+    {
+      prop: "radial",
+      type: "boolean",
+      defaultValue: "true",
+      description: "Fade the aurora toward the top-right corner.",
+    },
+    { prop: "children", type: "ReactNode", description: "Content on top." },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+With `prefers-reduced-motion: reduce`, the aurora is static.

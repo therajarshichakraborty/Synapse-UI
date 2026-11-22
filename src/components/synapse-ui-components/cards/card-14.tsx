@@ -14,7 +14,7 @@ export default function Card_14({
   description = "Comprehensive design tokens and components",
   files = 48,
   collaborators = 6,
-  lastModified = "2 hours ago",
+  lastModified: _lastModified = "2 hours ago",
 }: Card12Props) {
   return (
     <div

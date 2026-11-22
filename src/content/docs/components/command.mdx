@@ -1,0 +1,100 @@
+---
+title: "Command"
+description: "Fast, composable, unstyled command menu for React."
+---
+
+<ComponentPreview name="command-demo" />
+
+## Installation
+
+<ComponentInstall name="command" />
+
+## Usage
+
+```tsx
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+```
+
+```tsx
+<Command>
+  <CommandInput placeholder="Type a command or search..." />
+  <CommandList>
+    <CommandEmpty>No results found.</CommandEmpty>
+    <CommandGroup heading="Suggestions">
+      <CommandItem>Calendar</CommandItem>
+    </CommandGroup>
+  </CommandList>
+</Command>
+```
+
+## Examples
+
+### Dialog
+
+Open a palette in a dialog with a keyboard shortcut. The docs search on this site uses this pattern.
+
+<ComponentPreview name="command-dialog" />
+
+## API Reference
+
+### Command
+
+<PropsTable
+  props={[
+    { prop: "filter", type: "(value, search) => number", description: "Custom ranking function." },
+    {
+      prop: "shouldFilter",
+      type: "boolean",
+      defaultValue: "true",
+      description: "Disable to filter items yourself.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### CommandDialog
+
+<PropsTable
+  props={[
+    { prop: "open / onOpenChange", type: "boolean / (open) => void", description: "Dialog state." },
+    {
+      prop: "title / description",
+      type: "string",
+      description: "Accessible dialog labels (visually hidden).",
+    },
+  ]}
+/>
+
+### CommandItem
+
+<PropsTable
+  props={[
+    { prop: "value", type: "string", description: "Value used for filtering." },
+    { prop: "onSelect", type: "(value: string) => void", description: "Called on click or Enter." },
+    {
+      prop: "disabled",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Prevents selection.",
+    },
+  ]}
+/>
+
+## Accessibility
+
+### Keyboard interactions
+
+<KeyboardTable
+  keys={[
+    ["ArrowDown / ArrowUp", "Moves the active item."],
+    ["Enter", "Selects the active item."],
+    ["Esc", "Closes the dialog."],
+  ]}
+/>

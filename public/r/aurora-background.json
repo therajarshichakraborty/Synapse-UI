@@ -1,0 +1,13 @@
+{
+  "name": "aurora-background",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/animated/aurora-background.tsx",
+      "content": "import * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nexport type AuroraBackgroundProps = React.ComponentProps<\"div\"> & {\n  /** Only show the aurora near the top-right corner. */\n  radial?: boolean;\n};\n\n/** A slowly drifting aurora of cyan, blue and indigo light. */\nexport function AuroraBackground({\n  className,\n  children,\n  radial = true,\n  ...props\n}: AuroraBackgroundProps) {\n  return (\n    <div className={cn(\"relative isolate overflow-hidden bg-background\", className)} {...props}>\n      <div\n        aria-hidden=\"true\"\n        className=\"pointer-events-none absolute inset-0 -z-10 overflow-hidden\"\n      >\n        <div\n          className={cn(\n            \"absolute -inset-[10px] opacity-50 blur-[10px] invert filter will-change-transform dark:invert-0\",\n            \"[background-image:var(--aurora-stripes),var(--aurora-colors)] [background-size:300%,_200%] [background-position:50%_50%,50%_50%]\",\n            \"after:absolute after:inset-0 after:animate-aurora after:mix-blend-difference after:content-[''] after:[background-attachment:fixed] after:[background-image:var(--aurora-stripes),var(--aurora-colors)] after:[background-size:200%,_100%]\",\n            radial && \"[mask-image:radial-gradient(ellipse_at_100%_0%,black_10%,transparent_70%)]\",\n          )}\n          style={\n            {\n              \"--aurora-stripes\":\n                \"repeating-linear-gradient(100deg, var(--background) 0%, var(--background) 7%, transparent 10%, transparent 12%, var(--background) 16%)\",\n              \"--aurora-colors\":\n                \"repeating-linear-gradient(100deg, #3b82f6 10%, #6366f1 15%, #22d3ee 20%, #93c5fd 25%, #2563eb 30%)\",\n            } as React.CSSProperties\n          }\n        />\n      </div>\n      {children}\n    </div>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

@@ -14,12 +14,12 @@ export default function Button16({
     <Button
       className={cn(
         "relative h-11 px-8",
-        "bg-violet-600 dark:bg-violet-700",
+        "bg-blue-600 dark:bg-blue-700",
         "text-white",
         "hover:px-10",
         "rounded-lg",
         "transition-all duration-300",
-        "shadow-lg shadow-violet-600/30",
+        "shadow-lg shadow-blue-600/30",
         "group",
         className,
       )}

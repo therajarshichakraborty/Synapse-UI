@@ -1,0 +1,75 @@
+---
+title: "Calendar"
+description: "A date field component that allows users to enter and edit a date."
+---
+
+<ComponentPreview name="calendar-demo" />
+
+## Installation
+
+<ComponentInstall name="calendar" />
+
+## Usage
+
+```tsx
+import { Calendar } from "@/components/ui/calendar";
+```
+
+```tsx
+const [date, setDate] = React.useState<Date | undefined>(new Date());
+
+<Calendar mode="single" selected={date} onSelect={setDate} className="rounded-xl border" />;
+```
+
+## Examples
+
+### Range
+
+Select a range across two months.
+
+<ComponentPreview name="calendar-range" />
+
+## API Reference
+
+### Calendar
+
+Accepts every [React DayPicker](https://daypicker.dev) prop.
+
+<PropsTable
+  props={[
+    { prop: "mode", type: '"single" | "multiple" | "range"', description: "Selection mode." },
+    { prop: "selected", type: "Date | Date[] | DateRange", description: "Selected value." },
+    {
+      prop: "onSelect",
+      type: "(value) => void",
+      description: "Called when the selection changes.",
+    },
+    {
+      prop: "numberOfMonths",
+      type: "number",
+      defaultValue: "1",
+      description: "Months to display.",
+    },
+    {
+      prop: "captionLayout",
+      type: '"label" | "dropdown"',
+      defaultValue: '"label"',
+      description: "Show month and year dropdowns.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+### Keyboard interactions
+
+<KeyboardTable
+  keys={[
+    ["ArrowLeft / ArrowRight", "Moves focus one day."],
+    ["ArrowUp / ArrowDown", "Moves focus one week."],
+    ["PageUp / PageDown", "Moves focus one month."],
+    ["Home / End", "Moves focus to the start or end of the week."],
+    ["Enter / Space", "Selects the focused day."],
+  ]}
+/>

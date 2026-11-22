@@ -1,0 +1,79 @@
+---
+title: "Drawer"
+description: "A drawer component for React, built on Vaul."
+---
+
+<ComponentPreview name="drawer-demo" />
+
+## Installation
+
+<ComponentInstall name="drawer" />
+
+## Usage
+
+```tsx
+import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+```
+
+```tsx
+<Drawer>
+  <DrawerTrigger>Open</DrawerTrigger>
+  <DrawerContent>
+    <DrawerHeader>
+      <DrawerTitle>Are you sure?</DrawerTitle>
+      <DrawerDescription>This action cannot be undone.</DrawerDescription>
+    </DrawerHeader>
+  </DrawerContent>
+</Drawer>
+```
+
+## API Reference
+
+### Drawer
+
+Accepts every [Vaul](https://vaul.emilkowal.ski) root prop.
+
+<PropsTable
+  props={[
+    {
+      prop: "direction",
+      type: '"top" | "right" | "bottom" | "left"',
+      defaultValue: '"bottom"',
+      description: "Edge the drawer slides from.",
+    },
+    {
+      prop: "shouldScaleBackground",
+      type: "boolean",
+      defaultValue: "true",
+      description: "Scale the page behind the drawer.",
+    },
+    {
+      prop: "snapPoints",
+      type: "(number | string)[]",
+      description: "Snap points as fractions or pixels.",
+    },
+  ]}
+/>
+
+## Accessibility
+
+Drag to dismiss on touch. On keyboard it behaves like a dialog.
+
+### Keyboard interactions
+
+<KeyboardTable
+  keys={[
+    ["Space", "Opens or closes the dialog from the trigger."],
+    ["Enter", "Opens or closes the dialog from the trigger."],
+    ["Tab", "Moves focus to the next focusable element. Focus is trapped inside."],
+    ["Shift + Tab", "Moves focus to the previous focusable element."],
+    ["Esc", "Closes the dialog and returns focus to the trigger."],
+  ]}
+/>

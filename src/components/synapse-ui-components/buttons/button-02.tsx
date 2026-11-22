@@ -14,12 +14,12 @@ export default function Button02({
     <Button
       className={cn(
         "relative h-11 px-8",
-        "bg-gradient-to-r from-blue-600 to-purple-600",
+        "bg-gradient-to-r from-blue-600 to-indigo-600",
         "text-white",
-        "hover:shadow-lg hover:shadow-purple-500/50",
+        "hover:shadow-lg hover:shadow-indigo-500/50",
         "rounded-lg",
         "transition-all duration-300",
-        "border border-purple-400/20",
+        "border border-indigo-400/20",
         className,
       )}
       {...props}

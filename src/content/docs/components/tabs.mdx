@@ -1,0 +1,79 @@
+---
+title: "Tabs"
+description: "A set of layered sections of content, known as tab panels, displayed one at a time."
+---
+
+<ComponentPreview name="tabs-demo" />
+
+## Installation
+
+<ComponentInstall name="tabs" />
+
+## Usage
+
+```tsx
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+```
+
+```tsx
+<Tabs defaultValue="account">
+  <TabsList>
+    <TabsTrigger value="account">Account</TabsTrigger>
+    <TabsTrigger value="password">Password</TabsTrigger>
+  </TabsList>
+  <TabsContent value="account">Account settings.</TabsContent>
+  <TabsContent value="password">Change your password.</TabsContent>
+</Tabs>
+```
+
+## Examples
+
+### Line variant
+
+<ComponentPreview name="tabs-line" />
+
+## API Reference
+
+### Tabs
+
+<PropsTable
+  props={[
+    { prop: "value / defaultValue", type: "string", description: "Active tab." },
+    { prop: "onValueChange", type: "(value: string) => void", description: "Called on change." },
+    {
+      prop: "orientation",
+      type: '"horizontal" | "vertical"',
+      defaultValue: '"horizontal"',
+      description: "Layout direction.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### TabsList
+
+<PropsTable
+  props={[
+    {
+      prop: "variant",
+      type: '"default" | "line"',
+      defaultValue: '"default"',
+      description: "Visual style.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+### Keyboard interactions
+
+<KeyboardTable
+  keys={[
+    ["Tab", "Moves focus into the active tab, then into the panel."],
+    ["ArrowRight / ArrowLeft", "Moves to the next or previous tab."],
+    ["Home / End", "Moves to the first or last tab."],
+  ]}
+/>
+
+For a sliding animated indicator, see [Animated Tabs](/docs/animated/animated-tabs).

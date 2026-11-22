@@ -1,0 +1,62 @@
+---
+title: "Pagination"
+description: "Pagination with page navigation, next and previous links."
+---
+
+<ComponentPreview name="pagination-demo" />
+
+## Installation
+
+<ComponentInstall name="pagination" />
+
+## Usage
+
+```tsx
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
+```
+
+```tsx
+<Pagination>
+  <PaginationContent>
+    <PaginationItem>
+      <PaginationPrevious href="#" />
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink href="#" isActive>
+        1
+      </PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationNext href="#" />
+    </PaginationItem>
+  </PaginationContent>
+</Pagination>
+```
+
+## API Reference
+
+### PaginationLink
+
+<PropsTable
+  props={[
+    {
+      prop: "isActive",
+      type: "boolean",
+      defaultValue: "false",
+      description: 'Marks the current page with aria-current="page".',
+    },
+    { prop: "size", type: "ButtonSize", defaultValue: '"icon"', description: "Button size." },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+Renders a `nav` with `aria-label="pagination"`. Previous and Next have accessible labels.

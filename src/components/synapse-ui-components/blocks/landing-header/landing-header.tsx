@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import { Blocks, Menu, X, Sun, Moon } from "lucide-react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { cn } from "@/lib/utils";
 
 export default function LandingHeader() {
   const { resolvedTheme, setTheme } = useTheme();
@@ -23,7 +22,7 @@ export default function LandingHeader() {
       {/* Top Promo Bar */}
       <div className="w-full px-4 py-2 bg-zinc-50 dark:bg-gradient-to-b dark:from-[#09001a] dark:to-[#050012] border-b border-zinc-200/10 dark:border-zinc-800/20">
         <Link href="#" className="flex items-center justify-center gap-3 text-sm group">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-indigo-500 to-blue-600 dark:from-violet-300 dark:via-fuchsia-400 dark:to-rose-300 font-medium tracking-tight">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-indigo-500 to-blue-600 dark:from-blue-300 dark:via-cyan-400 dark:to-rose-300 font-medium tracking-tight">
             Explore new components & templates
           </span>
 
@@ -41,7 +40,7 @@ export default function LandingHeader() {
             <div className="flex items-center gap-6">
               {/* Logo */}
               <Link href="/" className="flex items-center gap-2 group">
-                <Blocks className="w-7 h-7 text-fuchsia-500 dark:text-fuchsia-600 transition-transform duration-500 group-hover:rotate-12" />
+                <Blocks className="w-7 h-7 text-cyan-500 dark:text-cyan-600 transition-transform duration-500 group-hover:rotate-12" />
                 <span className="font-semibold text-zinc-800 dark:text-zinc-100 tracking-tight">
                   Synapse UI
                 </span>
@@ -54,21 +53,21 @@ export default function LandingHeader() {
               <nav className="hidden md:flex items-center gap-5">
                 <Link
                   href="/docs"
-                  className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-violet-400 transition-colors"
+                  className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
                   Docs
                 </Link>
 
                 <Link
                   href="/pricing"
-                  className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-violet-400 transition-colors"
+                  className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
                   Pricing
                 </Link>
 
                 <Link
                   href="#"
-                  className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-violet-400 transition-colors flex items-center gap-2"
+                  className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2"
                 >
                   Templates
                   <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-md bg-amber-200 text-amber-600 dark:bg-amber-900/40 dark:text-amber-400">

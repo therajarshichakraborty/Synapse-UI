@@ -1,142 +1,54 @@
 ---
-title: Badges
-description: Stylish badge, pill, tag, and status indicator components.
+title: "Badge"
+description: "Displays a badge or a component that looks like a badge."
 ---
 
-# Badges
-
-Badges are compact status indicators, tags, count bubbles, and notification badges used to highlight status, display metadata, or grab attention.
-
-## Interactive Showcase
-
-Browse all the interactive badge designs and variants included in Synapse UI.
-
-<ComponentShowcase category="badge" />
+<ComponentPreview name="badge-demo" />
 
 ## Installation
 
-Install any of the badge components directly into your project via the CLI:
+<ComponentInstall name="badge" />
 
-```bash
-# Install the Status Badge
-npx shadcn@latest add http://localhost:3000/r/status-badge.json
-
-# Install the Count Badge
-npx shadcn@latest add http://localhost:3000/r/count-badge.json
-
-# Install the Animated Badge
-npx shadcn@latest add http://localhost:3000/r/animated-badge.json
-
-# Install the Multi-color Segmented Badge
-npx shadcn@latest add http://localhost:3000/r/multi-color-badge.json
-
-# Install the Outline Badge
-npx shadcn@latest add http://localhost:3000/r/outline-badge.json
-
-# Install the Notification Badge
-npx shadcn@latest add http://localhost:3000/r/notification-badge.json
-
-# Install the Pill Badge
-npx shadcn@latest add http://localhost:3000/r/pill-badge.json
-
-# Install the Gradient Badge
-npx shadcn@latest add http://localhost:3000/r/gradient-badge.json
-
-# Install the Icon Badge
-npx shadcn@latest add http://localhost:3000/r/icon-badge.json
-
-# Install the Tag Badge
-npx shadcn@latest add http://localhost:3000/r/tag-badge.json
-```
-
-## Usage Examples
-
-Here are some common ways to use these badge components in your application layouts:
-
-### 1. Avatar with Status Badge
-
-Overlay a `StatusBadge` on an avatar to show a user's presence state (Online, Away, Busy, Offline):
+## Usage
 
 ```tsx
-import { StatusBadge } from "@/components/ui/status-badge";
-
-export default function UserProfile() {
-  return (
-    <div className="relative inline-block">
-      <img
-        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces"
-        alt="Avatar"
-        className="size-12 rounded-full object-cover"
-      />
-      <StatusBadge
-        status="online"
-        pulse={true}
-        className="absolute bottom-0 right-0 border-2 border-white dark:border-zinc-950"
-      />
-    </div>
-  );
-}
+import { Badge } from "@/components/ui/badge";
 ```
-
-### 2. Icon with Notification Bubble
-
-Overlay a `NotificationBadge` on a button or navigation link:
 
 ```tsx
-import { NotificationBadge } from "@/components/ui/notification-badge";
-import { Mail } from "lucide-react";
-
-export default function InboxIcon() {
-  return (
-    <button className="relative p-2 text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100">
-      <Mail className="size-6" />
-      <NotificationBadge count={5} max={99} showZero={false} className="absolute -top-1 -right-1" />
-    </button>
-  );
-}
+<Badge variant="success">Ready</Badge>
 ```
 
-### 3. Segmented Metadata Tags
+## Examples
 
-Use `MultiColorBadge` to display multi-part labels (such as package version, repository status, or git branch status):
+### Status and icons
 
-```tsx
-import { MultiColorBadge } from "@/components/ui/multi-color-badge";
+Add an icon with `data-icon` to adjust padding.
 
-export default function ReleaseInfo() {
-  return (
-    <MultiColorBadge
-      segments={[
-        { label: "release", color: "blue" },
-        { label: "v1.4.2", color: "emerald" },
-      ]}
-    />
-  );
-}
-```
+<ComponentPreview name="badge-status" />
 
-## Component APIs
+## API Reference
 
-### StatusBadge
+### Badge
 
-| Prop     | Type                                                   | Default     | Description                                                |
-| :------- | :----------------------------------------------------- | :---------- | :--------------------------------------------------------- |
-| `status` | `'online' \| 'offline' \| 'busy' \| 'away' \| 'error'` | `'online'`  | Presence state color of the indicator dot                  |
-| `pulse`  | `boolean`                                              | `true`      | When true, renders a pulsing ring animation behind the dot |
-| `state`  | `'default' \| 'hover' \| 'active' \| 'disabled'`       | `'default'` | Interactive state styles                                   |
+<PropsTable
+  props={[
+    {
+      prop: "variant",
+      type: '"default" | "secondary" | "outline" | "destructive" | "success" | "warning" | "info" | "gradient" | "ghost" | "link"',
+      defaultValue: '"default"',
+      description: "Visual style.",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Render the child element instead, merging props and behavior.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
 
-### CountBadge
+## More designs
 
-| Prop     | Type     | Default | Description                                                |
-| :------- | :------- | :------ | :--------------------------------------------------------- |
-| `count`  | `number` | `0`     | Number to display                                          |
-| `max`    | `number` | `999`   | Maximum number to display before showing `+` (e.g. `999+`) |
-| `prefix` | `string` | —       | Text to prepend (e.g. `$`)                                 |
-| `suffix` | `string` | —       | Text to append (e.g. `items`)                              |
-
-### MultiColorBadge
-
-| Prop       | Type                                      | Default   | Description                                              |
-| :--------- | :---------------------------------------- | :-------- | :------------------------------------------------------- |
-| `segments` | `Array<{ label: string, color: string }>` | `[]`      | Array of labels with specific colors to render in order  |
-| `variant`  | `'split' \| 'stacked'`                    | `'split'` | Display style (horizontal split block or vertical stack) |
+See animated, notification and status badges in the [Badges collection](/docs/collections/badge).

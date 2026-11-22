@@ -1,0 +1,33 @@
+---
+title: "Lamp Effect"
+description: "A dramatic lamp glow that lights a heading from above."
+---
+
+<ComponentPreview name="lamp-effect-demo" className="p-0 sm:p-0" />
+
+## Installation
+
+<ComponentInstall name="lamp-effect" />
+
+## Usage
+
+```tsx
+import { LampEffect } from "@/components/animated/lamp-effect";
+```
+
+```tsx
+<LampEffect>
+  <h1>Build lamps the right way</h1>
+</LampEffect>
+```
+
+## API Reference
+
+### LampEffect
+
+<PropsTable
+  props={[
+    { prop: "children", type: "ReactNode", description: "Content lit by the lamp." },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>

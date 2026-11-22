@@ -1,0 +1,16 @@
+{
+  "name": "faq-section",
+  "type": "registry:block",
+  "dependencies": [],
+  "registryDependencies": [
+    "accordion",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/faq-section.tsx",
+      "content": "import {\n  Accordion,\n  AccordionContent,\n  AccordionItem,\n  AccordionTrigger,\n} from \"@/components/ui/accordion\";\nimport { Button } from \"@/components/ui/button\";\n\nconst faqs = [\n  { q: \"Is it free?\", a: \"Yes. Every component is free and open source under the MIT license.\" },\n  {\n    q: \"Do I need to install a package?\",\n    a: \"No. Components are copied into your project, so you own and can edit the code.\",\n  },\n  {\n    q: \"Does it work with my framework?\",\n    a: \"Anything that runs React 19 and Tailwind CSS v4: Next.js, Vite, Remix, Astro and more.\",\n  },\n  {\n    q: \"Is it accessible?\",\n    a: \"Interactive components are built on Radix UI primitives with full keyboard and screen-reader support.\",\n  },\n  {\n    q: \"Can I customize the theme?\",\n    a: \"Every color, radius and effect is a CSS variable. Change one file to rebrand everything.\",\n  },\n];\n\nexport default function FaqSection() {\n  return (\n    <section className=\"bg-background py-24 md:py-32\">\n      <div className=\"mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-[1fr_1.4fr]\">\n        <div>\n          <h2 className=\"text-h2 font-semibold\">Frequently asked questions</h2>\n          <p className=\"mt-4 text-muted-foreground\">\n            Can not find what you are looking for? Reach out to our team.\n          </p>\n          <Button variant=\"outline\" className=\"mt-6\">\n            Contact support\n          </Button>\n        </div>\n        <Accordion type=\"single\" collapsible defaultValue=\"0\" className=\"w-full\">\n          {faqs.map((f, i) => (\n            <AccordionItem key={f.q} value={String(i)}>\n              <AccordionTrigger className=\"text-base\">{f.q}</AccordionTrigger>\n              <AccordionContent className=\"text-muted-foreground\">{f.a}</AccordionContent>\n            </AccordionItem>\n          ))}\n        </Accordion>\n      </div>\n    </section>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

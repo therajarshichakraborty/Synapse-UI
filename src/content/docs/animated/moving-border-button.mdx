@@ -1,0 +1,50 @@
+---
+title: "Moving Border Button"
+description: "A button with a light that travels around its border."
+---
+
+<ComponentPreview name="moving-border-button-demo" />
+
+## Installation
+
+<ComponentInstall name="moving-border-button" />
+
+## Usage
+
+```tsx
+import { MovingBorderButton } from "@/components/animated/moving-border-button";
+```
+
+```tsx
+<MovingBorderButton>Book a demo</MovingBorderButton>
+```
+
+## API Reference
+
+### MovingBorderButton
+
+<PropsTable
+  props={[
+    { prop: "duration", type: "number", defaultValue: "4", description: "Seconds per lap." },
+    {
+      prop: "asChild",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Render a link or other element.",
+    },
+    {
+      prop: "containerClassName",
+      type: "string",
+      description: "Classes for the outer border wrapper.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+A native button with a visible focus ring. With reduced motion, the light stays still.
+
+### Keyboard interactions
+
+<KeyboardTable keys={[["Space / Enter", "Activates the button."]]} />

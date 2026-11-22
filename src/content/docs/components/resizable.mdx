@@ -1,0 +1,82 @@
+---
+title: "Resizable"
+description: "Accessible resizable panel groups and layouts with keyboard support."
+---
+
+<ComponentPreview name="resizable-demo" />
+
+## Installation
+
+<ComponentInstall name="resizable" />
+
+## Usage
+
+```tsx
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
+```
+
+```tsx
+<ResizablePanelGroup orientation="horizontal">
+  <ResizablePanel defaultSize="50%">One</ResizablePanel>
+  <ResizableHandle withHandle />
+  <ResizablePanel defaultSize="50%">Two</ResizablePanel>
+</ResizablePanelGroup>
+```
+
+## API Reference
+
+### ResizablePanelGroup
+
+<PropsTable
+  props={[
+    {
+      prop: "orientation",
+      type: '"horizontal" | "vertical"',
+      defaultValue: '"horizontal"',
+      description: "Layout direction.",
+    },
+    { prop: "onLayoutChange", type: "(layout) => void", description: "Called while resizing." },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### ResizablePanel
+
+<PropsTable
+  props={[
+    { prop: "defaultSize", type: "number | string", description: 'Initial size, e.g. "40%".' },
+    { prop: "minSize / maxSize", type: "number | string", description: "Size constraints." },
+    {
+      prop: "collapsible",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Collapse below minSize.",
+    },
+  ]}
+/>
+
+### ResizableHandle
+
+<PropsTable
+  props={[
+    {
+      prop: "withHandle",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Show a visible grip.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+### Keyboard interactions
+
+<KeyboardTable
+  keys={[
+    ["ArrowLeft / ArrowRight", "Resizes horizontal panels."],
+    ["ArrowUp / ArrowDown", "Resizes vertical panels."],
+    ["Home / End", "Collapses or expands to the limit."],
+  ]}
+/>

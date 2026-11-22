@@ -8,7 +8,7 @@ import { useAutoResizeTextarea } from "@/hooks/use-auto-resize-textarea";
 const QUICK_ACTIONS = [
   { id: "write", icon: FileText, label: "Write", color: "text-blue-500" },
   { id: "code", icon: Code, label: "Code", color: "text-emerald-500" },
-  { id: "image", icon: ImageIcon, label: "Image", color: "text-violet-500" },
+  { id: "image", icon: ImageIcon, label: "Image", color: "text-blue-500" },
   { id: "analyze", icon: Brain, label: "Analyze", color: "text-amber-500" },
   { id: "improve", icon: Wand2, label: "Improve", color: "text-rose-500" },
 ] as const;
@@ -50,7 +50,7 @@ export function AIInput04({
     adjustHeight(true);
   };
 
-  const handleActionClick = (id: string, label: string) => {
+  const handleActionClick = (id: string, _label: string) => {
     setActiveAction(id);
     onActionClick?.(id);
   };

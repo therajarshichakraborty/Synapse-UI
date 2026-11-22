@@ -78,7 +78,7 @@ export function AIInput19({
             <div
               className={cn(
                 "flex items-center justify-center size-6 rounded-lg",
-                "bg-gradient-to-br from-violet-500 to-indigo-600",
+                "bg-gradient-to-br from-blue-500 to-indigo-600",
               )}
             >
               <Sparkles className="size-3 text-white" />
@@ -116,7 +116,7 @@ export function AIInput19({
               "placeholder:text-zinc-600",
               "outline-none border-none ring-0",
               "min-h-[60px] max-h-[200px]",
-              "leading-relaxed caret-violet-400",
+              "leading-relaxed caret-blue-400",
             )}
           />
 

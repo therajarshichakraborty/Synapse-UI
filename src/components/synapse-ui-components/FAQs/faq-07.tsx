@@ -40,7 +40,7 @@ export default function Faq07() {
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-start">
           <div className="lg:sticky lg:top-8">
-            <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wide uppercase rounded-full bg-violet-100 text-violet-700 dark:bg-violet-900/30 dark:text-violet-400">
+            <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wide uppercase rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400">
               FAQ
             </span>
             <h2 className="mt-4 text-3xl font-bold text-zinc-900 dark:text-white sm:text-4xl lg:text-5xl">
@@ -51,7 +51,7 @@ export default function Faq07() {
               ready to assist you.
             </p>
             <div className="mt-8 flex items-center gap-4">
-              <div className="h-12 w-12 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
+              <div className="h-12 w-12 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
                 <span className="text-white font-bold">?</span>
               </div>
               <div>
@@ -69,7 +69,7 @@ export default function Faq07() {
                 className={cn(
                   "rounded-xl border-2 transition-all duration-200",
                   openIndex === index
-                    ? "border-violet-500 dark:border-violet-500"
+                    ? "border-blue-500 dark:border-blue-500"
                     : "border-zinc-200 dark:border-zinc-800",
                 )}
               >
@@ -84,7 +84,7 @@ export default function Faq07() {
                     className={cn(
                       "flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-colors",
                       openIndex === index
-                        ? "bg-violet-500 text-white"
+                        ? "bg-blue-500 text-white"
                         : "bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400",
                     )}
                   >

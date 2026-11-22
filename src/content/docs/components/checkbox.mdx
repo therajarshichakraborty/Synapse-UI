@@ -1,0 +1,67 @@
+---
+title: "Checkbox"
+description: "A control that allows the user to toggle between checked and not checked."
+---
+
+<ComponentPreview name="checkbox-demo" />
+
+## Installation
+
+<ComponentInstall name="checkbox" />
+
+## Usage
+
+```tsx
+import { Checkbox } from "@/components/ui/checkbox";
+```
+
+```tsx
+<Checkbox id="terms" />
+<Label htmlFor="terms">Accept terms</Label>
+```
+
+## Examples
+
+### Card
+
+Wrap the checkbox in a label to make the whole card clickable.
+
+<ComponentPreview name="checkbox-card" />
+
+## API Reference
+
+### Checkbox
+
+<PropsTable
+  props={[
+    {
+      prop: "checked / defaultChecked",
+      type: 'boolean | "indeterminate"',
+      description: "Controlled or initial state.",
+    },
+    {
+      prop: "onCheckedChange",
+      type: "(checked) => void",
+      description: "Called when the state changes.",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Prevents interaction.",
+    },
+    {
+      prop: "required",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Marks the checkbox as required in a form.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+### Keyboard interactions
+
+<KeyboardTable keys={[["Space", "Toggles the checkbox."]]} />

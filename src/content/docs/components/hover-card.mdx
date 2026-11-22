@@ -1,0 +1,74 @@
+---
+title: "Hover Card"
+description: "For sighted users to preview content available behind a link."
+---
+
+<ComponentPreview name="hover-card-demo" />
+
+## Installation
+
+<ComponentInstall name="hover-card" />
+
+## Usage
+
+```tsx
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+```
+
+```tsx
+<HoverCard>
+  <HoverCardTrigger>Hover</HoverCardTrigger>
+  <HoverCardContent>The React Framework, created and maintained by @vercel.</HoverCardContent>
+</HoverCard>
+```
+
+## API Reference
+
+### HoverCard
+
+<PropsTable
+  props={[
+    {
+      prop: "openDelay",
+      type: "number",
+      defaultValue: "700",
+      description: "Delay before opening, in ms.",
+    },
+    {
+      prop: "closeDelay",
+      type: "number",
+      defaultValue: "300",
+      description: "Delay before closing, in ms.",
+    },
+  ]}
+/>
+
+### HoverCardContent
+
+<PropsTable
+  props={[
+    {
+      prop: "side",
+      type: '"top" | "right" | "bottom" | "left"',
+      defaultValue: '"bottom"',
+      description: "Preferred side of the trigger to render against.",
+    },
+    {
+      prop: "align",
+      type: '"start" | "center" | "end"',
+      defaultValue: '"center"',
+      description: "Preferred alignment against the trigger.",
+    },
+    {
+      prop: "sideOffset",
+      type: "number",
+      defaultValue: "4",
+      description: "Distance in pixels from the trigger.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+Hover cards are for sighted mouse users only. Content inside must also be reachable another way, because keyboard and screen-reader users cannot open it.

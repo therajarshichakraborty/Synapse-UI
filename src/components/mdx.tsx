@@ -1,180 +1,154 @@
-import defaultMdxComponents from "fumadocs-ui/mdx";
+import Link from "next/link";
 import type { MDXComponents } from "mdx/types";
-
-import { ComponentShowcase } from "@/components/docs/component-showcase";
-import { PremiumCodeBlock } from "@/components/docs/mdx/CodeBlock";
-import { Callout } from "@/components/docs/mdx/Callout";
-import { Steps, Step } from "@/components/docs/mdx/Steps";
-import { PropsTable } from "@/components/docs/mdx/PropsTable";
+import type { ComponentProps } from "react";
 import { cn } from "@/lib/utils";
+import { Pre } from "@/components/docs/code-block";
+import { PmCommand } from "@/components/docs/pm-command";
+import { ComponentPreview } from "@/components/docs/component-preview";
+import { ComponentInstall, ComponentSource } from "@/components/docs/component-install";
+import { ComponentShowcase } from "@/components/docs/component-showcase";
+import {
+  Callout,
+  ComponentsGrid,
+  KeyboardTable,
+  PropsTable,
+  Step,
+  Steps,
+} from "@/components/docs/mdx-parts";
+
+function heading(Tag: "h2" | "h3" | "h4", base: string) {
+  function Heading({ className, id, children, ...props }: ComponentProps<"h2">) {
+    return (
+      <Tag id={id} className={cn("group scroll-mt-20", base, className)} {...props}>
+        {children}
+        {id && (
+          <a
+            href={`#${id}`}
+            aria-label="Link to this section"
+            className="ml-2 text-muted-foreground/0 no-underline transition-colors group-hover:text-muted-foreground hover:text-primary!"
+          >
+            #
+          </a>
+        )}
+      </Tag>
+    );
+  }
+  Heading.displayName = Tag;
+  return Heading;
+}
 
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {
-    // ── Fumadocs defaults (tables, images, etc.) ──
-    ...defaultMdxComponents,
-
-    // ── Prose heading overrides ───────────────────
-    h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-      <h1
-        className={cn(
-          "mt-10 mb-4 scroll-mt-20 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50",
-          className,
-        )}
-        {...props}
-      />
+    h1: ({ className, ...props }: ComponentProps<"h1">) => (
+      <h1 className={cn("mt-2 scroll-mt-20 text-h2 font-semibold", className)} {...props} />
     ),
-    h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-      <h2
-        className={cn(
-          "mt-10 mb-3 scroll-mt-20 text-xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-200",
-          "border-b border-zinc-200/80 dark:border-white/[0.06] pb-2",
-          className,
-        )}
-        {...props}
-      />
-    ),
-    h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-      <h3
-        className={cn(
-          "mt-7 mb-2.5 scroll-mt-20 text-base font-semibold text-zinc-800 dark:text-zinc-300",
-          className,
-        )}
-        {...props}
-      />
-    ),
-    h4: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-      <h4
-        className={cn(
-          "mt-5 mb-2 scroll-mt-20 text-sm font-semibold uppercase tracking-wide text-zinc-600 dark:text-zinc-400",
-          className,
-        )}
-        {...props}
-      />
-    ),
-
-    // ── Prose body overrides ──────────────────────
-    p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
+    h2: heading("h2", "mt-14 mb-4 text-h3 font-semibold first:mt-0"),
+    h3: heading("h3", "mt-9 mb-3 text-h4 font-semibold"),
+    h4: heading("h4", "mt-7 mb-2 text-base font-semibold"),
+    p: ({ className, ...props }: ComponentProps<"p">) => (
       <p
-        className={cn(
-          "my-4 leading-7 text-zinc-600 dark:text-zinc-400 text-[0.9375rem]",
-          className,
-        )}
+        className={cn("my-4 leading-7 text-muted-foreground [&:not(:first-child)]:mt-4", className)}
         {...props}
       />
     ),
-    a: ({ className, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
-      <a
-        className={cn(
-          "font-medium text-zinc-900 dark:text-zinc-50 underline underline-offset-2 decoration-zinc-500/30 hover:decoration-zinc-500/60 transition-colors",
-          className,
-        )}
-        {...props}
-      />
+    a: ({ className, href = "", ...props }: ComponentProps<"a">) => {
+      const cls = cn(
+        "font-medium text-foreground underline decoration-primary/40 underline-offset-4 transition-colors hover:decoration-primary",
+        className,
+      );
+      return href.startsWith("/") || href.startsWith("#") ? (
+        <Link href={href} className={cls} {...props} />
+      ) : (
+        <a href={href} className={cls} target="_blank" rel="noreferrer" {...props} />
+      );
+    },
+    strong: ({ className, ...props }: ComponentProps<"strong">) => (
+      <strong className={cn("font-semibold text-foreground", className)} {...props} />
     ),
-    strong: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
-      <strong
-        className={cn("font-semibold text-zinc-900 dark:text-zinc-200", className)}
-        {...props}
-      />
-    ),
-    code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => {
-      const isBlock =
-        className?.includes("language-") ||
-        className?.includes("shiki") ||
-        className?.includes("hljs");
+    code: ({ className, ...props }: ComponentProps<"code">) => {
+      const isBlock = typeof className === "string" && /language-|shiki/.test(className);
       if (isBlock) return <code className={className} {...props} />;
       return (
         <code
           className={cn(
-            "relative rounded-md px-1.5 py-0.5 font-mono text-[0.85em]",
-            "text-zinc-900 dark:text-zinc-50 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700",
+            "rounded-md border border-border bg-muted px-1.5 py-0.5 font-mono text-[0.85em] text-foreground",
             className,
           )}
           {...props}
         />
       );
     },
-    pre: (props: React.HTMLAttributes<HTMLPreElement>) => (
-      <PremiumCodeBlock {...(props as Parameters<typeof PremiumCodeBlock>[0])} />
-    ),
-    ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
+    pre: Pre,
+    ul: ({ className, ...props }: ComponentProps<"ul">) => (
       <ul
         className={cn(
-          "my-4 ml-4 list-none space-y-2 text-zinc-600 dark:text-zinc-400 text-[0.9375rem]",
-          "[&>li]:relative [&>li]:pl-4",
-          "[&>li::before]:absolute [&>li::before]:left-0 [&>li::before]:top-2.5 [&>li::before]:h-1 [&>li::before]:w-1 [&>li::before]:rounded-full [&>li::before]:bg-zinc-400 dark:[&>li::before]:bg-zinc-650 [&>li::before]:content-['']",
+          "my-4 ml-1 space-y-2 text-muted-foreground [&>li]:relative [&>li]:pl-5 [&>li]:before:absolute [&>li]:before:top-[0.7em] [&>li]:before:left-1 [&>li]:before:size-1.5 [&>li]:before:rounded-full [&>li]:before:bg-primary/60 [&>li]:before:content-['']",
           className,
         )}
         {...props}
       />
     ),
-    ol: ({ className, ...props }: React.HTMLAttributes<HTMLOListElement>) => (
+    ol: ({ className, ...props }: ComponentProps<"ol">) => (
       <ol
         className={cn(
-          "my-4 ml-5 list-decimal space-y-2 text-zinc-600 dark:text-zinc-400 text-[0.9375rem]",
+          "my-4 ml-5 list-decimal space-y-2 text-muted-foreground marker:text-muted-foreground",
           className,
         )}
         {...props}
       />
     ),
-    li: ({ className, ...props }: React.HTMLAttributes<HTMLLIElement>) => (
+    li: ({ className, ...props }: ComponentProps<"li">) => (
       <li className={cn("leading-7", className)} {...props} />
     ),
-    blockquote: ({ className, ...props }: React.HTMLAttributes<HTMLQuoteElement>) => (
+    blockquote: ({ className, ...props }: ComponentProps<"blockquote">) => (
       <blockquote
         className={cn(
-          "my-6 border-l-2 border-zinc-300 dark:border-zinc-700 pl-4 italic",
-          "text-zinc-600 dark:text-zinc-400",
+          "my-6 border-l-2 border-primary/50 pl-4 text-muted-foreground italic",
           className,
         )}
         {...props}
       />
     ),
-    table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
-      <div className="my-4 overflow-x-auto rounded-xl border border-zinc-200 dark:border-white/[0.07] bg-transparent p-0">
-        <table
-          className={cn("w-full text-sm bg-transparent m-0 border-collapse", className)}
-          {...props}
-        />
+    hr: ({ className, ...props }: ComponentProps<"hr">) => (
+      <hr className={cn("my-12 border-border", className)} {...props} />
+    ),
+    table: ({ className, ...props }: ComponentProps<"table">) => (
+      <div className="my-6 overflow-x-auto rounded-xl border border-border scrollbar-thin">
+        <table className={cn("w-full text-left text-sm", className)} {...props} />
       </div>
     ),
-    th: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
+    thead: ({ className, ...props }: ComponentProps<"thead">) => (
+      <thead className={cn("bg-surface-1", className)} {...props} />
+    ),
+    tr: ({ className, ...props }: ComponentProps<"tr">) => (
+      <tr className={cn("border-b border-border last:border-0", className)} {...props} />
+    ),
+    th: ({ className, ...props }: ComponentProps<"th">) => (
       <th
-        className={cn(
-          "px-4 py-2 text-left text-xs font-semibold uppercase tracking-wider text-zinc-500",
-          "border-b border-zinc-200 dark:border-white/[0.07]",
-          className,
-        )}
+        className={cn("px-4 py-2.5 text-xs font-medium text-muted-foreground", className)}
         {...props}
       />
     ),
-    td: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
-      <td
-        className={cn(
-          "px-4 py-2 text-zinc-600 dark:text-zinc-400 border-b border-zinc-100 dark:border-white/[0.04]",
-          className,
-        )}
-        {...props}
-      />
+    td: ({ className, ...props }: ComponentProps<"td">) => (
+      <td className={cn("px-4 py-3 align-top text-muted-foreground", className)} {...props} />
     ),
-    hr: ({ className, ...props }: React.HTMLAttributes<HTMLHRElement>) => (
-      <hr
-        className={cn(
-          "my-10 border-0 h-px bg-gradient-to-r from-transparent via-zinc-200 dark:via-white/[0.08] to-transparent",
-          className,
-        )}
-        {...props}
-      />
+    img: ({ className, alt = "", ...props }: ComponentProps<"img">) => (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img className={cn("rounded-xl border border-border", className)} alt={alt} {...props} />
     ),
 
-    // ── Custom components ─────────────────────────
+    ComponentPreview,
+    ComponentInstall,
+    ComponentSource,
     ComponentShowcase,
+    ComponentsGrid,
+    PmCommand,
     Callout,
     Steps,
     Step,
     PropsTable,
+    KeyboardTable,
 
-    // ── User overrides ────────────────────────────
     ...(components ?? {}),
   } satisfies MDXComponents;
 }

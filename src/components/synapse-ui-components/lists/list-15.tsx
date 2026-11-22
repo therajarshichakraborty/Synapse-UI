@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { Clock, MapPin, DollarSign, Briefcase } from "lucide-react";
+import { MapPin, DollarSign, Briefcase } from "lucide-react";
 
 interface ListItem {
   id: string;

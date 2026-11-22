@@ -1,0 +1,54 @@
+---
+title: "Marquee"
+description: "An infinite, pausable horizontal or vertical scroller."
+---
+
+<ComponentPreview name="marquee-demo" />
+
+## Installation
+
+<ComponentInstall name="marquee" />
+
+## Usage
+
+```tsx
+import { Marquee } from "@/components/animated/marquee";
+```
+
+```tsx
+<Marquee pauseOnHover duration={30}>
+  {logos}
+</Marquee>
+```
+
+## Examples
+
+### Vertical
+
+<ComponentPreview name="marquee-vertical" />
+
+## API Reference
+
+### Marquee
+
+<PropsTable
+  props={[
+    { prop: "reverse", type: "boolean", defaultValue: "false", description: "Reverse direction." },
+    { prop: "vertical", type: "boolean", defaultValue: "false", description: "Scroll vertically." },
+    {
+      prop: "pauseOnHover",
+      type: "boolean",
+      defaultValue: "true",
+      description: "Pause while hovered.",
+    },
+    { prop: "duration", type: "number", defaultValue: "40", description: "Seconds per loop." },
+    { prop: "gap", type: "string", defaultValue: '"1rem"', description: "Gap between items." },
+    { prop: "repeat", type: "number", defaultValue: "2", description: "Copies of the content." },
+    { prop: "fade", type: "boolean", defaultValue: "true", description: "Fade the edges." },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+Only the first copy is exposed to assistive technology. Reduced motion stops the animation.

@@ -49,12 +49,12 @@ export default function LandingHero() {
         >
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-zinc-900 dark:text-zinc-100">
             Craft with{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 via-fuchsia-500 to-purple-500 dark:from-rose-400 dark:via-fuchsia-400 dark:to-purple-400">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 via-cyan-500 to-indigo-500 dark:from-rose-400 dark:via-cyan-400 dark:to-indigo-400">
               precision
             </span>
             <br />
             build with{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-fuchsia-500 to-rose-500 dark:from-purple-400 dark:via-fuchsia-400 dark:to-rose-400">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-cyan-500 to-rose-500 dark:from-indigo-400 dark:via-cyan-400 dark:to-rose-400">
               ease
             </span>
             .
@@ -65,11 +65,11 @@ export default function LandingHero() {
               100+ premium UI components
             </span>{" "}
             crafted with{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-fuchsia-500 dark:from-rose-400 dark:to-fuchsia-400 font-bold">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-cyan-500 dark:from-rose-400 dark:to-cyan-400 font-bold">
               Tailwind CSS
             </span>{" "}
             and{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 to-purple-500 dark:from-fuchsia-400 dark:to-purple-400 font-bold">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-indigo-500 dark:from-cyan-400 dark:to-indigo-400 font-bold">
               shadcn/ui
             </span>{" "}
             for modern React and Next.js applications.
@@ -87,7 +87,7 @@ export default function LandingHero() {
             <TailwindLogo />
             <span className="flex items-center gap-1.5 font-medium">
               Now updated for Tailwind CSS 4.0!
-              <span className="inline-flex items-center rounded-md bg-purple-50 dark:bg-purple-900/30 px-2 py-0.5 text-[10px] font-semibold text-purple-700 dark:text-purple-300">
+              <span className="inline-flex items-center rounded-md bg-indigo-50 dark:bg-indigo-900/30 px-2 py-0.5 text-[10px] font-semibold text-indigo-700 dark:text-indigo-300">
                 <Sparkles className="h-3 w-3 mr-1" />
                 New
               </span>

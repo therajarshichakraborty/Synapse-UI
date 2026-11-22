@@ -1,5 +1,5 @@
 "use client";
-import { Calendar, Sparkles, Code2, ExternalLink, Share2 } from "lucide-react";
+import { Calendar, Code2, ExternalLink, Share2 } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -38,7 +38,7 @@ export default function Card_25({
   image = defaultProfile.image,
   status = defaultProfile.status,
   skills = defaultProfile.skills,
-  portfolio = defaultProfile.portfolio,
+  portfolio: _portfolio = defaultProfile.portfolio,
 }: Card02Props = defaultProfile) {
   return (
     <div className="w-full max-w-xs mx-auto">

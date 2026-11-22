@@ -1,0 +1,15 @@
+{
+  "name": "empty-state",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [
+    "empty"
+  ],
+  "files": [
+    {
+      "path": "components/ui/empty-state.tsx",
+      "content": "/**\n * Alias of `empty` under the name used in the docs (\"Empty State\").\n * Both import paths are supported.\n */\nexport {\n  Empty as EmptyState,\n  Empty,\n  EmptyHeader,\n  EmptyTitle,\n  EmptyDescription,\n  EmptyContent,\n  EmptyMedia,\n} from \"@/components/ui/empty\";\n",
+      "type": "registry:ui"
+    }
+  ]
+}

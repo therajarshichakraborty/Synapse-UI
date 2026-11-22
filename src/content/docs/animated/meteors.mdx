@@ -1,0 +1,37 @@
+---
+title: "Meteors"
+description: "Shooting stars that streak across a container."
+---
+
+<ComponentPreview name="meteors-demo" />
+
+## Installation
+
+<ComponentInstall name="meteors" />
+
+## Usage
+
+```tsx
+import { Meteors } from "@/components/animated/meteors";
+```
+
+```tsx
+<div className="relative overflow-hidden">
+  <Meteors number={20} />
+</div>
+```
+
+## API Reference
+
+### Meteors
+
+<PropsTable
+  props={[
+    { prop: "number", type: "number", defaultValue: "18", description: "Number of meteors." },
+    { prop: "className", type: "string", description: "Classes for each meteor." },
+  ]}
+/>
+
+## Accessibility
+
+With `prefers-reduced-motion: reduce`, meteors are hidden.

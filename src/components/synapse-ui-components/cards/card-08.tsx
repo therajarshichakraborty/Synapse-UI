@@ -14,7 +14,7 @@ export default function Card_08({
   description = "Powerful asynchronous state management library for data fetching and caching.",
   language = "TypeScript",
   stars = 42100,
-  url = "github.com/example/repo",
+  url: _url = "github.com/example/repo",
 }: Card06Props) {
   return (
     <div

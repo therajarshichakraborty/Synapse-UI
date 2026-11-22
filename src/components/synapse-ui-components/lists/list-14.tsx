@@ -48,12 +48,12 @@ const ITEMS: ListItem[] = [
     change: 5.67,
     marketCap: "$42B",
     volume: "$3B",
-    color: "from-purple-400 to-purple-600",
+    color: "from-indigo-400 to-indigo-600",
   },
 ];
 
 export default function List14({ items = ITEMS, className }: List14Props) {
-  const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [, setHoveredId] = useState<string | null>(null);
 
   return (
     <div

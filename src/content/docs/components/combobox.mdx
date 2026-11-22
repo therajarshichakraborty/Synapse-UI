@@ -1,0 +1,95 @@
+---
+title: "Combobox"
+description: "Autocomplete input and command palette with a list of suggestions."
+---
+
+<ComponentPreview name="combobox-demo" />
+
+## Installation
+
+<ComponentInstall name="combobox" />
+
+## Usage
+
+```tsx
+import {
+  Combobox,
+  ComboboxContent,
+  ComboboxEmpty,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxList,
+} from "@/components/ui/combobox";
+```
+
+```tsx
+<Combobox items={frameworks}>
+  <ComboboxInput placeholder="Select a framework" />
+  <ComboboxContent>
+    <ComboboxEmpty>No framework found.</ComboboxEmpty>
+    <ComboboxList>
+      {(item) => (
+        <ComboboxItem key={item} value={item}>
+          {item}
+        </ComboboxItem>
+      )}
+    </ComboboxList>
+  </ComboboxContent>
+</Combobox>
+```
+
+## API Reference
+
+### Combobox
+
+Built on the Base UI Combobox root.
+
+<PropsTable
+  props={[
+    { prop: "items", type: "T[]", description: "Items to filter and render." },
+    { prop: "value / defaultValue", type: "T | T[]", description: "Selected value(s)." },
+    {
+      prop: "onValueChange",
+      type: "(value) => void",
+      description: "Called when the selection changes.",
+    },
+    {
+      prop: "multiple",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Allow multiple selection (use with ComboboxChips).",
+    },
+  ]}
+/>
+
+### ComboboxInput
+
+<PropsTable
+  props={[
+    {
+      prop: "showTrigger",
+      type: "boolean",
+      defaultValue: "true",
+      description: "Show the chevron trigger.",
+    },
+    {
+      prop: "showClear",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Show a clear button.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+### Keyboard interactions
+
+<KeyboardTable
+  keys={[
+    ["ArrowDown / ArrowUp", "Opens the list and moves the highlighted item."],
+    ["Enter", "Selects the highlighted item."],
+    ["Esc", "Closes the list."],
+  ]}
+/>

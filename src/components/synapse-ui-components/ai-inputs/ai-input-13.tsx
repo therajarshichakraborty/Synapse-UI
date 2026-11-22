@@ -76,7 +76,7 @@ export function AIInput13({
             <div
               className={cn(
                 "flex items-center justify-center size-7 rounded-xl",
-                "bg-gradient-to-br from-violet-500 via-purple-500 to-indigo-600",
+                "bg-gradient-to-br from-blue-500 via-indigo-500 to-indigo-600",
                 "shadow-[0_2px_8px_rgba(139,92,246,0.4)]",
               )}
             >
@@ -224,8 +224,8 @@ export function AIInput13({
               <span
                 className={cn(
                   "flex items-center gap-1 px-2 py-0.5 rounded-full",
-                  "bg-violet-50 dark:bg-violet-500/10 border border-violet-200 dark:border-violet-500/20",
-                  "text-[11px] text-violet-500 font-medium",
+                  "bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20",
+                  "text-[11px] text-blue-500 font-medium",
                 )}
               >
                 <Eye className="size-3" />

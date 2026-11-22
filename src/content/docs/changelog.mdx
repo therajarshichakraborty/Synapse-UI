@@ -1,0 +1,39 @@
+---
+title: Changelog
+description: Latest updates and releases.
+---
+
+## v2.0.0: The redesign
+
+A ground-up redesign of the site, the docs and the design system.
+
+### Design system
+
+- New dark-first token system with a blue brand scale (`brand-50` to `brand-950`) and a cyan, blue and indigo gradient
+- Three surface elevation levels, plus `success` and `warning` status tokens
+- Effect utilities: `glass`, `bg-grid`, `bg-dots`, `border-beam`, `noise`, `text-gradient`
+- Geist Sans and Geist Mono, with a fluid type scale from `text-caption` to `text-display`
+- A fully polished light theme, and scoped `.light` / `.dark` subtrees
+
+### Components
+
+- Every core component re-themed through tokens. Public APIs are unchanged.
+- New: Data Table, Date Picker, Form, Empty State
+- 31 animated components: Spotlight, Background Beams, Aurora, Meteors, Sparkles, Marquee, Floating Dock, Timeline, Tracing Beam, Lamp, Number Ticker, Terminal, Dotted World Map and more
+- 12 blocks: three heroes, features, pricing, testimonials, FAQ, CTA, footer, login, signup and a dashboard shell
+
+### Docs
+
+- shadcn-style component pages: Preview/Code, Installation (CLI and Manual), Usage, Examples, API Reference, Accessibility
+- ⌘K command palette with full-text search
+- Code blocks with a custom Shiki theme, line highlighting, copy buttons and remembered package manager tabs
+- Responsive iframe previews for blocks
+
+### Breaking changes
+
+- Variant galleries moved from `/docs/components/<name>` to `/docs/collections/<name>`. Redirects are in place.
+
+## v1.1.0
+
+- Added Tooltip and Popover collections
+- Fixed `HTMLAttributes` color type conflicts in icon and tag badges

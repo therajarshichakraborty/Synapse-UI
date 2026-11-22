@@ -1,0 +1,39 @@
+---
+title: "Timeline"
+description: "A vertical timeline with a scroll-linked progress beam."
+---
+
+<ComponentPreview name="timeline-demo" align="start" />
+
+## Installation
+
+<ComponentInstall name="timeline" />
+
+## Usage
+
+```tsx
+import { Timeline } from "@/components/animated/timeline";
+```
+
+```tsx
+<Timeline data={[{ title: "2026", content: <p>Launched v2</p> }]} />
+```
+
+## API Reference
+
+### Timeline
+
+<PropsTable
+  props={[
+    {
+      prop: "data",
+      type: "{ title: string; content: ReactNode }[]",
+      description: "Entries, newest first.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+Rendered as an ordered list. The progress beam is decorative.

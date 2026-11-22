@@ -1,0 +1,63 @@
+---
+title: "Terminal"
+description: "A terminal window that types commands and streams output."
+---
+
+<ComponentPreview name="terminal-demo" />
+
+## Installation
+
+<ComponentInstall name="terminal" />
+
+## Usage
+
+```tsx
+import { Terminal } from "@/components/animated/terminal";
+```
+
+```tsx
+<Terminal
+  lines={[
+    { type: "command", text: "npx synapse-ui add button" },
+    { type: "output", text: "✔ Done", tone: "success" },
+  ]}
+/>
+```
+
+## API Reference
+
+### Terminal
+
+<PropsTable
+  props={[
+    {
+      prop: "lines",
+      type: "TerminalLine[]",
+      description: "Commands (typed) and output lines (streamed).",
+    },
+    { prop: "title", type: "string", defaultValue: '"Terminal"', description: "Window title." },
+    {
+      prop: "typeSpeed",
+      type: "number",
+      defaultValue: "38",
+      description: "Milliseconds per character.",
+    },
+    {
+      prop: "lineDelay",
+      type: "number",
+      defaultValue: "280",
+      description: "Milliseconds between output lines.",
+    },
+    {
+      prop: "loop",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Replay each time it scrolls into view.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+The full transcript is available to screen readers at once. With reduced motion, every line appears immediately.

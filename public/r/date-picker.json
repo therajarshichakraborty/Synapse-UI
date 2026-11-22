@@ -1,0 +1,21 @@
+{
+  "name": "date-picker",
+  "type": "registry:ui",
+  "dependencies": [
+    "date-fns",
+    "lucide-react",
+    "react-day-picker"
+  ],
+  "registryDependencies": [
+    "button",
+    "calendar",
+    "popover"
+  ],
+  "files": [
+    {
+      "path": "components/ui/date-picker.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { format } from \"date-fns\";\nimport { CalendarIcon } from \"lucide-react\";\nimport type { DateRange } from \"react-day-picker\";\n\nimport { cn } from \"@/lib/utils\";\nimport { Button } from \"@/components/ui/button\";\nimport { Calendar } from \"@/components/ui/calendar\";\nimport { Popover, PopoverContent, PopoverTrigger } from \"@/components/ui/popover\";\n\ntype DatePickerProps = {\n  value?: Date;\n  defaultValue?: Date;\n  onValueChange?: (date: Date | undefined) => void;\n  placeholder?: string;\n  /** date-fns format string. */\n  displayFormat?: string;\n  disabled?: boolean;\n  className?: string;\n  id?: string;\n};\n\nfunction DatePicker({\n  value,\n  defaultValue,\n  onValueChange,\n  placeholder = \"Pick a date\",\n  displayFormat = \"PPP\",\n  disabled,\n  className,\n  id,\n}: DatePickerProps) {\n  const [open, setOpen] = React.useState(false);\n  const [internal, setInternal] = React.useState<Date | undefined>(defaultValue);\n  const date = value !== undefined ? value : internal;\n\n  return (\n    <Popover open={open} onOpenChange={setOpen}>\n      <PopoverTrigger asChild>\n        <Button\n          id={id}\n          variant=\"outline\"\n          disabled={disabled}\n          data-empty={!date}\n          className={cn(\n            \"w-[240px] justify-start text-left font-normal data-[empty=true]:text-muted-foreground\",\n            className,\n          )}\n        >\n          <CalendarIcon />\n          {date ? format(date, displayFormat) : <span>{placeholder}</span>}\n        </Button>\n      </PopoverTrigger>\n      <PopoverContent className=\"w-auto p-0\" align=\"start\">\n        <Calendar\n          mode=\"single\"\n          selected={date}\n          defaultMonth={date}\n          onSelect={(d) => {\n            setInternal(d);\n            onValueChange?.(d);\n            setOpen(false);\n          }}\n        />\n      </PopoverContent>\n    </Popover>\n  );\n}\n\ntype DateRangePickerProps = {\n  value?: DateRange;\n  defaultValue?: DateRange;\n  onValueChange?: (range: DateRange | undefined) => void;\n  placeholder?: string;\n  numberOfMonths?: number;\n  className?: string;\n};\n\nfunction DateRangePicker({\n  value,\n  defaultValue,\n  onValueChange,\n  placeholder = \"Pick a date range\",\n  numberOfMonths = 2,\n  className,\n}: DateRangePickerProps) {\n  const [internal, setInternal] = React.useState<DateRange | undefined>(defaultValue);\n  const range = value !== undefined ? value : internal;\n\n  return (\n    <Popover>\n      <PopoverTrigger asChild>\n        <Button\n          variant=\"outline\"\n          data-empty={!range?.from}\n          className={cn(\n            \"w-[280px] justify-start text-left font-normal data-[empty=true]:text-muted-foreground\",\n            className,\n          )}\n        >\n          <CalendarIcon />\n          {range?.from ? (\n            range.to ? (\n              <>\n                {format(range.from, \"LLL dd, y\")} - {format(range.to, \"LLL dd, y\")}\n              </>\n            ) : (\n              format(range.from, \"LLL dd, y\")\n            )\n          ) : (\n            <span>{placeholder}</span>\n          )}\n        </Button>\n      </PopoverTrigger>\n      <PopoverContent className=\"w-auto p-0\" align=\"start\">\n        <Calendar\n          mode=\"range\"\n          defaultMonth={range?.from}\n          selected={range}\n          numberOfMonths={numberOfMonths}\n          onSelect={(r) => {\n            setInternal(r);\n            onValueChange?.(r);\n          }}\n        />\n      </PopoverContent>\n    </Popover>\n  );\n}\n\nexport { DatePicker, DateRangePicker };\nexport type { DatePickerProps, DateRangePickerProps };\n",
+      "type": "registry:ui"
+    }
+  ]
+}

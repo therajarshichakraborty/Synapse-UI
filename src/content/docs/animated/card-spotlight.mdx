@@ -1,0 +1,39 @@
+---
+title: "Card Spotlight"
+description: "A radial glow that follows the cursor across a card."
+---
+
+<ComponentPreview name="card-spotlight-demo" />
+
+## Installation
+
+<ComponentInstall name="card-spotlight" />
+
+## Usage
+
+```tsx
+import { CardSpotlight } from "@/components/animated/card-spotlight";
+```
+
+```tsx
+<CardSpotlight>
+  <h3>Title</h3>
+</CardSpotlight>
+```
+
+## API Reference
+
+### CardSpotlight
+
+<PropsTable
+  props={[
+    { prop: "radius", type: "number", defaultValue: "320", description: "Light radius in px." },
+    {
+      prop: "color",
+      type: "string",
+      defaultValue: '"rgb(59 130 246 / 0.15)"',
+      description: "Glow color.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>

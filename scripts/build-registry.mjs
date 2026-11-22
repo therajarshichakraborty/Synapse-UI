@@ -8,8 +8,6 @@ const STYLES_DIR = path.join(REGISTRY_DIR, "styles", "default");
 fs.mkdirSync(STYLES_DIR, { recursive: true });
 
 // Read package.json to match third-party dependencies
-const packageJson = JSON.parse(fs.readFileSync("package.json", "utf-8"));
-const knownDeps = Object.keys(packageJson.dependencies || {});
 
 // Utility to convert string to PascalCase
 function pascalCase(str) {
@@ -185,6 +183,33 @@ if (fs.existsSync(hooksDir)) {
           type: "registry:hook",
         },
       ],
+    });
+  }
+}
+
+// 2b. Scan animated components and blocks (src/components/animated, src/components/blocks)
+for (const [dirName, type] of [
+  ["animated", "registry:ui"],
+  ["blocks", "registry:block"],
+]) {
+  const dir = path.join("src", "components", dirName);
+  if (!fs.existsSync(dir)) continue;
+  for (const file of fs.readdirSync(dir).filter((f) => f.endsWith(".tsx"))) {
+    const filePath = path.join(dir, file);
+    const name = file.replace(/\.tsx$/, "");
+    const { dependencies, registryDependencies } = scanFileDependencies(filePath);
+    const content = fs.readFileSync(filePath, "utf-8");
+    const animatedDeps = [
+      ...content.matchAll(/from\s+["']@\/components\/animated\/([\w-]+)["']/g),
+    ].map((m) => m[1]);
+    registryItems.push({
+      name,
+      type,
+      dependencies,
+      registryDependencies: [...new Set([...registryDependencies, ...animatedDeps])].filter(
+        (d) => d !== name,
+      ),
+      files: [{ path: `components/${dirName}/${file}`, content, type }],
     });
   }
 }

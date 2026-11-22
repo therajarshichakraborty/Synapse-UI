@@ -1,77 +1,108 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import {
-  CodeBlockTab,
-  CodeBlockTabs,
-  CodeBlockTabsList,
-  CodeBlockTabsTrigger,
-} from "fumadocs-ui/components/codeblock";
-import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
+import * as React from "react";
+import { motion } from "motion/react";
+import { CodeFrame } from "@/components/docs/code-block";
+import { PmCommand } from "@/components/docs/pm-command";
 import { cn } from "@/lib/utils";
-
 import type { DemoEntry } from "./registry";
 
-interface ComponentDemoProps {
-  demo: DemoEntry;
-  className?: string;
+type Tab = "preview" | "cli" | "code";
+
+function useClientHighlight(code: string, enabled: boolean) {
+  const [html, setHtml] = React.useState<string | null>(null);
+  React.useEffect(() => {
+    if (!enabled || html) return;
+    let cancelled = false;
+    Promise.all([import("shiki"), import("@/lib/shiki/themes")]).then(async ([shiki, themes]) => {
+      const out = await shiki.codeToHtml(code, {
+        lang: "tsx",
+        themes: { light: themes.synapseLight, dark: themes.synapseDark },
+        defaultColor: false,
+      });
+      if (!cancelled) setHtml(out);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [code, enabled, html]);
+  return html;
 }
 
-export function ComponentDemo({ demo, className }: ComponentDemoProps) {
+/** Live demo frame used by the variant collections (Preview / CLI / Code). */
+export function ComponentDemo({ demo, className }: { demo: DemoEntry; className?: string }) {
   const Component = demo.component;
-  const [origin, setOrigin] = useState("https://synapse-ui.vercel.app");
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setOrigin(window.location.origin);
-    }
-  }, []);
-
-  // Determine registry ID (map categories/names appropriately if needed, but demo.id matches registry name)
-  const registryId = demo.id;
-  const cliCommand = `npx shadcn@latest add ${origin}/r/${registryId}.json`;
+  const [tab, setTab] = React.useState<Tab>("preview");
+  const html = useClientHighlight(demo.code, tab === "code");
+  const id = React.useId();
+  const isWideBlock = demo.id.startsWith("block-") && demo.id !== "block-ai-card-generation";
 
   return (
-    <figure className={cn("not-prose my-8", className)}>
-      <figcaption className="mb-3 text-sm font-medium text-fd-foreground">{demo.title}</figcaption>
-      <CodeBlockTabs defaultValue="preview">
-        <CodeBlockTabsList>
-          <CodeBlockTabsTrigger value="preview">Preview</CodeBlockTabsTrigger>
-          <CodeBlockTabsTrigger value="cli">CLI</CodeBlockTabsTrigger>
-          <CodeBlockTabsTrigger value="code">Code</CodeBlockTabsTrigger>
-        </CodeBlockTabsList>
-        <CodeBlockTab value="preview">
-          <div className="w-full overflow-x-auto rounded-xl border border-zinc-200 dark:border-white/[0.06] bg-zinc-50/20 dark:bg-white/[0.01]">
-            <div
+    <figure className={cn("not-prose my-10", className)}>
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+        <figcaption className="text-sm font-medium text-foreground">{demo.title}</figcaption>
+        <div role="tablist" className="flex items-center gap-1">
+          {(["preview", "cli", "code"] as const).map((t) => (
+            <button
+              key={t}
+              type="button"
+              role="tab"
+              aria-selected={tab === t}
+              onClick={() => setTab(t)}
               className={cn(
-                "flex items-center justify-center p-6 mx-auto",
-                demo.previewClassName ?? "min-h-[120px]",
+                "relative rounded-md px-2.5 py-1 text-xs font-medium uppercase tracking-wide outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring",
+                tab === t ? "text-foreground" : "text-muted-foreground hover:text-foreground",
               )}
             >
-              <div
-                className={cn(
-                  "w-full flex justify-center",
-                  registryId.startsWith("block-") &&
-                    registryId !== "block-ai-card-generation" &&
-                    (registryId === "block-saas-landing" ||
-                    registryId === "block-landing-hero" ||
-                    registryId === "block-landing-showcase"
-                      ? "min-w-[950px] shrink-0"
-                      : "min-w-[850px] shrink-0"),
-                )}
-              >
-                <Component {...(demo.props ?? {})} />
-              </div>
+              {tab === t && (
+                <motion.span
+                  layoutId={`${id}-tab`}
+                  className="absolute inset-0 rounded-md border border-border bg-surface-2"
+                  transition={{ type: "spring", bounce: 0.15, duration: 0.4 }}
+                />
+              )}
+              <span className="relative">{t}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {tab === "preview" && (
+        <div className="relative isolate overflow-x-auto rounded-xl border border-border scrollbar-thin">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 -z-10 bg-surface-1/50 bg-dots mask-radial-fade"
+          />
+          <div
+            className={cn(
+              "mx-auto flex items-center justify-center p-6",
+              demo.previewClassName ?? "min-h-[160px]",
+            )}
+          >
+            <div
+              className={cn("flex w-full justify-center", isWideBlock && "min-w-[900px] shrink-0")}
+            >
+              <Component {...(demo.props ?? {})} />
             </div>
           </div>
-        </CodeBlockTab>
-        <CodeBlockTab value="cli">
-          <DynamicCodeBlock lang="bash" code={cliCommand} />
-        </CodeBlockTab>
-        <CodeBlockTab value="code">
-          <DynamicCodeBlock lang="tsx" code={demo.code} />
-        </CodeBlockTab>
-      </CodeBlockTabs>
+        </div>
+      )}
+      {tab === "cli" && <PmCommand dlx={`synapse-ui@latest add ${demo.id}`} className="my-0" />}
+      {tab === "code" && (
+        <CodeFrame
+          title={`${demo.id}.tsx`}
+          lang="tsx"
+          copyValue={demo.code}
+          className="my-0"
+          maxHeight={560}
+        >
+          {html ? (
+            <div dangerouslySetInnerHTML={{ __html: html }} />
+          ) : (
+            <pre className="px-4 text-muted-foreground">{demo.code}</pre>
+          )}
+        </CodeFrame>
+      )}
     </figure>
   );
 }

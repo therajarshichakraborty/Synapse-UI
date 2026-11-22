@@ -8,7 +8,7 @@ import { useAutoResizeTextarea } from "@/hooks/use-auto-resize-textarea";
 const MENTION_SOURCES = [
   { id: "docs", icon: FileText, label: "Docs", color: "text-blue-500" },
   { id: "code", icon: Code, label: "Codebase", color: "text-emerald-500" },
-  { id: "web", icon: Globe, label: "Web", color: "text-violet-500" },
+  { id: "web", icon: Globe, label: "Web", color: "text-blue-500" },
   { id: "db", icon: Database, label: "Database", color: "text-amber-500" },
 ] as const;
 
@@ -39,7 +39,7 @@ export function AIInput08({
   });
 
   // Parse tokens for highlight rendering
-  const tokens = React.useMemo(() => {
+  const _tokens = React.useMemo(() => {
     const parts = value.split(/(@\w+|#\w+)/g);
     return parts.map((part, i) => ({
       text: part,
@@ -163,12 +163,12 @@ export function AIInput08({
               title="Add tag"
               className={cn(
                 "flex items-center gap-1 text-[12px] font-medium",
-                "text-zinc-400 hover:text-violet-500",
+                "text-zinc-400 hover:text-blue-500",
                 "transition-colors duration-150",
               )}
             >
               <Hash className="size-3.5" />
-              {tagCount > 0 && <span className="ml-0.5 text-violet-500">{tagCount}</span>}
+              {tagCount > 0 && <span className="ml-0.5 text-blue-500">{tagCount}</span>}
             </button>
           </div>
 

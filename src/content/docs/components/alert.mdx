@@ -1,52 +1,64 @@
 ---
-title: Alerts
-description: Alert components and inline feedback banners.
+title: "Alert"
+description: "Displays a callout for user attention."
 ---
 
-# Alerts
-
-Alerts provide contextual feedback messages for user actions, displaying system states, warnings, validations, or calls to action.
-
-## Interactive Showcase
-
-Browse all the interactive alert designs and variants included in Synapse UI.
-
-<ComponentShowcase category="alert" />
+<ComponentPreview name="alert-demo" />
 
 ## Installation
 
-Install any of the alert components directly into your project via the CLI:
+<ComponentInstall name="alert" />
 
-```bash
-# Install Alert 01 (Simple Banner Alert)
-npx shadcn@latest add http://localhost:3000/r/alert-01.json
-
-# Install Alert 02 (Alert with Action Buttons)
-npx shadcn@latest add http://localhost:3000/r/alert-02.json
-
-# Install Alert 06 (Collapsible Info Alert)
-npx shadcn@latest add http://localhost:3000/r/alert-06.json
-```
-
-## Usage Examples
-
-Here are some common ways to use alert components to display contextual state banners:
-
-### 1. Alert with Action Links
-
-An alert box displaying warning information along with primary action buttons:
+## Usage
 
 ```tsx
-import { Alert } from "@/components/ui/alert-02";
-
-export default function SecurityWarning() {
-  return (
-    <Alert
-      title="Security Update Needed"
-      description="We've detected that your profile lacks two-factor authentication. Protect your account now."
-      confirmLabel="Enable 2FA"
-      onConfirm={() => console.log("Enable 2FA Clicked")}
-    />
-  );
-}
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 ```
+
+```tsx
+<Alert variant="info">
+  <InfoIcon />
+  <AlertTitle>Heads up!</AlertTitle>
+  <AlertDescription>You can add components using the CLI.</AlertDescription>
+</Alert>
+```
+
+## Examples
+
+### Variants
+
+Use `info`, `success`, `warning` and `destructive` for status messages.
+
+<ComponentPreview name="alert-variants" />
+
+## API Reference
+
+### Alert
+
+<PropsTable
+  props={[
+    {
+      prop: "variant",
+      type: '"default" | "info" | "success" | "warning" | "destructive"',
+      defaultValue: '"default"',
+      description: "Visual style.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### AlertTitle / AlertDescription / AlertAction
+
+<PropsTable
+  props={[
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+Alert renders with `role="alert"`. Screen readers announce it when it appears. For dismissible or non-urgent messages, consider a toast instead.
+
+## More designs
+
+Looking for richer layouts? Browse 20 hand-crafted variants in the [Alerts collection](/docs/collections/alert).

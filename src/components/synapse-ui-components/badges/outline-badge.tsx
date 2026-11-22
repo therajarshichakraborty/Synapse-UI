@@ -15,7 +15,7 @@ const outlineBadgeVariants = cva(
           "border-emerald-300 text-emerald-700 dark:border-emerald-600 dark:text-emerald-400",
         warning: "border-amber-300 text-amber-700 dark:border-amber-600 dark:text-amber-400",
         danger: "border-red-300 text-red-700 dark:border-red-600 dark:text-red-400",
-        purple: "border-violet-300 text-violet-700 dark:border-violet-600 dark:text-violet-400",
+        purple: "border-blue-300 text-blue-700 dark:border-blue-600 dark:text-blue-400",
       },
       state: {
         default: "",
@@ -30,7 +30,7 @@ const outlineBadgeVariants = cva(
       { color: "success", state: "hover", className: "bg-emerald-50 dark:bg-emerald-950/30" },
       { color: "warning", state: "hover", className: "bg-amber-50 dark:bg-amber-950/30" },
       { color: "danger", state: "hover", className: "bg-red-50 dark:bg-red-950/30" },
-      { color: "purple", state: "hover", className: "bg-violet-50 dark:bg-violet-950/30" },
+      { color: "purple", state: "hover", className: "bg-blue-50 dark:bg-blue-950/30" },
     ],
     defaultVariants: {
       color: "neutral",

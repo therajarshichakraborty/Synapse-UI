@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Package, Tag, ShoppingCart } from "lucide-react";
+import { Package, ShoppingCart } from "lucide-react";
 
 interface Card05Props {
   name?: string;

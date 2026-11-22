@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "components/synapse-ui/buttons/button-16.tsx",
-      "content": "import { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\ninterface Button16Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  children?: React.ReactNode;\n}\n\nexport default function Button16({\n  className,\n  children = \"Expand Button\",\n  ...props\n}: Button16Props) {\n  return (\n    <Button\n      className={cn(\n        \"relative h-11 px-8\",\n        \"bg-violet-600 dark:bg-violet-700\",\n        \"text-white\",\n        \"hover:px-10\",\n        \"rounded-lg\",\n        \"transition-all duration-300\",\n        \"shadow-lg shadow-violet-600/30\",\n        \"group\",\n        className,\n      )}\n      {...props}\n    >\n      <span className=\"relative z-10 transition-all duration-300\">{children}</span>\n    </Button>\n  );\n}\n",
+      "content": "import { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\ninterface Button16Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  children?: React.ReactNode;\n}\n\nexport default function Button16({\n  className,\n  children = \"Expand Button\",\n  ...props\n}: Button16Props) {\n  return (\n    <Button\n      className={cn(\n        \"relative h-11 px-8\",\n        \"bg-blue-600 dark:bg-blue-700\",\n        \"text-white\",\n        \"hover:px-10\",\n        \"rounded-lg\",\n        \"transition-all duration-300\",\n        \"shadow-lg shadow-blue-600/30\",\n        \"group\",\n        className,\n      )}\n      {...props}\n    >\n      <span className=\"relative z-10 transition-all duration-300\">{children}</span>\n    </Button>\n  );\n}\n",
       "type": "registry:ui"
     }
   ]

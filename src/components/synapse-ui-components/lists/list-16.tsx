@@ -32,7 +32,7 @@ export default function List16({ items = ITEMS, className }: List16Props) {
     "bg-emerald-500",
     "bg-amber-500",
     "bg-rose-500",
-    "bg-purple-500",
+    "bg-indigo-500",
     "bg-cyan-500",
   ];
 

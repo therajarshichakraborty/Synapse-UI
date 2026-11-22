@@ -1,18 +1,37 @@
 export const siteConfig = {
-  name: "synapse-ui",
-  url: "https://synapse-ui.vercel.com",
-  ogImage: "#",
+  name: "Synapse UI",
+  shortName: "synapse-ui",
+  // TODO(owner): replace with the production domain.
+  url: "https://synapse-ui.vercel.app",
+  ogImage: "/og.png",
   description:
-    "A modern UI component library built for developers who want speed, flexibility, and beautiful design out of the box. It offers a growing collection of interactive, fully customizable, and production-ready components that can be copied, pasted, and integrated effortlessly into any project. Designed with developer experience in mind, the library focuses on clean architecture, responsive layouts, accessibility, smooth animations, and seamless customization, making it easy to build stunning interfaces faster without sacrificing control or performance.",
+    "Beautifully designed, accessible React components and animated sections. Copy, paste, own the code. Built with Tailwind CSS v4, Radix and Motion.",
   links: {
-    twitter: "#",
-    github: "#",
+    // TODO(owner): confirm the canonical repo and social handles.
+    github: "https://github.com/chakrabortyrajarshi2005/Synapse-UI",
+    twitter: "https://x.com",
+    discord: "https://discord.com",
+  },
+  // TODO(owner): wire to a real source (GitHub API) or update by hand.
+  stats: {
+    stars: 1200,
+    components: 120,
+    downloads: 48000,
+    contributors: 24,
   },
 };
 
 export type SiteConfig = typeof siteConfig;
 
 export const META_THEME_COLORS = {
-  light: "#fafafa",
-  dark: "#09090b",
+  light: "#fafbfe",
+  dark: "#05070d",
 };
+
+export const mainNav = [
+  { title: "Docs", href: "/docs" },
+  { title: "Components", href: "/docs/components" },
+  { title: "Templates", href: "/docs/blocks" },
+  { title: "Blocks", href: "/docs/blocks" },
+  { title: "Changelog", href: "/docs/changelog" },
+] as const;

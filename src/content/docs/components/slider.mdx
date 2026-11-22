@@ -1,0 +1,74 @@
+---
+title: "Slider"
+description: "An input where the user selects a value from within a given range."
+---
+
+<ComponentPreview name="slider-demo" />
+
+## Installation
+
+<ComponentInstall name="slider" />
+
+## Usage
+
+```tsx
+import { Slider } from "@/components/ui/slider";
+```
+
+```tsx
+<Slider defaultValue={[33]} max={100} step={1} />
+```
+
+## Examples
+
+### Range
+
+Pass two values to get two thumbs.
+
+<ComponentPreview name="slider-range" />
+
+## API Reference
+
+### Slider
+
+<PropsTable
+  props={[
+    { prop: "value / defaultValue", type: "number[]", description: "Thumb values." },
+    {
+      prop: "onValueChange",
+      type: "(value: number[]) => void",
+      description: "Called while dragging.",
+    },
+    {
+      prop: "onValueCommit",
+      type: "(value: number[]) => void",
+      description: "Called when the user stops dragging.",
+    },
+    {
+      prop: "min / max / step",
+      type: "number",
+      defaultValue: "0 / 100 / 1",
+      description: "Range and granularity.",
+    },
+    {
+      prop: "orientation",
+      type: '"horizontal" | "vertical"',
+      defaultValue: '"horizontal"',
+      description: "Direction.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+### Keyboard interactions
+
+<KeyboardTable
+  keys={[
+    ["ArrowRight / ArrowUp", "Increases by one step."],
+    ["ArrowLeft / ArrowDown", "Decreases by one step."],
+    ["PageUp / PageDown", "Changes by a larger step."],
+    ["Home / End", "Sets the minimum or maximum."],
+  ]}
+/>

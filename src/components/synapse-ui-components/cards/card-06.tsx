@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Star, MessageSquare } from "lucide-react";
+import { Star } from "lucide-react";
 
 interface Card04Props {
   author?: string;

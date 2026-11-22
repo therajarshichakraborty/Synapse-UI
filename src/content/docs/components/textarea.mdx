@@ -1,0 +1,32 @@
+---
+title: "Textarea"
+description: "Displays a form textarea."
+---
+
+<ComponentPreview name="textarea-demo" />
+
+## Installation
+
+<ComponentInstall name="textarea" />
+
+## Usage
+
+```tsx
+import { Textarea } from "@/components/ui/textarea";
+```
+
+```tsx
+<Textarea placeholder="Type your message here." />
+```
+
+## API Reference
+
+### Textarea
+
+Accepts every native textarea attribute. Grows with its content via `field-sizing: content`.
+
+<PropsTable
+  props={[
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>

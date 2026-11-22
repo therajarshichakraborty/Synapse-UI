@@ -34,7 +34,7 @@ const FEATURES: Feature[] = [
         {[
           "bg-blue-500",
           "bg-emerald-500",
-          "bg-purple-500",
+          "bg-indigo-500",
           "bg-amber-500",
           "bg-pink-500",
           "bg-cyan-500",
@@ -66,7 +66,7 @@ const FEATURES: Feature[] = [
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="w-16 h-16 bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl"
+          className="w-16 h-16 bg-linear-to-r from-indigo-500 via-indigo-500 to-pink-500 rounded-2xl"
         />
       </div>
     ),

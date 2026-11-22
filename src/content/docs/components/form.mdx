@@ -1,0 +1,86 @@
+---
+title: "Form"
+description: "Accessible, validated forms built with React Hook Form and Zod."
+---
+
+Composable wrappers around [React Hook Form](https://react-hook-form.com) that wire up ids, labels, descriptions and error messages for you. Validate with Zod or any schema library.
+
+<ComponentPreview name="form-demo" />
+
+## Installation
+
+<ComponentInstall name="form" />
+
+## Usage
+
+```tsx
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+```
+
+```tsx
+const form = useForm<z.infer<typeof schema>>({ resolver: zodResolver(schema) });
+
+<Form {...form}>
+  <form onSubmit={form.handleSubmit(onSubmit)}>
+    <FormField
+      control={form.control}
+      name="username"
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel>Username</FormLabel>
+          <FormControl>
+            <Input {...field} />
+          </FormControl>
+          <FormDescription>Your public display name.</FormDescription>
+          <FormMessage />
+        </FormItem>
+      )}
+    />
+  </form>
+</Form>;
+```
+
+## API Reference
+
+### FormField
+
+<PropsTable
+  props={[
+    { prop: "control", type: "Control", description: "From useForm()." },
+    { prop: "name", type: "FieldPath", description: "Field name." },
+    {
+      prop: "render",
+      type: "({ field, fieldState }) => ReactNode",
+      description: "Renders the field.",
+    },
+  ]}
+/>
+
+### FormItem / FormLabel / FormDescription / FormMessage
+
+<PropsTable
+  props={[
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### FormControl
+
+Slot that passes `id`, `aria-describedby` and `aria-invalid` to its child.
+
+<PropsTable props={[]} />
+
+## Accessibility
+
+Labels point at their control, descriptions and errors are linked with `aria-describedby`, and errors render with `role="alert"` so they are announced.

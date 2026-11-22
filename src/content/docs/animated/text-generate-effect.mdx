@@ -1,0 +1,42 @@
+---
+title: "Text Generate Effect"
+description: "Words fade and un-blur in sequence, as if generated."
+---
+
+<ComponentPreview name="text-generate-effect-demo" />
+
+## Installation
+
+<ComponentInstall name="text-generate-effect" />
+
+## Usage
+
+```tsx
+import { TextGenerateEffect } from "@/components/animated/text-generate-effect";
+```
+
+```tsx
+<TextGenerateEffect words="Build interfaces that feel alive." />
+```
+
+## API Reference
+
+### TextGenerateEffect
+
+<PropsTable
+  props={[
+    { prop: "words", type: "string", description: "Text to reveal." },
+    { prop: "duration", type: "number", defaultValue: "0.5", description: "Seconds per word." },
+    {
+      prop: "blur",
+      type: "boolean",
+      defaultValue: "true",
+      description: "Un-blur while revealing.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+The full sentence is set as `aria-label`, so it is read in one go. With reduced motion, the text appears immediately.

@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "components/synapse-ui/buttons/button-13.tsx",
-      "content": "import { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\ninterface Button13Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  children?: React.ReactNode;\n}\n\nexport default function Button13({ className, children = \"Soft Button\", ...props }: Button13Props) {\n  return (\n    <Button\n      className={cn(\n        \"relative h-11 px-8\",\n        \"bg-fuchsia-100 dark:bg-fuchsia-950\",\n        \"text-fuchsia-600 dark:text-fuchsia-300\",\n        \"hover:bg-fuchsia-200 dark:hover:bg-fuchsia-900\",\n        \"rounded-lg\",\n        \"transition-all duration-300\",\n        \"font-medium\",\n        className,\n      )}\n      {...props}\n    >\n      {children}\n    </Button>\n  );\n}\n",
+      "content": "import { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\ninterface Button13Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  children?: React.ReactNode;\n}\n\nexport default function Button13({ className, children = \"Soft Button\", ...props }: Button13Props) {\n  return (\n    <Button\n      className={cn(\n        \"relative h-11 px-8\",\n        \"bg-cyan-100 dark:bg-cyan-950\",\n        \"text-cyan-600 dark:text-cyan-300\",\n        \"hover:bg-cyan-200 dark:hover:bg-cyan-900\",\n        \"rounded-lg\",\n        \"transition-all duration-300\",\n        \"font-medium\",\n        className,\n      )}\n      {...props}\n    >\n      {children}\n    </Button>\n  );\n}\n",
       "type": "registry:ui"
     }
   ]

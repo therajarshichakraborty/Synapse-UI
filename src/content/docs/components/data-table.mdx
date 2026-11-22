@@ -1,0 +1,82 @@
+---
+title: "Data Table"
+description: "Powerful tables with sorting, filtering and pagination built on TanStack Table."
+---
+
+A batteries-included wrapper around [TanStack Table](https://tanstack.com/table) with sorting, filtering, pagination, row selection and column visibility. For full control, compose `Table` with `useReactTable` directly.
+
+<ComponentPreview name="data-table-demo" />
+
+## Installation
+
+<ComponentInstall name="data-table" />
+
+## Usage
+
+```tsx
+import type { ColumnDef } from "@tanstack/react-table";
+import { DataTable, DataTableColumnHeader } from "@/components/ui/data-table";
+```
+
+```tsx
+const columns: ColumnDef<Payment>[] = [
+  { accessorKey: "status", header: "Status" },
+  {
+    accessorKey: "email",
+    header: ({ column }) => <DataTableColumnHeader column={column} title="Email" />,
+  },
+];
+
+<DataTable columns={columns} data={payments} filterColumn="email" />;
+```
+
+## API Reference
+
+### DataTable
+
+<PropsTable
+  props={[
+    { prop: "columns", type: "ColumnDef<TData, TValue>[]", description: "Column definitions." },
+    { prop: "data", type: "TData[]", description: "Row data." },
+    {
+      prop: "filterColumn",
+      type: "string",
+      description: "Column id filtered by the search input. Omit to hide search.",
+    },
+    {
+      prop: "filterPlaceholder",
+      type: "string",
+      defaultValue: '"Filter..."',
+      description: "Search placeholder and accessible label.",
+    },
+    { prop: "pageSize", type: "number", defaultValue: "10", description: "Rows per page." },
+    {
+      prop: "enableColumnToggle",
+      type: "boolean",
+      defaultValue: "true",
+      description: "Show the column visibility menu.",
+    },
+    {
+      prop: "emptyMessage",
+      type: "ReactNode",
+      defaultValue: '"No results."',
+      description: "Shown when no rows match.",
+    },
+    {
+      prop: "onRowSelectionChange",
+      type: "(rows: TData[]) => void",
+      description: "Called with the selected rows.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### DataTableColumnHeader
+
+<PropsTable
+  props={[
+    { prop: "column", type: "Column<TData, TValue>", description: "The TanStack column." },
+    { prop: "title", type: "string", description: "Header label." },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>

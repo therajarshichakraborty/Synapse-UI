@@ -1,0 +1,92 @@
+---
+title: "Navigation Menu"
+description: "A collection of links for navigating websites."
+---
+
+<ComponentPreview name="navigation-menu-demo" />
+
+## Installation
+
+<ComponentInstall name="navigation-menu" />
+
+## Usage
+
+```tsx
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+```
+
+```tsx
+<NavigationMenu>
+  <NavigationMenuList>
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <NavigationMenuLink>Link</NavigationMenuLink>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+  </NavigationMenuList>
+</NavigationMenu>
+```
+
+## API Reference
+
+### NavigationMenu
+
+<PropsTable
+  props={[
+    {
+      prop: "viewport",
+      type: "boolean",
+      defaultValue: "true",
+      description: "Render content in a shared animated viewport.",
+    },
+    {
+      prop: "delayDuration",
+      type: "number",
+      defaultValue: "200",
+      description: "Hover delay before opening.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### NavigationMenuLink
+
+<PropsTable
+  props={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Render the child element instead, merging props and behavior.",
+    },
+    {
+      prop: "active",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Marks the current page.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+### Keyboard interactions
+
+<KeyboardTable
+  keys={[
+    ["Space / Enter", "Opens the focused trigger's content."],
+    ["Tab", "Moves focus to the next focusable element."],
+    ["ArrowDown", "Moves focus into the open content."],
+    ["ArrowRight / ArrowLeft", "Moves focus between triggers."],
+    ["Esc", "Closes the open content."],
+  ]}
+/>

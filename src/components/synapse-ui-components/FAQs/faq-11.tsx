@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { CreditCard, Shield, Zap, Users, HelpCircle, Settings } from "lucide-react";
+import { CreditCard, Shield, Zap } from "lucide-react";
 
 const categories = [
   {

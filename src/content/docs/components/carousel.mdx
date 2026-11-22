@@ -1,0 +1,93 @@
+---
+title: "Carousel"
+description: "A carousel with motion and swipe built using Embla."
+---
+
+<ComponentPreview name="carousel-demo" />
+
+## Installation
+
+<ComponentInstall name="carousel" />
+
+## Usage
+
+```tsx
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+```
+
+```tsx
+<Carousel>
+  <CarouselContent>
+    <CarouselItem>...</CarouselItem>
+    <CarouselItem>...</CarouselItem>
+  </CarouselContent>
+  <CarouselPrevious />
+  <CarouselNext />
+</Carousel>
+```
+
+## Examples
+
+### Multiple per view
+
+Set `basis-*` on items to show several at once.
+
+<ComponentPreview name="carousel-multiple" />
+
+## API Reference
+
+### Carousel
+
+<PropsTable
+  props={[
+    {
+      prop: "opts",
+      type: "EmblaOptionsType",
+      description: "Embla options such as align and loop.",
+    },
+    {
+      prop: "plugins",
+      type: "EmblaPluginType[]",
+      description: "Embla plugins, for example autoplay.",
+    },
+    {
+      prop: "orientation",
+      type: '"horizontal" | "vertical"',
+      defaultValue: '"horizontal"',
+      description: "Scroll direction.",
+    },
+    {
+      prop: "setApi",
+      type: "(api: CarouselApi) => void",
+      description: "Receive the Embla API instance.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### CarouselContent / CarouselItem / CarouselPrevious / CarouselNext
+
+<PropsTable
+  props={[
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+The region has `aria-roledescription="carousel"` and each slide has `aria-roledescription="slide"`.
+
+### Keyboard interactions
+
+<KeyboardTable
+  keys={[
+    ["ArrowLeft", "Scrolls to the previous slide."],
+    ["ArrowRight", "Scrolls to the next slide."],
+  ]}
+/>

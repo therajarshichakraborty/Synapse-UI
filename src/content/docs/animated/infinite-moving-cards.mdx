@@ -1,0 +1,53 @@
+---
+title: "Infinite Moving Cards"
+description: "Testimonial-style cards scrolling endlessly with edge fade."
+---
+
+<ComponentPreview name="infinite-moving-cards-demo" />
+
+## Installation
+
+<ComponentInstall name="infinite-moving-cards" />
+
+## Usage
+
+```tsx
+import { InfiniteMovingCards } from "@/components/animated/infinite-moving-cards";
+```
+
+```tsx
+<InfiniteMovingCards items={testimonials} direction="right" speed="slow" />
+```
+
+## API Reference
+
+### InfiniteMovingCards
+
+<PropsTable
+  props={[
+    { prop: "items", type: "{ quote, name, title, avatar? }[]", description: "Cards to render." },
+    {
+      prop: "direction",
+      type: '"left" | "right"',
+      defaultValue: '"left"',
+      description: "Scroll direction.",
+    },
+    {
+      prop: "speed",
+      type: '"fast" | "normal" | "slow"',
+      defaultValue: '"normal"',
+      description: "Loop speed.",
+    },
+    {
+      prop: "pauseOnHover",
+      type: "boolean",
+      defaultValue: "true",
+      description: "Pause while hovered.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+Duplicate copies of the content are `aria-hidden`, so screen readers read each card once. With reduced motion, the cards do not move.

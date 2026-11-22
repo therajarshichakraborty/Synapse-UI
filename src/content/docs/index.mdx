@@ -1,59 +1,43 @@
 ---
-title: Installation
-description: Get started with Synapse UI — open source React components built with Tailwind CSS.
+title: Introduction
+description: Beautifully designed, accessible components and cinematic animated sections for React. Copy, paste, own the code.
 ---
 
-# Getting Started
+Synapse UI is **not a dependency you install**. It is a set of components you add to your project, then read, change and keep. Every component is a single TypeScript file built on Tailwind CSS v4 design tokens, Radix UI behavior and Motion animation.
 
-Synapse UI is a collection of copy-paste React components built with Tailwind CSS and shadcn/ui primitives.
+<Callout type="tip" title="New in this release">
+  More than 30 animated components, 12 production-ready blocks, and a rebuilt dark-first design
+  system. See the [changelog](/docs/changelog).
+</Callout>
 
-## Installation
+## What's inside
 
-You can install Synapse UI components either using the shadcn CLI or manually.
+- **Core components.** A full shadcn-compatible set (Accordion through Tooltip), re-themed with Synapse tokens. The APIs match shadcn, so existing knowledge transfers directly.
+- **Animated components.** Spotlights, beams, auroras, marquees, number tickers, floating docks and more. Each one respects `prefers-reduced-motion`.
+- **Blocks.** Complete sections (heroes, pricing, testimonials, auth pages, a dashboard shell) composed from the components above.
+- **Collections.** Hand-crafted variants of common patterns (AI inputs, alerts, buttons, cards, FAQs) you can drop in as they are.
 
-### CLI Installation (Recommended)
+## Principles
 
-Add any component to your project dynamically via the shadcn CLI by pointing it to the component's registry URL:
+### Own the code
 
-```bash
-npx shadcn@latest add https://synapse-ui.vercel.app/r/button-01.json
-```
+Components are copied into your repo, so you control every class name and line of logic. Upgrades never break your app.
 
-_(Make sure to replace `http://localhost:3000` with the domain Synapse UI is hosted on, and `button-01.json` with the component name you wish to install)._
+### Tokens, not hardcoded colors
 
-### Manual Installation
+Every color comes from a semantic CSS variable such as `--primary` or `--muted-foreground`. Re-brand the whole library by editing one file. See [Theming](/docs/theming).
 
-To install manually:
+### Accessible by default
 
-1. Browse to the component page.
-2. Select the **Code** tab to copy the full, entire component code.
-3. Paste it into your project under `src/components/synapse-ui-components/`.
-4. Ensure your project has the required dependencies (such as `lucide-react`, `motion`, etc.) specified at the top of the copied code.
+Interactive components are built on Radix UI primitives, so you get correct ARIA attributes, focus management and full keyboard support. Each component page documents its keyboard interactions.
 
-### Required Base Dependencies
+### Motion with restraint
 
-Make sure your React project is configured with:
+Animations use ease-out curves, stay between 150 and 400ms in UI, and turn off entirely when the user prefers reduced motion.
 
-- React 19+
-- Tailwind CSS v4
-- shadcn/ui primitives (such as Button, Card, Input, etc.)
+## Next steps
 
-## Project Structure
-
-```
-src/components/synapse-ui-components/
-├── ai-inputs/     # AI chat interface components
-├── alerts/        # Alert and notification layouts
-├── buttons/       # Animated button variants
-├── cards/         # Card layouts and compositions
-├── FAQs/          # FAQ accordion and list patterns
-├── inputs/        # Form input variants
-├── lists/         # List and menu layouts
-├── pricings/      # Pricing table components
-├── texts/         # Typography and text animations
-└── blocks/        # Full-page block compositions
-```
-
-## Browse Components
-
-Use the sidebar to explore each category, or press **⌘K** to search the docs.
+- [Install Synapse UI](/docs/installation) in a new or existing project.
+- Make it yours with [Theming](/docs/theming) and [Dark Mode](/docs/dark-mode).
+- Browse the [Components](/docs/components), [Animated](/docs/animated) and [Blocks](/docs/blocks).
+- Add anything from the terminal with the [CLI](/docs/cli).

@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { MoreVertical, Reply, Forward, Trash2 } from "lucide-react";
+import { Reply, Forward, Trash2 } from "lucide-react";
 import { useState } from "react";
 
 interface ListItem {

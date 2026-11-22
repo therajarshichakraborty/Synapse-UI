@@ -30,8 +30,8 @@ const typeConfig: Record<string, { icon: LucideIcon; bg: string; color: string }
   },
   video: {
     icon: Film,
-    bg: "bg-purple-100 dark:bg-purple-900/30",
-    color: "text-purple-600 dark:text-purple-400",
+    bg: "bg-indigo-100 dark:bg-indigo-900/30",
+    color: "text-indigo-600 dark:text-indigo-400",
   },
   other: {
     icon: File,

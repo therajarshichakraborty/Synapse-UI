@@ -362,8 +362,8 @@ export default function ActionSearchBar({
       }
     };
 
-    window.addEventListener("keydown", handleKeyDown as any);
-    return () => window.removeEventListener("keydown", handleKeyDown as any);
+    window.addEventListener("keydown", handleKeyDown as unknown as EventListener);
+    return () => window.removeEventListener("keydown", handleKeyDown as unknown as EventListener);
   }, []);
 
   const executeAction = (action: Action) => {

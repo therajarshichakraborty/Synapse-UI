@@ -1,0 +1,41 @@
+---
+title: "Glowing Border Card"
+description: "A card with an animated conic gradient border."
+---
+
+<ComponentPreview name="glowing-card-demo" />
+
+## Installation
+
+<ComponentInstall name="glowing-card" />
+
+## Usage
+
+```tsx
+import { GlowingCard } from "@/components/animated/glowing-card";
+```
+
+```tsx
+<GlowingCard>
+  <h3>Edge functions</h3>
+</GlowingCard>
+```
+
+## API Reference
+
+### GlowingCard
+
+<PropsTable
+  props={[
+    { prop: "duration", type: "number", defaultValue: "6", description: "Seconds per rotation." },
+    {
+      prop: "glow",
+      type: "boolean",
+      defaultValue: "true",
+      description: "Soft glow behind the card.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+The effect is the `border-beam` utility. Add it to any element with a border radius.

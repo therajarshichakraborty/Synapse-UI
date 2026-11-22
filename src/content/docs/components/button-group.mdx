@@ -1,0 +1,65 @@
+---
+title: "Button Group"
+description: "A container that groups related buttons together with consistent styling."
+---
+
+<ComponentPreview name="button-group-demo" />
+
+## Installation
+
+<ComponentInstall name="button-group" />
+
+## Usage
+
+```tsx
+import { ButtonGroup } from "@/components/ui/button-group";
+```
+
+```tsx
+<ButtonGroup>
+  <Button variant="outline">Left</Button>
+  <Button variant="outline">Right</Button>
+</ButtonGroup>
+```
+
+## Examples
+
+### Orientation and text
+
+Stack vertically, or mix in static text with `ButtonGroupText`.
+
+<ComponentPreview name="button-group-orientation" />
+
+## API Reference
+
+### ButtonGroup
+
+<PropsTable
+  props={[
+    {
+      prop: "orientation",
+      type: '"horizontal" | "vertical"',
+      defaultValue: '"horizontal"',
+      description: "Layout direction.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### ButtonGroupText / ButtonGroupSeparator
+
+<PropsTable
+  props={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Render the child element instead, merging props and behavior.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+Renders with `role="group"`. Provide an `aria-label` when the purpose of the group is not obvious.

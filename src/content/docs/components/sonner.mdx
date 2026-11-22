@@ -1,0 +1,88 @@
+---
+title: "Sonner"
+description: "An opinionated toast component for React."
+---
+
+Add the `Toaster` once in your root layout, then call `toast()` from anywhere.
+
+<ComponentPreview name="sonner-demo" />
+
+## Installation
+
+<ComponentInstall name="sonner" />
+
+## Usage
+
+```tsx
+import { Toaster } from "@/components/ui/sonner";
+import { toast } from "sonner";
+```
+
+```tsx
+// app/layout.tsx
+<body>
+  {children}
+  <Toaster />
+</body>;
+
+// anywhere
+toast.success("Event has been created.");
+```
+
+## Examples
+
+### Types
+
+<ComponentPreview name="sonner-types" />
+
+## API Reference
+
+### Toaster
+
+Accepts every [Sonner](https://sonner.emilkowal.ski) Toaster prop.
+
+<PropsTable
+  props={[
+    {
+      prop: "position",
+      type: '"top-left" | "top-center" | "top-right" | "bottom-left" | "bottom-center" | "bottom-right"',
+      defaultValue: '"bottom-right"',
+      description: "Stack position.",
+    },
+    {
+      prop: "richColors",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Colored success and error toasts.",
+    },
+    {
+      prop: "expand",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Expand the stack by default.",
+    },
+  ]}
+/>
+
+### toast()
+
+<PropsTable
+  props={[
+    { prop: "description", type: "ReactNode", description: "Secondary text." },
+    { prop: "action", type: "{ label, onClick }", description: "Action button." },
+    {
+      prop: "duration",
+      type: "number",
+      defaultValue: "4000",
+      description: "Time on screen in ms.",
+    },
+  ]}
+/>
+
+## Accessibility
+
+Toasts are announced in a polite live region. Do not put critical, blocking information only in a toast.
+
+### Keyboard interactions
+
+<KeyboardTable keys={[["Alt + T", "Moves focus to the toast region."]]} />

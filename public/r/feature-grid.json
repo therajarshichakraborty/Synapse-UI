@@ -1,0 +1,17 @@
+{
+  "name": "feature-grid",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "card-spotlight"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/feature-grid.tsx",
+      "content": "import { BoltIcon, GlobeIcon, LayersIcon, LockIcon, PaletteIcon, TerminalIcon } from \"lucide-react\";\nimport { CardSpotlight } from \"@/components/animated/card-spotlight\";\n\nconst features = [\n  {\n    icon: BoltIcon,\n    title: \"Blazing fast\",\n    description: \"Server components and zero runtime CSS keep every page lean.\",\n  },\n  {\n    icon: PaletteIcon,\n    title: \"Themeable\",\n    description: \"One file of tokens re-skins every component, light and dark.\",\n  },\n  {\n    icon: LockIcon,\n    title: \"Accessible\",\n    description: \"Keyboard, screen reader and focus management, built in.\",\n  },\n  {\n    icon: LayersIcon,\n    title: \"Composable\",\n    description: \"Small primitives that snap together into anything.\",\n  },\n  {\n    icon: TerminalIcon,\n    title: \"CLI powered\",\n    description: \"Add a component and its dependencies in one command.\",\n  },\n  {\n    icon: GlobeIcon,\n    title: \"Production ready\",\n    description: \"Used in apps serving millions of requests a day.\",\n  },\n];\n\nexport default function FeatureGrid() {\n  return (\n    <section className=\"bg-background py-24 md:py-32\">\n      <div className=\"mx-auto max-w-6xl px-6\">\n        <div className=\"mx-auto max-w-2xl text-center\">\n          <p className=\"text-sm font-medium text-primary\">Features</p>\n          <h2 className=\"mt-3 text-h2 font-semibold\">Everything you need to ship</h2>\n          <p className=\"mt-4 text-body-lg text-muted-foreground\">\n            A complete toolkit, designed to work together from day one.\n          </p>\n        </div>\n        <div className=\"mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3\">\n          {features.map((f) => (\n            <CardSpotlight key={f.title} className=\"p-6\">\n              <div className=\"flex size-10 items-center justify-center rounded-lg border border-border bg-surface-2 text-primary\">\n                <f.icon className=\"size-5\" />\n              </div>\n              <h3 className=\"mt-5 font-semibold tracking-tight\">{f.title}</h3>\n              <p className=\"mt-2 text-sm leading-6 text-muted-foreground\">{f.description}</p>\n            </CardSpotlight>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

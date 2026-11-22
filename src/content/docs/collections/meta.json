@@ -1,0 +1,20 @@
+{
+  "title": "Collections",
+  "pages": [
+    "ai-input",
+    "alert",
+    "badge",
+    "button",
+    "card",
+    "faq",
+    "input",
+    "list",
+    "message",
+    "popover",
+    "pricing",
+    "text",
+    "tooltip",
+    "block",
+    "hooks"
+  ]
+}

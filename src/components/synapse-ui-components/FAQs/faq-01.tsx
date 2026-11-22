@@ -32,7 +32,7 @@ const CATEGORIES: Record<FAQCategory, { label: string; color: string }> = {
   },
   features: {
     label: "Features",
-    color: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300",
+    color: "bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300",
   },
   support: {
     label: "Support",

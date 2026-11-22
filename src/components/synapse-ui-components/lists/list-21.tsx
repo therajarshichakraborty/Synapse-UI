@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { Wifi, Battery, Signal, Bluetooth, Moon, Sun } from "lucide-react";
+import { Wifi, Signal, Bluetooth, Moon } from "lucide-react";
 import { useState } from "react";
 import { type LucideIcon } from "lucide-react";
 

@@ -1,0 +1,37 @@
+---
+title: "Parallax Scroll"
+description: "A multi-column gallery with columns moving at different speeds."
+---
+
+<ComponentPreview name="parallax-scroll-demo" />
+
+## Installation
+
+<ComponentInstall name="parallax-scroll" />
+
+## Usage
+
+```tsx
+import { ParallaxScroll } from "@/components/animated/parallax-scroll";
+```
+
+```tsx
+<ParallaxScroll items={["url(/1.jpg) center/cover", "linear-gradient(...)"]} />
+```
+
+## API Reference
+
+### ParallaxScroll
+
+<PropsTable
+  props={[
+    { prop: "items", type: "string[]", description: "CSS backgrounds for each tile." },
+    {
+      prop: "height",
+      type: "string",
+      defaultValue: '"32rem"',
+      description: "Scroll container height.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>

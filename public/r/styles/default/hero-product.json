@@ -1,0 +1,18 @@
+{
+  "name": "hero-product",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "aurora-background"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/hero-product.tsx",
+      "content": "import { ArrowRightIcon, PlayIcon } from \"lucide-react\";\nimport { AuroraBackground } from \"@/components/animated/aurora-background\";\nimport { Button } from \"@/components/ui/button\";\n\nexport default function HeroProduct() {\n  return (\n    <AuroraBackground className=\"w-full\">\n      <section className=\"mx-auto max-w-6xl px-6 pt-24 pb-16 text-center md:pt-32\">\n        <h1 className=\"mx-auto max-w-3xl text-display font-semibold\">\n          Your product, in its best light\n        </h1>\n        <p className=\"mx-auto mt-6 max-w-xl text-body-lg text-muted-foreground\">\n          Showcase your app in a framed window with a soft aurora behind it. Swap the placeholder\n          for a screenshot or video.\n        </p>\n        <div className=\"mt-10 flex justify-center gap-3\">\n          <Button size=\"lg\" variant=\"gradient\">\n            Get started <ArrowRightIcon data-icon=\"inline-end\" />\n          </Button>\n          <Button size=\"lg\" variant=\"glass\">\n            <PlayIcon data-icon=\"inline-start\" /> Watch video\n          </Button>\n        </div>\n        <div className=\"relative mx-auto mt-16 max-w-5xl\">\n          <div\n            aria-hidden=\"true\"\n            className=\"absolute inset-x-10 -top-6 h-24 rounded-full bg-primary/30 blur-3xl\"\n          />\n          <div className=\"relative rounded-2xl border border-border bg-surface-1/80 p-2 shadow-2xl backdrop-blur\">\n            <div className=\"flex items-center gap-1.5 px-3 py-2\">\n              <span className=\"size-2.5 rounded-full bg-border-strong\" />\n              <span className=\"size-2.5 rounded-full bg-border-strong\" />\n              <span className=\"size-2.5 rounded-full bg-border-strong\" />\n            </div>\n            {/* TODO: replace with a real product screenshot */}\n            <div className=\"grid aspect-[16/9] grid-cols-[180px_1fr] gap-2 overflow-hidden rounded-xl border border-border bg-background p-2 text-left\">\n              <div className=\"hidden space-y-2 rounded-lg bg-surface-1 p-3 sm:block\">\n                {Array.from({ length: 7 }).map((_, i) => (\n                  <div\n                    key={i}\n                    className={`h-6 rounded-md ${i === 1 ? \"bg-primary/20\" : \"bg-muted\"}`}\n                  />\n                ))}\n              </div>\n              <div className=\"col-span-2 grid grid-rows-[auto_1fr] gap-2 sm:col-span-1\">\n                <div className=\"grid grid-cols-3 gap-2\">\n                  {[0, 1, 2].map((i) => (\n                    <div key={i} className=\"h-20 rounded-lg bg-surface-1\" />\n                  ))}\n                </div>\n                <div className=\"rounded-lg bg-gradient-to-br from-primary/15 via-surface-1 to-surface-1\" />\n              </div>\n            </div>\n          </div>\n        </div>\n      </section>\n    </AuroraBackground>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

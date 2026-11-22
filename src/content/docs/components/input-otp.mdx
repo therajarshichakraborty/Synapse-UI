@@ -1,0 +1,80 @@
+---
+title: "Input OTP"
+description: "Accessible one-time password input with copy and paste support."
+---
+
+<ComponentPreview name="input-otp-demo" />
+
+## Installation
+
+<ComponentInstall name="input-otp" />
+
+## Usage
+
+```tsx
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSeparator,
+  InputOTPSlot,
+} from "@/components/ui/input-otp";
+```
+
+```tsx
+<InputOTP maxLength={6}>
+  <InputOTPGroup>
+    <InputOTPSlot index={0} />
+    <InputOTPSlot index={1} />
+    <InputOTPSlot index={2} />
+  </InputOTPGroup>
+  <InputOTPSeparator />
+  <InputOTPGroup>
+    <InputOTPSlot index={3} />
+    <InputOTPSlot index={4} />
+    <InputOTPSlot index={5} />
+  </InputOTPGroup>
+</InputOTP>
+```
+
+## Examples
+
+### Controlled with digits only
+
+Use the `REGEXP_ONLY_DIGITS` pattern from input-otp.
+
+<ComponentPreview name="input-otp-controlled" />
+
+## API Reference
+
+### InputOTP
+
+<PropsTable
+  props={[
+    { prop: "maxLength", type: "number", description: "Number of characters." },
+    {
+      prop: "value / onChange",
+      type: "string / (value: string) => void",
+      description: "Controlled value.",
+    },
+    { prop: "pattern", type: "string", description: "Allowed characters, as a regex string." },
+    {
+      prop: "onComplete",
+      type: "(value: string) => void",
+      description: "Called when every slot is filled.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### InputOTPSlot
+
+<PropsTable
+  props={[
+    { prop: "index", type: "number", description: "Slot position." },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+Uses a single hidden native input, so paste, autofill (`autocomplete="one-time-code"`) and screen readers work as expected.

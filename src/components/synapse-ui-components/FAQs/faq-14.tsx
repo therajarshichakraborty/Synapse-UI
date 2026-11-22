@@ -40,10 +40,10 @@ export default function Faq14() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white sm:text-4xl">Frequently Asked</h2>
-            <div className="mt-2 mx-auto h-1 w-24 bg-gradient-to-r from-pink-500 to-violet-500 rounded-full" />
+            <div className="mt-2 mx-auto h-1 w-24 bg-gradient-to-r from-pink-500 to-blue-500 rounded-full" />
           </div>
           <div className="relative">
-            <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-pink-500 via-violet-500 to-cyan-500" />
+            <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-pink-500 via-blue-500 to-cyan-500" />
             <div className="space-y-6">
               {faqs.map((faq, index) => (
                 <div key={index} className="relative pl-16">
@@ -51,7 +51,7 @@ export default function Faq14() {
                     className={cn(
                       "absolute left-6 top-6 h-4 w-4 rounded-full border-2 transition-colors duration-300",
                       activeIndex === index
-                        ? "bg-violet-500 border-violet-500"
+                        ? "bg-blue-500 border-blue-500"
                         : "bg-zinc-950 border-zinc-700",
                     )}
                   />
@@ -59,7 +59,7 @@ export default function Faq14() {
                     className={cn(
                       "p-6 rounded-2xl transition-all duration-300 cursor-pointer",
                       activeIndex === index
-                        ? "bg-gradient-to-r from-pink-500/10 to-violet-500/10 border border-violet-500/30"
+                        ? "bg-gradient-to-r from-pink-500/10 to-blue-500/10 border border-blue-500/30"
                         : "bg-zinc-900/50 border border-zinc-800 hover:border-zinc-700",
                     )}
                     onClick={() => setActiveIndex(activeIndex === index ? null : index)}

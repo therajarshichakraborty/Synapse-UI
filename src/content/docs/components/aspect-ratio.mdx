@@ -1,0 +1,38 @@
+---
+title: "Aspect Ratio"
+description: "Displays content within a desired ratio."
+---
+
+<ComponentPreview name="aspect-ratio-demo" />
+
+## Installation
+
+<ComponentInstall name="aspect-ratio" />
+
+## Usage
+
+```tsx
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+```
+
+```tsx
+<AspectRatio ratio={16 / 9}>
+  <Image src="..." alt="Photo" fill className="rounded-lg object-cover" />
+</AspectRatio>
+```
+
+## API Reference
+
+### AspectRatio
+
+<PropsTable
+  props={[
+    {
+      prop: "ratio",
+      type: "number",
+      defaultValue: "1",
+      description: "The desired width / height ratio.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>

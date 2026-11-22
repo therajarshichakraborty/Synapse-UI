@@ -1,0 +1,42 @@
+---
+title: "Floating Dock"
+description: "A macOS-style dock with magnifying icons."
+---
+
+<ComponentPreview name="floating-dock-demo" />
+
+## Installation
+
+<ComponentInstall name="floating-dock" />
+
+## Usage
+
+```tsx
+import { FloatingDock } from "@/components/animated/floating-dock";
+```
+
+```tsx
+<FloatingDock items={[{ title: "Home", icon: <HomeIcon />, href: "/" }]} />
+```
+
+## API Reference
+
+### FloatingDock
+
+<PropsTable
+  props={[
+    { prop: "items", type: "{ title, icon, href?, onClick? }[]", description: "Dock items." },
+    { prop: "size", type: "number", defaultValue: "40", description: "Base tile size in px." },
+    {
+      prop: "magnification",
+      type: "number",
+      defaultValue: "64",
+      description: "Magnified tile size in px.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+Each item is a link or button labelled by its title, and the title shows on focus too. With reduced motion, items do not magnify.

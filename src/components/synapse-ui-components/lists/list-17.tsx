@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { CheckCircle2, Circle, ChevronRight } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 interface ListItem {
   id: string;
@@ -53,7 +53,7 @@ export default function List17({ items = ITEMS, className }: List17Props) {
       <div className="relative">
         <div className="absolute left-6 top-8 bottom-8 w-0.5 bg-zinc-200 dark:bg-zinc-700" />
         <div className="space-y-0">
-          {items.map((item, index) => (
+          {items.map((item) => (
             <div key={item.id} className="relative flex gap-4 pb-8 last:pb-0">
               <div
                 className={cn(

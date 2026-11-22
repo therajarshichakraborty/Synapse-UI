@@ -33,7 +33,7 @@ const tagStyles = {
   colors: {
     blue: "bg-blue-50 text-blue-700 border border-blue-200 hover:border-blue-300 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-700/30 dark:hover:border-blue-600/50",
     purple:
-      "bg-purple-50 text-purple-700 border border-purple-200 hover:border-purple-300 dark:bg-purple-900/30 dark:text-purple-300 dark:border-purple-700/30 dark:hover:border-purple-600/50",
+      "bg-indigo-50 text-indigo-700 border border-indigo-200 hover:border-indigo-300 dark:bg-indigo-900/30 dark:text-indigo-300 dark:border-indigo-700/30 dark:hover:border-indigo-600/50",
     green:
       "bg-green-50 text-green-700 border border-green-200 hover:border-green-300 dark:bg-green-900/30 dark:text-green-300 dark:border-green-700/30 dark:hover:border-green-600/50",
   },
@@ -217,7 +217,7 @@ export default function Input_02({
                   )}
                 >
                   <Plus className="w-3.5 h-3.5" />
-                  Create "{input}"
+                  Create &ldquo;{input}&rdquo;
                 </button>
               )}
             </div>

@@ -63,7 +63,7 @@ export function ColorPopover({
     onChange?.(newColor);
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const _handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     setInputValue(newValue);
     if (/^#[0-9A-Fa-f]{6}$/.test(newValue)) {

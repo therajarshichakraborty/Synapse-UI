@@ -1,0 +1,73 @@
+---
+title: "Radio Group"
+description: "A set of checkable buttons where only one can be checked at a time."
+---
+
+<ComponentPreview name="radio-group-demo" />
+
+## Installation
+
+<ComponentInstall name="radio-group" />
+
+## Usage
+
+```tsx
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+```
+
+```tsx
+<RadioGroup defaultValue="option-one">
+  <div className="flex items-center gap-3">
+    <RadioGroupItem value="option-one" id="option-one" />
+    <Label htmlFor="option-one">Option One</Label>
+  </div>
+</RadioGroup>
+```
+
+## Examples
+
+### Cards
+
+<ComponentPreview name="radio-group-cards" />
+
+## API Reference
+
+### RadioGroup
+
+<PropsTable
+  props={[
+    { prop: "value / defaultValue", type: "string", description: "Selected value." },
+    { prop: "onValueChange", type: "(value: string) => void", description: "Called on change." },
+    { prop: "orientation", type: '"horizontal" | "vertical"', description: "Arrow-key direction." },
+    {
+      prop: "disabled",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Disables every item.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### RadioGroupItem
+
+<PropsTable
+  props={[
+    { prop: "value", type: "string", description: "Item value." },
+    { prop: "disabled", type: "boolean", defaultValue: "false", description: "Disables the item." },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+### Keyboard interactions
+
+<KeyboardTable
+  keys={[
+    ["Tab", "Moves focus to the checked item, or the first item."],
+    ["Space", "Checks the focused item."],
+    ["ArrowDown / ArrowRight", "Moves focus to and checks the next item."],
+    ["ArrowUp / ArrowLeft", "Moves focus to and checks the previous item."],
+  ]}
+/>

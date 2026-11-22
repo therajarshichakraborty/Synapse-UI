@@ -58,7 +58,7 @@ export default function Faq17() {
                 className={cn(
                   "overflow-hidden rounded-2xl transition-all duration-300",
                   openItems.includes(index)
-                    ? "bg-gradient-to-r from-fuchsia-500 to-pink-500 p-[2px]"
+                    ? "bg-gradient-to-r from-cyan-500 to-pink-500 p-[2px]"
                     : "bg-transparent",
                 )}
               >
@@ -78,7 +78,7 @@ export default function Faq17() {
                       className={cn(
                         "font-semibold text-left transition-colors",
                         openItems.includes(index)
-                          ? "text-fuchsia-600 dark:text-fuchsia-400"
+                          ? "text-cyan-600 dark:text-cyan-400"
                           : "text-zinc-900 dark:text-white",
                       )}
                     >
@@ -87,7 +87,7 @@ export default function Faq17() {
                     <ChevronDown
                       className={cn(
                         "h-5 w-5 shrink-0 transition-all duration-300",
-                        openItems.includes(index) ? "rotate-180 text-fuchsia-500" : "text-zinc-400",
+                        openItems.includes(index) ? "rotate-180 text-cyan-500" : "text-zinc-400",
                       )}
                     />
                   </button>

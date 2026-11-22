@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "components/synapse-ui/buttons/button-02.tsx",
-      "content": "import { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\ninterface Button02Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  children?: React.ReactNode;\n}\n\nexport default function Button02({\n  className,\n  children = \"Premium Button\",\n  ...props\n}: Button02Props) {\n  return (\n    <Button\n      className={cn(\n        \"relative h-11 px-8\",\n        \"bg-gradient-to-r from-blue-600 to-purple-600\",\n        \"text-white\",\n        \"hover:shadow-lg hover:shadow-purple-500/50\",\n        \"rounded-lg\",\n        \"transition-all duration-300\",\n        \"border border-purple-400/20\",\n        className,\n      )}\n      {...props}\n    >\n      <span className=\"relative z-10\">{children}</span>\n    </Button>\n  );\n}\n",
+      "content": "import { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\ninterface Button02Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  children?: React.ReactNode;\n}\n\nexport default function Button02({\n  className,\n  children = \"Premium Button\",\n  ...props\n}: Button02Props) {\n  return (\n    <Button\n      className={cn(\n        \"relative h-11 px-8\",\n        \"bg-gradient-to-r from-blue-600 to-indigo-600\",\n        \"text-white\",\n        \"hover:shadow-lg hover:shadow-indigo-500/50\",\n        \"rounded-lg\",\n        \"transition-all duration-300\",\n        \"border border-indigo-400/20\",\n        className,\n      )}\n      {...props}\n    >\n      <span className=\"relative z-10\">{children}</span>\n    </Button>\n  );\n}\n",
       "type": "registry:ui"
     }
   ]

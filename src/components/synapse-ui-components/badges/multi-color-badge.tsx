@@ -63,9 +63,9 @@ const colorClasses = {
     dot: "bg-blue-500",
   },
   violet: {
-    bg: "bg-violet-100 dark:bg-violet-900/50",
-    text: "text-violet-700 dark:text-violet-400",
-    dot: "bg-violet-500",
+    bg: "bg-blue-100 dark:bg-blue-900/50",
+    text: "text-blue-700 dark:text-blue-400",
+    dot: "bg-blue-500",
   },
   pink: {
     bg: "bg-pink-100 dark:bg-pink-900/50",

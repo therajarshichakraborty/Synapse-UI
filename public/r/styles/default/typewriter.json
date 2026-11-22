@@ -1,0 +1,15 @@
+{
+  "name": "typewriter",
+  "type": "registry:ui",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/animated/typewriter.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { useReducedMotion } from \"motion/react\";\nimport { cn } from \"@/lib/utils\";\n\nexport type TypewriterProps = {\n  words: string[];\n  className?: string;\n  /** Milliseconds per character while typing. */\n  typeSpeed?: number;\n  deleteSpeed?: number;\n  /** Pause on a complete word, in ms. */\n  pause?: number;\n  loop?: boolean;\n  caretClassName?: string;\n};\n\n/** Types and deletes words in a loop. Shows the first word statically when reduced motion is on. */\nexport function Typewriter({\n  words,\n  className,\n  typeSpeed = 70,\n  deleteSpeed = 40,\n  pause = 1400,\n  loop = true,\n  caretClassName,\n}: TypewriterProps) {\n  const reduce = useReducedMotion();\n  const [index, setIndex] = React.useState(0);\n  const [text, setText] = React.useState(\"\");\n  const [deleting, setDeleting] = React.useState(false);\n\n  React.useEffect(() => {\n    if (reduce || !words.length) return;\n    const word = words[index % words.length];\n    let delay = deleting ? deleteSpeed : typeSpeed;\n    if (!deleting && text === word) {\n      if (!loop && index === words.length - 1) return;\n      delay = pause;\n    }\n    const id = window.setTimeout(() => {\n      if (!deleting && text === word) setDeleting(true);\n      else if (deleting && text === \"\") {\n        setDeleting(false);\n        setIndex((i) => i + 1);\n      } else setText(word.slice(0, text.length + (deleting ? -1 : 1)));\n    }, delay);\n    return () => window.clearTimeout(id);\n  }, [deleteSpeed, deleting, index, loop, pause, reduce, text, typeSpeed, words]);\n\n  const shown = reduce ? words[0] : text;\n\n  return (\n    <span className={cn(\"inline-flex items-baseline\", className)}>\n      <span className=\"sr-only\">{words.join(\", \")}</span>\n      <span aria-hidden=\"true\">{shown}</span>\n      <span\n        aria-hidden=\"true\"\n        className={cn(\n          \"ml-0.5 inline-block h-[1em] w-[2px] translate-y-[0.1em] animate-caret bg-primary\",\n          caretClassName,\n        )}\n      />\n    </span>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

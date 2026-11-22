@@ -1,0 +1,84 @@
+---
+title: "Context Menu"
+description: "Displays a menu of actions triggered by a right click."
+---
+
+<ComponentPreview name="context-menu-demo" />
+
+## Installation
+
+<ComponentInstall name="context-menu" />
+
+## Usage
+
+```tsx
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuTrigger,
+} from "@/components/ui/context-menu";
+```
+
+```tsx
+<ContextMenu>
+  <ContextMenuTrigger>Right click</ContextMenuTrigger>
+  <ContextMenuContent>
+    <ContextMenuItem>Profile</ContextMenuItem>
+  </ContextMenuContent>
+</ContextMenu>
+```
+
+## API Reference
+
+### ContextMenuItem
+
+<PropsTable
+  props={[
+    {
+      prop: "inset",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Indent to align with items that have icons.",
+    },
+    {
+      prop: "variant",
+      type: '"default" | "destructive"',
+      defaultValue: '"default"',
+      description: "Visual style.",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Prevents selection.",
+    },
+  ]}
+/>
+
+### ContextMenuCheckboxItem / ContextMenuRadioItem
+
+<PropsTable
+  props={[
+    { prop: "checked", type: "boolean", description: "Checked state." },
+    { prop: "onCheckedChange", type: "(checked) => void", description: "Called on toggle." },
+  ]}
+/>
+
+## Accessibility
+
+Opens on right click or long press. On keyboard, focus the trigger and press Shift + F10.
+
+### Keyboard interactions
+
+<KeyboardTable
+  keys={[
+    ["Space", "Opens the menu, or activates the focused item."],
+    ["Enter", "Opens the menu, or activates the focused item."],
+    ["ArrowDown", "Moves focus to the next item."],
+    ["ArrowUp", "Moves focus to the previous item."],
+    ["ArrowRight", "Opens a submenu when focus is on a sub trigger."],
+    ["ArrowLeft", "Closes the current submenu."],
+    ["Esc", "Closes the menu and returns focus to the trigger."],
+  ]}
+/>

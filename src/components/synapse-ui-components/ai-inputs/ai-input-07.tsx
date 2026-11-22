@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { ArrowUp, Paperclip, X, Image as ImageIcon, FileText, File, Plus } from "lucide-react";
+import { ArrowUp, X, Image as ImageIcon, FileText, File, Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAutoResizeTextarea } from "@/hooks/use-auto-resize-textarea";
 
@@ -26,9 +26,9 @@ interface AIInput07Props {
 const FILE_TYPE_CONFIG = {
   image: {
     icon: ImageIcon,
-    bg: "bg-violet-500/10 dark:bg-violet-500/10",
-    text: "text-violet-500",
-    border: "border-violet-200 dark:border-violet-500/20",
+    bg: "bg-blue-500/10 dark:bg-blue-500/10",
+    text: "text-blue-500",
+    border: "border-blue-200 dark:border-blue-500/20",
   },
   document: {
     icon: FileText,
@@ -79,8 +79,6 @@ export function AIInput07({
     setFiles((prev) => prev.filter((f) => f.id !== id));
   };
 
-  
-  
   return (
     <div className={cn("w-full max-w-xl mx-auto", className)}>
       <div

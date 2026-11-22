@@ -1,0 +1,128 @@
+---
+title: Tooltips
+description: Popup tooltip layouts for helper messages and key shortcuts.
+---
+
+Tooltips display small informational messages or hotkey helpers when an element is hovered or focused.
+
+## Interactive Showcase
+
+Browse all the interactive tooltip designs and variants included in Synapse UI.
+
+<ComponentShowcase category="tooltip" />
+
+## Installation
+
+Install any of the tooltip components directly into your project via the CLI:
+
+```bash
+# Install the Basic Tooltip
+npx synapse-ui@latest add basic-tooltip
+
+# Install the Hotkey Tooltip
+npx synapse-ui@latest add hotkey-tooltip
+
+# Install the Icon Tooltip
+npx synapse-ui@latest add icon-tooltip
+
+# Install the Progress Tooltip
+npx synapse-ui@latest add progress-tooltip
+
+# Install the Rich Tooltip
+npx synapse-ui@latest add rich-tooltip
+```
+
+## Usage Examples
+
+Here are some common ways to use these tooltip components in your application layouts:
+
+### 1. Basic Tooltip
+
+Show descriptive subtext when hover/focused on an icon button:
+
+```tsx
+import { BasicTooltip } from "@/components/ui/basic-tooltip";
+import { Info } from "lucide-react";
+
+export default function HelpButton() {
+  return (
+    <BasicTooltip content="Learn more about our services" side="right">
+      <button className="rounded-full p-2 text-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-800">
+        <Info className="size-5" />
+      </button>
+    </BasicTooltip>
+  );
+}
+```
+
+### 2. Hotkey Helper Tooltip
+
+Add keyboard shortcut indicators inside tooltips to guide users:
+
+```tsx
+import { HotkeyTooltip } from "@/components/ui/hotkey-tooltip";
+import { Save } from "lucide-react";
+
+export default function SaveAction() {
+  return (
+    <HotkeyTooltip content="Save Document" keys={["⌘", "S"]} side="top">
+      <button className="flex items-center justify-center p-2 rounded-lg border border-zinc-200 dark:border-zinc-800">
+        <Save className="size-5" />
+      </button>
+    </HotkeyTooltip>
+  );
+}
+```
+
+### 3. Action Progress Tooltip
+
+Show progress indicators inside tooltips while long actions are taking place:
+
+```tsx
+import { ProgressTooltip } from "@/components/ui/progress-tooltip";
+
+export default function UploadStatus() {
+  return (
+    <ProgressTooltip
+      label="Uploading files"
+      value={75}
+      max={100}
+      showPercentage={true}
+      color="success"
+    >
+      <button className="text-sm font-semibold hover:underline">Checking status...</button>
+    </ProgressTooltip>
+  );
+}
+```
+
+## Component APIs
+
+### BasicTooltip
+
+| Prop            | Type                                     | Default    | Description                      |
+| :-------------- | :--------------------------------------- | :--------- | :------------------------------- |
+| `children`      | `React.ReactNode`                        | Required   | Target trigger element           |
+| `content`       | `React.ReactNode`                        | Required   | Content inside the tooltip popup |
+| `side`          | `'top' \| 'right' \| 'bottom' \| 'left'` | `'top'`    | Tooltip pop position             |
+| `align`         | `'start' \| 'center' \| 'end'`           | `'center'` | Alignment offset direction       |
+| `delayDuration` | `number`                                 | `200`      | Open delay in milliseconds       |
+| `showArrow`     | `boolean`                                | `true`     | Show/hide the arrow              |
+
+### HotkeyTooltip
+
+| Prop       | Type              | Default  | Description                                  |
+| :--------- | :---------------- | :------- | :------------------------------------------- |
+| `children` | `React.ReactNode` | Required | Target trigger element                       |
+| `content`  | `string`          | Required | Description text                             |
+| `keys`     | `string[]`        | `[]`     | Array of keys to display (e.g. `['⌘', 'S']`) |
+
+### ProgressTooltip
+
+| Prop       | Type                                             | Default     | Description                     |
+| :--------- | :----------------------------------------------- | :---------- | :------------------------------ |
+| `children` | `React.ReactNode`                                | Required    | Target trigger element          |
+| `label`    | `string`                                         | Required    | Label header text               |
+| `value`    | `number`                                         | Required    | Value of current progress state |
+| `max`      | `number`                                         | `100`       | Max bounds of progress          |
+| `color`    | `'default' \| 'success' \| 'warning' \| 'error'` | `'default'` | Progress bar fill color         |

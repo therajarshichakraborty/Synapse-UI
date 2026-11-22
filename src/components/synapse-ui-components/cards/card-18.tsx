@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Zap, Activity } from "lucide-react";
+import { Activity } from "lucide-react";
 
 interface Card16Props {
   status?: "online" | "offline" | "idle";

@@ -1,0 +1,45 @@
+---
+title: "Code Block"
+description: "A themed code window with file tabs and copy button."
+---
+
+<ComponentPreview name="code-block-demo" />
+
+## Installation
+
+<ComponentInstall name="code-block" />
+
+## Usage
+
+```tsx
+import { CodeBlock } from "@/components/animated/code-block";
+```
+
+```tsx
+<CodeBlock files={[{ name: "page.tsx", code }]} highlight={[3]} />
+```
+
+## API Reference
+
+### CodeBlock
+
+<PropsTable
+  props={[
+    { prop: "files", type: "{ name, code, language? }[]", description: "One tab per file." },
+    {
+      prop: "highlight",
+      type: "number[]",
+      defaultValue: "[]",
+      description: "1-based lines to highlight.",
+    },
+    {
+      prop: "showLineNumbers",
+      type: "boolean",
+      defaultValue: "true",
+      description: "Show line numbers.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+This is a dependency-free client component for marketing pages. For docs, use the build-time Shiki pipeline instead.

@@ -1,0 +1,49 @@
+---
+title: "Typewriter"
+description: "Types and deletes words with a blinking caret."
+---
+
+<ComponentPreview name="typewriter-demo" />
+
+## Installation
+
+<ComponentInstall name="typewriter" />
+
+## Usage
+
+```tsx
+import { Typewriter } from "@/components/animated/typewriter";
+```
+
+```tsx
+<Typewriter words={["dashboards", "landing pages"]} />
+```
+
+## API Reference
+
+### Typewriter
+
+<PropsTable
+  props={[
+    { prop: "words", type: "string[]", description: "Words to type." },
+    {
+      prop: "typeSpeed / deleteSpeed",
+      type: "number",
+      defaultValue: "70 / 40",
+      description: "Milliseconds per character.",
+    },
+    {
+      prop: "pause",
+      type: "number",
+      defaultValue: "1400",
+      description: "Pause on a full word, in ms.",
+    },
+    { prop: "loop", type: "boolean", defaultValue: "true", description: "Loop forever." },
+    { prop: "caretClassName", type: "string", description: "Classes for the caret." },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+Screen readers get every word once, from a visually hidden list. With reduced motion, the first word is shown statically.

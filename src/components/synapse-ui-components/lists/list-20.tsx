@@ -22,7 +22,7 @@ const generateDays = (): ListItem[] => {
   const days: ListItem[] = [];
   const events = [
     { title: "Team Standup", time: "9:00 AM", color: "bg-blue-500" },
-    { title: "Design Review", time: "2:00 PM", color: "bg-purple-500" },
+    { title: "Design Review", time: "2:00 PM", color: "bg-indigo-500" },
     { title: "Client Call", time: "4:30 PM", color: "bg-emerald-500" },
     { title: "Sprint Planning", time: "10:00 AM", color: "bg-amber-500" },
   ];

@@ -55,8 +55,8 @@ export default function Alert02({
       <div
         className={cn(
           "relative overflow-hidden rounded-xl",
-          "bg-gradient-to-b from-violet-50 to-white dark:from-violet-950/30 dark:to-zinc-900",
-          "border border-violet-200/60 dark:border-violet-800/30",
+          "bg-gradient-to-b from-blue-50 to-white dark:from-blue-950/30 dark:to-zinc-900",
+          "border border-blue-200/60 dark:border-blue-800/30",
           "shadow-[0_4px_12px_0_rgba(139,92,246,0.08)] dark:shadow-[0_4px_12px_0_rgba(139,92,246,0.05)]",
           "transition-all duration-200",
           isExiting && "opacity-0 scale-95",
@@ -67,15 +67,15 @@ export default function Alert02({
         <div className="p-4">
           <div className="flex items-start gap-3">
             <div className="flex-shrink-0">
-              <div className="p-2 rounded-lg bg-violet-100 dark:bg-violet-900/50">
-                <Sparkles className="h-4 w-4 text-violet-600 dark:text-violet-400" />
+              <div className="p-2 rounded-lg bg-blue-100 dark:bg-blue-900/50">
+                <Sparkles className="h-4 w-4 text-blue-600 dark:text-blue-400" />
               </div>
             </div>
 
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-1">
                 <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">{title}</h3>
-                <span className="px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide rounded-full bg-violet-100 dark:bg-violet-900/50 text-violet-700 dark:text-violet-300">
+                <span className="px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300">
                   AI
                 </span>
               </div>
@@ -93,7 +93,7 @@ export default function Alert02({
                     "text-zinc-400 hover:text-zinc-200",
                     "opacity-0 group-hover:opacity-100",
                     "transition-all duration-150",
-                    "focus:outline-none focus:opacity-100 focus:ring-2 focus:ring-violet-500",
+                    "focus:outline-none focus:opacity-100 focus:ring-2 focus:ring-blue-500",
                   )}
                   aria-label={isCopied ? "Copied" : "Copy code"}
                 >
@@ -113,7 +113,7 @@ export default function Alert02({
                 "text-zinc-400 hover:text-zinc-600 dark:text-zinc-500 dark:hover:text-zinc-300",
                 "hover:bg-zinc-100 dark:hover:bg-zinc-800",
                 "transition-colors duration-150",
-                "focus:outline-none focus:ring-2 focus:ring-violet-400 focus:ring-offset-2",
+                "focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2",
                 "dark:focus:ring-offset-zinc-900",
               )}
               aria-label="Dismiss"
@@ -134,7 +134,7 @@ export default function Alert02({
                 "hover:bg-zinc-100 dark:hover:bg-zinc-700/50",
                 "transition-colors duration-150",
                 "disabled:opacity-50 disabled:cursor-not-allowed",
-                "focus:outline-none focus:ring-2 focus:ring-violet-400",
+                "focus:outline-none focus:ring-2 focus:ring-blue-400",
               )}
             >
               <RotateCcw className={cn("h-3.5 w-3.5", isRetrying && "animate-spin")} />
@@ -144,9 +144,9 @@ export default function Alert02({
               onClick={handleCopy}
               className={cn(
                 "inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg",
-                "bg-violet-600 hover:bg-violet-700 text-white",
+                "bg-blue-600 hover:bg-blue-700 text-white",
                 "transition-colors duration-150",
-                "focus:outline-none focus:ring-2 focus:ring-violet-400 focus:ring-offset-2",
+                "focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2",
                 "dark:focus:ring-offset-zinc-900",
               )}
             >

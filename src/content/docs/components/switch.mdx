@@ -1,0 +1,70 @@
+---
+title: "Switch"
+description: "A control that allows the user to toggle between on and off."
+---
+
+<ComponentPreview name="switch-demo" />
+
+## Installation
+
+<ComponentInstall name="switch" />
+
+## Usage
+
+```tsx
+import { Switch } from "@/components/ui/switch";
+```
+
+```tsx
+<Switch id="airplane" />
+<Label htmlFor="airplane">Airplane mode</Label>
+```
+
+## Examples
+
+### Settings rows
+
+<ComponentPreview name="switch-settings" />
+
+## API Reference
+
+### Switch
+
+<PropsTable
+  props={[
+    {
+      prop: "checked / defaultChecked",
+      type: "boolean",
+      description: "Controlled or initial state.",
+    },
+    {
+      prop: "onCheckedChange",
+      type: "(checked: boolean) => void",
+      description: "Called on toggle.",
+    },
+    {
+      prop: "size",
+      type: '"sm" | "default"',
+      defaultValue: '"default"',
+      description: "Switch size.",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Prevents interaction.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+### Keyboard interactions
+
+<KeyboardTable
+  keys={[
+    ["Space", "Toggles the switch."],
+    ["Enter", "Toggles the switch."],
+  ]}
+/>

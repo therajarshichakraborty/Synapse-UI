@@ -1,0 +1,40 @@
+---
+title: "Progress"
+description: "Displays an indicator showing the completion progress of a task."
+---
+
+<ComponentPreview name="progress-demo" />
+
+## Installation
+
+<ComponentInstall name="progress" />
+
+## Usage
+
+```tsx
+import { Progress } from "@/components/ui/progress";
+```
+
+```tsx
+<Progress value={33} />
+```
+
+## API Reference
+
+### Progress
+
+<PropsTable
+  props={[
+    {
+      prop: "value",
+      type: "number | null",
+      description: "Progress from 0 to max. Null means indeterminate.",
+    },
+    { prop: "max", type: "number", defaultValue: "100", description: "Maximum value." },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+Renders `role="progressbar"` with `aria-valuenow`. Provide an `aria-label` or `aria-labelledby`.

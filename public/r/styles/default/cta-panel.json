@@ -1,0 +1,18 @@
+{
+  "name": "cta-panel",
+  "type": "registry:block",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "grid-background"
+  ],
+  "files": [
+    {
+      "path": "components/blocks/cta-panel.tsx",
+      "content": "import { ArrowRightIcon } from \"lucide-react\";\nimport { Button } from \"@/components/ui/button\";\nimport { GridBackground } from \"@/components/animated/grid-background\";\n\nexport default function CtaPanel() {\n  return (\n    <section className=\"bg-background px-6 py-24\">\n      <div className=\"border-beam relative mx-auto max-w-5xl overflow-hidden rounded-3xl px-6 py-20 text-center [--beam-bg:var(--surface-1)] md:py-24\">\n        <GridBackground fade=\"center\" />\n        <div\n          aria-hidden=\"true\"\n          className=\"absolute top-0 left-1/2 h-64 w-2/3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/30 blur-3xl\"\n        />\n        <div className=\"relative\">\n          <h2 className=\"mx-auto max-w-2xl text-h2 font-semibold\">\n            Ready to build something beautiful?\n          </h2>\n          <p className=\"mx-auto mt-4 max-w-lg text-body-lg text-muted-foreground\">\n            Start with a single component or a full page. It is free forever.\n          </p>\n          <div className=\"mt-10 flex flex-col justify-center gap-3 sm:flex-row\">\n            <Button size=\"lg\">\n              Get started <ArrowRightIcon data-icon=\"inline-end\" />\n            </Button>\n            <Button size=\"lg\" variant=\"glass\">\n              Browse components\n            </Button>\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ]
+}

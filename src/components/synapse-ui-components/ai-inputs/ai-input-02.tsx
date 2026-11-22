@@ -8,7 +8,6 @@ import {
   Image as ImageIcon,
   ChevronDown,
   Sparkles,
-  Loader2,
   Square,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -97,7 +96,7 @@ export function AIInput02({
                 "transition-colors duration-150",
               )}
             >
-              <Sparkles className="size-3 text-violet-500" />
+              <Sparkles className="size-3 text-blue-500" />
               {currentModel.name}
               <ChevronDown
                 className={cn(

@@ -1,0 +1,55 @@
+---
+title: "Toggle Group"
+description: "A set of two-state buttons that can be toggled on or off."
+---
+
+<ComponentPreview name="toggle-group-demo" />
+
+## Installation
+
+<ComponentInstall name="toggle-group" />
+
+## Usage
+
+```tsx
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+```
+
+```tsx
+<ToggleGroup type="single">
+  <ToggleGroupItem value="a">A</ToggleGroupItem>
+  <ToggleGroupItem value="b">B</ToggleGroupItem>
+</ToggleGroup>
+```
+
+## API Reference
+
+### ToggleGroup
+
+<PropsTable
+  props={[
+    { prop: "type", type: '"single" | "multiple"', description: "Selection mode." },
+    { prop: "value / defaultValue", type: "string | string[]", description: "Pressed item(s)." },
+    { prop: "onValueChange", type: "(value) => void", description: "Called on change." },
+    { prop: "variant / size", type: "ToggleVariants", description: "Applied to every item." },
+    {
+      prop: "spacing",
+      type: "number",
+      defaultValue: "0",
+      description: "Gap between items. 0 joins them.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+### Keyboard interactions
+
+<KeyboardTable
+  keys={[
+    ["Tab", "Moves focus to the pressed item, or the first item."],
+    ["Space / Enter", "Toggles the focused item."],
+    ["ArrowRight / ArrowLeft", "Moves focus between items."],
+  ]}
+/>

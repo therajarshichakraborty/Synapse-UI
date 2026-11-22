@@ -23,10 +23,10 @@ const MODES = [
     icon: ImageIcon,
     label: "Image",
     placeholder: "Describe the image you want to generate...",
-    accent: "text-violet-500",
-    bg: "bg-violet-500",
+    accent: "text-blue-500",
+    bg: "bg-blue-500",
     ring: "shadow-[0_0_0_3px_rgba(139,92,246,0.15)]",
-    border: "border-violet-200 dark:border-violet-500/30",
+    border: "border-blue-200 dark:border-blue-500/30",
   },
   {
     id: "code" as const,

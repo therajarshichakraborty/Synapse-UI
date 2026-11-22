@@ -1,0 +1,47 @@
+---
+title: "Floating Navbar"
+description: "A pill navbar that hides on scroll down and returns on scroll up."
+---
+
+<ComponentPreview name="floating-navbar-demo" />
+
+## Installation
+
+<ComponentInstall name="floating-navbar" />
+
+## Usage
+
+```tsx
+import { FloatingNavbar } from "@/components/animated/floating-navbar";
+```
+
+```tsx
+<FloatingNavbar items={[{ name: "Home", href: "/" }]} action={<Button>Login</Button>} />
+```
+
+## API Reference
+
+### FloatingNavbar
+
+<PropsTable
+  props={[
+    {
+      prop: "items",
+      type: "{ name, href, icon? }[]",
+      description: "Links. Icons replace labels on mobile.",
+    },
+    { prop: "action", type: "ReactNode", description: "Trailing element, such as a button." },
+    {
+      prop: "alwaysVisible",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Never hide on scroll.",
+    },
+    {
+      prop: "container",
+      type: "RefObject<HTMLElement>",
+      description: "Scroll container (defaults to window).",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>

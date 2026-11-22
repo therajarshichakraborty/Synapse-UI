@@ -1,0 +1,111 @@
+---
+title: "Accordion"
+description: "A vertically stacked set of interactive headings that each reveal a section of content."
+---
+
+<ComponentPreview name="accordion-demo" />
+
+## Installation
+
+<ComponentInstall name="accordion" />
+
+## Usage
+
+```tsx
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+```
+
+```tsx
+<Accordion type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger>Is it accessible?</AccordionTrigger>
+    <AccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</AccordionContent>
+  </AccordionItem>
+</Accordion>
+```
+
+## Examples
+
+### Multiple
+
+Allow several items to be open at the same time.
+
+<ComponentPreview name="accordion-multiple" />
+
+## API Reference
+
+### Accordion
+
+<PropsTable
+  props={[
+    {
+      prop: "type",
+      type: '"single" | "multiple"',
+      description: "Whether one or many items can be open.",
+    },
+    {
+      prop: "collapsible",
+      type: "boolean",
+      defaultValue: "false",
+      description: 'When type is "single", allows closing the open item.',
+    },
+    {
+      prop: "value / defaultValue",
+      type: "string | string[]",
+      description: "Controlled or initial open item(s).",
+    },
+    {
+      prop: "onValueChange",
+      type: "(value) => void",
+      description: "Called when open items change.",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Disables every item.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### AccordionItem
+
+<PropsTable
+  props={[
+    { prop: "value", type: "string", description: "Unique value for the item." },
+    { prop: "disabled", type: "boolean", defaultValue: "false", description: "Disables the item." },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### AccordionTrigger / AccordionContent
+
+<PropsTable
+  props={[
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+Built on Radix Accordion. Triggers are buttons with `aria-expanded` and `aria-controls`, and content regions are labelled by their trigger.
+
+### Keyboard interactions
+
+<KeyboardTable
+  keys={[
+    ["Space", "Toggles the focused section."],
+    ["Enter", "Toggles the focused section."],
+    ["Tab", "Moves focus to the next focusable element."],
+    ["ArrowDown", "Moves focus to the next trigger."],
+    ["ArrowUp", "Moves focus to the previous trigger."],
+    ["Home", "Moves focus to the first trigger."],
+    ["End", "Moves focus to the last trigger."],
+  ]}
+/>

@@ -1,0 +1,50 @@
+---
+title: "Sparkles"
+description: "Twinkling particles rendered on a canvas."
+---
+
+<ComponentPreview name="sparkles-demo" className="p-0 sm:p-0" />
+
+## Installation
+
+<ComponentInstall name="sparkles" />
+
+## Usage
+
+```tsx
+import { Sparkles } from "@/components/animated/sparkles";
+```
+
+```tsx
+<div className="relative h-40">
+  <Sparkles density={10} color="#93c5fd" />
+</div>
+```
+
+## API Reference
+
+### Sparkles
+
+<PropsTable
+  props={[
+    {
+      prop: "density",
+      type: "number",
+      defaultValue: "6",
+      description: "Particles per 10,000 px².",
+    },
+    { prop: "color", type: "string", defaultValue: '"#93c5fd"', description: "Particle color." },
+    {
+      prop: "minSize / maxSize",
+      type: "number",
+      defaultValue: "0.4 / 1.4",
+      description: "Particle radius range.",
+    },
+    { prop: "speed", type: "number", defaultValue: "0.25", description: "Drift speed." },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+With `prefers-reduced-motion: reduce`, a single still frame is drawn and the animation loop never starts.

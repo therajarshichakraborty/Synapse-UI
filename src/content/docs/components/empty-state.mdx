@@ -1,0 +1,70 @@
+---
+title: "Empty State"
+description: "A placeholder for empty views with icon, copy and actions."
+---
+
+Exported from both `@/components/ui/empty` and `@/components/ui/empty-state`.
+
+<ComponentPreview name="empty-state-demo" />
+
+## Installation
+
+<ComponentInstall name="empty-state" />
+
+## Usage
+
+```tsx
+import {
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+} from "@/components/ui/empty";
+```
+
+```tsx
+<Empty>
+  <EmptyHeader>
+    <EmptyMedia variant="icon">
+      <FolderIcon />
+    </EmptyMedia>
+    <EmptyTitle>No projects yet</EmptyTitle>
+    <EmptyDescription>Create your first project to get started.</EmptyDescription>
+  </EmptyHeader>
+  <EmptyContent>
+    <Button>Create project</Button>
+  </EmptyContent>
+</Empty>
+```
+
+## Examples
+
+### No search results
+
+<ComponentPreview name="empty-state-search" />
+
+## API Reference
+
+### EmptyMedia
+
+<PropsTable
+  props={[
+    {
+      prop: "variant",
+      type: '"default" | "icon"',
+      defaultValue: '"default"',
+      description: "Use icon for a framed icon tile.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### Empty / EmptyHeader / EmptyTitle / EmptyDescription / EmptyContent
+
+<PropsTable
+  props={[
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>

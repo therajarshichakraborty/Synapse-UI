@@ -1,0 +1,13 @@
+{
+  "name": "marquee",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/animated/marquee.tsx",
+      "content": "import * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nexport type MarqueeProps = React.ComponentProps<\"div\"> & {\n  reverse?: boolean;\n  pauseOnHover?: boolean;\n  vertical?: boolean;\n  /** Seconds per loop. */\n  duration?: number;\n  /** Gap between items, as a CSS length. */\n  gap?: string;\n  /** Number of content copies. Two is enough for most content. */\n  repeat?: number;\n  /** Fade the edges. */\n  fade?: boolean;\n};\n\n/** An infinite scroller. Stops entirely when the user prefers reduced motion. */\nexport function Marquee({\n  className,\n  reverse,\n  pauseOnHover = true,\n  vertical,\n  duration = 40,\n  gap = \"1rem\",\n  repeat = 2,\n  fade = true,\n  children,\n  style,\n  ...props\n}: MarqueeProps) {\n  return (\n    <div\n      className={cn(\n        \"group/marquee flex overflow-hidden [gap:var(--gap)]\",\n        vertical ? \"flex-col\" : \"flex-row\",\n        fade && (vertical ? \"mask-edge-fade-y\" : \"mask-edge-fade-x\"),\n        className,\n      )}\n      style={{ \"--duration\": `${duration}s`, \"--gap\": gap, ...style } as React.CSSProperties}\n      {...props}\n    >\n      {Array.from({ length: repeat }).map((_, i) => (\n        <div\n          key={i}\n          aria-hidden={i > 0 || undefined}\n          className={cn(\n            \"flex shrink-0 justify-around [gap:var(--gap)] motion-reduce:animate-none\",\n            vertical ? \"animate-marquee-vertical flex-col\" : \"animate-marquee flex-row\",\n            reverse && \"[animation-direction:reverse]\",\n            pauseOnHover && \"group-hover/marquee:[animation-play-state:paused]\",\n          )}\n        >\n          {children}\n        </div>\n      ))}\n    </div>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { User, Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 interface Card02Props {
   name?: string;

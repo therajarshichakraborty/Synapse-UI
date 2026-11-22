@@ -1,0 +1,13 @@
+{
+  "name": "card-spotlight",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/animated/card-spotlight.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nexport type CardSpotlightProps = React.ComponentProps<\"div\"> & {\n  /** Radius of the light in pixels. */\n  radius?: number;\n  color?: string;\n};\n\n/** A card with a radial glow and border highlight that follow the cursor. */\nexport function CardSpotlight({\n  className,\n  children,\n  radius = 320,\n  color = \"rgb(59 130 246 / 0.15)\",\n  ...props\n}: CardSpotlightProps) {\n  const ref = React.useRef<HTMLDivElement>(null);\n\n  function onMove(e: React.PointerEvent<HTMLDivElement>) {\n    const el = ref.current;\n    if (!el) return;\n    const r = el.getBoundingClientRect();\n    el.style.setProperty(\"--x\", `${e.clientX - r.left}px`);\n    el.style.setProperty(\"--y\", `${e.clientY - r.top}px`);\n  }\n\n  return (\n    <div\n      ref={ref}\n      onPointerMove={onMove}\n      className={cn(\"group/spot relative overflow-hidden rounded-2xl surface-card p-6\", className)}\n      style={{ \"--r\": `${radius}px`, \"--spot\": color } as React.CSSProperties}\n      {...props}\n    >\n      <div\n        aria-hidden=\"true\"\n        className=\"pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover/spot:opacity-100\"\n        style={{\n          background:\n            \"radial-gradient(var(--r) circle at var(--x, 50%) var(--y, 50%), var(--spot), transparent 70%)\",\n        }}\n      />\n      <div\n        aria-hidden=\"true\"\n        className=\"pointer-events-none absolute inset-0 rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover/spot:opacity-100\"\n        style={{\n          padding: 1,\n          background:\n            \"radial-gradient(calc(var(--r) * 0.6) circle at var(--x, 50%) var(--y, 50%), rgb(96 165 250 / 0.7), transparent 70%)\",\n          WebkitMask: \"linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)\",\n          WebkitMaskComposite: \"xor\",\n          maskComposite: \"exclude\",\n        }}\n      />\n      <div className=\"relative\">{children}</div>\n    </div>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

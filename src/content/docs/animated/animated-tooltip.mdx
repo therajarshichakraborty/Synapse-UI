@@ -1,0 +1,39 @@
+---
+title: "Animated Tooltip"
+description: "Avatar stack with springy tooltips that follow the cursor."
+---
+
+<ComponentPreview name="animated-tooltip-demo" />
+
+## Installation
+
+<ComponentInstall name="animated-tooltip" />
+
+## Usage
+
+```tsx
+import { AnimatedTooltip } from "@/components/animated/animated-tooltip";
+```
+
+```tsx
+<AnimatedTooltip items={[{ id: 1, name: "Ada", designation: "Engineer", image: "/ada.png" }]} />
+```
+
+## API Reference
+
+### AnimatedTooltip
+
+<PropsTable
+  props={[
+    {
+      prop: "items",
+      type: "{ id, name, designation, image? }[]",
+      description: "People to render.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+Each avatar is a focusable button labelled with the person's name and role. Tooltips open on focus too.

@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Mail, Lock, AlertCircle } from "lucide-react";
+import { AlertCircle } from "lucide-react";
 
 interface Card15Props {
   title?: string;

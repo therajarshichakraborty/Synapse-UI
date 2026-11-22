@@ -1,0 +1,40 @@
+---
+title: "Skeleton"
+description: "Use to show a placeholder while content is loading."
+---
+
+<ComponentPreview name="skeleton-demo" />
+
+## Installation
+
+<ComponentInstall name="skeleton" />
+
+## Usage
+
+```tsx
+import { Skeleton } from "@/components/ui/skeleton";
+```
+
+```tsx
+<Skeleton className="h-4 w-[250px]" />
+```
+
+## Examples
+
+### Card
+
+<ComponentPreview name="skeleton-card" />
+
+## API Reference
+
+### Skeleton
+
+<PropsTable
+  props={[
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+Mark the loading region with `aria-busy="true"` and a label so assistive technology knows content is loading.

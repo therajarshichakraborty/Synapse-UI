@@ -1,0 +1,58 @@
+---
+title: "Scroll Area"
+description: "Augments native scroll functionality for custom, cross-browser styling."
+---
+
+<ComponentPreview name="scroll-area-demo" />
+
+## Installation
+
+<ComponentInstall name="scroll-area" />
+
+## Usage
+
+```tsx
+import { ScrollArea } from "@/components/ui/scroll-area";
+```
+
+```tsx
+<ScrollArea className="h-72 w-48 rounded-md border">...</ScrollArea>
+```
+
+## Examples
+
+### Horizontal
+
+Add a horizontal `ScrollBar`.
+
+<ComponentPreview name="scroll-area-horizontal" />
+
+## API Reference
+
+### ScrollArea
+
+<PropsTable
+  props={[
+    {
+      prop: "type",
+      type: '"auto" | "always" | "scroll" | "hover"',
+      defaultValue: '"hover"',
+      description: "When scrollbars are visible.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### ScrollBar
+
+<PropsTable
+  props={[
+    {
+      prop: "orientation",
+      type: '"vertical" | "horizontal"',
+      defaultValue: '"vertical"',
+      description: "Scrollbar axis.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>

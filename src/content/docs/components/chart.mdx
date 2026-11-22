@@ -1,0 +1,86 @@
+---
+title: "Chart"
+description: "Beautiful charts built on Recharts that follow your theme tokens."
+---
+
+<ComponentPreview name="chart-demo" />
+
+## Installation
+
+<ComponentInstall name="chart" />
+
+## Usage
+
+```tsx
+import { Bar, BarChart } from "recharts";
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+  type ChartConfig,
+} from "@/components/ui/chart";
+```
+
+```tsx
+const config = {
+  desktop: { label: "Desktop", color: "var(--chart-1)" },
+} satisfies ChartConfig;
+
+<ChartContainer config={config} className="min-h-[200px] w-full">
+  <BarChart data={data}>
+    <ChartTooltip content={<ChartTooltipContent />} />
+    <Bar dataKey="desktop" fill="var(--color-desktop)" radius={6} />
+  </BarChart>
+</ChartContainer>;
+```
+
+## Examples
+
+### Area chart
+
+Gradient fills with a legend.
+
+<ComponentPreview name="chart-area" />
+
+## API Reference
+
+### ChartContainer
+
+<PropsTable
+  props={[
+    {
+      prop: "config",
+      type: "ChartConfig",
+      description: "Maps data keys to labels, icons and colors. Exposed as --color-[key].",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### ChartTooltipContent
+
+<PropsTable
+  props={[
+    {
+      prop: "indicator",
+      type: '"dot" | "line" | "dashed"',
+      defaultValue: '"dot"',
+      description: "Indicator style.",
+    },
+    {
+      prop: "hideLabel",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Hide the tooltip label.",
+    },
+    {
+      prop: "nameKey / labelKey",
+      type: "string",
+      description: "Override which keys are used for names and labels.",
+    },
+  ]}
+/>
+
+## Accessibility
+
+Pass `accessibilityLayer` to Recharts charts to enable keyboard navigation and screen-reader descriptions.

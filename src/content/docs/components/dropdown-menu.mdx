@@ -1,0 +1,112 @@
+---
+title: "Dropdown Menu"
+description: "Displays a menu of actions or functions triggered by a button."
+---
+
+<ComponentPreview name="dropdown-menu-demo" />
+
+## Installation
+
+<ComponentInstall name="dropdown-menu" />
+
+## Usage
+
+```tsx
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+```
+
+```tsx
+<DropdownMenu>
+  <DropdownMenuTrigger asChild>
+    <Button variant="outline">Open</Button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent>
+    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem>Profile</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
+```
+
+## Examples
+
+### Checkboxes and radios
+
+<ComponentPreview name="dropdown-menu-checkboxes" />
+
+## API Reference
+
+### DropdownMenuContent
+
+<PropsTable
+  props={[
+    {
+      prop: "side",
+      type: '"top" | "right" | "bottom" | "left"',
+      defaultValue: '"bottom"',
+      description: "Preferred side of the trigger to render against.",
+    },
+    {
+      prop: "align",
+      type: '"start" | "center" | "end"',
+      defaultValue: '"center"',
+      description: "Preferred alignment against the trigger.",
+    },
+    {
+      prop: "sideOffset",
+      type: "number",
+      defaultValue: "4",
+      description: "Distance in pixels from the trigger.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### DropdownMenuItem
+
+<PropsTable
+  props={[
+    {
+      prop: "variant",
+      type: '"default" | "destructive"',
+      defaultValue: '"default"',
+      description: "Visual style.",
+    },
+    {
+      prop: "inset",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Indent to align with icon items.",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Prevents selection.",
+    },
+    { prop: "onSelect", type: "(event) => void", description: "Called when selected." },
+  ]}
+/>
+
+## Accessibility
+
+### Keyboard interactions
+
+<KeyboardTable
+  keys={[
+    ["Space", "Opens the menu, or activates the focused item."],
+    ["Enter", "Opens the menu, or activates the focused item."],
+    ["ArrowDown", "Moves focus to the next item."],
+    ["ArrowUp", "Moves focus to the previous item."],
+    ["ArrowRight", "Opens a submenu when focus is on a sub trigger."],
+    ["ArrowLeft", "Closes the current submenu."],
+    ["Esc", "Closes the menu and returns focus to the trigger."],
+  ]}
+/>

@@ -44,7 +44,7 @@ const ITEMS: ListItem[] = [
     title: "AI Powered",
     description: "Smart automation that learns and adapts",
     icon: Sparkles,
-    color: "from-purple-400 to-pink-500",
+    color: "from-indigo-400 to-pink-500",
   },
 ];
 

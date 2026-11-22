@@ -1,4 +1,16 @@
 {
   "title": "Documentation",
-  "pages": ["index", "---Components---", "components", "---Hooks---", "hooks"]
+  "pages": [
+    "---Getting Started---",
+    "index",
+    "installation",
+    "theming",
+    "dark-mode",
+    "cli",
+    "changelog",
+    "components",
+    "animated",
+    "blocks",
+    "collections"
+  ]
 }

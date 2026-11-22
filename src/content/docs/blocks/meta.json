@@ -1,0 +1,18 @@
+{
+  "title": "Blocks",
+  "pages": [
+    "index",
+    "hero-spotlight",
+    "hero-split",
+    "hero-product",
+    "feature-grid",
+    "pricing-table",
+    "testimonial-wall",
+    "faq-section",
+    "cta-panel",
+    "site-footer",
+    "login-page",
+    "signup-page",
+    "dashboard-shell"
+  ]
+}

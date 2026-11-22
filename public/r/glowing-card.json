@@ -1,0 +1,13 @@
+{
+  "name": "glowing-card",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/animated/glowing-card.tsx",
+      "content": "import * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nexport type GlowingCardProps = React.ComponentProps<\"div\"> & {\n  /** Seconds for one full rotation of the border light. */\n  duration?: number;\n  /** Show a soft glow behind the card. */\n  glow?: boolean;\n};\n\n/** A card whose border is lit by a rotating conic gradient. */\nexport function GlowingCard({\n  className,\n  children,\n  duration = 6,\n  glow = true,\n  style,\n  ...props\n}: GlowingCardProps) {\n  return (\n    <div className=\"relative\">\n      {glow && (\n        <div\n          aria-hidden=\"true\"\n          className=\"pointer-events-none absolute -inset-px rounded-[inherit] bg-brand-gradient opacity-20 blur-2xl\"\n          style={{ borderRadius: \"var(--radius-2xl)\" }}\n        />\n      )}\n      <div\n        className={cn(\"border-beam relative rounded-2xl p-6 text-card-foreground\", className)}\n        style={{ \"--duration\": `${duration}s`, ...style } as React.CSSProperties}\n        {...props}\n      >\n        {children}\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

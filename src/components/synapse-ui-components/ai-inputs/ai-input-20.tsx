@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { ArrowUp, Bold, Italic, Code, List, Link2, ImagePlus, BarChart2 } from "lucide-react";
+import { ArrowUp, Bold, Italic, Code, List, Link2, BarChart2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAutoResizeTextarea } from "@/hooks/use-auto-resize-textarea";
 

@@ -1,153 +1,82 @@
 ---
-title: Popovers
-description: Floating popover layouts for menus, actions, and form inputs.
+title: "Popover"
+description: "Displays rich content in a portal, triggered by a button."
 ---
 
-# Popovers
-
-Popovers display rich content in a portal layer, triggered by clicking a button or target element.
-
-## Interactive Showcase
-
-Browse all the interactive popover designs and variants included in Synapse UI.
-
-<ComponentShowcase category="popover" />
+<ComponentPreview name="popover-demo" />
 
 ## Installation
 
-Install any of the popover components directly into your project via the CLI:
+<ComponentInstall name="popover" />
 
-```bash
-# Install the Color Popover
-npx shadcn@latest add http://localhost:3000/r/color-popover.json
-
-# Install the Action Popover
-npx shadcn@latest add http://localhost:3000/r/action-popover.json
-
-# Install the Form Popover
-npx shadcn@latest add http://localhost:3000/r/form-popover.json
-
-# Install the Menu Popover
-npx shadcn@latest add http://localhost:3000/r/menu-popover.json
-
-# Install the User Popover
-npx shadcn@latest add http://localhost:3000/r/user-popover.json
-```
-
-## Usage Examples
-
-Here are some common ways to use these popover components in your application layouts:
-
-### 1. Color Picker Popover
-
-Renders a color preview button that opens a color selection board with custom presets:
+## Usage
 
 ```tsx
-import { ColorPopover } from "@/components/ui/color-popover";
-import { useState } from "react";
-
-export default function ThemeSettings() {
-  const [themeColor, setThemeColor] = useState("#3b82f6");
-
-  return (
-    <div className="flex items-center gap-4">
-      <span className="text-sm font-medium">Theme Accent:</span>
-      <ColorPopover value={themeColor} onChange={setThemeColor}>
-        <button
-          className="h-8 w-16 rounded-lg border border-zinc-200 dark:border-zinc-800 shadow-sm"
-          style={{ backgroundColor: themeColor }}
-        />
-      </ColorPopover>
-    </div>
-  );
-}
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 ```
-
-### 2. Confirmation Action Popover
-
-Renders a confirmation bubble with "Confirm" and "Cancel" actions, perfect for delete buttons:
 
 ```tsx
-import { ActionPopover } from "@/components/ui/action-popover";
-
-export default function DeleteItem() {
-  const handleDelete = () => {
-    console.log("Item deleted.");
-  };
-
-  return (
-    <ActionPopover
-      title="Delete file?"
-      description="This action cannot be undone. This will permanently delete your file from our servers."
-      confirmLabel="Delete"
-      variant="danger"
-      onConfirm={handleDelete}
-    >
-      <button className="rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700">
-        Delete File
-      </button>
-    </ActionPopover>
-  );
-}
+<Popover>
+  <PopoverTrigger>Open</PopoverTrigger>
+  <PopoverContent>Place content for the popover here.</PopoverContent>
+</Popover>
 ```
 
-### 3. User Card Popover
+## API Reference
 
-Hovering or clicking on a username opens a rich profile card showing avatars, bios, and followers:
+### Popover
 
-```tsx
-import { UserPopover } from "@/components/ui/user-popover";
+<PropsTable
+  props={[
+    { prop: "open / defaultOpen", type: "boolean", description: "Controlled or initial state." },
+    { prop: "onOpenChange", type: "(open) => void", description: "Called on change." },
+    {
+      prop: "modal",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Trap focus and make outside content inert.",
+    },
+  ]}
+/>
 
-export default function AuthorBadge() {
-  const userMock = {
-    name: "Sarah Connor",
-    username: "sarah",
-    avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
-    bio: "Developer & Creator. Building the future of user interfaces.",
-    location: "Los Angeles, CA",
-    joinDate: "Joined Jan 2024",
-    stats: [
-      { label: "Followers", value: "1.2k" },
-      { label: "Following", value: "480" },
-    ],
-  };
+### PopoverContent
 
-  return (
-    <UserPopover user={userMock} side="bottom">
-      <button className="text-sm font-semibold hover:underline">@sarah</button>
-    </UserPopover>
-  );
-}
-```
+<PropsTable
+  props={[
+    {
+      prop: "side",
+      type: '"top" | "right" | "bottom" | "left"',
+      defaultValue: '"bottom"',
+      description: "Preferred side of the trigger to render against.",
+    },
+    {
+      prop: "align",
+      type: '"start" | "center" | "end"',
+      defaultValue: '"center"',
+      description: "Preferred alignment against the trigger.",
+    },
+    {
+      prop: "sideOffset",
+      type: "number",
+      defaultValue: "4",
+      description: "Distance in pixels from the trigger.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
 
-## Component APIs
+## Accessibility
 
-### ColorPopover
+### Keyboard interactions
 
-| Prop          | Type                      | Default     | Description                           |
-| :------------ | :------------------------ | :---------- | :------------------------------------ |
-| `children`    | `React.ReactNode`         | Required    | Trigger element                       |
-| `value`       | `string`                  | `'#3b82f6'` | Current selected hex color            |
-| `onChange`    | `(color: string) => void` | —           | Callback fired when color changes     |
-| `showInput`   | `boolean`                 | `true`      | Show/hide the hex text input field    |
-| `showPresets` | `boolean`                 | `true`      | Show/hide preset color grid selection |
-| `presets`     | `string[]`                | —           | Override default preset color list    |
+<KeyboardTable
+  keys={[
+    ["Space / Enter", "Opens or closes the popover."],
+    ["Tab", "Moves focus to the next focusable element inside."],
+    ["Esc", "Closes the popover and returns focus."],
+  ]}
+/>
 
-### ActionPopover
+## More designs
 
-| Prop           | Type                    | Default           | Description                 |
-| :------------- | :---------------------- | :---------------- | :-------------------------- |
-| `children`     | `React.ReactNode`       | Required          | Trigger element             |
-| `title`        | `string`                | `'Are you sure?'` | Popover header title        |
-| `description`  | `string`                | —                 | Subtext description details |
-| `confirmLabel` | `string`                | `'Confirm'`       | Confirm button text         |
-| `cancelLabel`  | `string`                | `'Cancel'`        | Cancel button text          |
-| `variant`      | `'default' \| 'danger'` | `'default'`       | Confirm button color theme  |
-
-### UserPopover
-
-| Prop       | Type              | Default  | Description                                                                                                    |
-| :--------- | :---------------- | :------- | :------------------------------------------------------------------------------------------------------------- |
-| `children` | `React.ReactNode` | Required | Trigger element                                                                                                |
-| `user`     | `UserObject`      | Required | Object containing `name`, `username`, `avatar`, `bio`, `location`, `joinDate`, `website`, `email`, and `stats` |
+See color pickers, user cards and action menus in the [Popovers collection](/docs/collections/popover).

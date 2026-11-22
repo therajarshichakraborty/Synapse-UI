@@ -1,0 +1,15 @@
+{
+  "name": "flip-words",
+  "type": "registry:ui",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/animated/flip-words.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { AnimatePresence, motion, useReducedMotion } from \"motion/react\";\nimport { cn } from \"@/lib/utils\";\n\nexport type FlipWordsProps = {\n  words: string[];\n  /** Milliseconds each word stays visible. */\n  interval?: number;\n  className?: string;\n};\n\n/** Cycles through words with a letter-staggered flip. */\nexport function FlipWords({ words, interval = 2600, className }: FlipWordsProps) {\n  const [index, setIndex] = React.useState(0);\n  const reduce = useReducedMotion();\n\n  React.useEffect(() => {\n    if (reduce || words.length < 2) return;\n    const id = window.setInterval(() => setIndex((i) => (i + 1) % words.length), interval);\n    return () => window.clearInterval(id);\n  }, [interval, reduce, words.length]);\n\n  const word = words[index] ?? \"\";\n\n  return (\n    <span className={cn(\"relative inline-block\", className)}>\n      <span className=\"sr-only\">{words.join(\", \")}</span>\n      <AnimatePresence mode=\"popLayout\" initial={false}>\n        <motion.span\n          key={word}\n          aria-hidden=\"true\"\n          className=\"inline-block text-gradient\"\n          initial={{ opacity: 0, y: 12 }}\n          animate={{ opacity: 1, y: 0 }}\n          exit={{ opacity: 0, y: -24, filter: \"blur(6px)\", scale: 1.6, position: \"absolute\" }}\n          transition={{ type: \"spring\", stiffness: 120, damping: 14 }}\n        >\n          {word.split(\"\").map((ch, i) => (\n            <motion.span\n              key={`${ch}-${i}`}\n              className=\"inline-block\"\n              initial={{ opacity: 0, y: 10, filter: \"blur(6px)\" }}\n              animate={{ opacity: 1, y: 0, filter: \"blur(0px)\" }}\n              transition={{ delay: i * 0.035, duration: 0.3 }}\n            >\n              {ch === \" \" ? \" \" : ch}\n            </motion.span>\n          ))}\n        </motion.span>\n      </AnimatePresence>\n    </span>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

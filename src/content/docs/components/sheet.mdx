@@ -1,0 +1,77 @@
+---
+title: "Sheet"
+description: "Extends the Dialog component to display content that complements the main screen."
+---
+
+<ComponentPreview name="sheet-demo" />
+
+## Installation
+
+<ComponentInstall name="sheet" />
+
+## Usage
+
+```tsx
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+```
+
+```tsx
+<Sheet>
+  <SheetTrigger>Open</SheetTrigger>
+  <SheetContent>
+    <SheetHeader>
+      <SheetTitle>Are you absolutely sure?</SheetTitle>
+      <SheetDescription>This action cannot be undone.</SheetDescription>
+    </SheetHeader>
+  </SheetContent>
+</Sheet>
+```
+
+## Examples
+
+### Side
+
+<ComponentPreview name="sheet-side" />
+
+## API Reference
+
+### SheetContent
+
+<PropsTable
+  props={[
+    {
+      prop: "side",
+      type: '"top" | "right" | "bottom" | "left"',
+      defaultValue: '"right"',
+      description: "Edge the sheet slides from.",
+    },
+    {
+      prop: "showCloseButton",
+      type: "boolean",
+      defaultValue: "true",
+      description: "Render the close button.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+### Keyboard interactions
+
+<KeyboardTable
+  keys={[
+    ["Space", "Opens or closes the dialog from the trigger."],
+    ["Enter", "Opens or closes the dialog from the trigger."],
+    ["Tab", "Moves focus to the next focusable element. Focus is trapped inside."],
+    ["Shift + Tab", "Moves focus to the previous focusable element."],
+    ["Esc", "Closes the dialog and returns focus to the trigger."],
+  ]}
+/>

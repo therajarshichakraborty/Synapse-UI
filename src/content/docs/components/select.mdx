@@ -1,0 +1,93 @@
+---
+title: "Select"
+description: "Displays a list of options for the user to pick from, triggered by a button."
+---
+
+<ComponentPreview name="select-demo" />
+
+## Installation
+
+<ComponentInstall name="select" />
+
+## Usage
+
+```tsx
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+```
+
+```tsx
+<Select>
+  <SelectTrigger className="w-[180px]">
+    <SelectValue placeholder="Theme" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="light">Light</SelectItem>
+    <SelectItem value="dark">Dark</SelectItem>
+  </SelectContent>
+</Select>
+```
+
+## API Reference
+
+### Select
+
+<PropsTable
+  props={[
+    { prop: "value / defaultValue", type: "string", description: "Selected value." },
+    { prop: "onValueChange", type: "(value: string) => void", description: "Called on change." },
+    {
+      prop: "disabled",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Disables the select.",
+    },
+    { prop: "name", type: "string", description: "Form field name." },
+  ]}
+/>
+
+### SelectTrigger
+
+<PropsTable
+  props={[
+    {
+      prop: "size",
+      type: '"sm" | "default"',
+      defaultValue: '"default"',
+      description: "Trigger height.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### SelectContent
+
+<PropsTable
+  props={[
+    {
+      prop: "position",
+      type: '"item-aligned" | "popper"',
+      defaultValue: '"item-aligned"',
+      description: "Positioning mode.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+### Keyboard interactions
+
+<KeyboardTable
+  keys={[
+    ["Space / Enter", "Opens the select, or selects the focused item."],
+    ["ArrowDown / ArrowUp", "Moves focus between items."],
+    ["Esc", "Closes the select."],
+    ["Type a letter", "Jumps to the matching item."],
+  ]}
+/>

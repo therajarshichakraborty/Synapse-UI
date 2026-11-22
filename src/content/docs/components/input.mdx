@@ -1,29 +1,54 @@
 ---
-title: Inputs
-description: Text fields, OTP verification grids, and advanced input layouts.
+title: "Input"
+description: "Displays a form input field."
 ---
 
-# Inputs
-
-Inputs allow users to enter text, check options, select dates, or input verification security pin codes.
-
-## Interactive Showcase
-
-Browse all the interactive input designs and variants included in Synapse UI.
-
-<ComponentShowcase category="input" />
+<ComponentPreview name="input-demo" />
 
 ## Installation
 
-Install any of the input components directly into your project via the CLI:
+<ComponentInstall name="input" />
 
-```bash
-# Install Input OTP (One-Time Password Verification Grid)
-npx shadcn@latest add http://localhost:3000/r/input-otp.json
+## Usage
 
-# Install Input 02 (Floating Label Input)
-npx shadcn@latest add http://localhost:3000/r/input-02.json
-
-# Install Input 06 (Underline Focus Field)
-npx shadcn@latest add http://localhost:3000/r/input-06.json
+```tsx
+import { Input } from "@/components/ui/input";
 ```
+
+```tsx
+<Input type="email" placeholder="Email" />
+```
+
+## Examples
+
+### With label and hint
+
+<ComponentPreview name="input-with-label" />
+
+### File, disabled and invalid
+
+<ComponentPreview name="input-states" />
+
+### Input group
+
+Add icons, text and buttons inside the field with `InputGroup`.
+
+<ComponentPreview name="input-group-demo" />
+
+## API Reference
+
+### Input
+
+Accepts every native input attribute.
+
+<PropsTable
+  props={[
+    { prop: "type", type: "string", defaultValue: '"text"', description: "Input type." },
+    { prop: "aria-invalid", type: "boolean", description: "Shows the error style." },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## More designs
+
+See OTP, tag and search inputs in the [Inputs collection](/docs/collections/input), and chat composers in [AI Inputs](/docs/collections/ai-input).

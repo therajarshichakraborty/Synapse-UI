@@ -1,0 +1,55 @@
+---
+title: "Number Ticker"
+description: "Counts up to a value with spring physics when scrolled into view."
+---
+
+<ComponentPreview name="number-ticker-demo" />
+
+## Installation
+
+<ComponentInstall name="number-ticker" />
+
+## Usage
+
+```tsx
+import { NumberTicker } from "@/components/animated/number-ticker";
+```
+
+```tsx
+<NumberTicker value={12840} />
+```
+
+## API Reference
+
+### NumberTicker
+
+<PropsTable
+  props={[
+    { prop: "value", type: "number", description: "Target value." },
+    { prop: "from", type: "number", defaultValue: "0", description: "Start value." },
+    { prop: "decimals", type: "number", defaultValue: "0", description: "Fraction digits." },
+    {
+      prop: "delay",
+      type: "number",
+      defaultValue: "0",
+      description: "Seconds after entering view.",
+    },
+    {
+      prop: "prefix / suffix",
+      type: "string",
+      defaultValue: '""',
+      description: "Text around the number.",
+    },
+    {
+      prop: "locale",
+      type: "string",
+      defaultValue: '"en-US"',
+      description: "Number format locale.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+The final value is exposed as `aria-label`, so intermediate numbers are never announced. With reduced motion, it jumps to the value.

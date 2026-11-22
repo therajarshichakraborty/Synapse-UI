@@ -1,0 +1,63 @@
+---
+title: "Animated Tabs"
+description: "Tabs with a shared-layout sliding indicator."
+---
+
+<ComponentPreview name="animated-tabs-demo" />
+
+## Installation
+
+<ComponentInstall name="animated-tabs" />
+
+## Usage
+
+```tsx
+import { AnimatedTabs } from "@/components/animated/animated-tabs";
+```
+
+```tsx
+<AnimatedTabs
+  tabs={[
+    { value: "a", label: "Product", content: <Panel /> },
+    { value: "b", label: "Services", content: <Panel /> },
+  ]}
+/>
+```
+
+## Examples
+
+### Underline, controlled
+
+<ComponentPreview name="animated-tabs-underline" />
+
+## API Reference
+
+### AnimatedTabs
+
+<PropsTable
+  props={[
+    { prop: "tabs", type: "{ value, label, content? }[]", description: "Tabs to render." },
+    { prop: "value / defaultValue", type: "string", description: "Active tab." },
+    { prop: "onValueChange", type: "(value: string) => void", description: "Called on change." },
+    {
+      prop: "variant",
+      type: '"pill" | "underline"',
+      defaultValue: '"pill"',
+      description: "Indicator style.",
+    },
+    { prop: "listClassName", type: "string", description: "Classes for the tab list." },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+### Keyboard interactions
+
+<KeyboardTable
+  keys={[
+    ["ArrowRight / ArrowLeft", "Moves to and activates the next or previous tab."],
+    ["Home / End", "Moves to the first or last tab."],
+    ["Tab", "Moves focus into the panel."],
+  ]}
+/>

@@ -137,7 +137,7 @@ export default function Input_07({ length = 6, onComplete, error = false }: Inpu
       </div>
 
       <div className="flex justify-between items-center mt-6 text-xs">
-        <span className="text-zinc-400 dark:text-zinc-500">Didn't receive code?</span>
+        <span className="text-zinc-400 dark:text-zinc-500">Didn&apos;t receive code?</span>
         <button
           onClick={triggerErrorShake}
           className="text-zinc-950 dark:text-zinc-50 font-semibold hover:underline"

@@ -1,0 +1,15 @@
+{
+  "name": "number-ticker",
+  "type": "registry:ui",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/animated/number-ticker.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { useInView, useMotionValue, useReducedMotion, useSpring } from \"motion/react\";\nimport { cn } from \"@/lib/utils\";\n\nexport type NumberTickerProps = {\n  value: number;\n  /** Starting value. */\n  from?: number;\n  decimals?: number;\n  /** Delay in seconds after entering the viewport. */\n  delay?: number;\n  prefix?: string;\n  suffix?: string;\n  locale?: string;\n  className?: string;\n};\n\n/** Counts to a value with spring physics when it scrolls into view. */\nexport function NumberTicker({\n  value,\n  from = 0,\n  decimals = 0,\n  delay = 0,\n  prefix = \"\",\n  suffix = \"\",\n  locale = \"en-US\",\n  className,\n}: NumberTickerProps) {\n  const ref = React.useRef<HTMLSpanElement>(null);\n  const reduce = useReducedMotion();\n  const motionValue = useMotionValue(from);\n  const spring = useSpring(motionValue, { damping: 40, stiffness: 90 });\n  const inView = useInView(ref, { once: true, margin: \"0px 0px -10% 0px\" });\n  const format = React.useCallback(\n    (n: number) =>\n      `${prefix}${Intl.NumberFormat(locale, { minimumFractionDigits: decimals, maximumFractionDigits: decimals }).format(Number(n.toFixed(decimals)))}${suffix}`,\n    [decimals, locale, prefix, suffix],\n  );\n\n  React.useEffect(() => {\n    if (!inView) return;\n    if (reduce) {\n      if (ref.current) ref.current.textContent = format(value);\n      return;\n    }\n    const id = window.setTimeout(() => motionValue.set(value), delay * 1000);\n    return () => window.clearTimeout(id);\n  }, [delay, format, inView, motionValue, reduce, value]);\n\n  React.useEffect(\n    () =>\n      spring.on(\"change\", (latest) => {\n        if (ref.current) ref.current.textContent = format(latest);\n      }),\n    [format, spring],\n  );\n\n  return (\n    <span\n      ref={ref}\n      className={cn(\"inline-block tabular-nums tracking-tight\", className)}\n      aria-label={format(value)}\n    >\n      {format(from)}\n    </span>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

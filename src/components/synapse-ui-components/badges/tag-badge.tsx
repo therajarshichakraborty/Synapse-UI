@@ -18,7 +18,7 @@ const tagBadgeVariants = cva(
         teal: "bg-teal-100 text-teal-700 dark:bg-teal-900/50 dark:text-teal-400",
         blue: "bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-400",
         indigo: "bg-indigo-100 text-indigo-700 dark:bg-indigo-900/50 dark:text-indigo-400",
-        purple: "bg-purple-100 text-purple-700 dark:bg-purple-900/50 dark:text-purple-400",
+        purple: "bg-indigo-100 text-indigo-700 dark:bg-indigo-900/50 dark:text-indigo-400",
         pink: "bg-pink-100 text-pink-700 dark:bg-pink-900/50 dark:text-pink-400",
       },
       state: {

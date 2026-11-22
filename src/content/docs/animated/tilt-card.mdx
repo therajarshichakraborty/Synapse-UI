@@ -1,0 +1,41 @@
+---
+title: "3D Tilt Card"
+description: "A card that tilts in 3D space toward the cursor."
+---
+
+<ComponentPreview name="tilt-card-demo" />
+
+## Installation
+
+<ComponentInstall name="tilt-card" />
+
+## Usage
+
+```tsx
+import { TiltCard } from "@/components/animated/tilt-card";
+```
+
+```tsx
+<TiltCard max={10}>...</TiltCard>
+```
+
+## API Reference
+
+### TiltCard
+
+<PropsTable
+  props={[
+    { prop: "max", type: "number", defaultValue: "12", description: "Maximum tilt in degrees." },
+    {
+      prop: "glare",
+      type: "boolean",
+      defaultValue: "true",
+      description: "Show the glare highlight.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+With `prefers-reduced-motion: reduce`, the card stays flat.

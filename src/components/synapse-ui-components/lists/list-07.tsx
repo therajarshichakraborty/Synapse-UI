@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { useState } from "react";
-import { Check, Circle, Trash2 } from "lucide-react";
+import { Check, Trash2 } from "lucide-react";
 
 interface ListItem {
   id: string;

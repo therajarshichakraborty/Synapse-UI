@@ -1,0 +1,15 @@
+{
+  "name": "tilt-card",
+  "type": "registry:ui",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/animated/tilt-card.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from \"motion/react\";\nimport { cn } from \"@/lib/utils\";\n\nexport type TiltCardProps = React.ComponentProps<\"div\"> & {\n  /** Maximum tilt in degrees. */\n  max?: number;\n  /** Show a glare highlight. */\n  glare?: boolean;\n};\n\n/** A card that tilts in 3D toward the pointer. Flat when reduced motion is on. */\nexport function TiltCard({ className, children, max = 12, glare = true, ...props }: TiltCardProps) {\n  const reduce = useReducedMotion();\n  const x = useMotionValue(0.5);\n  const y = useMotionValue(0.5);\n  const spring = { stiffness: 220, damping: 22, mass: 0.6 };\n  const rotateX = useSpring(useTransform(y, [0, 1], [max, -max]), spring);\n  const rotateY = useSpring(useTransform(x, [0, 1], [-max, max]), spring);\n  const glareX = useTransform(x, [0, 1], [\"0%\", \"100%\"]);\n  const glareY = useTransform(y, [0, 1], [\"0%\", \"100%\"]);\n  const glareBg = useTransform(\n    [glareX, glareY],\n    ([gx, gy]) =>\n      `radial-gradient(circle at ${gx} ${gy}, rgb(255 255 255 / 0.18), transparent 55%)`,\n  );\n\n  function onMove(e: React.PointerEvent<HTMLDivElement>) {\n    if (reduce) return;\n    const r = e.currentTarget.getBoundingClientRect();\n    x.set((e.clientX - r.left) / r.width);\n    y.set((e.clientY - r.top) / r.height);\n  }\n\n  function reset() {\n    x.set(0.5);\n    y.set(0.5);\n  }\n\n  return (\n    <div className=\"[perspective:1000px]\">\n      <motion.div\n        onPointerMove={onMove}\n        onPointerLeave={reset}\n        style={reduce ? undefined : { rotateX, rotateY, transformStyle: \"preserve-3d\" }}\n        className={cn(\"relative rounded-2xl surface-card p-6 will-change-transform\", className)}\n        {...(props as React.ComponentProps<typeof motion.div>)}\n      >\n        <div style={{ transform: \"translateZ(40px)\" }}>{children}</div>\n        {glare && !reduce && (\n          <motion.div\n            aria-hidden=\"true\"\n            className=\"pointer-events-none absolute inset-0 rounded-[inherit]\"\n            style={{ background: glareBg }}\n          />\n        )}\n      </motion.div>\n    </div>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

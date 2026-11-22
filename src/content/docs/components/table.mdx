@@ -1,0 +1,54 @@
+---
+title: "Table"
+description: "A responsive table component."
+---
+
+<ComponentPreview name="table-demo" />
+
+## Installation
+
+<ComponentInstall name="table" />
+
+## Usage
+
+```tsx
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+```
+
+```tsx
+<Table>
+  <TableCaption>A list of your recent invoices.</TableCaption>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Invoice</TableHead>
+      <TableHead className="text-right">Amount</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>INV001</TableCell>
+      <TableCell className="text-right">$250.00</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```
+
+## API Reference
+
+### Table / TableHeader / TableBody / TableFooter / TableRow / TableHead / TableCell / TableCaption
+
+<PropsTable
+  props={[
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+For sorting, filtering and pagination, see [Data Table](/docs/components/data-table).

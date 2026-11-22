@@ -1,45 +1,89 @@
 ---
-title: Buttons
-description: Interactive button components with custom hover animations and layouts.
+title: "Button"
+description: "Displays a button or a component that looks like a button."
 ---
 
-# Buttons
-
-Buttons trigger actions, submit forms, or link pages. Synapse UI includes specialized layouts with sliding icons, loading states, and premium micro-animations.
-
-## Interactive Showcase
-
-Browse all the interactive button designs and variants included in Synapse UI.
-
-<ComponentShowcase category="button" />
+<ComponentPreview name="button-demo" />
 
 ## Installation
 
-Install any of the button components directly into your project via the CLI:
+<ComponentInstall name="button" />
 
-```bash
-# Install Button 01 (Sliding Right Arrow)
-npx shadcn@latest add http://localhost:3000/r/button-01.json
-
-# Install Button 05 (Shimmer Button)
-npx shadcn@latest add http://localhost:3000/r/button-05.json
-
-# Install Button 10 (Loading Indicator Button)
-npx shadcn@latest add http://localhost:3000/r/button-10.json
-```
-
-## Usage Examples
-
-Here are some common ways to use these custom button animations in your interfaces:
-
-### 1. Sliding Arrow Action Button
-
-Renders a button with an arrow icon that slides outwards on hover:
+## Usage
 
 ```tsx
-import Btn01 from "@/components/ui/button-01";
-
-export default function StartForm() {
-  return <Btn01 onClick={() => console.log("Form started")}>Get Started</Btn01>;
-}
+import { Button } from "@/components/ui/button";
 ```
+
+```tsx
+<Button variant="outline">Button</Button>
+```
+
+## Examples
+
+### Variants
+
+<ComponentPreview name="button-variants" />
+
+### Sizes
+
+Text sizes from `xs` to `lg`, plus square icon sizes.
+
+<ComponentPreview name="button-sizes" />
+
+### Loading
+
+Combine with Spinner and `aria-busy` while an action is pending.
+
+<ComponentPreview name="button-loading" />
+
+### As child
+
+Use `asChild` to render a link with button styles.
+
+<ComponentPreview name="button-as-child" />
+
+## API Reference
+
+### Button
+
+<PropsTable
+  props={[
+    {
+      prop: "variant",
+      type: '"default" | "gradient" | "secondary" | "outline" | "glass" | "ghost" | "destructive" | "link"',
+      defaultValue: '"default"',
+      description: "Visual style.",
+    },
+    {
+      prop: "size",
+      type: '"xs" | "sm" | "default" | "lg" | "icon-xs" | "icon-sm" | "icon" | "icon-lg"',
+      defaultValue: '"default"',
+      description: "Height, padding and icon size.",
+    },
+    {
+      prop: "asChild",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Render the child element instead, merging props and behavior.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+Renders a native `button`. Icon-only buttons need an `aria-label`. When disabled, the button is removed from the tab order.
+
+### Keyboard interactions
+
+<KeyboardTable
+  keys={[
+    ["Space", "Activates the button."],
+    ["Enter", "Activates the button."],
+  ]}
+/>
+
+## More designs
+
+For animated buttons with shimmer, sliding icons and more, see the [Buttons collection](/docs/collections/button), [Shimmer Button](/docs/animated/shimmer-button) and [Moving Border Button](/docs/animated/moving-border-button).

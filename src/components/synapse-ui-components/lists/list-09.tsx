@@ -43,7 +43,7 @@ export default function List09({ items = ITEMS, className }: List09Props) {
     <div
       className={cn(
         "w-full max-w-xl mx-auto rounded-2xl overflow-hidden",
-        "bg-gradient-to-br from-indigo-500 to-purple-600",
+        "bg-gradient-to-br from-indigo-500 to-indigo-600",
         "p-0.5",
         className,
       )}

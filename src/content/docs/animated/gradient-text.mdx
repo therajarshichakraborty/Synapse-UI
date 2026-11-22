@@ -1,0 +1,40 @@
+---
+title: "Gradient Text"
+description: "Animated brand gradient applied to text."
+---
+
+<ComponentPreview name="gradient-text-demo" />
+
+## Installation
+
+<ComponentInstall name="gradient-text" />
+
+## Usage
+
+```tsx
+import { GradientText } from "@/components/animated/gradient-text";
+```
+
+```tsx
+<GradientText>Ship something brilliant</GradientText>
+```
+
+## API Reference
+
+### GradientText
+
+<PropsTable
+  props={[
+    {
+      prop: "animate",
+      type: "boolean",
+      defaultValue: "true",
+      description: "Animate the gradient.",
+    },
+    { prop: "duration", type: "number", defaultValue: "6", description: "Seconds per cycle." },
+    { prop: "colors", type: "string[]", defaultValue: "brand", description: "Gradient stops." },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+For a static gradient with no component, use the `text-gradient` utility.

@@ -1,0 +1,100 @@
+---
+title: "Menubar"
+description: "A visually persistent menu common in desktop applications."
+---
+
+<ComponentPreview name="menubar-demo" />
+
+## Installation
+
+<ComponentInstall name="menubar" />
+
+## Usage
+
+```tsx
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarShortcut,
+  MenubarTrigger,
+} from "@/components/ui/menubar";
+```
+
+```tsx
+<Menubar>
+  <MenubarMenu>
+    <MenubarTrigger>File</MenubarTrigger>
+    <MenubarContent>
+      <MenubarItem>
+        New Tab <MenubarShortcut>⌘T</MenubarShortcut>
+      </MenubarItem>
+    </MenubarContent>
+  </MenubarMenu>
+</Menubar>
+```
+
+## API Reference
+
+### MenubarContent
+
+<PropsTable
+  props={[
+    {
+      prop: "side",
+      type: '"top" | "right" | "bottom" | "left"',
+      defaultValue: '"bottom"',
+      description: "Preferred side of the trigger to render against.",
+    },
+    {
+      prop: "align",
+      type: '"start" | "center" | "end"',
+      defaultValue: '"center"',
+      description: "Preferred alignment against the trigger.",
+    },
+    {
+      prop: "sideOffset",
+      type: "number",
+      defaultValue: "4",
+      description: "Distance in pixels from the trigger.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### MenubarItem
+
+<PropsTable
+  props={[
+    {
+      prop: "inset",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Indent to align with icon items.",
+    },
+    {
+      prop: "disabled",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Prevents selection.",
+    },
+  ]}
+/>
+
+## Accessibility
+
+### Keyboard interactions
+
+<KeyboardTable
+  keys={[
+    ["Space", "Opens the menu, or activates the focused item."],
+    ["Enter", "Opens the menu, or activates the focused item."],
+    ["ArrowDown", "Moves focus to the next item."],
+    ["ArrowUp", "Moves focus to the previous item."],
+    ["ArrowRight", "Opens a submenu when focus is on a sub trigger."],
+    ["ArrowLeft", "Closes the current submenu."],
+    ["Esc", "Closes the menu and returns focus to the trigger."],
+    ["ArrowRight / ArrowLeft", "Moves between top-level menus when a menu is open."],
+  ]}
+/>

@@ -1,0 +1,41 @@
+---
+title: "Flip Words"
+description: "Cycles through words with a 3D flip transition."
+---
+
+<ComponentPreview name="flip-words-demo" />
+
+## Installation
+
+<ComponentInstall name="flip-words" />
+
+## Usage
+
+```tsx
+import { FlipWords } from "@/components/animated/flip-words";
+```
+
+```tsx
+Build <FlipWords words={["better", "faster", "modern"]} /> websites
+```
+
+## API Reference
+
+### FlipWords
+
+<PropsTable
+  props={[
+    { prop: "words", type: "string[]", description: "Words to cycle." },
+    {
+      prop: "interval",
+      type: "number",
+      defaultValue: "2600",
+      description: "Milliseconds per word.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+With `prefers-reduced-motion: reduce`, the first word stays in place.

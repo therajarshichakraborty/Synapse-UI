@@ -4,7 +4,7 @@ import * as React from "react";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
-import { Info, AlertCircle, CheckCircle, HelpCircle, Lightbulb, Zap } from "lucide-react";
+import { Info, AlertCircle, CheckCircle, HelpCircle, Lightbulb } from "lucide-react";
 
 const iconTooltipVariants = cva(
   "z-50 flex items-start gap-2 rounded-lg px-3 py-2 text-sm shadow-lg animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
@@ -18,7 +18,7 @@ const iconTooltipVariants = cva(
           "bg-amber-50 text-amber-900 border border-amber-200 dark:bg-amber-950 dark:text-amber-100 dark:border-amber-800",
         error:
           "bg-red-50 text-red-900 border border-red-200 dark:bg-red-950 dark:text-red-100 dark:border-red-800",
-        help: "bg-violet-50 text-violet-900 border border-violet-200 dark:bg-violet-950 dark:text-violet-100 dark:border-violet-800",
+        help: "bg-blue-50 text-blue-900 border border-blue-200 dark:bg-blue-950 dark:text-blue-100 dark:border-blue-800",
         tip: "bg-cyan-50 text-cyan-900 border border-cyan-200 dark:bg-cyan-950 dark:text-cyan-100 dark:border-cyan-800",
       },
     },
@@ -42,7 +42,7 @@ const iconColorMap = {
   success: "text-emerald-600 dark:text-emerald-400",
   warning: "text-amber-600 dark:text-amber-400",
   error: "text-red-600 dark:text-red-400",
-  help: "text-violet-600 dark:text-violet-400",
+  help: "text-blue-600 dark:text-blue-400",
   tip: "text-cyan-600 dark:text-cyan-400",
 };
 

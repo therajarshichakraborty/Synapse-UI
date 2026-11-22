@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { Check, Clock, AlertCircle, type LucideIcon } from "lucide-react";
+import { Check, Clock, AlertCircle } from "lucide-react";
 
 interface ListItem {
   id: string;

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
-import { Check, Sparkles, ArrowRight, Shield, Zap, Infinity } from "lucide-react";
+import { Sparkles, ArrowRight, Shield, Zap, Infinity } from "lucide-react";
 
 interface Feature {
   icon: React.ReactNode;
@@ -50,15 +50,15 @@ export default function Pricing_01() {
         )}
       >
         {/* Ambient background effect */}
-        <div className="absolute inset-0 bg-linear-to-br from-violet-500/5 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-br from-blue-500/5 via-transparent to-transparent" />
 
         {/* Header */}
         <div className="relative p-6 flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800">
           <div className="flex items-center gap-3">
             <div className="relative">
-              <div className="absolute inset-0 bg-violet-500/20 blur-xl rounded-full" />
-              <div className="relative w-10 h-10 rounded-full bg-violet-100 dark:bg-violet-900/20 flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-violet-600 dark:text-violet-400" />
+              <div className="absolute inset-0 bg-blue-500/20 blur-xl rounded-full" />
+              <div className="relative w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center">
+                <Sparkles className="w-5 h-5 text-blue-600 dark:text-blue-400" />
               </div>
             </div>
             <div>
@@ -68,7 +68,7 @@ export default function Pricing_01() {
               <p className="text-sm text-zinc-500 dark:text-zinc-400">For growing teams</p>
             </div>
           </div>
-          <div className="px-3 py-1 text-xs font-medium bg-violet-100 dark:bg-violet-900/20 text-violet-600 dark:text-violet-400 rounded-full">
+          <div className="px-3 py-1 text-xs font-medium bg-blue-100 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-full">
             Popular
           </div>
         </div>
@@ -94,14 +94,14 @@ export default function Pricing_01() {
               transition={{ delay: index * 0.1 }}
               className={cn(
                 "flex items-start gap-3 p-3 rounded-xl transition-colors",
-                feature.highlight && "bg-violet-50 dark:bg-violet-900/10",
+                feature.highlight && "bg-blue-50 dark:bg-blue-900/10",
               )}
             >
               <div
                 className={cn(
                   "w-8 h-8 rounded-full flex items-center justify-center shrink-0",
                   feature.highlight
-                    ? "bg-violet-100 dark:bg-violet-900/20"
+                    ? "bg-blue-100 dark:bg-blue-900/20"
                     : "bg-zinc-100 dark:bg-zinc-800",
                 )}
               >

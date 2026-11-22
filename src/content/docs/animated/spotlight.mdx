@@ -1,0 +1,43 @@
+---
+title: "Spotlight"
+description: "A cinematic light beam that sweeps into the hero on load."
+---
+
+<ComponentPreview name="spotlight-demo" className="p-0 sm:p-0" />
+
+## Installation
+
+<ComponentInstall name="spotlight" />
+
+## Usage
+
+```tsx
+import { Spotlight } from "@/components/animated/spotlight";
+```
+
+```tsx
+<section className="relative overflow-hidden">
+  <Spotlight className="-top-40 left-0 md:-top-20 md:left-60" />
+  <h1>Your headline</h1>
+</section>
+```
+
+## API Reference
+
+### Spotlight
+
+<PropsTable
+  props={[
+    {
+      prop: "fill",
+      type: "string",
+      defaultValue: '"var(--color-glow-blue)"',
+      description: "Beam color.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+The SVG is decorative (`aria-hidden`). With reduced motion, the beam appears in place with no sweep.

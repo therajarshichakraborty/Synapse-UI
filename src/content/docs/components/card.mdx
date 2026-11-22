@@ -1,29 +1,72 @@
 ---
-title: Cards
-description: Modern cards for dashboards, blogs, grids, and account statistics.
+title: "Card"
+description: "Displays a card with header, content, and footer."
 ---
 
-# Cards
-
-Cards are content containers used to display summaries, product highlights, user reviews, or analytical dashboard metrics in structured grids.
-
-## Interactive Showcase
-
-Browse all the interactive card designs and variants included in Synapse UI.
-
-<ComponentShowcase category="card" />
+<ComponentPreview name="card-demo" />
 
 ## Installation
 
-Install any of the card components directly into your project via the CLI:
+<ComponentInstall name="card" />
 
-```bash
-# Install Card 01 (Dashboard Stat Card)
-npx shadcn@latest add http://localhost:3000/r/card-01.json
+## Usage
 
-# Install Card 02 (Feature Highlight Card)
-npx shadcn@latest add http://localhost:3000/r/card-02.json
-
-# Install Card 03 (Hover Elevated Card)
-npx shadcn@latest add http://localhost:3000/r/card-03.json
+```tsx
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 ```
+
+```tsx
+<Card>
+  <CardHeader>
+    <CardTitle>Card Title</CardTitle>
+    <CardDescription>Card Description</CardDescription>
+    <CardAction>Action</CardAction>
+  </CardHeader>
+  <CardContent>Content</CardContent>
+  <CardFooter>Footer</CardFooter>
+</Card>
+```
+
+## Examples
+
+### Stats
+
+Use `CardAction` for a badge or button aligned to the header.
+
+<ComponentPreview name="card-stats" />
+
+## API Reference
+
+### Card
+
+<PropsTable
+  props={[
+    {
+      prop: "size",
+      type: '"default" | "sm"',
+      defaultValue: '"default"',
+      description: "Padding density.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### CardHeader / CardTitle / CardDescription / CardAction / CardContent / CardFooter
+
+<PropsTable
+  props={[
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## More designs
+
+See [Glowing Border Card](/docs/animated/glowing-card), [Card Spotlight](/docs/animated/card-spotlight), [3D Tilt Card](/docs/animated/tilt-card) and the [Cards collection](/docs/collections/card).

@@ -1,0 +1,42 @@
+---
+title: "Separator"
+description: "Visually or semantically separates content."
+---
+
+<ComponentPreview name="separator-demo" />
+
+## Installation
+
+<ComponentInstall name="separator" />
+
+## Usage
+
+```tsx
+import { Separator } from "@/components/ui/separator";
+```
+
+```tsx
+<Separator />
+```
+
+## API Reference
+
+### Separator
+
+<PropsTable
+  props={[
+    {
+      prop: "orientation",
+      type: '"horizontal" | "vertical"',
+      defaultValue: '"horizontal"',
+      description: "Direction.",
+    },
+    {
+      prop: "decorative",
+      type: "boolean",
+      defaultValue: "true",
+      description: "When true, hidden from assistive technology.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>

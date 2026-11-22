@@ -1,0 +1,52 @@
+---
+title: "Grid and Dot Backgrounds"
+description: "Grid and dot patterns with radial fade masks."
+---
+
+<ComponentPreview name="grid-background-demo" />
+
+## Installation
+
+<ComponentInstall name="grid-background" />
+
+## Usage
+
+```tsx
+import { GridBackground } from "@/components/animated/grid-background";
+```
+
+```tsx
+<div className="relative">
+  <GridBackground variant="dots" fade="top" />
+</div>
+```
+
+## API Reference
+
+### GridBackground
+
+<PropsTable
+  props={[
+    {
+      prop: "variant",
+      type: '"grid" | "dots"',
+      defaultValue: '"grid"',
+      description: "Pattern type.",
+    },
+    {
+      prop: "size",
+      type: "number",
+      defaultValue: "56 / 18",
+      description: "Cell or dot spacing in px.",
+    },
+    {
+      prop: "fade",
+      type: '"center" | "top" | "none"',
+      defaultValue: '"center"',
+      description: "Radial fade mask.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+The same patterns are available as utilities: `bg-grid`, `bg-dots`, `mask-radial-fade` and `mask-top-fade`. The line and dot colors come from the `--grid-line` and `--dot-color` tokens.

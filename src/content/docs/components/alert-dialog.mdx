@@ -1,0 +1,115 @@
+---
+title: "Alert Dialog"
+description: "A modal dialog that interrupts the user with important content and expects a response."
+---
+
+<ComponentPreview name="alert-dialog-demo" />
+
+## Installation
+
+<ComponentInstall name="alert-dialog" />
+
+## Usage
+
+```tsx
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+```
+
+```tsx
+<AlertDialog>
+  <AlertDialogTrigger asChild>
+    <Button variant="outline">Delete</Button>
+  </AlertDialogTrigger>
+  <AlertDialogContent>
+    <AlertDialogHeader>
+      <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+      <AlertDialogDescription>This cannot be undone.</AlertDialogDescription>
+    </AlertDialogHeader>
+    <AlertDialogFooter>
+      <AlertDialogCancel>Cancel</AlertDialogCancel>
+      <AlertDialogAction>Continue</AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>
+```
+
+## Examples
+
+### Destructive
+
+Pair a media slot with a destructive action for irreversible operations.
+
+<ComponentPreview name="alert-dialog-destructive" />
+
+## API Reference
+
+### AlertDialog
+
+<PropsTable
+  props={[
+    {
+      prop: "open / defaultOpen",
+      type: "boolean",
+      description: "Controlled or initial open state.",
+    },
+    {
+      prop: "onOpenChange",
+      type: "(open: boolean) => void",
+      description: "Called when the open state changes.",
+    },
+  ]}
+/>
+
+### AlertDialogContent
+
+<PropsTable
+  props={[
+    {
+      prop: "size",
+      type: '"default" | "sm"',
+      defaultValue: '"default"',
+      description: "Width and footer layout.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### AlertDialogAction / AlertDialogCancel
+
+<PropsTable
+  props={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Render the child element instead, merging props and behavior.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+Focus moves to the Cancel button on open and is trapped inside the dialog. Clicking outside does not close it, so the user must respond.
+
+### Keyboard interactions
+
+<KeyboardTable
+  keys={[
+    ["Space", "Opens or closes the dialog from the trigger."],
+    ["Enter", "Opens or closes the dialog from the trigger."],
+    ["Tab", "Moves focus to the next focusable element. Focus is trapped inside."],
+    ["Shift + Tab", "Moves focus to the previous focusable element."],
+    ["Esc", "Closes the dialog and returns focus to the trigger."],
+  ]}
+/>

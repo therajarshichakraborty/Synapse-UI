@@ -1,0 +1,43 @@
+---
+title: "Shimmer Button"
+description: "A button with a sweeping shimmer highlight."
+---
+
+<ComponentPreview name="shimmer-button-demo" />
+
+## Installation
+
+<ComponentInstall name="shimmer-button" />
+
+## Usage
+
+```tsx
+import { ShimmerButton } from "@/components/animated/shimmer-button";
+```
+
+```tsx
+<ShimmerButton>Upgrade to Pro</ShimmerButton>
+```
+
+## API Reference
+
+### ShimmerButton
+
+<PropsTable
+  props={[
+    { prop: "duration", type: "number", defaultValue: "2.4", description: "Seconds per sweep." },
+    {
+      prop: "asChild",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Render a link or other element.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+### Keyboard interactions
+
+<KeyboardTable keys={[["Space / Enter", "Activates the button."]]} />

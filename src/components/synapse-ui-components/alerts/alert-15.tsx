@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Download, X, RefreshCw, ArrowRight } from "lucide-react";
+import { Download, X, RefreshCw } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface Alert15Props {

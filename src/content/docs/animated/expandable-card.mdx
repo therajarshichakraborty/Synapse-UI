@@ -1,0 +1,58 @@
+---
+title: "Expandable Card"
+description: "Cards that expand into a focused modal with shared-layout motion."
+---
+
+<ComponentPreview name="expandable-card-demo" />
+
+## Installation
+
+<ComponentInstall name="expandable-card" />
+
+## Usage
+
+```tsx
+import { ExpandableCards } from "@/components/animated/expandable-card";
+```
+
+```tsx
+<ExpandableCards
+  items={[
+    {
+      id: "a",
+      title: "Aurora",
+      subtitle: "...",
+      cover: "linear-gradient(...)",
+      content: <p>...</p>,
+    },
+  ]}
+/>
+```
+
+## API Reference
+
+### ExpandableCards
+
+<PropsTable
+  props={[
+    {
+      prop: "items",
+      type: "{ id, title, subtitle, cover, content, cta? }[]",
+      description: "Cards to render.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+The expanded card is a modal with `role="dialog"`. It locks body scroll and returns focus to the card that opened it.
+
+### Keyboard interactions
+
+<KeyboardTable
+  keys={[
+    ["Enter / Space", "Opens the focused card."],
+    ["Esc", "Closes the expanded card."],
+  ]}
+/>

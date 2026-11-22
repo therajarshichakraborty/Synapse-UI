@@ -1,0 +1,35 @@
+---
+title: "Label"
+description: "Renders an accessible label associated with controls."
+---
+
+<ComponentPreview name="label-demo" />
+
+## Installation
+
+<ComponentInstall name="label" />
+
+## Usage
+
+```tsx
+import { Label } from "@/components/ui/label";
+```
+
+```tsx
+<Label htmlFor="email">Your email address</Label>
+```
+
+## API Reference
+
+### Label
+
+<PropsTable
+  props={[
+    { prop: "htmlFor", type: "string", description: "The id of the control it labels." },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+Clicking a label focuses or toggles its control. Always associate labels with controls using `htmlFor` and `id`.

@@ -1,0 +1,48 @@
+---
+title: "Dotted World Map"
+description: "A dotted world map with animated connection arcs."
+---
+
+<ComponentPreview name="dotted-world-map-demo" />
+
+## Installation
+
+<ComponentInstall name="dotted-world-map" />
+
+## Usage
+
+```tsx
+import { DottedWorldMap } from "@/components/animated/dotted-world-map";
+```
+
+```tsx
+<DottedWorldMap
+  connections={[{ from: { lat: 37.77, lng: -122.42 }, to: { lat: 51.5, lng: -0.12 } }]}
+/>
+```
+
+## API Reference
+
+### DottedWorldMap
+
+<PropsTable
+  props={[
+    {
+      prop: "connections",
+      type: "{ from: MapPoint; to: MapPoint }[]",
+      defaultValue: "[]",
+      description: "Arcs to draw.",
+    },
+    {
+      prop: "dotColor",
+      type: "string",
+      defaultValue: '"var(--dot-color)"',
+      description: "Land dot color.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+Rendered as one labelled image. With reduced motion, arcs appear fully drawn and points do not pulse.

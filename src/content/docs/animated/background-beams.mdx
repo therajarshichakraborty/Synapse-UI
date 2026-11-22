@@ -1,0 +1,43 @@
+---
+title: "Background Beams"
+description: "Glowing beams that travel along SVG paths behind your content."
+---
+
+<ComponentPreview name="background-beams-demo" className="p-0 sm:p-0" />
+
+## Installation
+
+<ComponentInstall name="background-beams" />
+
+## Usage
+
+```tsx
+import { BackgroundBeams } from "@/components/animated/background-beams";
+```
+
+```tsx
+<div className="relative">
+  <BackgroundBeams />
+  {/* content */}
+</div>
+```
+
+## API Reference
+
+### BackgroundBeams
+
+<PropsTable
+  props={[
+    {
+      prop: "count",
+      type: "number",
+      defaultValue: "10",
+      description: "Number of beam paths (max 14).",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+With `prefers-reduced-motion: reduce`, only the static path lines render. No beams travel.

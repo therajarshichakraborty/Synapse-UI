@@ -1,0 +1,33 @@
+---
+title: "Kbd"
+description: "Displays a keyboard key or shortcut."
+---
+
+<ComponentPreview name="kbd-demo" />
+
+## Installation
+
+<ComponentInstall name="kbd" />
+
+## Usage
+
+```tsx
+import { Kbd, KbdGroup } from "@/components/ui/kbd";
+```
+
+```tsx
+<KbdGroup>
+  <Kbd>⌘</Kbd>
+  <Kbd>K</Kbd>
+</KbdGroup>
+```
+
+## API Reference
+
+### Kbd / KbdGroup
+
+<PropsTable
+  props={[
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>

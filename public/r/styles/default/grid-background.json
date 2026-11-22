@@ -1,0 +1,13 @@
+{
+  "name": "grid-background",
+  "type": "registry:ui",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/animated/grid-background.tsx",
+      "content": "import * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nexport type GridBackgroundProps = React.ComponentProps<\"div\"> & {\n  variant?: \"grid\" | \"dots\";\n  /** Cell or dot spacing in pixels. */\n  size?: number;\n  /** Where the fade is centered. */\n  fade?: \"center\" | \"top\" | \"none\";\n};\n\n/** Grid or dot pattern with a radial fade. Fills its positioned parent. */\nexport function GridBackground({\n  variant = \"grid\",\n  size,\n  fade = \"center\",\n  className,\n  style,\n  ...props\n}: GridBackgroundProps) {\n  return (\n    <div\n      aria-hidden=\"true\"\n      className={cn(\n        \"pointer-events-none absolute inset-0\",\n        variant === \"grid\" ? \"bg-grid\" : \"bg-dots\",\n        fade === \"center\" && \"mask-radial-fade\",\n        fade === \"top\" && \"mask-top-fade\",\n        className,\n      )}\n      style={\n        {\n          ...(size ? { [variant === \"grid\" ? \"--grid-size\" : \"--dot-size\"]: `${size}px` } : {}),\n          ...style,\n        } as React.CSSProperties\n      }\n      {...props}\n    />\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Command, Search, ArrowRight, X } from "lucide-react";
+import { Command, Search, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface CommandOption {

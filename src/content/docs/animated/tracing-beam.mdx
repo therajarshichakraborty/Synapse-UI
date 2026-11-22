@@ -1,0 +1,37 @@
+---
+title: "Tracing Beam"
+description: "A gradient beam that traces the reading progress of an article."
+---
+
+<ComponentPreview name="tracing-beam-demo" align="start" />
+
+## Installation
+
+<ComponentInstall name="tracing-beam" />
+
+## Usage
+
+```tsx
+import { TracingBeam } from "@/components/animated/tracing-beam";
+```
+
+```tsx
+<TracingBeam>
+  <article>...</article>
+</TracingBeam>
+```
+
+## API Reference
+
+### TracingBeam
+
+<PropsTable
+  props={[
+    { prop: "children", type: "ReactNode", description: "Long-form content." },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+With `prefers-reduced-motion: reduce`, only the static track is shown.

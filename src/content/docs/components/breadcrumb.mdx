@@ -1,0 +1,82 @@
+---
+title: "Breadcrumb"
+description: "Displays the path to the current resource using a hierarchy of links."
+---
+
+<ComponentPreview name="breadcrumb-demo" />
+
+## Installation
+
+<ComponentInstall name="breadcrumb" />
+
+## Usage
+
+```tsx
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+```
+
+```tsx
+<Breadcrumb>
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/">Home</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+    </BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>
+```
+
+## API Reference
+
+### BreadcrumbLink
+
+<PropsTable
+  props={[
+    {
+      prop: "asChild",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Render the child element instead, merging props and behavior.",
+    },
+    { prop: "href", type: "string", description: "Link target." },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### BreadcrumbPage
+
+Renders the current page with `aria-current="page"`.
+
+<PropsTable
+  props={[
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+### BreadcrumbSeparator
+
+<PropsTable
+  props={[
+    {
+      prop: "children",
+      type: "ReactNode",
+      defaultValue: "<ChevronRight />",
+      description: "Custom separator.",
+    },
+    { prop: "className", type: "string", description: "Additional classes merged with cn()." },
+  ]}
+/>
+
+## Accessibility
+
+Renders a `nav` with `aria-label="breadcrumb"`. Separators are hidden from assistive technology.

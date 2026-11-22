@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { BookOpen, Clock } from "lucide-react";
+import { Clock } from "lucide-react";
 
 interface Card13Props {
   title?: string;

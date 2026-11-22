@@ -88,14 +88,14 @@ export function AIInput09({
               {[0, 1, 2].map((i) => (
                 <span
                   key={i}
-                  className="inline-block size-1.5 rounded-full bg-violet-500"
+                  className="inline-block size-1.5 rounded-full bg-blue-500"
                   style={{
                     animation: `bounce 1.2s ease-in-out ${i * 0.15}s infinite`,
                   }}
                 />
               ))}
             </div>
-            <span className="text-[12px] font-medium text-violet-500">{streamingText}...</span>
+            <span className="text-[12px] font-medium text-blue-500">{streamingText}...</span>
             <style>{`
               @keyframes bounce {
                 0%, 60%, 100% { transform: translateY(0); }

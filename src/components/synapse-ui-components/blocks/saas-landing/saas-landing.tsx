@@ -2,8 +2,7 @@
 
 import { motion } from "motion/react";
 import React from "react";
-import { cn } from "@/lib/utils";
-import { ArrowRight, Sparkles, Activity, Users, Zap, BarChart2, Shield } from "lucide-react";
+import { ArrowRight, Sparkles, Activity, Users, Zap } from "lucide-react";
 
 export default function SaasLanding() {
   return (
