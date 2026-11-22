@@ -124,7 +124,7 @@ function UserActionsMenu() {
       <DropdownMenuContent className="min-w-36 rounded-lg bg-popover p-1 shadow-xl">
         <div className="flex flex-col gap-1">
           <Button
-            className="w-full justify-start gap-2 rounded bg-transparent text-rose-600 hover:bg-accent"
+            className="w-full justify-start gap-2 rounded bg-transparent text-indigo-600 hover:bg-accent"
             size="sm"
             type="button"
             variant="ghost"
@@ -142,7 +142,7 @@ function UserActionsMenu() {
             <span className="font-medium text-xs">Delete Conversation</span>
           </Button>
           <Button
-            className="w-full justify-start gap-2 rounded bg-transparent text-yellow-600 hover:bg-accent"
+            className="w-full justify-start gap-2 rounded bg-transparent text-amber-600 hover:bg-accent"
             size="sm"
             type="button"
             variant="ghost"
@@ -207,7 +207,7 @@ function MessageActions({ isMe }: { isMe: boolean }) {
           ) : null}
           <Button
             aria-label="Report"
-            className="w-full justify-start gap-2 rounded px-2 py-1 text-xs text-yellow-600"
+            className="w-full justify-start gap-2 rounded px-2 py-1 text-xs text-amber-600"
             size="sm"
             type="button"
             variant="ghost"

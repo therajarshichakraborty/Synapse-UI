@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "components/synapse-ui/buttons/button-09.tsx",
-      "content": "import { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\ninterface Button09Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  children?: React.ReactNode;\n}\n\nexport default function Button09({\n  className,\n  children = \"Scale Button\",\n  ...props\n}: Button09Props) {\n  return (\n    <Button\n      className={cn(\n        \"relative h-11 px-8\",\n        \"bg-rose-500 dark:bg-rose-600\",\n        \"text-white\",\n        \"hover:bg-rose-600 dark:hover:bg-rose-700\",\n        \"hover:scale-105\",\n        \"rounded-lg\",\n        \"transition-all duration-300\",\n        \"shadow-lg shadow-rose-500/30\",\n        \"active:scale-95\",\n        className,\n      )}\n      {...props}\n    >\n      {children}\n    </Button>\n  );\n}\n",
+      "content": "import { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\ninterface Button09Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  children?: React.ReactNode;\n}\n\nexport default function Button09({\n  className,\n  children = \"Scale Button\",\n  ...props\n}: Button09Props) {\n  return (\n    <Button\n      className={cn(\n        \"relative h-11 px-8\",\n        \"bg-indigo-500 dark:bg-indigo-600\",\n        \"text-white\",\n        \"hover:bg-indigo-600 dark:hover:bg-indigo-700\",\n        \"hover:scale-105\",\n        \"rounded-lg\",\n        \"transition-all duration-300\",\n        \"shadow-lg shadow-indigo-500/30\",\n        \"active:scale-95\",\n        className,\n      )}\n      {...props}\n    >\n      {children}\n    </Button>\n  );\n}\n",
       "type": "registry:ui"
     }
   ]

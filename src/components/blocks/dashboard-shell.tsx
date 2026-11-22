@@ -74,7 +74,7 @@ export default function DashboardShell() {
           <SidebarMenu>
             <SidebarMenuItem>
               <SidebarMenuButton size="lg">
-                <span className="flex size-8 items-center justify-center rounded-lg bg-brand-gradient text-sm font-semibold text-white">
+                <span className="flex size-8 items-center justify-center rounded-lg bg-primary text-sm font-semibold text-primary-foreground">
                   A
                 </span>
                 <span className="grid text-left text-sm leading-tight">
@@ -166,6 +166,7 @@ export default function DashboardShell() {
                   <XAxis dataKey="month" tickLine={false} axisLine={false} tickMargin={8} />
                   <ChartTooltip content={<ChartTooltipContent indicator="line" />} />
                   <Area
+                    isAnimationActive={false}
                     dataKey="revenue"
                     type="natural"
                     stroke="var(--color-revenue)"

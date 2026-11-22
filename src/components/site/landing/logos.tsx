@@ -41,6 +41,26 @@ export const VercelLogo = (p: P) => (
   </svg>
 );
 
+export const BunLogo = (p: P) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.6"
+    aria-hidden="true"
+    {...p}
+  >
+    <path d="M12 4.5c5.2 0 9 3.4 9 7.6 0 4.1-3.8 7.4-9 7.4s-9-3.3-9-7.4c0-4.2 3.8-7.6 9-7.6Z" />
+    <path
+      d="M9 4.9c.4 1 .4 2 0 3M12.5 4.5c.5 1.1.5 2.3 0 3.4M15.8 5.2c.3.9.3 1.8 0 2.7"
+      strokeLinecap="round"
+    />
+    <circle cx="9.3" cy="12.6" r="0.9" fill="currentColor" stroke="none" />
+    <circle cx="14.7" cy="12.6" r="0.9" fill="currentColor" stroke="none" />
+    <path d="M10.6 14.6c.8.7 2 .7 2.8 0" strokeLinecap="round" />
+  </svg>
+);
+
 export const techLogos = [
   { name: "Next.js", Logo: NextLogo },
   { name: "React", Logo: ReactLogo },
@@ -49,4 +69,5 @@ export const techLogos = [
   { name: "Motion", Logo: MotionLogo },
   { name: "Radix UI", Logo: RadixLogo },
   { name: "Vercel", Logo: VercelLogo },
+  { name: "Bun", Logo: BunLogo },
 ];

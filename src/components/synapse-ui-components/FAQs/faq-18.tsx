@@ -40,7 +40,7 @@ export default function Faq18() {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-3 mb-8">
-            <div className="h-12 w-12 rounded-2xl bg-lime-500 flex items-center justify-center">
+            <div className="h-12 w-12 rounded-2xl bg-emerald-500 flex items-center justify-center">
               <HelpCircle className="h-6 w-6 text-white" />
             </div>
             <div>
@@ -56,7 +56,7 @@ export default function Faq18() {
                 key={index}
                 className={cn(
                   "border-b border-zinc-100 dark:border-zinc-800 last:border-0",
-                  activeIndex === index && "bg-lime-50 dark:bg-lime-950/20",
+                  activeIndex === index && "bg-emerald-50 dark:bg-emerald-950/20",
                 )}
               >
                 <button
@@ -67,7 +67,7 @@ export default function Faq18() {
                     className={cn(
                       "h-5 w-5 shrink-0 transition-transform duration-200",
                       activeIndex === index
-                        ? "rotate-90 text-lime-600 dark:text-lime-400"
+                        ? "rotate-90 text-emerald-600 dark:text-emerald-400"
                         : "text-zinc-400",
                     )}
                   />
@@ -75,7 +75,7 @@ export default function Faq18() {
                     className={cn(
                       "font-medium transition-colors",
                       activeIndex === index
-                        ? "text-lime-700 dark:text-lime-400"
+                        ? "text-emerald-700 dark:text-emerald-400"
                         : "text-zinc-900 dark:text-white",
                     )}
                   >

@@ -43,6 +43,7 @@ export default function ChartArea() {
         <XAxis dataKey="day" tickLine={false} axisLine={false} tickMargin={8} />
         <ChartTooltip content={<ChartTooltipContent indicator="dot" />} />
         <Area
+          isAnimationActive={false}
           dataKey="visitors"
           type="natural"
           fill="url(#fill-visitors)"
@@ -50,6 +51,7 @@ export default function ChartArea() {
           strokeWidth={2}
         />
         <Area
+          isAnimationActive={false}
           dataKey="signups"
           type="natural"
           fill="url(#fill-signups)"

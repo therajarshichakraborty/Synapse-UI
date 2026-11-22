@@ -4,13 +4,19 @@ export type SpotlightProps = {
   className?: string;
   /** Fill color of the beam. Defaults to the brand blue. */
   fill?: string;
+  /** Beam opacity. */
+  fillOpacity?: number;
 };
 
 /**
  * A soft light beam that sweeps in from the top-left on mount.
  * Place inside a `relative overflow-hidden` container.
  */
-export function Spotlight({ className, fill = "var(--color-glow-blue)" }: SpotlightProps) {
+export function Spotlight({
+  className,
+  fill = "var(--color-glow-blue)",
+  fillOpacity = 0.1,
+}: SpotlightProps) {
   return (
     <svg
       aria-hidden="true"
@@ -29,7 +35,7 @@ export function Spotlight({ className, fill = "var(--color-glow-blue)" }: Spotli
           ry="273.501"
           transform="matrix(-0.822377 -0.568943 -0.568943 0.822377 3631.88 2291.09)"
           fill={fill}
-          fillOpacity="0.18"
+          fillOpacity={fillOpacity}
         />
       </g>
       <defs>

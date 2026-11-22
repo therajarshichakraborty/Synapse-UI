@@ -30,7 +30,7 @@ export default function Card_06({
     >
       <div className="flex gap-1 mb-4">
         {Array.from({ length: rating }).map((_, i) => (
-          <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+          <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
         ))}
       </div>
       <p className="text-sm text-zinc-600 dark:text-zinc-300 mb-4 leading-relaxed">{text}</p>

@@ -139,8 +139,8 @@ function getPasswordStrength(password: string): {
   if (/[^a-zA-Z0-9]/.test(password)) score++;
 
   if (score <= 1) return { score, label: "Weak", color: "bg-red-500" };
-  if (score <= 2) return { score, label: "Fair", color: "bg-orange-500" };
-  if (score <= 3) return { score, label: "Good", color: "bg-yellow-500" };
+  if (score <= 2) return { score, label: "Fair", color: "bg-amber-500" };
+  if (score <= 3) return { score, label: "Good", color: "bg-amber-500" };
   if (score <= 4) return { score, label: "Strong", color: "bg-emerald-500" };
   return { score, label: "Very Strong", color: "bg-emerald-600" };
 }
@@ -444,8 +444,8 @@ export default function Card_03({ onSubmit, onSocialLogin, className }: Register
                         className={cn(
                           "text-xs font-medium",
                           passwordStrength.score <= 1 && "text-red-500",
-                          passwordStrength.score === 2 && "text-orange-500",
-                          passwordStrength.score === 3 && "text-yellow-600",
+                          passwordStrength.score === 2 && "text-amber-500",
+                          passwordStrength.score === 3 && "text-amber-600",
                           passwordStrength.score >= 4 && "text-emerald-500",
                         )}
                       >

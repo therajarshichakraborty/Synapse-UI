@@ -22,7 +22,7 @@ export default function LandingHeader() {
       {/* Top Promo Bar */}
       <div className="w-full px-4 py-2 bg-zinc-50 dark:bg-gradient-to-b dark:from-[#09001a] dark:to-[#050012] border-b border-zinc-200/10 dark:border-zinc-800/20">
         <Link href="#" className="flex items-center justify-center gap-3 text-sm group">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-indigo-500 to-blue-600 dark:from-blue-300 dark:via-cyan-400 dark:to-rose-300 font-medium tracking-tight">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-indigo-500 to-blue-600 dark:from-blue-300 dark:via-sky-400 dark:to-indigo-300 font-medium tracking-tight">
             Explore new components & templates
           </span>
 

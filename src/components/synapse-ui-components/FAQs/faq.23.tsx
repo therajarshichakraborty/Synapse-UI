@@ -40,7 +40,7 @@ export default function Faq23() {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <span className="inline-block text-sm font-bold tracking-widest uppercase text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500">
+            <span className="inline-block text-sm font-bold tracking-widest uppercase text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-blue-500">
               FAQ
             </span>
             <h2 className="mt-4 text-3xl font-bold text-zinc-900 dark:text-white sm:text-4xl lg:text-5xl">
@@ -57,7 +57,7 @@ export default function Faq23() {
                 className={cn(
                   "rounded-2xl border-2 transition-all duration-300 overflow-hidden",
                   openIndex === index
-                    ? "border-transparent bg-gradient-to-r from-cyan-500 to-blue-500 p-[2px]"
+                    ? "border-transparent bg-gradient-to-r from-sky-500 to-blue-500 p-[2px]"
                     : "border-zinc-200 dark:border-zinc-800",
                 )}
               >
@@ -70,7 +70,7 @@ export default function Faq23() {
                       className={cn(
                         "text-left font-semibold text-lg transition-colors",
                         openIndex === index
-                          ? "text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500"
+                          ? "text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-blue-500"
                           : "text-zinc-900 dark:text-white",
                       )}
                     >
@@ -80,7 +80,7 @@ export default function Faq23() {
                       className={cn(
                         "flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-all",
                         openIndex === index
-                          ? "bg-gradient-to-r from-cyan-500 to-blue-500 text-white"
+                          ? "bg-gradient-to-r from-sky-500 to-blue-500 text-white"
                           : "bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400",
                       )}
                     >

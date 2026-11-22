@@ -77,7 +77,7 @@ export default function Alert18({
                 className={cn(
                   "flex-shrink-0 p-2.5 rounded-xl",
                   isUrgent
-                    ? "bg-gradient-to-br from-amber-400 to-orange-500 shadow-lg shadow-amber-500/25"
+                    ? "bg-gradient-to-br from-sky-400 to-sky-500 shadow-lg shadow-amber-500/25"
                     : "bg-gradient-to-br from-zinc-600 to-zinc-800 dark:from-zinc-400 dark:to-zinc-600 shadow-lg",
                 )}
               >

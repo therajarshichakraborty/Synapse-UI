@@ -37,13 +37,13 @@ function Tile({
 }) {
   return (
     <RevealItem className={cn("min-w-0", className)}>
-      <CardSpotlight className="flex h-full flex-col gap-5 p-5">
-        <div className="relative flex min-h-36 flex-1 items-center justify-center overflow-hidden rounded-xl border border-border bg-background/60">
+      <CardSpotlight className="flex h-full flex-col gap-5 rounded-3xl p-5">
+        <div className="relative flex min-h-40 flex-1 items-center justify-center overflow-hidden rounded-2xl bg-muted/50 dark:bg-surface-2">
           {children}
         </div>
         <div>
           <h3 className="flex items-center gap-2 font-semibold tracking-tight">
-            <Icon className="size-4 text-primary" aria-hidden="true" /> {title}
+            <Icon className="size-4 text-muted-foreground" aria-hidden="true" /> {title}
           </h3>
           <p className="mt-1.5 text-sm leading-6 text-muted-foreground">{description}</p>
         </div>
@@ -54,10 +54,10 @@ function Tile({
 
 const hues = [
   { name: "Blue", value: "#3b82f6" },
-  { name: "Cyan", value: "#06b6d4" },
+  { name: "Sky", value: "#0ea5e9" },
   { name: "Indigo", value: "#6366f1" },
-  { name: "Emerald", value: "#10b981" },
-  { name: "Rose", value: "#f43f5e" },
+  { name: "Slate", value: "#64748b" },
+  { name: "Stone", value: "#78716c" },
 ];
 
 function ThemingDemo() {
@@ -65,7 +65,13 @@ function ThemingDemo() {
   return (
     <div
       className="flex flex-col items-center gap-4 p-4"
-      style={{ "--primary": hue, "--ring": hue } as React.CSSProperties}
+      style={
+        {
+          "--primary": hue,
+          "--primary-foreground": "#ffffff",
+          "--ring": hue,
+        } as React.CSSProperties
+      }
     >
       <div className="flex gap-2" role="radiogroup" aria-label="Primary color">
         {hues.map((h) => (

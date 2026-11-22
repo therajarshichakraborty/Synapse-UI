@@ -13,7 +13,7 @@ export function GlowingCard({
   className,
   children,
   duration = 6,
-  glow = true,
+  glow = false,
   style,
   ...props
 }: GlowingCardProps) {
@@ -22,7 +22,7 @@ export function GlowingCard({
       {glow && (
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -inset-px rounded-[inherit] bg-brand-gradient opacity-20 blur-2xl"
+          className="pointer-events-none absolute -inset-px rounded-[inherit] bg-brand opacity-10 blur-2xl"
           style={{ borderRadius: "var(--radius-2xl)" }}
         />
       )}

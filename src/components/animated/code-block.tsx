@@ -27,12 +27,12 @@ function tokenize(line: string) {
     const cls = t.startsWith("//")
       ? "text-muted-foreground italic"
       : /^["'`]/.test(t)
-        ? "text-cyan-600 dark:text-cyan-300"
+        ? "text-[#0a3069] dark:text-[#a5d6ff]"
         : t.startsWith("<")
-          ? "text-blue-600 dark:text-blue-400"
+          ? "text-[#116329] dark:text-[#7ee787]"
           : /^\d/.test(t)
-            ? "text-sky-700 dark:text-sky-300"
-            : "text-indigo-600 dark:text-indigo-300";
+            ? "text-[#0550ae] dark:text-[#79c0ff]"
+            : "text-[#cf222e] dark:text-[#ff7b72]";
     out.push(
       <span key={i} className={cls}>
         {t}

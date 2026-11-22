@@ -9,8 +9,10 @@ import { Testimonials } from "@/components/site/landing/testimonials";
 import { Pricing } from "@/components/site/landing/pricing";
 import { Faq } from "@/components/site/landing/faq";
 import { FinalCta } from "@/components/site/landing/final-cta";
+import { getGitHubStars } from "@/lib/github";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const stars = await getGitHubStars();
   return (
     <>
       <Hero />
@@ -19,7 +21,7 @@ export default function HomePage() {
       <Showcase />
       <CodeToUi />
       <CliSection />
-      <Stats />
+      <Stats stars={stars} />
       <Testimonials />
       <Pricing />
       <Faq />

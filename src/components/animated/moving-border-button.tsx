@@ -26,7 +26,7 @@ export function MovingBorderButton({
     >
       <span
         aria-hidden="true"
-        className="absolute inset-[-1000%] animate-[spin_var(--duration)_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,#22d3ee_8%,#3b82f6_14%,#6366f1_20%,transparent_28%)] motion-reduce:animate-none"
+        className="absolute inset-[-1000%] animate-[spin_var(--duration)_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,var(--brand)_8%,var(--foreground)_14%,transparent_24%)] motion-reduce:animate-none"
       />
       <span
         aria-hidden="true"

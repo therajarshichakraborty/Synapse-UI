@@ -36,7 +36,7 @@ const CATEGORIES: Record<FAQCategory, { label: string; color: string }> = {
   },
   support: {
     label: "Support",
-    color: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300",
+    color: "bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-300",
   },
 };
 

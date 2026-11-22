@@ -21,7 +21,7 @@ export function AuroraBackground({
       >
         <div
           className={cn(
-            "absolute -inset-[10px] opacity-50 blur-[10px] invert filter will-change-transform dark:invert-0",
+            "absolute -inset-[10px] opacity-30 blur-[10px] invert filter will-change-transform dark:invert-0",
             "[background-image:var(--aurora-stripes),var(--aurora-colors)] [background-size:300%,_200%] [background-position:50%_50%,50%_50%]",
             "after:absolute after:inset-0 after:animate-aurora after:mix-blend-difference after:content-[''] after:[background-attachment:fixed] after:[background-image:var(--aurora-stripes),var(--aurora-colors)] after:[background-size:200%,_100%]",
             radial && "[mask-image:radial-gradient(ellipse_at_100%_0%,black_10%,transparent_70%)]",
@@ -31,7 +31,7 @@ export function AuroraBackground({
               "--aurora-stripes":
                 "repeating-linear-gradient(100deg, var(--background) 0%, var(--background) 7%, transparent 10%, transparent 12%, var(--background) 16%)",
               "--aurora-colors":
-                "repeating-linear-gradient(100deg, #3b82f6 10%, #6366f1 15%, #22d3ee 20%, #93c5fd 25%, #2563eb 30%)",
+                "repeating-linear-gradient(100deg, #60a5fa 10%, #c7d2fe 15%, #93c5fd 20%, #e0e7ff 25%, #3b82f6 30%)",
             } as React.CSSProperties
           }
         />

@@ -8,7 +8,7 @@ export const siteConfig = {
     "Beautifully designed, accessible React components and animated sections. Copy, paste, own the code. Built with Tailwind CSS v4, Radix and Motion.",
   links: {
     // TODO(owner): confirm the canonical repo and social handles.
-    github: "https://github.com/chakrabortyrajarshi2005/Synapse-UI",
+    github: "https://github.com/therajarshichakraborty/Synapse-UI",
     twitter: "https://x.com",
     discord: "https://discord.com",
   },

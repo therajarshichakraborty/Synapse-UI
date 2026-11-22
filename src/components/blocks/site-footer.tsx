@@ -15,7 +15,7 @@ export default function SiteFooter() {
         <div className="grid gap-12 lg:grid-cols-[1.2fr_2fr]">
           <div className="max-w-sm">
             <div className="flex items-center gap-2 font-semibold">
-              <span className="size-6 rounded-md bg-brand-gradient" /> Acme
+              <span className="size-6 rounded-md bg-foreground" /> Acme
             </div>
             <p className="mt-4 text-sm text-muted-foreground">
               Get product updates in your inbox, once a month.

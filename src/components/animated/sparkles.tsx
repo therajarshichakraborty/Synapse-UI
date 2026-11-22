@@ -8,6 +8,7 @@ export type SparklesProps = {
   className?: string;
   /** Particles per 10,000 px². */
   density?: number;
+  /** Particle color. Defaults to the current text color. */
   color?: string;
   minSize?: number;
   maxSize?: number;
@@ -28,7 +29,7 @@ type Particle = {
 export function Sparkles({
   className,
   density = 6,
-  color = "#93c5fd",
+  color,
   minSize = 0.4,
   maxSize = 1.4,
   speed = 0.25,
@@ -65,7 +66,7 @@ export function Sparkles({
     const draw = () => {
       const { width, height } = canvas.getBoundingClientRect();
       ctx.clearRect(0, 0, width, height);
-      ctx.fillStyle = color;
+      ctx.fillStyle = color ?? getComputedStyle(canvas).color;
       for (const p of particles) {
         if (!reduce) {
           p.x = (p.x + p.vx + width) % width;
@@ -99,7 +100,7 @@ export function Sparkles({
     <canvas
       ref={ref}
       aria-hidden="true"
-      className={cn("pointer-events-none absolute inset-0 size-full", className)}
+      className={cn("pointer-events-none absolute inset-0 size-full text-foreground/80", className)}
     />
   );
 }

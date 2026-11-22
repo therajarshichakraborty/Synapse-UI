@@ -4,10 +4,9 @@ import * as React from "react";
 import Link from "next/link";
 import { ArrowRightIcon } from "lucide-react";
 import { toast } from "sonner";
-import { LogoMark } from "@/components/site/logo";
+import { Logo } from "@/components/site/logo";
 import { DiscordIcon, GitHubIcon, XIcon } from "@/components/site/icons";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { siteConfig } from "@/config/site";
 
 const columns = [
@@ -17,6 +16,7 @@ const columns = [
       { label: "Components", href: "/docs/components" },
       { label: "Animated", href: "/docs/animated" },
       { label: "Blocks", href: "/docs/blocks" },
+      { label: "Collections", href: "/docs/collections/button" },
       { label: "Changelog", href: "/docs/changelog" },
     ],
   },
@@ -26,6 +26,7 @@ const columns = [
       { label: "Introduction", href: "/docs" },
       { label: "Installation", href: "/docs/installation" },
       { label: "Theming", href: "/docs/theming" },
+      { label: "Dark Mode", href: "/docs/dark-mode" },
       { label: "CLI", href: "/docs/cli" },
     ],
   },
@@ -33,12 +34,23 @@ const columns = [
     title: "Community",
     links: [
       { label: "GitHub", href: siteConfig.links.github },
-      { label: "Discord", href: siteConfig.links.discord },
+      { label: "Discussions", href: `${siteConfig.links.github}/discussions` },
+      { label: "Issues", href: `${siteConfig.links.github}/issues` },
       { label: "X / Twitter", href: siteConfig.links.twitter },
-      { label: "Contributing", href: `${siteConfig.links.github}/blob/main/CONTRIBUTING.md` },
+      { label: "Discord", href: siteConfig.links.discord },
     ],
   },
 ];
+
+const socials = [
+  { href: siteConfig.links.github, label: "GitHub", Icon: GitHubIcon },
+  { href: siteConfig.links.twitter, label: "X", Icon: XIcon },
+  { href: siteConfig.links.discord, label: "Discord", Icon: DiscordIcon },
+];
+
+function isExternal(href: string) {
+  return href.startsWith("http");
+}
 
 export function SiteFooter() {
   const [email, setEmail] = React.useState("");
@@ -50,55 +62,80 @@ export function SiteFooter() {
       return;
     }
     // TODO(owner): connect to a newsletter provider.
-    toast.success("You're on the list. We'll be in touch.");
+    toast.success("You're on the list.");
     setEmail("");
   }
 
   return (
-    <footer className="relative overflow-hidden border-t border-border bg-background">
-      <div className="container-page pt-16 pb-10">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_2fr]">
+    <footer className="relative overflow-hidden border-t border-border">
+      <div className="container-page max-w-6xl pt-20 pb-12">
+        <div className="grid gap-14 lg:grid-cols-[1.3fr_2fr]">
           <div className="max-w-sm">
-            <div className="flex items-center gap-2">
-              <LogoMark />
-              <span className="font-semibold tracking-tight">Synapse UI</span>
-            </div>
-            <p className="mt-4 text-sm leading-6 text-muted-foreground">
-              Beautiful, accessible components and cinematic sections for React. Free and open
-              source.
+            <Logo />
+            <p className="mt-5 text-sm leading-6 text-muted-foreground">
+              Beautiful, accessible components and refined motion for React. Free and open source.
             </p>
-            <form onSubmit={onSubmit} className="mt-6 flex gap-2" aria-label="Newsletter">
+            <form
+              onSubmit={onSubmit}
+              aria-label="Newsletter"
+              className="mt-6 flex h-11 items-center gap-1 rounded-full border border-border bg-surface-1 p-1 pl-4 transition-colors focus-within:border-border-strong"
+            >
               <label htmlFor="footer-email" className="sr-only">
                 Email address
               </label>
-              <Input
+              <input
                 id="footer-email"
                 type="email"
-                placeholder="you@company.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="h-9"
+                placeholder="Get monthly updates"
+                className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
               />
-              <Button type="submit" size="default" className="h-9 shrink-0">
-                Subscribe
+              <Button type="submit" size="icon-sm" aria-label="Subscribe">
                 <ArrowRightIcon />
               </Button>
             </form>
-            <p className="mt-2 text-xs text-muted-foreground">Monthly updates. No spam.</p>
+            <div className="mt-6 flex items-center gap-1">
+              {socials.map(({ href, label, Icon }) => (
+                <Button
+                  key={label}
+                  variant="ghost"
+                  size="icon-sm"
+                  asChild
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  <a href={href} target="_blank" rel="noreferrer" aria-label={label}>
+                    <Icon className="size-4" />
+                  </a>
+                </Button>
+              ))}
+            </div>
           </div>
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+
+          <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
             {columns.map((col) => (
               <div key={col.title}>
-                <h3 className="text-sm font-medium text-foreground">{col.title}</h3>
-                <ul className="mt-4 space-y-3">
+                <h3 className="text-sm font-medium">{col.title}</h3>
+                <ul className="mt-5 grid gap-3">
                   {col.links.map((l) => (
                     <li key={l.label}>
-                      <Link
-                        href={l.href}
-                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                      >
-                        {l.label}
-                      </Link>
+                      {isExternal(l.href) ? (
+                        <a
+                          href={l.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                        >
+                          {l.label}
+                        </a>
+                      ) : (
+                        <Link
+                          href={l.href}
+                          className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                        >
+                          {l.label}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -107,35 +144,24 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col-reverse items-start justify-between gap-4 border-t border-border pt-6 sm:flex-row sm:items-center">
-          <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Synapse UI. Released under the MIT License.
-          </p>
-          <div className="flex items-center gap-1">
-            {[
-              { href: siteConfig.links.github, label: "GitHub", Icon: GitHubIcon },
-              { href: siteConfig.links.twitter, label: "X", Icon: XIcon },
-              { href: siteConfig.links.discord, label: "Discord", Icon: DiscordIcon },
-            ].map(({ href, label, Icon }) => (
-              <Button key={label} variant="ghost" size="icon" asChild>
-                <a href={href} target="_blank" rel="noreferrer" aria-label={label}>
-                  <Icon className="size-4" />
-                </a>
-              </Button>
-            ))}
-          </div>
+        <div className="mt-16 flex flex-col-reverse gap-3 text-[13px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} Synapse UI. Released under the MIT License.</p>
+          <p>Built with Next.js, Tailwind CSS and Motion.</p>
         </div>
       </div>
-      <div
-        aria-hidden="true"
-        className="pointer-events-none select-none text-center text-[clamp(4rem,17vw,15rem)] leading-[0.8] font-semibold tracking-[-0.06em] text-transparent"
-        style={{
-          backgroundImage: "linear-gradient(180deg, var(--border-strong), transparent 85%)",
-          WebkitBackgroundClip: "text",
-          backgroundClip: "text",
-        }}
-      >
-        synapse
+
+      <div aria-hidden="true" className="pointer-events-none relative -mb-[0.18em] select-none">
+        <p
+          className="text-center text-[clamp(5rem,21vw,19rem)] leading-[0.75] font-semibold tracking-[-0.07em] text-transparent"
+          style={{
+            backgroundImage:
+              "linear-gradient(180deg, color-mix(in oklab, var(--foreground) 14%, transparent) 0%, transparent 78%)",
+            WebkitBackgroundClip: "text",
+            backgroundClip: "text",
+          }}
+        >
+          synapse
+        </p>
       </div>
     </footer>
   );

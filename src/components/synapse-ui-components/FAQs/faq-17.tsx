@@ -58,7 +58,7 @@ export default function Faq17() {
                 className={cn(
                   "overflow-hidden rounded-2xl transition-all duration-300",
                   openItems.includes(index)
-                    ? "bg-gradient-to-r from-cyan-500 to-pink-500 p-[2px]"
+                    ? "bg-gradient-to-r from-sky-500 to-indigo-500 p-[2px]"
                     : "bg-transparent",
                 )}
               >

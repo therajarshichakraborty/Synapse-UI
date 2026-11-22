@@ -10,7 +10,7 @@ const QUICK_ACTIONS = [
   { id: "code", icon: Code, label: "Code", color: "text-emerald-500" },
   { id: "image", icon: ImageIcon, label: "Image", color: "text-blue-500" },
   { id: "analyze", icon: Brain, label: "Analyze", color: "text-amber-500" },
-  { id: "improve", icon: Wand2, label: "Improve", color: "text-rose-500" },
+  { id: "improve", icon: Wand2, label: "Improve", color: "text-indigo-500" },
 ] as const;
 
 interface AIInput04Props {

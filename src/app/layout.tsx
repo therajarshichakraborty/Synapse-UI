@@ -54,6 +54,14 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning className={cn(geistSans.variable, geistMono.variable)}>
+      <head>
+        {/* `?theme=light|dark` pins the theme (used for screenshots and shareable links). */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=new URLSearchParams(location.search).get("theme");if(t==="light"||t==="dark"||t==="system")localStorage.setItem("theme",t)}catch(e){}`,
+          }}
+        />
+      </head>
       <body className="min-h-svh bg-background font-sans antialiased">
         <a
           href="#main"

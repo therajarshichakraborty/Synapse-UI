@@ -104,7 +104,7 @@ export default function Card_01({
                       "group-hover:scale-105",
                     )}
                   />
-                  <div className="absolute inset-0 rounded-full bg-linear-to-tr from-rose-500 to-blue-500 opacity-0 hover:opacity-10 transition-opacity duration-300" />
+                  <div className="absolute inset-0 rounded-full bg-linear-to-tr from-indigo-500 to-blue-500 opacity-0 hover:opacity-10 transition-opacity duration-300" />
                 </div>
                 <div>
                   <h3 className="text-[15px] font-semibold text-zinc-900 dark:text-zinc-100 tracking-tight">
@@ -179,12 +179,12 @@ export default function Card_01({
                   className={cn(
                     "flex items-center gap-2.5 text-[13px] font-medium p-2.5 rounded-full",
                     "transition-all duration-300",
-                    "hover:bg-rose-50/80 dark:hover:bg-rose-950/30",
-                    "active:bg-rose-100 dark:active:bg-rose-950/50",
-                    "focus:outline-hidden focus:ring-2 focus:ring-rose-500/20",
+                    "hover:bg-indigo-50/80 dark:hover:bg-indigo-950/30",
+                    "active:bg-indigo-100 dark:active:bg-indigo-950/50",
+                    "focus:outline-hidden focus:ring-2 focus:ring-indigo-500/20",
                     engagement?.isLiked
-                      ? "text-rose-600"
-                      : "text-zinc-500 dark:text-zinc-400 hover:text-rose-600",
+                      ? "text-indigo-600"
+                      : "text-zinc-500 dark:text-zinc-400 hover:text-indigo-600",
                   )}
                 >
                   <Heart

@@ -118,7 +118,7 @@ export function CodeToUi() {
               className={cn(
                 "rounded-full border px-4 py-1.5 text-sm transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ring",
                 i === active
-                  ? "border-primary/40 bg-primary/10 text-foreground"
+                  ? "border-border-strong bg-accent text-foreground"
                   : "border-border text-muted-foreground hover:text-foreground",
               )}
             >
@@ -142,8 +142,7 @@ export function CodeToUi() {
               />
             </motion.div>
           </AnimatePresence>
-          <div className="relative flex min-h-[320px] items-center justify-center bg-surface-1/50 p-8">
-            <div aria-hidden="true" className="absolute inset-0 bg-dots mask-radial-fade" />
+          <div className="relative flex min-h-[320px] items-center justify-center bg-surface-1 p-8">
             <AnimatePresence mode="wait">
               <motion.div
                 key={sample.id}

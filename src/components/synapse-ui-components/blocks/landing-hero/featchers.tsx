@@ -155,7 +155,7 @@ export default function Features() {
             ease: [0.23, 1, 0.32, 1],
           }}
           className={cn(
-            "text-yellow-500 dark:text-[#F5EA1E] relative flex flex-col items-center gap-2 cursor-pointer",
+            "text-amber-500 dark:text-[#F5EA1E] relative flex flex-col items-center gap-2 cursor-pointer",
           )}
           onMouseEnter={() => handleMouseEnter("Motion")}
           onMouseLeave={handleMouseLeave}

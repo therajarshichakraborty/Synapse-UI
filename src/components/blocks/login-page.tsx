@@ -6,7 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Spinner } from "@/components/ui/spinner";
-import { GridBackground } from "@/components/animated/grid-background";
 import { Spotlight } from "@/components/animated/spotlight";
 
 export default function LoginPage() {
@@ -24,7 +23,7 @@ export default function LoginPage() {
           }}
         >
           <div className="flex items-center gap-2 font-semibold">
-            <span className="size-6 rounded-md bg-brand-gradient" /> Acme
+            <span className="size-6 rounded-md bg-foreground" /> Acme
           </div>
           <h1 className="mt-10 text-2xl font-semibold tracking-tight">Welcome back</h1>
           <p className="mt-2 text-sm text-muted-foreground">Sign in to your account to continue.</p>
@@ -73,7 +72,6 @@ export default function LoginPage() {
         </form>
       </div>
       <div className="relative hidden overflow-hidden border-l border-border bg-surface-1 lg:block">
-        <GridBackground fade="center" />
         <Spotlight className="-top-20 left-10" />
         <div className="absolute inset-x-12 bottom-12">
           <blockquote className="text-xl leading-relaxed font-medium tracking-tight">

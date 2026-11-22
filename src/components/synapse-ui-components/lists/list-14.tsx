@@ -28,7 +28,7 @@ const ITEMS: ListItem[] = [
     change: 2.34,
     marketCap: "$852B",
     volume: "$28B",
-    color: "from-orange-400 to-orange-600",
+    color: "from-sky-400 to-sky-600",
   },
   {
     id: "2",

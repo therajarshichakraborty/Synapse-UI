@@ -22,11 +22,11 @@ interface List01Props {
 
 const iconStyles = {
   music:
-    "from-pink-500/20 to-pink-500/10 text-pink-600 dark:from-pink-400/20 dark:to-pink-400/10 dark:text-pink-400",
+    "from-indigo-500/20 to-indigo-500/10 text-indigo-600 dark:from-indigo-400/20 dark:to-indigo-400/10 dark:text-indigo-400",
   store:
     "from-indigo-500/20 to-indigo-500/10 text-indigo-600 dark:from-indigo-400/20 dark:to-indigo-400/10 dark:text-indigo-400",
   message:
-    "from-emerald-500/20 to-emerald-500/10 text-emerald-600 dark:from-emerald-400/20 dark:to-emerald-400/10 dark:text-emerald-400",
+    "from-blue-500/20 to-blue-500/10 text-emerald-600 dark:from-blue-400/20 dark:to-blue-400/10 dark:text-emerald-400",
 };
 
 const ITEMS: ListItem[] = [
@@ -60,9 +60,9 @@ const ITEMS: ListItem[] = [
 ];
 
 const badgeVariants = {
-  pink: "bg-pink-500/10 text-pink-600 dark:bg-pink-400/10 dark:text-pink-300",
+  pink: "bg-indigo-500/10 text-indigo-600 dark:bg-indigo-400/10 dark:text-indigo-300",
   indigo: "bg-indigo-500/10 text-indigo-600 dark:bg-indigo-400/10 dark:text-indigo-300",
-  orange: "bg-orange-500/10 text-orange-600 dark:bg-orange-400/10 dark:text-orange-300",
+  orange: "bg-amber-500/10 text-amber-600 dark:bg-amber-400/10 dark:text-amber-300",
 };
 
 export default function List01({ items = ITEMS, className }: List01Props) {

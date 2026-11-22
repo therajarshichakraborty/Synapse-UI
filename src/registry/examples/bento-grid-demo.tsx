@@ -1,9 +1,7 @@
 import { BarChart3Icon, GlobeIcon, LockIcon, SparklesIcon, ZapIcon } from "lucide-react";
 import { BentoCard, BentoGrid } from "@/components/animated/bento-grid";
 
-const header = (c: string) => (
-  <div className="size-full rounded-xl bg-dots" style={{ background: c }} />
-);
+const header = (c: string) => <div className="size-full rounded-xl" style={{ background: c }} />;
 
 export default function BentoGridDemo() {
   return (

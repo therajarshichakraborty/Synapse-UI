@@ -20,10 +20,7 @@ export function BackgroundBeams({ className, count = 10 }: BackgroundBeamsProps)
   return (
     <div
       aria-hidden="true"
-      className={cn(
-        "pointer-events-none absolute inset-0 overflow-hidden mask-radial-fade",
-        className,
-      )}
+      className={cn("pointer-events-none absolute inset-0 overflow-hidden", className)}
     >
       <svg
         className="absolute size-full"
@@ -64,10 +61,10 @@ export function BackgroundBeams({ className, count = 10 }: BackgroundBeamsProps)
                 delay: i * 0.7,
               }}
             >
-              <stop stopColor="#22d3ee" stopOpacity="0" />
-              <stop stopColor="#22d3ee" />
-              <stop offset="32.5%" stopColor="#3b82f6" />
-              <stop offset="100%" stopColor="#6366f1" stopOpacity="0" />
+              <stop stopColor="#93c5fd" stopOpacity="0" />
+              <stop stopColor="#bfdbfe" />
+              <stop offset="32.5%" stopColor="#60a5fa" />
+              <stop offset="100%" stopColor="#a5b4fc" stopOpacity="0" />
             </motion.linearGradient>
           ))}
         </defs>

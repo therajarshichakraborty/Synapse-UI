@@ -42,7 +42,7 @@ export function DocsSidebarNav({ groups, className }: { groups: NavGroup[]; clas
   const { collapsed, toggle } = useCollapsedGroups();
 
   return (
-    <nav aria-label="Documentation" className={cn("grid gap-5 text-sm", className)}>
+    <nav aria-label="Documentation" className={cn("grid gap-6 text-sm", className)}>
       {groups.map((group) => {
         const isCollapsed = collapsed[group.title] === true;
         const id = `sidebar-group-${group.title.toLowerCase().replace(/\W+/g, "-")}`;
@@ -53,12 +53,12 @@ export function DocsSidebarNav({ groups, className }: { groups: NavGroup[]; clas
               onClick={() => toggle(group.title)}
               aria-expanded={!isCollapsed}
               aria-controls={id}
-              className="group flex w-full items-center justify-between rounded-md px-2 py-1 text-xs font-semibold tracking-wide text-foreground/90 uppercase outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="group flex w-full items-center justify-between rounded-md px-2.5 py-1 text-[13px] font-medium text-muted-foreground outline-none transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/40"
             >
               {group.title}
               <ChevronDownIcon
                 className={cn(
-                  "size-3.5 text-muted-foreground transition-transform duration-200",
+                  "size-3.5 opacity-0 transition-[transform,opacity] duration-200 group-hover:opacity-100",
                   isCollapsed && "-rotate-90",
                 )}
                 aria-hidden="true"
@@ -74,15 +74,15 @@ export function DocsSidebarNav({ groups, className }: { groups: NavGroup[]; clas
                       data-active={active || undefined}
                       aria-current={active ? "page" : undefined}
                       className={cn(
-                        "relative flex h-8 items-center gap-2 rounded-md px-2 text-[13.5px] outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring",
+                        "relative flex h-8 items-center gap-2 rounded-lg px-2.5 text-[14px] font-medium outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring/40",
                         active
-                          ? "bg-primary/10 font-medium text-foreground before:absolute before:inset-y-1.5 before:-left-px before:w-0.5 before:rounded-full before:bg-primary"
-                          : "text-muted-foreground hover:bg-accent/60 hover:text-foreground",
+                          ? "bg-accent text-foreground"
+                          : "text-foreground/75 hover:bg-accent/50 hover:text-foreground",
                       )}
                     >
                       <span className="truncate">{item.title}</span>
                       {item.isNew && (
-                        <span className="ml-auto rounded-full border border-primary/30 bg-primary/10 px-1.5 py-px text-[10px] leading-4 font-medium text-primary">
+                        <span className="ml-auto flex items-center gap-1 text-[11px] font-medium text-brand before:size-1.5 before:rounded-full before:bg-brand before:content-['']">
                           New
                         </span>
                       )}
@@ -130,7 +130,7 @@ export function DocsSidebar({ groups }: { groups: NavGroup[] }) {
           /* storage unavailable */
         }
       }}
-      className="h-full overflow-y-auto py-8 pr-4 pl-2 scrollbar-thin mask-edge-fade-y"
+      className="h-full overflow-y-auto py-8 pr-6 pl-4 scrollbar-none"
     >
       <DocsSidebarNav groups={groups} />
     </div>

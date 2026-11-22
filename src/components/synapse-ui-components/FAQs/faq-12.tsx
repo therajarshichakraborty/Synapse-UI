@@ -37,7 +37,7 @@ export default function Faq12() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-16 w-full bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950">
+    <section className="py-16 w-full bg-gradient-to-br from-indigo-50 via-white to-sky-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
           <div className="mb-12">

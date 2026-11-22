@@ -25,7 +25,7 @@ const toastConfig: Record<
 > = {
   success: {
     icon: CheckCircle2,
-    accentColor: "from-emerald-500",
+    accentColor: "from-blue-500",
     iconColor: "text-emerald-500",
   },
   error: {
@@ -40,7 +40,7 @@ const toastConfig: Record<
   },
   warning: {
     icon: AlertTriangle,
-    accentColor: "from-amber-500",
+    accentColor: "from-sky-500",
     iconColor: "text-amber-500",
   },
 };

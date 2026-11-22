@@ -57,7 +57,7 @@ export default function Faq15() {
                   className={cn(
                     "w-full text-left p-4 rounded-xl transition-all duration-200",
                     openIndex === index
-                      ? "bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/25"
+                      ? "bg-gradient-to-r from-sky-500 to-blue-500 text-white shadow-lg shadow-cyan-500/25"
                       : "bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800",
                   )}
                 >

@@ -56,7 +56,7 @@ export default function Alert10({
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-1.5">
               <div className="w-3 h-3 rounded-full bg-red-500" />
-              <div className="w-3 h-3 rounded-full bg-yellow-500" />
+              <div className="w-3 h-3 rounded-full bg-amber-500" />
               <div className="w-3 h-3 rounded-full bg-green-500" />
             </div>
             <span className="ml-2 text-xs font-medium text-zinc-400">Terminal</span>
@@ -106,7 +106,7 @@ export default function Alert10({
                   "text-xs",
                   status === "success" && "text-emerald-400",
                   status === "error" && "text-red-400",
-                  status === "running" && "text-yellow-400",
+                  status === "running" && "text-amber-400",
                 )}
               >
                 {status === "running" && <span className="inline-block animate-pulse mr-2">●</span>}
@@ -124,7 +124,7 @@ export default function Alert10({
                   "w-2 h-2 rounded-full",
                   status === "success" && "bg-emerald-400",
                   status === "error" && "bg-red-400",
-                  status === "running" && "bg-yellow-400 animate-pulse",
+                  status === "running" && "bg-amber-400 animate-pulse",
                 )}
               />
               <span className="text-[11px] text-zinc-500 capitalize">{status}</span>

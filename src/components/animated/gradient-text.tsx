@@ -14,7 +14,13 @@ export function GradientText({
   className,
   animate = true,
   duration = 6,
-  colors = ["#22d3ee", "#3b82f6", "#6366f1", "#3b82f6", "#22d3ee"],
+  colors = [
+    "var(--muted-foreground)",
+    "var(--foreground)",
+    "color-mix(in oklab, var(--brand) 70%, var(--foreground))",
+    "var(--foreground)",
+    "var(--muted-foreground)",
+  ],
   style,
   ...props
 }: GradientTextProps) {

@@ -11,7 +11,11 @@ export function InstallTabs({ cli, manual }: { cli: React.ReactNode; manual: Rea
 
   return (
     <div className="not-prose my-6">
-      <div role="tablist" aria-label="Installation method" className="mb-1 flex items-center gap-1">
+      <div
+        role="tablist"
+        aria-label="Installation method"
+        className="mb-1 flex items-center gap-1 border-b border-border"
+      >
         {(
           [
             ["cli", "CLI"],
@@ -26,14 +30,14 @@ export function InstallTabs({ cli, manual }: { cli: React.ReactNode; manual: Rea
             aria-controls={`${id}-${value}`}
             onClick={() => setTab(value)}
             className={cn(
-              "relative rounded-md px-3 py-1.5 text-sm font-medium outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring",
+              "relative px-3 py-2 text-sm font-medium outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring/40",
               tab === value ? "text-foreground" : "text-muted-foreground hover:text-foreground",
             )}
           >
             {tab === value && (
               <motion.span
                 layoutId={`${id}-indicator`}
-                className="absolute inset-0 rounded-md border border-border bg-surface-2"
+                className="absolute inset-x-2 -bottom-px h-0.5 rounded-full bg-foreground"
                 transition={{ type: "spring", bounce: 0.15, duration: 0.4 }}
               />
             )}
@@ -73,14 +77,14 @@ export function CollapsibleSource({
         className="my-3"
         maxHeight={expanded || !collapsible ? 640 : 300}
       >
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+        <div className="line-numbers pr-10" dangerouslySetInnerHTML={{ __html: html }} />
       </CodeFrame>
       {collapsible && !expanded && (
         <div className="pointer-events-none absolute inset-x-px bottom-px flex h-24 items-end justify-center rounded-b-xl bg-gradient-to-t from-[var(--code-bg)] via-[var(--code-bg)]/80 to-transparent pb-4">
           <button
             type="button"
             onClick={() => setExpanded(true)}
-            className="pointer-events-auto rounded-md border border-border bg-surface-2 px-3 py-1.5 text-xs font-medium text-foreground shadow-sm hover:border-border-strong"
+            className="pointer-events-auto rounded-full bg-secondary px-3.5 py-1.5 text-xs font-medium text-secondary-foreground shadow-sm hover:bg-accent"
           >
             Expand {lines} lines
           </button>

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeftIcon, ArrowRightIcon, ChevronRightIcon, ExternalLinkIcon } from "lucide-react";
+import { ArrowLeftIcon, ArrowRightIcon, ArrowUpRightIcon } from "lucide-react";
 import { getMDXComponents } from "@/components/mdx";
 import { DocsToc, type TocItem } from "@/components/site/docs/docs-toc";
+import { Button } from "@/components/ui/button";
 import { source } from "@/lib/source";
 import { buildDocsNav, getPager } from "@/lib/docs-nav";
 import { registry, entryUrl } from "@/registry/registry";
@@ -31,6 +32,9 @@ export async function generateMetadata({
   };
 }
 
+const pill =
+  "inline-flex h-6 items-center gap-1 rounded-full bg-secondary px-2.5 text-xs font-medium text-secondary-foreground transition-colors hover:bg-accent";
+
 export default async function DocsPage({ params }: { params: Promise<PageParams> }) {
   const { slug } = await params;
   const page = source.getPage(slug ?? []);
@@ -39,60 +43,51 @@ export default async function DocsPage({ params }: { params: Promise<PageParams>
   const MDX = page.data.body;
   const toc = (page.data.toc ?? []) as TocItem[];
   const groups = buildDocsNav(source.pageTree);
-  const { current, previous, next } = getPager(groups, page.url);
+  const { previous, next } = getPager(groups, page.url);
   const entry = registry.find((e) => entryUrl(e) === page.url);
 
   return (
     <div className="flex">
-      <article className="mx-auto w-full max-w-[52rem] min-w-0 px-4 pt-8 pb-20 sm:px-8 lg:pt-10">
-        <nav
-          aria-label="Breadcrumb"
-          className="mb-4 flex items-center gap-1.5 text-[13px] text-muted-foreground"
-        >
-          <Link href="/docs" className="hover:text-foreground">
-            Docs
-          </Link>
-          {current?.group && current.url !== "/docs" && (
-            <>
-              <ChevronRightIcon className="size-3.5" aria-hidden="true" />
-              <span>{current.group}</span>
-            </>
-          )}
-          <ChevronRightIcon className="size-3.5" aria-hidden="true" />
-          <span className="truncate font-medium text-foreground" aria-current="page">
-            {page.data.title}
-          </span>
-        </nav>
-
-        <header className="mb-8 border-b border-border pb-8">
-          <h1 className="text-h1 font-semibold text-gradient-subtle">{page.data.title}</h1>
+      <article className="mx-auto w-full max-w-[54rem] min-w-0 px-4 pt-8 pb-24 sm:px-8 lg:pt-10">
+        <header className="mb-10">
+          <div className="flex items-start justify-between gap-4">
+            <h1 className="text-[2rem] leading-tight font-semibold tracking-tight sm:text-4xl">
+              {page.data.title}
+            </h1>
+            <div className="flex shrink-0 items-center gap-1.5 pt-1">
+              {previous && (
+                <Button variant="secondary" size="icon-sm" asChild>
+                  <Link href={previous.url} aria-label={`Previous: ${previous.title}`}>
+                    <ArrowLeftIcon />
+                  </Link>
+                </Button>
+              )}
+              {next && (
+                <Button variant="secondary" size="icon-sm" asChild>
+                  <Link href={next.url} aria-label={`Next: ${next.title}`}>
+                    <ArrowRightIcon />
+                  </Link>
+                </Button>
+              )}
+            </div>
+          </div>
           {page.data.description && (
-            <p className="mt-3 text-body-lg text-muted-foreground">{page.data.description}</p>
+            <p className="mt-3 max-w-2xl text-[1.0625rem] leading-7 text-pretty text-muted-foreground">
+              {page.data.description}
+            </p>
           )}
           {entry && (
             <div className="mt-5 flex flex-wrap items-center gap-2">
               {entry.primitive && (
-                <a
-                  href={entry.primitive.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex h-7 items-center gap-1.5 rounded-md border border-border bg-surface-1 px-2.5 text-xs font-medium text-muted-foreground transition-colors hover:border-border-strong hover:text-foreground"
-                >
+                <a href={entry.primitive.href} target="_blank" rel="noreferrer" className={pill}>
                   {entry.primitive.label}
-                  <ExternalLinkIcon className="size-3" aria-hidden="true" />
+                  <ArrowUpRightIcon className="size-3" aria-hidden="true" />
                 </a>
               )}
-              <a
-                href="#api-reference"
-                className="inline-flex h-7 items-center gap-1.5 rounded-md border border-border bg-surface-1 px-2.5 text-xs font-medium text-muted-foreground transition-colors hover:border-border-strong hover:text-foreground"
-              >
+              <a href="#api-reference" className={pill}>
                 API Reference
+                <ArrowUpRightIcon className="size-3" aria-hidden="true" />
               </a>
-              {entry.isNew && (
-                <span className="inline-flex h-7 items-center rounded-md border border-primary/30 bg-primary/10 px-2.5 text-xs font-medium text-primary">
-                  New
-                </span>
-              )}
             </div>
           )}
         </header>
@@ -102,41 +97,30 @@ export default async function DocsPage({ params }: { params: Promise<PageParams>
         </div>
 
         {(previous || next) && (
-          <nav
-            aria-label="Pagination"
-            className="mt-16 grid gap-4 border-t border-border pt-8 sm:grid-cols-2"
-          >
+          <nav aria-label="Pagination" className="mt-20 flex items-center justify-between gap-4">
             {previous ? (
-              <Link
-                href={previous.url}
-                className="group rounded-xl border border-border bg-surface-1 p-4 transition-colors hover:border-primary/40"
-              >
-                <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                  <ArrowLeftIcon className="size-3.5 transition-transform group-hover:-translate-x-0.5" />
-                  Previous
-                </span>
-                <span className="mt-1 block font-medium">{previous.title}</span>
-              </Link>
+              <Button variant="secondary" asChild>
+                <Link href={previous.url}>
+                  <ArrowLeftIcon data-icon="inline-start" />
+                  {previous.title}
+                </Link>
+              </Button>
             ) : (
               <span />
             )}
             {next && (
-              <Link
-                href={next.url}
-                className="group rounded-xl border border-border bg-surface-1 p-4 text-right transition-colors hover:border-primary/40"
-              >
-                <span className="flex items-center justify-end gap-1 text-xs text-muted-foreground">
-                  Next
-                  <ArrowRightIcon className="size-3.5 transition-transform group-hover:translate-x-0.5" />
-                </span>
-                <span className="mt-1 block font-medium">{next.title}</span>
-              </Link>
+              <Button variant="secondary" asChild>
+                <Link href={next.url}>
+                  {next.title}
+                  <ArrowRightIcon data-icon="inline-end" />
+                </Link>
+              </Button>
             )}
           </nav>
         )}
       </article>
 
-      <aside className="sticky top-14 hidden h-[calc(100svh-3.5rem)] w-60 shrink-0 overflow-y-auto py-10 pr-6 scrollbar-thin xl:block">
+      <aside className="sticky top-0 hidden h-svh w-64 shrink-0 flex-col self-start py-10 pr-6 xl:flex">
         <DocsToc items={toc} />
       </aside>
     </div>

@@ -39,7 +39,7 @@ export default function Card_08({
       <div className="flex items-center justify-between pt-4 border-t border-zinc-200/50 dark:border-zinc-800/50">
         <span className="text-xs text-zinc-500 dark:text-zinc-400">{language}</span>
         <div className="flex items-center gap-1 text-xs">
-          <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+          <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
           <span className="text-zinc-600 dark:text-zinc-400">{stars.toLocaleString()}</span>
         </div>
       </div>

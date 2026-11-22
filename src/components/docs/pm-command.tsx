@@ -71,12 +71,12 @@ export function PmCommand({
   return (
     <div
       className={cn(
-        "my-5 overflow-hidden rounded-xl border border-border bg-[var(--code-bg)] shadow-[inset_0_1px_0_0_var(--highlight)]",
+        "my-6 overflow-hidden rounded-xl border border-border bg-[var(--code-bg)]",
         className,
       )}
     >
       <div
-        className="flex h-10 items-center gap-1 border-b border-border pr-2 pl-3"
+        className="flex h-11 items-center gap-1 border-b border-border bg-[var(--code-title)] pr-2 pl-3"
         role="tablist"
         aria-label="Package manager"
       >
@@ -89,9 +89,9 @@ export function PmCommand({
             aria-selected={pm === m}
             onClick={() => setPm(m)}
             className={cn(
-              "relative h-10 px-2 font-mono text-xs transition-colors outline-none focus-visible:text-foreground",
+              "h-7 rounded-md px-2.5 font-mono text-[12.5px] transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ring/40",
               pm === m
-                ? "text-foreground after:absolute after:inset-x-1 after:-bottom-px after:h-px after:bg-primary"
+                ? "bg-accent text-foreground"
                 : "text-muted-foreground hover:text-foreground",
             )}
           >
@@ -101,11 +101,11 @@ export function PmCommand({
         <CopyButton className="ml-auto" value={command} label="Copy command" />
       </div>
       <div
-        className="overflow-x-auto px-4 py-3.5 font-mono text-[13px] leading-6 scrollbar-thin"
+        className="overflow-x-auto px-5 py-4 font-mono text-[13px] leading-6 whitespace-nowrap scrollbar-thin"
         role="tabpanel"
       >
-        <span className="select-none text-muted-foreground">$ </span>
-        <span className="text-foreground">{command}</span>
+        <span className="text-[#cf222e] dark:text-[#ff7b72]">{command.split(" ")[0]}</span>
+        <span className="text-foreground/90"> {command.split(" ").slice(1).join(" ")}</span>
       </div>
     </div>
   );

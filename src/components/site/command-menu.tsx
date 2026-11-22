@@ -229,13 +229,13 @@ export function SearchTrigger({ className }: { className?: string }) {
       aria-label="Search documentation"
       aria-keyshortcuts="Meta+K Control+K"
       className={cn(
-        "group inline-flex h-9 items-center gap-2 rounded-lg border border-border bg-surface-1/60 px-2.5 text-sm text-muted-foreground outline-none transition-colors hover:border-border-strong hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring",
+        "group inline-flex h-9 items-center gap-2 rounded-lg bg-muted/70 px-3 text-sm text-muted-foreground outline-none transition-colors hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/40 dark:bg-muted dark:hover:bg-accent",
         className,
       )}
     >
-      <SearchIcon className="size-4" aria-hidden="true" />
-      <span className="hidden flex-1 text-left lg:inline">Search docs...</span>
-      <kbd className="pointer-events-none hidden h-5 items-center gap-0.5 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium sm:inline-flex">
+      <SearchIcon className="size-4 shrink-0 sm:hidden" aria-hidden="true" />
+      <span className="hidden flex-1 truncate text-left sm:inline">Search documentation...</span>
+      <kbd className="pointer-events-none hidden h-5 items-center gap-0.5 rounded-md border border-border bg-background px-1.5 font-sans text-[11px] font-medium text-muted-foreground md:inline-flex">
         <span className="text-xs">⌘</span>K
       </kbd>
     </button>

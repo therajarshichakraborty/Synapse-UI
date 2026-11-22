@@ -37,7 +37,7 @@ function Stage({ children }: { children: React.ReactNode }) {
 const scenes: Record<string, React.ReactNode> = {
   forms: (
     <div className="grid w-full max-w-3xl gap-4 md:grid-cols-2">
-      <div className="grid gap-4 rounded-2xl surface-card p-6">
+      <div className="grid gap-4 rounded-2xl surface-premium p-6">
         <div className="grid gap-2">
           <Label htmlFor="sc-name">Project name</Label>
           <Input id="sc-name" defaultValue="synapse-web" />
@@ -64,7 +64,7 @@ const scenes: Record<string, React.ReactNode> = {
           </Label>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center gap-6 rounded-2xl surface-card p-6">
+      <div className="flex flex-col items-center justify-center gap-6 rounded-2xl surface-premium p-6">
         <p className="text-sm font-medium">Verify your email</p>
         <InputOTP maxLength={6} defaultValue="4201" aria-label="Verification code">
           <InputOTPGroup>
@@ -84,7 +84,7 @@ const scenes: Record<string, React.ReactNode> = {
         selected={new Date()}
         className="mx-auto rounded-2xl border border-border bg-card"
       />
-      <div className="rounded-2xl surface-card p-2">
+      <div className="rounded-2xl surface-premium p-2">
         <Accordion type="single" collapsible defaultValue="a">
           {[
             ["a", "Standup", "9:30 AM · Engineering"],
@@ -94,7 +94,7 @@ const scenes: Record<string, React.ReactNode> = {
             <AccordionItem key={v} value={v} className="px-3">
               <AccordionTrigger>
                 <span className="flex items-center gap-2">
-                  <CalendarIcon className="size-4 text-primary" /> {t}
+                  <CalendarIcon className="size-4 text-muted-foreground" /> {t}
                 </span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">{s}</AccordionContent>
@@ -107,7 +107,7 @@ const scenes: Record<string, React.ReactNode> = {
   motion: (
     <div className="grid w-full max-w-4xl items-center gap-6 md:grid-cols-2">
       <TiltCard>
-        <div className="aspect-[16/10] rounded-xl bg-[radial-gradient(ellipse_at_top_left,#22d3ee,#3b82f6_45%,#312e81)]" />
+        <div className="aspect-[16/10] rounded-xl bg-[linear-gradient(160deg,#3f3f46,#18181b_55%,#09090b)]" />
         <p className="mt-4 font-semibold">3D Tilt Card</p>
         <p className="text-sm text-muted-foreground">Move your pointer across me.</p>
       </TiltCard>
@@ -163,8 +163,7 @@ export function Showcase() {
             ]}
           />
         </div>
-        <div className="relative mt-8 overflow-hidden rounded-3xl border border-border bg-surface-1/50">
-          <div aria-hidden="true" className="absolute inset-0 bg-dots mask-radial-fade" />
+        <div className="relative mt-8 overflow-hidden rounded-3xl border border-border bg-surface-1/60">
           <AnimatePresence mode="wait">
             <motion.div
               key={tab}

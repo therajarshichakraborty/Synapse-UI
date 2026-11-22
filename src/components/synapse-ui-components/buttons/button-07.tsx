@@ -14,7 +14,7 @@ export default function Button07({
     <Button
       className={cn(
         "relative h-11 px-8",
-        "bg-gradient-to-br from-emerald-400 to-teal-600",
+        "bg-gradient-to-br from-blue-400 to-blue-600",
         "text-white",
         "hover:shadow-xl hover:shadow-teal-600/40",
         "rounded-lg",

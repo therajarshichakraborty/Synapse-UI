@@ -9,11 +9,11 @@ const gradientBadgeVariants = cva(
   {
     variants: {
       gradient: {
-        sunset: "bg-gradient-to-r from-orange-500 via-pink-500 to-rose-500",
-        ocean: "bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500",
-        forest: "bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500",
-        aurora: "bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-500",
-        gold: "bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-400",
+        sunset: "bg-gradient-to-r from-sky-500 via-indigo-500 to-indigo-500",
+        ocean: "bg-gradient-to-r from-sky-500 via-blue-500 to-indigo-500",
+        forest: "bg-gradient-to-r from-blue-500 via-blue-500 to-blue-500",
+        aurora: "bg-gradient-to-r from-blue-500 via-indigo-500 to-sky-500",
+        gold: "bg-gradient-to-r from-sky-400 via-sky-500 to-sky-400",
         midnight: "bg-gradient-to-r from-slate-700 via-slate-800 to-slate-900",
       },
       state: {
@@ -24,7 +24,7 @@ const gradientBadgeVariants = cva(
       },
     },
     compoundVariants: [
-      { gradient: "sunset", state: "hover", className: "shadow-rose-500/40" },
+      { gradient: "sunset", state: "hover", className: "shadow-indigo-500/40" },
       { gradient: "ocean", state: "hover", className: "shadow-blue-500/40" },
       { gradient: "forest", state: "hover", className: "shadow-emerald-500/40" },
       { gradient: "aurora", state: "hover", className: "shadow-indigo-500/40" },

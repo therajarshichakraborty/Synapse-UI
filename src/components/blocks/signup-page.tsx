@@ -15,7 +15,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { GridBackground } from "@/components/animated/grid-background";
 
 const schema = z.object({
   name: z.string().min(2, "Please enter your name."),
@@ -34,10 +33,9 @@ export default function SignupPage() {
 
   return (
     <div className="relative flex min-h-svh items-center justify-center overflow-hidden bg-background px-6 py-12">
-      <GridBackground variant="dots" fade="center" />
       <div
         aria-hidden="true"
-        className="absolute top-1/4 left-1/2 size-96 -translate-x-1/2 rounded-full bg-primary/20 blur-3xl"
+        className="absolute top-1/4 left-1/2 size-96 -translate-x-1/2 rounded-full bg-brand/10 blur-3xl"
       />
       <div className="relative w-full max-w-md rounded-2xl glass border border-border p-8 shadow-2xl">
         <h1 className="text-2xl font-semibold tracking-tight">Create your account</h1>

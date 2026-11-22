@@ -53,7 +53,7 @@ export function AnimatedTooltip({
                 className="absolute -top-16 left-1/2 z-50 flex -translate-x-1/2 flex-col items-center rounded-lg border border-border bg-popover px-4 py-2 whitespace-nowrap shadow-xl"
                 role="tooltip"
               >
-                <span className="absolute inset-x-6 -bottom-px h-px bg-gradient-to-r from-transparent via-glow-cyan to-transparent" />
+                <span className="absolute inset-x-6 -bottom-px h-px bg-gradient-to-r from-transparent via-brand to-transparent" />
                 <span className="text-sm font-semibold">{item.name}</span>
                 <span className="text-xs text-muted-foreground">{item.designation}</span>
               </motion.div>
@@ -70,7 +70,7 @@ export function AnimatedTooltip({
               // eslint-disable-next-line @next/next/no-img-element
               <img src={item.image} alt="" className="size-full object-cover" />
             ) : (
-              <span className="flex size-full items-center justify-center bg-brand-gradient text-sm font-semibold text-white">
+              <span className="flex size-full items-center justify-center bg-muted text-sm font-semibold text-foreground">
                 {item.name
                   .split(" ")
                   .map((p) => p[0])

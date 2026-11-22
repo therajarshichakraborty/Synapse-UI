@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "components/synapse-ui/buttons/button-07.tsx",
-      "content": "import { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\ninterface Button07Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  children?: React.ReactNode;\n}\n\nexport default function Button07({\n  className,\n  children = \"Filled Button\",\n  ...props\n}: Button07Props) {\n  return (\n    <Button\n      className={cn(\n        \"relative h-11 px-8\",\n        \"bg-gradient-to-br from-emerald-400 to-teal-600\",\n        \"text-white\",\n        \"hover:shadow-xl hover:shadow-teal-600/40\",\n        \"rounded-lg\",\n        \"transition-all duration-300\",\n        \"font-semibold\",\n        \"tracking-wide\",\n        className,\n      )}\n      {...props}\n    >\n      {children}\n    </Button>\n  );\n}\n",
+      "content": "import { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\ninterface Button07Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  children?: React.ReactNode;\n}\n\nexport default function Button07({\n  className,\n  children = \"Filled Button\",\n  ...props\n}: Button07Props) {\n  return (\n    <Button\n      className={cn(\n        \"relative h-11 px-8\",\n        \"bg-gradient-to-br from-blue-400 to-blue-600\",\n        \"text-white\",\n        \"hover:shadow-xl hover:shadow-teal-600/40\",\n        \"rounded-lg\",\n        \"transition-all duration-300\",\n        \"font-semibold\",\n        \"tracking-wide\",\n        className,\n      )}\n      {...props}\n    >\n      {children}\n    </Button>\n  );\n}\n",
       "type": "registry:ui"
     }
   ]

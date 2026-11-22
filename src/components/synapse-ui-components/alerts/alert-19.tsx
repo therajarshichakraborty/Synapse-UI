@@ -84,7 +84,7 @@ export default function Alert19({
         <div className="p-5">
           <div className="flex items-start justify-between gap-4">
             <div className="flex items-start gap-3">
-              <div className="flex-shrink-0 p-2.5 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 shadow-lg shadow-emerald-500/25">
+              <div className="flex-shrink-0 p-2.5 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 shadow-lg shadow-emerald-500/25">
                 <Shield className="h-5 w-5 text-white" />
               </div>
 

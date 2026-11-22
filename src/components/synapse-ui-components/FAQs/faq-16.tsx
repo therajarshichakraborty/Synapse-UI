@@ -46,7 +46,7 @@ const faqColumns = [
 
 export default function Faq16() {
   return (
-    <section className="py-16 w-full bg-gradient-to-b from-amber-50 to-orange-50 dark:from-zinc-950 dark:to-zinc-900">
+    <section className="py-16 w-full bg-gradient-to-b from-sky-50 to-sky-50 dark:from-zinc-950 dark:to-zinc-900">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">

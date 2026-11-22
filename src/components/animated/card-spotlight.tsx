@@ -14,7 +14,7 @@ export function CardSpotlight({
   className,
   children,
   radius = 320,
-  color = "rgb(59 130 246 / 0.15)",
+  color = "color-mix(in oklab, var(--foreground) 7%, transparent)",
   ...props
 }: CardSpotlightProps) {
   const ref = React.useRef<HTMLDivElement>(null);
@@ -31,7 +31,10 @@ export function CardSpotlight({
     <div
       ref={ref}
       onPointerMove={onMove}
-      className={cn("group/spot relative overflow-hidden rounded-2xl surface-card p-6", className)}
+      className={cn(
+        "group/spot relative overflow-hidden rounded-2xl surface-premium p-6",
+        className,
+      )}
       style={{ "--r": `${radius}px`, "--spot": color } as React.CSSProperties}
       {...props}
     >
@@ -49,7 +52,7 @@ export function CardSpotlight({
         style={{
           padding: 1,
           background:
-            "radial-gradient(calc(var(--r) * 0.6) circle at var(--x, 50%) var(--y, 50%), rgb(96 165 250 / 0.7), transparent 70%)",
+            "radial-gradient(calc(var(--r) * 0.6) circle at var(--x, 50%) var(--y, 50%), color-mix(in oklab, var(--foreground) 35%, transparent), transparent 70%)",
           WebkitMask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
           WebkitMaskComposite: "xor",
           maskComposite: "exclude",

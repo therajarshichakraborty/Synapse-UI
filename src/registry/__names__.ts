@@ -130,5 +130,5 @@ export const exampleNames = [
   "toggle-group-demo",
   "tooltip-demo",
   "tracing-beam-demo",
-  "typewriter-demo"
+  "typewriter-demo",
 ] as const;

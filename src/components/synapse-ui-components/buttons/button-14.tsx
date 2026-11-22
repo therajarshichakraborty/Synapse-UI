@@ -15,9 +15,9 @@ export default function Button14({
     <Button
       className={cn(
         "relative h-11 px-6",
-        "bg-gradient-to-r from-yellow-400 to-orange-500",
+        "bg-gradient-to-r from-sky-400 to-sky-500",
         "text-white",
-        "hover:shadow-xl hover:shadow-yellow-500/40",
+        "hover:shadow-xl hover:shadow-amber-500/40",
         "rounded-lg",
         "transition-all duration-300",
         "group",

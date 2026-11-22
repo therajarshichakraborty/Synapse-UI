@@ -19,13 +19,13 @@ import {
 function heading(Tag: "h2" | "h3" | "h4", base: string) {
   function Heading({ className, id, children, ...props }: ComponentProps<"h2">) {
     return (
-      <Tag id={id} className={cn("group scroll-mt-20", base, className)} {...props}>
+      <Tag id={id} className={cn("group scroll-mt-8", base, className)} {...props}>
         {children}
         {id && (
           <a
             href={`#${id}`}
             aria-label="Link to this section"
-            className="ml-2 text-muted-foreground/0 no-underline transition-colors group-hover:text-muted-foreground hover:text-primary!"
+            className="ml-2 text-muted-foreground/0 no-underline transition-colors group-hover:text-muted-foreground hover:text-foreground!"
           >
             #
           </a>
@@ -40,7 +40,7 @@ function heading(Tag: "h2" | "h3" | "h4", base: string) {
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {
     h1: ({ className, ...props }: ComponentProps<"h1">) => (
-      <h1 className={cn("mt-2 scroll-mt-20 text-h2 font-semibold", className)} {...props} />
+      <h1 className={cn("mt-2 scroll-mt-8 text-h2 font-semibold", className)} {...props} />
     ),
     h2: heading("h2", "mt-14 mb-4 text-h3 font-semibold first:mt-0"),
     h3: heading("h3", "mt-9 mb-3 text-h4 font-semibold"),
@@ -53,7 +53,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     ),
     a: ({ className, href = "", ...props }: ComponentProps<"a">) => {
       const cls = cn(
-        "font-medium text-foreground underline decoration-primary/40 underline-offset-4 transition-colors hover:decoration-primary",
+        "font-medium text-foreground underline decoration-border-strong underline-offset-4 transition-colors hover:decoration-foreground",
         className,
       );
       return href.startsWith("/") || href.startsWith("#") ? (
@@ -71,7 +71,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
       return (
         <code
           className={cn(
-            "rounded-md border border-border bg-muted px-1.5 py-0.5 font-mono text-[0.85em] text-foreground",
+            "rounded-md bg-muted px-[0.4em] py-[0.15em] font-mono text-[0.85em] font-medium text-foreground",
             className,
           )}
           {...props}
@@ -82,7 +82,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     ul: ({ className, ...props }: ComponentProps<"ul">) => (
       <ul
         className={cn(
-          "my-4 ml-1 space-y-2 text-muted-foreground [&>li]:relative [&>li]:pl-5 [&>li]:before:absolute [&>li]:before:top-[0.7em] [&>li]:before:left-1 [&>li]:before:size-1.5 [&>li]:before:rounded-full [&>li]:before:bg-primary/60 [&>li]:before:content-['']",
+          "my-4 ml-1 space-y-2 text-muted-foreground [&>li]:relative [&>li]:pl-5 [&>li]:before:absolute [&>li]:before:top-[0.7em] [&>li]:before:left-1 [&>li]:before:size-1.5 [&>li]:before:rounded-full [&>li]:before:bg-muted-foreground/50 [&>li]:before:content-['']",
           className,
         )}
         {...props}
@@ -103,7 +103,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     blockquote: ({ className, ...props }: ComponentProps<"blockquote">) => (
       <blockquote
         className={cn(
-          "my-6 border-l-2 border-primary/50 pl-4 text-muted-foreground italic",
+          "my-6 border-l-2 border-border-strong pl-4 text-muted-foreground italic",
           className,
         )}
         {...props}
@@ -113,24 +113,33 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
       <hr className={cn("my-12 border-border", className)} {...props} />
     ),
     table: ({ className, ...props }: ComponentProps<"table">) => (
-      <div className="my-6 overflow-x-auto rounded-xl border border-border scrollbar-thin">
-        <table className={cn("w-full text-left text-sm", className)} {...props} />
+      <div className="not-prose my-6 overflow-x-auto rounded-xl border border-border scrollbar-thin">
+        <table className={cn("w-full min-w-[520px] text-left text-sm", className)} {...props} />
       </div>
     ),
     thead: ({ className, ...props }: ComponentProps<"thead">) => (
-      <thead className={cn("bg-surface-1", className)} {...props} />
+      <thead className={cn("border-b border-border bg-surface-1", className)} {...props} />
+    ),
+    tbody: ({ className, ...props }: ComponentProps<"tbody">) => (
+      <tbody className={cn("divide-y divide-border", className)} {...props} />
     ),
     tr: ({ className, ...props }: ComponentProps<"tr">) => (
-      <tr className={cn("border-b border-border last:border-0", className)} {...props} />
+      <tr className={cn("transition-colors hover:bg-surface-1/60", className)} {...props} />
     ),
     th: ({ className, ...props }: ComponentProps<"th">) => (
       <th
-        className={cn("px-4 py-2.5 text-xs font-medium text-muted-foreground", className)}
+        className={cn("px-4 py-3 text-[13px] font-medium text-foreground", className)}
         {...props}
       />
     ),
     td: ({ className, ...props }: ComponentProps<"td">) => (
-      <td className={cn("px-4 py-3 align-top text-muted-foreground", className)} {...props} />
+      <td
+        className={cn(
+          "px-4 py-3.5 align-top leading-6 text-muted-foreground [&_code]:rounded-md [&_code]:bg-muted [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-[12px] [&_code]:text-foreground [&:first-child_code]:bg-transparent [&:first-child_code]:px-0 [&:first-child_code]:text-[13px] [&:first-child_code]:font-medium",
+          className,
+        )}
+        {...props}
+      />
     ),
     img: ({ className, alt = "", ...props }: ComponentProps<"img">) => (
       // eslint-disable-next-line @next/next/no-img-element

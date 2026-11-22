@@ -14,7 +14,7 @@ import { entryUrl, registry, type RegistryCategory } from "@/registry/registry";
 /* ── Callout ───────────────────────────────────────────────────────────── */
 
 const calloutStyles = {
-  info: { Icon: InfoIcon, cls: "border-primary/25 bg-primary/[0.06] [&_svg]:text-primary" },
+  info: { Icon: InfoIcon, cls: "border-border bg-surface-1 [&_svg]:text-brand" },
   tip: {
     Icon: LightbulbIcon,
     cls: "border-glow-cyan/25 bg-glow-cyan/[0.06] [&_svg]:text-glow-cyan",
@@ -46,7 +46,7 @@ export function Callout({
   return (
     <div
       role="note"
-      className={cn("not-prose my-6 flex gap-3 rounded-xl border px-4 py-3.5 text-sm", cls)}
+      className={cn("not-prose my-6 flex gap-3 rounded-2xl border px-4 py-3.5 text-sm", cls)}
     >
       <Icon className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
       <div className="min-w-0 leading-6 text-muted-foreground [&_a]:text-foreground [&_a]:underline [&_code]:text-foreground [&_p]:m-0">
@@ -86,67 +86,92 @@ export type PropRow = {
   required?: boolean;
 };
 
+const chip =
+  "inline-block rounded-md bg-muted px-1.5 py-0.5 font-mono text-[12px] leading-5 text-foreground";
+
+/** Splits a union type like `"a" | "b"` into separate chips so long unions wrap cleanly. */
+function TypeChips({ type }: { type: string }) {
+  const parts = type.split(/\s\|\s/);
+  if (parts.length < 2) return <code className={chip}>{type}</code>;
+  return (
+    <span className="flex flex-wrap gap-1">
+      {parts.map((p, i) => (
+        <code key={`${p}-${i}`} className={chip}>
+          {p}
+        </code>
+      ))}
+    </span>
+  );
+}
+
 export function PropsTable({ props: rows, className }: { props: PropRow[]; className?: string }) {
+  if (!rows.length) return null;
   return (
     <div
-      className={cn("not-prose my-5 overflow-hidden rounded-xl border border-border", className)}
+      className={cn("not-prose my-6 overflow-hidden rounded-xl border border-border", className)}
     >
-      <div className="overflow-x-auto scrollbar-thin">
-        <table className="w-full min-w-[560px] text-left text-sm">
-          <thead className="bg-surface-1">
-            <tr className="border-b border-border">
-              <th
-                scope="col"
-                className="w-[24%] px-4 py-2.5 text-xs font-medium text-muted-foreground"
-              >
-                Prop
-              </th>
-              <th
-                scope="col"
-                className="w-[30%] px-4 py-2.5 text-xs font-medium text-muted-foreground"
-              >
-                Type
-              </th>
-              <th
-                scope="col"
-                className="w-[14%] px-4 py-2.5 text-xs font-medium text-muted-foreground"
-              >
-                Default
-              </th>
-              <th scope="col" className="px-4 py-2.5 text-xs font-medium text-muted-foreground">
-                Description
-              </th>
+      {/* Desktop */}
+      <table className="hidden w-full text-left text-sm md:table">
+        <thead>
+          <tr className="border-b border-border bg-surface-1">
+            <th scope="col" className="w-[22%] px-4 py-3 text-[13px] font-medium">
+              Prop
+            </th>
+            <th scope="col" className="w-[34%] px-4 py-3 text-[13px] font-medium">
+              Type
+            </th>
+            <th scope="col" className="w-[14%] px-4 py-3 text-[13px] font-medium">
+              Default
+            </th>
+            <th scope="col" className="px-4 py-3 text-[13px] font-medium">
+              Description
+            </th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-border">
+          {rows.map((row) => (
+            <tr key={row.prop} className="align-top transition-colors hover:bg-surface-1/60">
+              <td className="px-4 py-3.5">
+                <code className="font-mono text-[13px] font-medium whitespace-nowrap text-foreground">
+                  {row.prop}
+                  {row.required && <span className="ml-0.5 text-destructive">*</span>}
+                </code>
+              </td>
+              <td className="px-4 py-3.5">
+                <TypeChips type={row.type} />
+              </td>
+              <td className="px-4 py-3.5">
+                {row.defaultValue ? (
+                  <code className={chip}>{row.defaultValue}</code>
+                ) : (
+                  <span className="text-muted-foreground">-</span>
+                )}
+              </td>
+              <td className="px-4 py-3.5 leading-6 text-muted-foreground">{row.description}</td>
             </tr>
-          </thead>
-          <tbody>
-            {rows.map((row) => (
-              <tr key={row.prop} className="border-b border-border last:border-0 align-top">
-                <td className="px-4 py-3">
-                  <code className="font-mono text-[12.5px] text-primary">
-                    {row.prop}
-                    {row.required && <span className="text-destructive">*</span>}
-                  </code>
-                </td>
-                <td className="px-4 py-3">
-                  <code className="font-mono text-[12px] break-words text-foreground/90">
-                    {row.type}
-                  </code>
-                </td>
-                <td className="px-4 py-3">
-                  {row.defaultValue ? (
-                    <code className="font-mono text-[12px] text-muted-foreground">
-                      {row.defaultValue}
-                    </code>
-                  ) : (
-                    <span className="text-muted-foreground">-</span>
-                  )}
-                </td>
-                <td className="px-4 py-3 leading-6 text-muted-foreground">{row.description}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          ))}
+        </tbody>
+      </table>
+      {/* Mobile */}
+      <dl className="divide-y divide-border md:hidden">
+        {rows.map((row) => (
+          <div key={row.prop} className="grid gap-2.5 p-4">
+            <dt className="flex items-center justify-between gap-3">
+              <code className="font-mono text-[13px] font-medium">
+                {row.prop}
+                {row.required && <span className="ml-0.5 text-destructive">*</span>}
+              </code>
+              {row.defaultValue && <code className={chip}>{row.defaultValue}</code>}
+            </dt>
+            <dd>
+              <TypeChips type={row.type} />
+            </dd>
+            {row.description && (
+              <dd className="text-sm leading-6 text-muted-foreground">{row.description}</dd>
+            )}
+          </div>
+        ))}
+      </dl>
     </div>
   );
 }
@@ -155,37 +180,39 @@ export function PropsTable({ props: rows, className }: { props: PropRow[]; class
 
 export function KeyboardTable({ keys }: { keys: [string, string][] }) {
   return (
-    <div className="not-prose my-5 overflow-hidden rounded-xl border border-border">
+    <div className="not-prose my-6 overflow-hidden rounded-xl border border-border">
       <table className="w-full text-left text-sm">
-        <thead className="bg-surface-1">
-          <tr className="border-b border-border">
-            <th
-              scope="col"
-              className="w-[34%] px-4 py-2.5 text-xs font-medium text-muted-foreground"
-            >
+        <thead>
+          <tr className="border-b border-border bg-surface-1">
+            <th scope="col" className="w-[38%] px-4 py-3 text-[13px] font-medium">
               Key
             </th>
-            <th scope="col" className="px-4 py-2.5 text-xs font-medium text-muted-foreground">
+            <th scope="col" className="px-4 py-3 text-[13px] font-medium">
               Description
             </th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="divide-y divide-border">
           {keys.map(([key, desc]) => (
-            <tr key={key} className="border-b border-border last:border-0 align-top">
-              <td className="px-4 py-3">
-                <span className="flex flex-wrap gap-1">
-                  {key.split(" + ").map((k) => (
-                    <kbd
-                      key={k}
-                      className="inline-flex h-6 min-w-6 items-center justify-center rounded-md border border-border bg-surface-2 px-1.5 font-mono text-[11px] text-foreground shadow-[inset_0_-1px_0_0_var(--border)]"
-                    >
-                      {k}
-                    </kbd>
+            <tr key={key} className="align-top transition-colors hover:bg-surface-1/60">
+              <td className="px-4 py-3.5">
+                <span className="flex flex-wrap items-center gap-1.5">
+                  {key.split(" / ").map((alt, i) => (
+                    <span key={alt} className="flex items-center gap-1">
+                      {i > 0 && <span className="mr-0.5 text-xs text-muted-foreground">or</span>}
+                      {alt.split(" + ").map((k, j) => (
+                        <span key={k} className="flex items-center gap-1">
+                          {j > 0 && <span className="text-xs text-muted-foreground">+</span>}
+                          <kbd className="inline-flex h-6 min-w-6 items-center justify-center rounded-md border border-border bg-background px-1.5 font-sans text-[12px] font-medium text-foreground shadow-[0_1px_0_0_var(--border)]">
+                            {k}
+                          </kbd>
+                        </span>
+                      ))}
+                    </span>
                   ))}
                 </span>
               </td>
-              <td className="px-4 py-3 leading-6 text-muted-foreground">{desc}</td>
+              <td className="px-4 py-3.5 leading-6 text-muted-foreground">{desc}</td>
             </tr>
           ))}
         </tbody>
@@ -204,12 +231,12 @@ export function ComponentsGrid({ category }: { category: RegistryCategory }) {
         <Link
           key={item.name}
           href={entryUrl(item)}
-          className="group relative flex flex-col rounded-xl border border-border bg-surface-1 p-4 shadow-[inset_0_1px_0_0_var(--highlight)] transition-colors hover:border-primary/40"
+          className="group relative flex flex-col rounded-2xl border border-border bg-card p-4 transition-colors hover:bg-accent/40"
         >
           <span className="flex items-center gap-2 text-sm font-medium text-foreground">
             {item.title}
             {item.isNew && (
-              <span className="rounded-full border border-primary/30 bg-primary/10 px-1.5 text-[10px] leading-4 text-primary">
+              <span className="rounded-full bg-brand/10 px-1.5 text-[10px] leading-4 font-medium text-brand">
                 New
               </span>
             )}

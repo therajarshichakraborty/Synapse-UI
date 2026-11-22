@@ -1,13 +1,12 @@
 import "server-only";
 import { createHighlighter, type Highlighter } from "shiki";
-import { synapseDark, synapseLight } from "./themes";
 import { parseLineRanges } from "./transformers";
 
 let highlighter: Promise<Highlighter> | null = null;
 
 function getHighlighter() {
   highlighter ??= createHighlighter({
-    themes: [synapseDark, synapseLight],
+    themes: ["github-dark-default", "github-light-default"],
     langs: ["tsx", "ts", "bash", "json", "css", "mdx"],
   });
   return highlighter;
@@ -18,7 +17,7 @@ export async function highlight(code: string, lang = "tsx", highlightLines?: str
   const lines = parseLineRanges(highlightLines);
   return hl.codeToHtml(code.trimEnd(), {
     lang,
-    themes: { light: "synapse-light", dark: "synapse-dark" },
+    themes: { light: "github-light-default", dark: "github-dark-default" },
     defaultColor: false,
     transformers: [
       {

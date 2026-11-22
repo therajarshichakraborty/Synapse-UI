@@ -13,7 +13,7 @@ export default function LandingInterfaceCards() {
         <div className="space-y-6">
           <div>
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-pink-500 dark:from-amber-400 dark:to-pink-400">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-indigo-500 dark:from-sky-400 dark:to-indigo-400">
                 Build beautiful interfaces
               </span>
             </h2>

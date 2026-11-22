@@ -23,14 +23,14 @@ const ITEMS: ListItem[] = [
     title: "Lightning Fast",
     description: "Optimized for speed with sub-second response times",
     icon: Zap,
-    color: "from-amber-400 to-orange-500",
+    color: "from-sky-400 to-sky-500",
   },
   {
     id: "2",
     title: "Enterprise Security",
     description: "Bank-grade encryption and SOC 2 compliance",
     icon: Shield,
-    color: "from-emerald-400 to-teal-500",
+    color: "from-blue-400 to-blue-500",
   },
   {
     id: "3",
@@ -44,7 +44,7 @@ const ITEMS: ListItem[] = [
     title: "AI Powered",
     description: "Smart automation that learns and adapts",
     icon: Sparkles,
-    color: "from-indigo-400 to-pink-500",
+    color: "from-indigo-400 to-indigo-500",
   },
 ];
 

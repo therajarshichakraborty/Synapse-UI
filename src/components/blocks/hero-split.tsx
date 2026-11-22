@@ -1,14 +1,12 @@
 import { ArrowRightIcon, CheckIcon, TrendingUpIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { GridBackground } from "@/components/animated/grid-background";
 
 const points = ["Real-time collaboration", "Granular permissions", "Unlimited history"];
 
 export default function HeroSplit() {
   return (
     <section className="relative isolate overflow-hidden bg-background">
-      <GridBackground variant="dots" fade="center" className="-z-10" />
       <div className="mx-auto grid max-w-6xl items-center gap-16 px-6 py-24 lg:grid-cols-2 lg:py-32">
         <div>
           <Badge variant="info">v2.0 is live</Badge>
@@ -41,7 +39,7 @@ export default function HeroSplit() {
         <div className="relative">
           <div
             aria-hidden="true"
-            className="absolute -inset-10 -z-10 rounded-full bg-primary/20 blur-3xl"
+            className="absolute -inset-10 -z-10 rounded-full bg-brand/10 blur-3xl"
           />
           <div className="grid gap-4">
             <div className="rounded-2xl surface-card p-5">

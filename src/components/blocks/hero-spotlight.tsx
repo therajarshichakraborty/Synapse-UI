@@ -1,13 +1,11 @@
 import Link from "next/link";
 import { ArrowRightIcon, SparklesIcon } from "lucide-react";
 import { Spotlight } from "@/components/animated/spotlight";
-import { GridBackground } from "@/components/animated/grid-background";
 import { Button } from "@/components/ui/button";
 
 export default function HeroSpotlight() {
   return (
     <section className="relative isolate overflow-hidden bg-background">
-      <GridBackground fade="top" className="-z-10" />
       <Spotlight className="-top-40 left-0 md:-top-24 md:left-60" />
       <div className="mx-auto flex max-w-5xl flex-col items-center px-6 pt-28 pb-24 text-center md:pt-36 md:pb-32">
         <Link

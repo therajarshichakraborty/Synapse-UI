@@ -22,7 +22,7 @@ export function CliSection() {
           <ul className="mt-8 grid gap-3">
             {points.map((p) => (
               <li key={p} className="flex items-center gap-3 text-sm text-muted-foreground">
-                <span className="flex size-5 items-center justify-center rounded-full bg-primary/15 text-primary">
+                <span className="flex size-5 items-center justify-center rounded-full bg-foreground text-background">
                   <CheckIcon className="size-3" />
                 </span>
                 {p}
@@ -31,10 +31,6 @@ export function CliSection() {
           </ul>
         </div>
         <div className="relative">
-          <div
-            aria-hidden="true"
-            className="absolute -inset-8 -z-10 rounded-full bg-primary/15 blur-3xl"
-          />
           <Terminal
             title="~/my-app"
             lines={[

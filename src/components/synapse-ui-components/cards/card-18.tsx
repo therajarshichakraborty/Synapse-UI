@@ -17,7 +17,7 @@ export default function Card_18({
   const statusColors = {
     online: "bg-green-500 dark:bg-green-500",
     offline: "bg-zinc-400 dark:bg-zinc-600",
-    idle: "bg-yellow-500 dark:bg-yellow-500",
+    idle: "bg-amber-500 dark:bg-amber-500",
   };
 
   return (

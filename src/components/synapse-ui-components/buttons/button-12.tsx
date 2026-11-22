@@ -11,8 +11,8 @@ export default function Button12({ className, children = "Neon Button", ...props
       className={cn(
         "relative h-11 px-8",
         "bg-black dark:bg-white",
-        "text-lime-400 dark:text-lime-600",
-        "border-2 border-lime-400 dark:border-lime-600",
+        "text-emerald-400 dark:text-emerald-600",
+        "border-2 border-emerald-400 dark:border-emerald-600",
         "rounded-lg",
         "transition-all duration-300",
         "shadow-[0_0_10px_rgba(196,181,253,0.5)]",

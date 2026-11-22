@@ -35,7 +35,7 @@ export function InfiniteMovingCards({
         >
           <blockquote className="text-sm leading-6 text-foreground/90">“{item.quote}”</blockquote>
           <figcaption className="mt-4 flex items-center gap-3">
-            <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-brand-gradient text-xs font-semibold text-white">
+            <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-muted text-xs font-semibold text-foreground">
               {item.name
                 .split(" ")
                 .map((p) => p[0])

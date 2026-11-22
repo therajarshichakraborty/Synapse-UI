@@ -19,7 +19,7 @@ const ITEMS: ListItem[] = [
   { id: "1", title: "Personal", color: "bg-blue-500" },
   { id: "2", title: "Work", color: "bg-emerald-500" },
   { id: "3", title: "Shopping", color: "bg-amber-500" },
-  { id: "4", title: "Health", color: "bg-rose-500" },
+  { id: "4", title: "Health", color: "bg-indigo-500" },
 ];
 
 export default function List16({ items = ITEMS, className }: List16Props) {
@@ -31,7 +31,7 @@ export default function List16({ items = ITEMS, className }: List16Props) {
     "bg-blue-500",
     "bg-emerald-500",
     "bg-amber-500",
-    "bg-rose-500",
+    "bg-indigo-500",
     "bg-indigo-500",
     "bg-cyan-500",
   ];

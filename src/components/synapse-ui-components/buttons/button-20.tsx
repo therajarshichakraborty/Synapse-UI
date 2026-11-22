@@ -14,7 +14,7 @@ export default function Button20({
     <Button
       className={cn(
         "relative h-11 px-8",
-        "bg-gradient-to-r from-green-400 via-cyan-500 to-blue-600",
+        "bg-gradient-to-r from-blue-400 via-sky-500 to-blue-600",
         "text-white",
         "hover:shadow-2xl hover:shadow-cyan-500/50",
         "rounded-lg",

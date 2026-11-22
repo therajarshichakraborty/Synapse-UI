@@ -9,24 +9,20 @@ const stats = [
   { label: "Contributors", value: siteConfig.stats.contributors, suffix: "" },
 ];
 
-export function Stats() {
+export function Stats({ stars }: { stars?: number }) {
   return (
-    <section aria-label="Project stats" className="py-16">
+    <section aria-label="Project stats" className="py-12">
       <div className="container-page">
-        <dl className="grid grid-cols-2 divide-border overflow-hidden rounded-3xl border border-border bg-surface-1/50 lg:grid-cols-4 lg:divide-x">
-          {stats.map((s, i) => (
-            <div
-              key={s.label}
-              className={
-                "px-6 py-10 text-center " +
-                (i < 2 ? "border-b border-border lg:border-b-0" : "") +
-                (i % 2 === 0 ? " border-r border-border lg:border-r-0" : "")
-              }
-            >
-              <dt className="text-sm text-muted-foreground">{s.label}</dt>
-              <dd className="mt-2 text-4xl font-semibold tracking-tight text-gradient-subtle md:text-5xl">
-                <NumberTicker value={s.value} suffix={s.suffix} />
+        <dl className="mx-auto grid max-w-5xl grid-cols-2 gap-px overflow-hidden rounded-3xl border border-border bg-border lg:grid-cols-4">
+          {stats.map((s) => (
+            <div key={s.label} className="flex flex-col gap-2 bg-background px-6 py-10 text-center">
+              <dd className="order-1 text-[clamp(2.25rem,1.8rem+1.6vw,3rem)] leading-none font-semibold tracking-[-0.04em]">
+                <NumberTicker
+                  value={s.label === "GitHub stars" && stars ? stars : s.value}
+                  suffix={s.suffix}
+                />
               </dd>
+              <dt className="order-2 text-sm text-muted-foreground">{s.label}</dt>
             </div>
           ))}
         </dl>

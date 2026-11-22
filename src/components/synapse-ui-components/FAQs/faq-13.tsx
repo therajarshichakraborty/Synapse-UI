@@ -48,7 +48,7 @@ export default function Faq13() {
         <div className="max-w-5xl mx-auto">
           <div className="grid lg:grid-cols-5 gap-12">
             <div className="lg:col-span-2">
-              <span className="inline-flex items-center gap-2 text-sm font-medium text-orange-600 dark:text-orange-400 mb-4">
+              <span className="inline-flex items-center gap-2 text-sm font-medium text-amber-600 dark:text-amber-400 mb-4">
                 <MessageCircle className="h-4 w-4" />
                 FAQ
               </span>
@@ -69,9 +69,9 @@ export default function Faq13() {
                   <AccordionItem
                     key={index}
                     value={`item-${index}`}
-                    className="border border-zinc-200 dark:border-zinc-800 rounded-xl px-5 data-[state=open]:bg-orange-50 dark:data-[state=open]:bg-orange-950/20 data-[state=open]:border-orange-200 dark:data-[state=open]:border-orange-900/50 transition-colors"
+                    className="border border-zinc-200 dark:border-zinc-800 rounded-xl px-5 data-[state=open]:bg-amber-50 dark:data-[state=open]:bg-amber-950/20 data-[state=open]:border-amber-200 dark:data-[state=open]:border-amber-900/50 transition-colors"
                   >
-                    <AccordionTrigger className="py-4 text-left hover:no-underline text-zinc-900 dark:text-white font-medium hover:text-orange-600 dark:hover:text-orange-400">
+                    <AccordionTrigger className="py-4 text-left hover:no-underline text-zinc-900 dark:text-white font-medium hover:text-amber-600 dark:hover:text-amber-400">
                       {faq.question}
                     </AccordionTrigger>
                     <AccordionContent className="pb-4 text-zinc-600 dark:text-zinc-400 leading-relaxed">

@@ -165,10 +165,10 @@ export function DottedWorldMap({
       >
         <defs>
           <linearGradient id="map-arc" x1="0" x2="1">
-            <stop offset="0%" stopColor="#22d3ee" stopOpacity="0" />
-            <stop offset="20%" stopColor="#22d3ee" />
-            <stop offset="80%" stopColor="#6366f1" />
-            <stop offset="100%" stopColor="#6366f1" stopOpacity="0" />
+            <stop offset="0%" stopColor="#93c5fd" stopOpacity="0" />
+            <stop offset="20%" stopColor="#93c5fd" />
+            <stop offset="80%" stopColor="#3b82f6" />
+            <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
           </linearGradient>
           <mask id="map-fade">
             <rect width={W} height={H} fill="url(#map-radial)" />

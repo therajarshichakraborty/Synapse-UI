@@ -3,79 +3,95 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { MenuIcon, StarIcon } from "lucide-react";
-import { Logo } from "@/components/site/logo";
+import { MenuIcon, PlusIcon } from "lucide-react";
+import { LogoMark } from "@/components/site/logo";
 import { ThemeToggle } from "@/components/site/theme-toggle";
 import { SearchTrigger } from "@/components/site/command-menu";
 import { GitHubIcon } from "@/components/site/icons";
+import { Logo } from "@/components/site/logo";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { mainNav, siteConfig } from "@/config/site";
+import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
+
+const nav = [
+  { title: "Home", href: "/", match: (p: string) => p === "/" },
+  {
+    title: "Docs",
+    href: "/docs",
+    match: (p: string) => p === "/docs" || /^\/docs\/(installation|theming|dark-mode|cli)/.test(p),
+  },
+  {
+    title: "Components",
+    href: "/docs/components",
+    match: (p: string) => p.startsWith("/docs/components"),
+  },
+  {
+    title: "Animated",
+    href: "/docs/animated",
+    match: (p: string) => p.startsWith("/docs/animated"),
+  },
+  { title: "Blocks", href: "/docs/blocks", match: (p: string) => p.startsWith("/docs/blocks") },
+  {
+    title: "Collections",
+    href: "/docs/collections/button",
+    match: (p: string) => p.startsWith("/docs/collections"),
+  },
+  {
+    title: "Changelog",
+    href: "/docs/changelog",
+    match: (p: string) => p.startsWith("/docs/changelog"),
+  },
+];
 
 function formatStars(n: number) {
   return n >= 1000 ? `${(n / 1000).toFixed(1).replace(/\.0$/, "")}k` : String(n);
 }
 
 export function SiteHeader({
-  variant = "landing",
   mobileNav,
+  stars = siteConfig.stats.stars,
 }: {
+  /** Kept for API compatibility; both variants now share one design. */
   variant?: "landing" | "docs";
-  /** Optional slot rendered inside the mobile sheet (docs sidebar). */
+  /** Rendered inside the mobile sheet (docs sidebar). */
   mobileNav?: React.ReactNode;
+  stars?: number;
 }) {
-  const pathname = usePathname();
-  const [scrolled, setScrolled] = React.useState(false);
+  const pathname = usePathname() ?? "/";
   const [open, setOpen] = React.useState(false);
-
-  React.useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   React.useEffect(() => setOpen(false), [pathname]);
 
-  const solid = variant === "docs" || scrolled;
-
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-50 w-full border-b transition-[background-color,border-color,backdrop-filter] duration-300",
-        solid
-          ? "border-border bg-background/70 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60"
-          : "border-transparent bg-transparent",
-      )}
-    >
-      <div
-        className={cn(
-          "mx-auto flex h-14 items-center gap-4 px-4 sm:px-6",
-          variant === "landing" ? "max-w-7xl lg:px-8" : "max-w-[1600px]",
-        )}
-      >
+    <header className="relative z-50 w-full bg-background">
+      <div className="mx-auto flex h-16 w-full max-w-[1600px] items-center gap-2 px-4 sm:px-6">
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="-ml-2 md:hidden" aria-label="Open menu">
+            <Button variant="ghost" size="icon" className="-ml-2 lg:hidden" aria-label="Open menu">
               <MenuIcon className="size-5" />
             </Button>
           </SheetTrigger>
           <SheetContent side="left" className="w-[85vw] max-w-sm gap-0 p-0">
-            <SheetHeader className="border-b border-border px-5 py-4">
+            <SheetHeader className="px-5 py-4">
               <SheetTitle asChild>
                 <div>
                   <Logo />
                 </div>
               </SheetTitle>
             </SheetHeader>
-            <div className="flex-1 overflow-y-auto px-3 py-4 scrollbar-thin">
-              <nav aria-label="Main" className="mb-4 grid gap-0.5">
-                {mainNav.map((item) => (
+            <div className="flex-1 overflow-y-auto px-3 pb-6 scrollbar-thin">
+              <nav aria-label="Main" className="mb-6 grid gap-0.5">
+                {nav.map((item) => (
                   <Link
                     key={item.title}
                     href={item.href}
-                    className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-foreground"
+                    className={cn(
+                      "rounded-lg px-3 py-2 text-[15px] font-medium",
+                      item.match(pathname)
+                        ? "bg-accent text-foreground"
+                        : "text-muted-foreground hover:text-foreground",
+                    )}
                   >
                     {item.title}
                   </Link>
@@ -86,51 +102,66 @@ export function SiteHeader({
           </SheetContent>
         </Sheet>
 
-        <Logo className="mr-2" />
+        <Link
+          href="/"
+          aria-label="Synapse UI home"
+          className="mr-3 flex items-center gap-2 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <LogoMark />
+          <span className="hidden text-[15px] font-semibold tracking-tight sm:inline lg:hidden xl:inline">
+            Synapse UI
+          </span>
+        </Link>
 
-        <nav aria-label="Main" className="hidden items-center gap-1 md:flex">
-          {mainNav.map((item) => {
-            const active =
-              item.href === "/docs"
-                ? pathname === "/docs"
-                : pathname?.startsWith(item.href) && item.title !== "Templates";
+        <nav aria-label="Main" className="hidden h-16 items-stretch lg:flex">
+          {nav.map((item) => {
+            const active = item.match(pathname);
             return (
               <Link
                 key={item.title}
                 href={item.href}
+                aria-current={active ? "page" : undefined}
                 className={cn(
-                  "rounded-md px-3 py-1.5 text-sm font-medium transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                  "relative flex items-center px-3 text-[14.5px] font-medium transition-colors outline-none focus-visible:text-foreground",
                   active ? "text-foreground" : "text-muted-foreground hover:text-foreground",
                 )}
               >
                 {item.title}
+                {active && (
+                  <span className="absolute inset-x-3 bottom-3 h-0.5 rounded-full bg-foreground" />
+                )}
               </Link>
             );
           })}
         </nav>
 
-        <div className="ml-auto flex items-center gap-1.5">
-          <SearchTrigger className="w-9 justify-center sm:w-auto sm:justify-start lg:w-56" />
-          <Button variant="ghost" size="sm" asChild className="hidden gap-1.5 px-2 sm:inline-flex">
+        <div className="ml-auto flex items-center gap-1">
+          <SearchTrigger className="mr-1 w-9 justify-center sm:w-48 sm:justify-start md:w-60 xl:w-72" />
+          <Button
+            variant="ghost"
+            size="sm"
+            asChild
+            className="hidden gap-1.5 px-2.5 sm:inline-flex"
+          >
             <a
               href={siteConfig.links.github}
               target="_blank"
               rel="noreferrer"
-              aria-label="Star Synapse UI on GitHub"
+              aria-label={`GitHub, ${stars} stars`}
             >
               <GitHubIcon className="size-4" />
-              <span className="flex items-center gap-1 text-xs tabular-nums text-muted-foreground">
-                <StarIcon className="size-3" aria-hidden="true" />
-                {formatStars(siteConfig.stats.stars)}
+              <span className="text-xs text-muted-foreground tabular-nums">
+                {formatStars(stars)}
               </span>
             </a>
           </Button>
           <ThemeToggle />
-          {variant === "landing" && (
-            <Button size="sm" asChild className="ml-1 hidden sm:inline-flex">
-              <Link href="/docs/installation">Get Started</Link>
-            </Button>
-          )}
+          <Button size="sm" asChild className="ml-1 hidden sm:inline-flex">
+            <Link href="/docs/installation">
+              <PlusIcon data-icon="inline-start" />
+              Get Started
+            </Link>
+          </Button>
         </div>
       </div>
     </header>

@@ -46,9 +46,9 @@ const ITEMS: ListItem[] = [
 ];
 
 const avatarColors = [
-  "bg-gradient-to-br from-rose-400 to-rose-600",
-  "bg-gradient-to-br from-cyan-400 to-cyan-600",
-  "bg-gradient-to-br from-amber-400 to-amber-600",
+  "bg-gradient-to-br from-indigo-400 to-indigo-600",
+  "bg-gradient-to-br from-sky-400 to-sky-600",
+  "bg-gradient-to-br from-sky-400 to-sky-600",
 ];
 
 export default function List04({ items = ITEMS, className }: List04Props) {

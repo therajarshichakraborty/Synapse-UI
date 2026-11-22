@@ -24,7 +24,7 @@ export default function HeroProduct() {
         <div className="relative mx-auto mt-16 max-w-5xl">
           <div
             aria-hidden="true"
-            className="absolute inset-x-10 -top-6 h-24 rounded-full bg-primary/30 blur-3xl"
+            className="absolute inset-x-10 -top-6 h-24 rounded-full bg-brand/10 blur-3xl"
           />
           <div className="relative rounded-2xl border border-border bg-surface-1/80 p-2 shadow-2xl backdrop-blur">
             <div className="flex items-center gap-1.5 px-3 py-2">

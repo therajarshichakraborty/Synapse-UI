@@ -8,13 +8,13 @@ export default function LandingShowcase() {
   return (
     <div className="w-full py-12 sm:py-20 text-center relative border border-zinc-200/50 dark:border-zinc-800/50 bg-linear-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-900/20 rounded-3xl p-6 sm:p-10 shadow-xl overflow-hidden">
       {/* Ambient glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-pink-500/5 dark:bg-pink-500/2.5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-500/5 dark:bg-indigo-500/2.5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="inline-block mb-10">
         <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
           <Text02
             text="Showcase"
-            className="bg-clip-text text-transparent bg-linear-to-r from-pink-500 to-amber-500 dark:from-pink-400 dark:to-amber-400 text-3xl sm:text-6xl"
+            className="bg-clip-text text-transparent bg-linear-to-r from-indigo-500 to-sky-500 dark:from-indigo-400 dark:to-sky-400 text-3xl sm:text-6xl"
           />
         </h2>
       </div>

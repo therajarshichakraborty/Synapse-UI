@@ -76,7 +76,7 @@ export default function Alert17({
         <div className="p-5">
           <div className="flex items-start justify-between gap-4">
             <div className="flex items-start gap-3">
-              <div className="flex-shrink-0 p-2.5 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 shadow-lg shadow-amber-500/25">
+              <div className="flex-shrink-0 p-2.5 rounded-xl bg-gradient-to-br from-sky-400 to-sky-500 shadow-lg shadow-amber-500/25">
                 <Rocket className="h-5 w-5 text-white" />
               </div>
 
@@ -112,7 +112,7 @@ export default function Alert17({
             </div>
             <div className="h-2 bg-zinc-100 dark:bg-zinc-800 rounded-full overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-amber-400 to-orange-500 transition-all duration-300"
+                className="h-full bg-gradient-to-r from-sky-400 to-sky-500 transition-all duration-300"
                 style={{ width: `${progress}%` }}
               />
             </div>

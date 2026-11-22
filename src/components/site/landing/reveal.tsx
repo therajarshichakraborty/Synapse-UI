@@ -76,15 +76,24 @@ export function SectionHeading({
   return (
     <Reveal className={cn("max-w-2xl", align === "center" && "mx-auto text-center", className)}>
       {eyebrow && (
-        <RevealItem as="p" className="text-sm font-medium text-primary">
+        <RevealItem
+          as="p"
+          className="inline-flex items-center rounded-full border border-border bg-surface-1 px-3 py-1 text-xs font-medium text-muted-foreground"
+        >
           {eyebrow}
         </RevealItem>
       )}
-      <RevealItem as="h2" className="mt-3 text-h2 font-semibold text-balance text-gradient-subtle">
+      <RevealItem
+        as="h2"
+        className="mt-5 text-[clamp(2rem,1.4rem+2.2vw,3rem)] leading-[1.08] font-semibold tracking-[-0.035em] text-balance"
+      >
         {title}
       </RevealItem>
       {description && (
-        <RevealItem as="p" className="mt-4 text-body-lg text-pretty text-muted-foreground">
+        <RevealItem
+          as="p"
+          className="mt-4 text-[1.0625rem] leading-7 text-pretty text-muted-foreground"
+        >
           {description}
         </RevealItem>
       )}

@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import { motion } from "motion/react";
 import {
   ExternalLinkIcon,
   MonitorIcon,
@@ -9,14 +8,14 @@ import {
   RotateCcwIcon,
   SmartphoneIcon,
   SunIcon,
+  SunMoonIcon,
   TabletIcon,
 } from "lucide-react";
 import { Index } from "@/registry/__index__";
-import { CodeFrame } from "@/components/docs/code-block";
+import { CopyButton } from "@/components/docs/copy-button";
 import { Spinner } from "@/components/ui/spinner";
 import { cn } from "@/lib/utils";
 
-type Tab = "preview" | "code";
 type Scheme = "inherit" | "light" | "dark";
 
 const viewports = [
@@ -38,7 +37,7 @@ function ToolbarButton({
       title={label}
       aria-pressed={active}
       className={cn(
-        "inline-flex size-7 items-center justify-center rounded-md text-muted-foreground outline-none transition-colors hover:bg-accent hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring [&_svg]:size-3.5",
+        "inline-flex size-7 items-center justify-center rounded-full text-muted-foreground outline-none transition-colors hover:bg-accent hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/40 [&_svg]:size-3.5",
         active && "bg-accent text-foreground",
         className,
       )}
@@ -47,6 +46,10 @@ function ToolbarButton({
   );
 }
 
+/**
+ * shadcn-style example: live preview on top, source below in the same frame.
+ * The code panel is collapsed by default and expands in place.
+ */
 export function ComponentPreviewTabs({
   name,
   code,
@@ -66,108 +69,78 @@ export function ComponentPreviewTabs({
   height?: number;
   hideCode: boolean;
 }) {
-  const [tab, setTab] = React.useState<Tab>("preview");
   const [scheme, setScheme] = React.useState<Scheme>("inherit");
   const [replay, setReplay] = React.useState(0);
+  const [expanded, setExpanded] = React.useState(false);
   const [viewport, setViewport] = React.useState<(typeof viewports)[number]["id"]>("desktop");
-  const id = React.useId();
+  const codeId = React.useId();
 
   const Component = Index[name];
   const width = viewports.find((v) => v.id === viewport)?.width ?? "100%";
+  const lines = code.split("\n").length;
+  const collapsible = lines > 12;
 
   const cycleScheme = () =>
     setScheme((s) => (s === "inherit" ? "light" : s === "light" ? "dark" : "inherit"));
 
-  return (
-    <div className="group/preview not-prose relative my-6">
-      <div className="mb-3 flex items-center justify-between gap-2">
-        <div
-          role="tablist"
-          aria-label="Preview or code"
-          className="relative flex items-center gap-1"
-        >
-          {(["preview", "code"] as const)
-            .filter((t) => !(hideCode && t === "code"))
-            .map((t) => (
-              <button
-                key={t}
-                id={`${id}-${t}-tab`}
-                type="button"
-                role="tab"
-                aria-selected={tab === t}
-                aria-controls={`${id}-${t}`}
-                onClick={() => setTab(t)}
-                className={cn(
-                  "relative rounded-md px-3 py-1.5 text-sm font-medium capitalize outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring",
-                  tab === t ? "text-foreground" : "text-muted-foreground hover:text-foreground",
-                )}
-              >
-                {tab === t && (
-                  <motion.span
-                    layoutId={`${id}-indicator`}
-                    className="absolute inset-0 rounded-md border border-border bg-surface-2"
-                    transition={{ type: "spring", bounce: 0.15, duration: 0.4 }}
-                  />
-                )}
-                <span className="relative">{t}</span>
-              </button>
-            ))}
-        </div>
-        {tab === "preview" && (
-          <div className="flex items-center gap-0.5">
-            {iframe &&
-              viewports.map((v) => (
-                <ToolbarButton
-                  key={v.id}
-                  label={v.label}
-                  active={viewport === v.id}
-                  onClick={() => setViewport(v.id)}
-                  className="hidden md:inline-flex"
-                >
-                  <v.Icon />
-                </ToolbarButton>
-              ))}
-            {iframe && <span className="mx-1 hidden h-4 w-px bg-border md:block" />}
-            <ToolbarButton
-              label={`Preview theme: ${scheme === "inherit" ? "site" : scheme}`}
-              active={scheme !== "inherit"}
-              onClick={cycleScheme}
-            >
-              {scheme === "light" ? (
-                <SunIcon />
-              ) : scheme === "dark" ? (
-                <MoonIcon />
-              ) : (
-                <SunIcon className="opacity-60" />
-              )}
-            </ToolbarButton>
-            <ToolbarButton label="Replay" onClick={() => setReplay((r) => r + 1)}>
-              <RotateCcwIcon />
-            </ToolbarButton>
-            <a
-              href={`/view/${name}`}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Open in new tab"
-              title="Open in new tab"
-              className="inline-flex size-7 items-center justify-center rounded-md text-muted-foreground outline-none transition-colors hover:bg-accent hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
-            >
-              <ExternalLinkIcon className="size-3.5" />
-            </a>
-          </div>
-        )}
-      </div>
-
-      <div
-        id={`${id}-preview`}
-        role="tabpanel"
-        aria-labelledby={`${id}-preview-tab`}
-        hidden={tab !== "preview"}
+  const toolbar = (
+    <div
+      className={cn(
+        "absolute top-3 right-3 z-20 flex items-center gap-0.5 rounded-full border border-border bg-background/80 p-0.5 shadow-sm backdrop-blur transition-opacity duration-200",
+        "opacity-0 group-hover/preview:opacity-100 focus-within:opacity-100 [@media(hover:none)]:opacity-100",
+      )}
+    >
+      {iframe &&
+        viewports.map((v) => (
+          <ToolbarButton
+            key={v.id}
+            label={v.label}
+            active={viewport === v.id}
+            onClick={() => setViewport(v.id)}
+            className="hidden md:inline-flex"
+          >
+            <v.Icon />
+          </ToolbarButton>
+        ))}
+      <ToolbarButton
+        label={`Preview theme: ${scheme === "inherit" ? "follow site" : scheme}`}
+        active={scheme !== "inherit"}
+        onClick={cycleScheme}
       >
+        {scheme === "light" ? <SunIcon /> : scheme === "dark" ? <MoonIcon /> : <SunMoonIcon />}
+      </ToolbarButton>
+      <ToolbarButton label="Replay" onClick={() => setReplay((r) => r + 1)}>
+        <RotateCcwIcon />
+      </ToolbarButton>
+      <a
+        href={`/view/${name}`}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Open in new tab"
+        title="Open in new tab"
+        className="inline-flex size-7 items-center justify-center rounded-full text-muted-foreground outline-none transition-colors hover:bg-accent hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/40"
+      >
+        <ExternalLinkIcon className="size-3.5" />
+      </a>
+    </div>
+  );
+
+  return (
+    <div className="group/preview not-prose relative my-6 overflow-hidden rounded-xl border border-border">
+      {/* Preview */}
+      <div
+        className={cn(
+          "relative isolate",
+          !iframe && scheme === "light" && "light",
+          !iframe && scheme === "dark" && "dark",
+          "bg-background text-foreground",
+        )}
+      >
+        {toolbar}
         {iframe ? (
-          <div className="overflow-hidden rounded-xl border border-border bg-surface-1 bg-dots p-0 md:p-3">
+          <div className="bg-surface-1 p-0 md:p-4">
             <div
-              className="mx-auto overflow-hidden rounded-lg border border-border bg-background shadow-2xl transition-[width] duration-300 md:rounded-lg"
+              className="mx-auto overflow-hidden border-border bg-background transition-[width] duration-300 md:rounded-lg md:border"
               style={{ width, maxWidth: "100%" }}
             >
               <iframe
@@ -182,57 +155,63 @@ export function ComponentPreviewTabs({
           </div>
         ) : (
           <div
+            key={replay}
             className={cn(
-              "relative isolate overflow-hidden rounded-xl border border-border",
-              scheme === "light" && "light",
-              scheme === "dark" && "dark",
-              scheme !== "inherit" && "bg-background text-foreground",
+              "flex min-h-[400px] w-full flex-col p-6 sm:p-10",
+              align === "center" && "items-center justify-center",
+              align === "start" && "items-start justify-start",
+              align === "end" && "items-end justify-end",
+              className,
             )}
           >
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 -z-10 bg-surface-1/50 bg-dots mask-radial-fade"
-            />
-            <div
-              key={replay}
-              className={cn(
-                "flex min-h-[360px] w-full flex-col p-6 sm:p-10",
-                align === "center" && "items-center justify-center",
-                align === "start" && "items-start justify-start",
-                align === "end" && "items-end justify-end",
-                className,
-              )}
-            >
-              {Component ? (
-                <React.Suspense fallback={<Spinner className="size-5 text-muted-foreground" />}>
-                  <Component />
-                </React.Suspense>
-              ) : (
-                <p className="text-sm text-muted-foreground">
-                  Example <code className="font-mono">{name}</code> not found in registry.
-                </p>
-              )}
-            </div>
+            {Component ? (
+              <React.Suspense fallback={<Spinner className="size-5 text-muted-foreground" />}>
+                <Component />
+              </React.Suspense>
+            ) : (
+              <p className="text-sm text-muted-foreground">
+                Example <code className="font-mono">{name}</code> not found in registry.
+              </p>
+            )}
           </div>
         )}
       </div>
 
+      {/* Code */}
       {!hideCode && (
-        <div
-          id={`${id}-code`}
-          role="tabpanel"
-          aria-labelledby={`${id}-code-tab`}
-          hidden={tab !== "code"}
-        >
-          <CodeFrame
-            title={`${name}.tsx`}
-            lang="tsx"
-            copyValue={code}
-            className="my-0"
-            maxHeight={560}
-          >
-            <div dangerouslySetInnerHTML={{ __html: html }} />
-          </CodeFrame>
+        <div className="relative border-t border-border bg-[var(--code-bg)]">
+          <CopyButton
+            value={code}
+            className="absolute top-2.5 right-2.5 z-10 rounded-full bg-[var(--code-bg)]"
+          />
+          <div
+            id={codeId}
+            className={cn(
+              "line-numbers overflow-auto py-4 font-mono text-[13px] leading-[1.7] scrollbar-thin [&_.line]:pr-12 [&_pre]:bg-transparent!",
+              collapsible && !expanded ? "max-h-[232px] overflow-hidden" : "max-h-[640px]",
+            )}
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
+          {collapsible && (
+            <div
+              className={cn(
+                "flex justify-center",
+                expanded
+                  ? "border-t border-border py-2"
+                  : "absolute inset-x-0 bottom-0 h-24 items-end bg-gradient-to-t from-[var(--code-bg)] via-[var(--code-bg)]/85 to-transparent pb-4",
+              )}
+            >
+              <button
+                type="button"
+                aria-expanded={expanded}
+                aria-controls={codeId}
+                onClick={() => setExpanded((e) => !e)}
+                className="rounded-full bg-secondary px-3.5 py-1.5 text-xs font-medium text-secondary-foreground shadow-sm outline-none transition-colors hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring/40"
+              >
+                {expanded ? "Collapse" : "View Code"}
+              </button>
+            </div>
+          )}
         </div>
       )}
     </div>

@@ -30,8 +30,8 @@ export function Meteors({ number = 18, className }: MeteorsProps) {
         <span
           key={i}
           className={cn(
-            "absolute top-0 size-0.5 rotate-[215deg] animate-meteor rounded-full bg-brand-300 shadow-[0_0_0_1px_rgb(255_255_255/0.08)]",
-            "before:absolute before:top-1/2 before:h-px before:w-[60px] before:-translate-y-1/2 before:bg-gradient-to-r before:from-brand-400 before:to-transparent before:content-['']",
+            "absolute top-0 size-0.5 rotate-[215deg] animate-meteor rounded-full bg-foreground/70 shadow-[0_0_0_1px_rgb(255_255_255/0.06)]",
+            "before:absolute before:top-1/2 before:h-px before:w-[60px] before:-translate-y-1/2 before:bg-gradient-to-r before:from-foreground/40 before:to-transparent before:content-['']",
             className,
           )}
           style={{ left: m.left, animationDelay: m.delay, animationDuration: m.duration }}

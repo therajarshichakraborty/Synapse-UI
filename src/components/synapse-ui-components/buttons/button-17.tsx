@@ -14,14 +14,14 @@ export default function Button19({
     <Button
       className={cn(
         "relative h-11 px-8",
-        "bg-gradient-to-br from-pink-600 to-red-600",
+        "bg-gradient-to-br from-indigo-600 to-red-600",
         "text-white",
-        "border-2 border-pink-300/30",
-        "hover:border-pink-300/60",
+        "border-2 border-indigo-300/30",
+        "hover:border-indigo-300/60",
         "rounded-lg",
         "transition-all duration-300",
-        "shadow-lg shadow-pink-600/30",
-        "hover:shadow-xl hover:shadow-pink-600/50",
+        "shadow-lg shadow-indigo-600/30",
+        "hover:shadow-xl hover:shadow-indigo-600/50",
         className,
       )}
       {...props}

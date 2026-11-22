@@ -78,8 +78,8 @@ export default function Faq11() {
               className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800"
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="h-10 w-10 rounded-lg bg-rose-100 dark:bg-rose-900/30 flex items-center justify-center">
-                  <category.icon className="h-5 w-5 text-rose-600 dark:text-rose-400" />
+                <div className="h-10 w-10 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
+                  <category.icon className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
                 </div>
                 <h3 className="font-semibold text-zinc-900 dark:text-white">{category.title}</h3>
               </div>
@@ -90,7 +90,7 @@ export default function Faq11() {
                     value={`item-${catIndex}-${faqIndex}`}
                     className="border-0"
                   >
-                    <AccordionTrigger className="py-3 text-sm text-left hover:no-underline text-zinc-700 dark:text-zinc-300 hover:text-rose-600 dark:hover:text-rose-400">
+                    <AccordionTrigger className="py-3 text-sm text-left hover:no-underline text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400">
                       {faq.question}
                     </AccordionTrigger>
                     <AccordionContent className="text-sm text-zinc-500 dark:text-zinc-400 pb-3">

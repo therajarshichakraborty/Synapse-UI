@@ -14,10 +14,10 @@ function useClientHighlight(code: string, enabled: boolean) {
   React.useEffect(() => {
     if (!enabled || html) return;
     let cancelled = false;
-    Promise.all([import("shiki"), import("@/lib/shiki/themes")]).then(async ([shiki, themes]) => {
+    import("shiki").then(async (shiki) => {
       const out = await shiki.codeToHtml(code, {
         lang: "tsx",
-        themes: { light: themes.synapseLight, dark: themes.synapseDark },
+        themes: { light: "github-light-default", dark: "github-dark-default" },
         defaultColor: false,
       });
       if (!cancelled) setHtml(out);
@@ -68,11 +68,7 @@ export function ComponentDemo({ demo, className }: { demo: DemoEntry; className?
       </div>
 
       {tab === "preview" && (
-        <div className="relative isolate overflow-x-auto rounded-xl border border-border scrollbar-thin">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 -z-10 bg-surface-1/50 bg-dots mask-radial-fade"
-          />
+        <div className="relative isolate overflow-x-auto rounded-xl border border-border bg-background scrollbar-thin">
           <div
             className={cn(
               "mx-auto flex items-center justify-center p-6",

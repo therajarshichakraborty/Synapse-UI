@@ -42,7 +42,7 @@ export default function SidebarDemo() {
           <SidebarMenu>
             <SidebarMenuItem>
               <SidebarMenuButton size="lg">
-                <div className="flex size-8 items-center justify-center rounded-lg bg-brand-gradient text-sm font-semibold text-white">
+                <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-sm font-semibold text-primary-foreground">
                   A
                 </div>
                 <div className="grid text-left text-sm leading-tight">

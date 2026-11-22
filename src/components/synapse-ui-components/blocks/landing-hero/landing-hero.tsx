@@ -49,12 +49,12 @@ export default function LandingHero() {
         >
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-zinc-900 dark:text-zinc-100">
             Craft with{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 via-cyan-500 to-indigo-500 dark:from-rose-400 dark:via-cyan-400 dark:to-indigo-400">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-sky-500 to-indigo-500 dark:from-indigo-400 dark:via-sky-400 dark:to-indigo-400">
               precision
             </span>
             <br />
             build with{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-cyan-500 to-rose-500 dark:from-indigo-400 dark:via-cyan-400 dark:to-rose-400">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-sky-500 to-indigo-500 dark:from-indigo-400 dark:via-sky-400 dark:to-indigo-400">
               ease
             </span>
             .
@@ -65,11 +65,11 @@ export default function LandingHero() {
               100+ premium UI components
             </span>{" "}
             crafted with{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-cyan-500 dark:from-rose-400 dark:to-cyan-400 font-bold">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-sky-500 dark:from-indigo-400 dark:to-sky-400 font-bold">
               Tailwind CSS
             </span>{" "}
             and{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-indigo-500 dark:from-cyan-400 dark:to-indigo-400 font-bold">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-indigo-500 dark:from-sky-400 dark:to-indigo-400 font-bold">
               shadcn/ui
             </span>{" "}
             for modern React and Next.js applications.
