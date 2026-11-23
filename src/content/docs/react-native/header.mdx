@@ -1,0 +1,65 @@
+---
+title: "Header"
+description: "A large-title app header that collapses as you scroll."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-header-demo" />
+
+## Installation
+
+<ComponentInstall name="native-header" />
+
+## Usage
+
+```tsx
+import { Header } from "@/components/native/header";
+```
+
+```tsx
+const scrollY = useRef(new Animated.Value(0)).current;
+
+<Header title="Notes" scrollY={scrollY} actions={[{ icon: "search", label: "Search" }]} />
+<Animated.ScrollView
+  onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: scrollY } } }], { useNativeDriver: false })}
+/>
+```
+
+## API Reference
+
+### Header
+
+<PropsTable
+  props={[
+    { prop: "title", type: "string", description: "Screen title." },
+    { prop: "eyebrow", type: "string", description: "Small text above the large title." },
+    { prop: "onBack", type: "() => void", description: "Shows a back button." },
+    { prop: "backLabel", type: "string", defaultValue: '"Back"', description: "Back button text." },
+    {
+      prop: "actions",
+      type: "{ icon, label, onPress?, badge? }[]",
+      defaultValue: "[]",
+      description: "Round buttons on the right.",
+    },
+    {
+      prop: "scrollY",
+      type: "Animated.Value",
+      description: "Collapses the large title on scroll.",
+    },
+    {
+      prop: "compact",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Only the compact bar.",
+    },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>
+
+## With Expo Router
+
+Set `headerShown: false` on the screen and render `<Header />` yourself so it can react to scroll.

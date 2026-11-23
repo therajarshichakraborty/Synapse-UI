@@ -1,0 +1,61 @@
+---
+title: "Slider"
+description: "A draggable range slider with steps and a value bubble."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-slider-demo" />
+
+## Installation
+
+<ComponentInstall name="native-slider" />
+
+## Usage
+
+```tsx
+import { Slider } from "@/components/native/slider";
+```
+
+```tsx
+<Slider value={volume} onValueChange={setVolume} formatValue={(v) => `${v}%`} />
+```
+
+## API Reference
+
+### Slider
+
+<PropsTable
+  props={[
+    { prop: "value", type: "number", description: "Controlled value." },
+    { prop: "defaultValue", type: "number", defaultValue: "0", description: "Initial value." },
+    { prop: "min", type: "number", defaultValue: "0", description: "Minimum." },
+    { prop: "max", type: "number", defaultValue: "100", description: "Maximum." },
+    { prop: "step", type: "number", defaultValue: "1", description: "Snap increment." },
+    {
+      prop: "onValueChange",
+      type: "(value: number) => void",
+      description: "Called while dragging.",
+    },
+    {
+      prop: "onSlidingComplete",
+      type: "(value: number) => void",
+      description: "Called on release.",
+    },
+    {
+      prop: "showValue",
+      type: "boolean",
+      defaultValue: "true",
+      description: "Floating value bubble while dragging.",
+    },
+    { prop: "formatValue", type: "(value: number) => string", description: "Bubble text." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>
+
+## Accessibility
+
+Uses the `adjustable` role and supports increment/decrement accessibility actions (swipe up/down in VoiceOver).

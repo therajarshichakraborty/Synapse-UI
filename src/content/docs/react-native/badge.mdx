@@ -1,0 +1,52 @@
+---
+title: "Badge"
+description: "Small status labels in solid, soft and outline tones."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-badge-demo" />
+
+## Installation
+
+<ComponentInstall name="native-badge" />
+
+## Usage
+
+```tsx
+import { Badge } from "@/components/native/badge";
+```
+
+```tsx
+<Badge tone="success" dot>
+  Online
+</Badge>
+```
+
+## API Reference
+
+### Badge
+
+<PropsTable
+  props={[
+    {
+      prop: "tone",
+      type: '"neutral" | "brand" | "success" | "warning" | "destructive"',
+      defaultValue: '"neutral"',
+      description: "Color.",
+    },
+    {
+      prop: "variant",
+      type: '"solid" | "soft" | "outline"',
+      defaultValue: '"soft"',
+      description: "Fill style.",
+    },
+    { prop: "icon", type: "IconName", description: "Leading icon." },
+    { prop: "dot", type: "boolean", defaultValue: "false", description: "Leading status dot." },
+    { prop: "size", type: '"sm" | "md"', defaultValue: '"md"', description: "Height 20 or 24." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

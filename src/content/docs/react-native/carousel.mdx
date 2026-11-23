@@ -1,0 +1,61 @@
+---
+title: "Carousel"
+description: "A snapping, paged carousel with animated page indicator."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-carousel-demo" />
+
+## Installation
+
+<ComponentInstall name="native-carousel" />
+
+## Usage
+
+```tsx
+import { Carousel } from "@/components/native/carousel";
+```
+
+```tsx
+<Carousel data={items} renderItem={(item) => <MediaCard {...item} />} />
+```
+
+## API Reference
+
+### Carousel
+
+<PropsTable
+  props={[
+    { prop: "data", type: "T[]", description: "Items." },
+    {
+      prop: "renderItem",
+      type: "(item: T, index: number) => ReactNode",
+      description: "Renders a slide.",
+    },
+    {
+      prop: "itemWidth",
+      type: "number",
+      defaultValue: "0.84",
+      description: "Slide width as a fraction of the container.",
+    },
+    { prop: "gap", type: "number", defaultValue: "12", description: "Space between slides." },
+    {
+      prop: "scaleInactive",
+      type: "boolean",
+      defaultValue: "true",
+      description: "Shrink and fade off-center slides.",
+    },
+    {
+      prop: "showIndicator",
+      type: "boolean",
+      defaultValue: "true",
+      description: "Page dots below.",
+    },
+    { prop: "onIndexChange", type: "(index: number) => void", description: "Called on snap." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

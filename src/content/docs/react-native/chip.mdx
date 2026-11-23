@@ -1,0 +1,67 @@
+---
+title: "Chip"
+description: "Filter and choice chips with single or multi selection."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-chip-demo" />
+
+## Installation
+
+<ComponentInstall name="native-chip" />
+
+## Usage
+
+```tsx
+import { Chip, ChipGroup } from "@/components/native/chip";
+```
+
+```tsx
+<ChipGroup
+  multiple
+  options={[{ value: "a", label: "Design" }]}
+  value={tags}
+  onValueChange={setTags}
+/>
+```
+
+## API Reference
+
+### Chip
+
+<PropsTable
+  props={[
+    { prop: "label", type: "string", description: "Text." },
+    { prop: "selected", type: "boolean", defaultValue: "false", description: "Selected styling." },
+    { prop: "onPress", type: "() => void", description: "Press handler." },
+    { prop: "icon", type: "IconName", description: "Leading icon." },
+    { prop: "count", type: "number", description: "Trailing count." },
+    { prop: "onRemove", type: "() => void", description: "Shows a remove button." },
+  ]}
+/>
+
+### ChipGroup
+
+<PropsTable
+  props={[
+    { prop: "options", type: "{ value, label, icon?, count? }[]", description: "Chips." },
+    { prop: "value", type: "string[]", description: "Controlled selection." },
+    {
+      prop: "multiple",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Allow several selections.",
+    },
+    {
+      prop: "scrollable",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Single horizontal scrolling row.",
+    },
+    { prop: "onValueChange", type: "(value: string[]) => void", description: "Called on change." },
+  ]}
+/>

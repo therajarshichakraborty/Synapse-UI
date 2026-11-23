@@ -12,13 +12,32 @@
  */
 import fs from "node:fs";
 import path from "node:path";
-import { registry, type RegistryCategory, type RegistryEntry } from "../src/registry/registry";
+import {
+  entrySlug,
+  registry,
+  type RegistryCategory,
+  type RegistryEntry,
+} from "../src/registry/registry";
 import type { DocMeta } from "./docs-meta/types";
 import { coreDocs } from "./docs-meta/core";
 import { animatedDocs } from "./docs-meta/animated";
 import { blockDocs } from "./docs-meta/blocks";
+import { nativeDocs } from "./docs-meta/native";
 
-const folders: Record<RegistryCategory, { dir: string; title: string; overview: string }> = {
+// Optional filter: `bun scripts/generate-docs.ts --only=native`
+const only = process.argv.find((a) => a.startsWith("--only="))?.slice("--only=".length);
+
+const folders: Record<
+  RegistryCategory,
+  { dir: string; title: string; overview: string; customIndex?: boolean }
+> = {
+  native: {
+    dir: "react-native",
+    title: "React Native",
+    overview: "Premium components for React Native and Expo.",
+    // index.mdx is hand-written (setup guide + gallery).
+    customIndex: true,
+  },
   core: {
     dir: "components",
     title: "Components",
@@ -37,7 +56,7 @@ const folders: Record<RegistryCategory, { dir: string; title: string; overview: 
 };
 
 const allMeta = new Map<string, DocMeta>(
-  [...coreDocs, ...animatedDocs, ...blockDocs].map((m) => [m.name, m]),
+  [...coreDocs, ...animatedDocs, ...blockDocs, ...nativeDocs].map((m) => [m.name, m]),
 );
 
 const yaml = (s: string) => JSON.stringify(s);
@@ -135,6 +154,7 @@ for (const [category, folder] of Object.entries(folders) as [
   RegistryCategory,
   (typeof folders)[RegistryCategory],
 ][]) {
+  if (only && only !== category) continue;
   const dir = path.join(docsRoot, folder.dir);
   fs.mkdirSync(dir, { recursive: true });
   const entries = registry.filter((e) => e.category === category);
@@ -142,23 +162,25 @@ for (const [category, folder] of Object.entries(folders) as [
   fs.writeFileSync(
     path.join(dir, "meta.json"),
     JSON.stringify(
-      { title: folder.title, pages: ["index", ...entries.map((e) => e.name)] },
+      { title: folder.title, pages: ["index", ...entries.map((e) => entrySlug(e))] },
       null,
       2,
     ) + "\n",
   );
-  fs.writeFileSync(
-    path.join(dir, "index.mdx"),
-    [
-      "---",
-      `title: ${yaml(folder.title)}`,
-      `description: ${yaml(folder.overview)}`,
-      "---",
-      "",
-      `<ComponentsGrid category="${category}" />`,
-      "",
-    ].join("\n"),
-  );
+  if (!folder.customIndex) {
+    fs.writeFileSync(
+      path.join(dir, "index.mdx"),
+      [
+        "---",
+        `title: ${yaml(folder.title)}`,
+        `description: ${yaml(folder.overview)}`,
+        "---",
+        "",
+        `<ComponentsGrid category="${category}" />`,
+        "",
+      ].join("\n"),
+    );
+  }
 
   for (const entry of entries) {
     const meta = allMeta.get(entry.name);
@@ -166,7 +188,7 @@ for (const [category, folder] of Object.entries(folders) as [
       missing.push(entry.name);
       continue;
     }
-    fs.writeFileSync(path.join(dir, `${entry.name}.mdx`), page(entry, meta));
+    fs.writeFileSync(path.join(dir, `${entrySlug(entry)}.mdx`), page(entry, meta));
     written++;
   }
 }

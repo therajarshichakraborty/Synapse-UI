@@ -1,0 +1,58 @@
+---
+title: "Text"
+description: "Typography with display, heading, body, muted, overline and code variants."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-text-demo" />
+
+## Installation
+
+<ComponentInstall name="native-text" />
+
+## Usage
+
+```tsx
+import { Text } from "@/components/native/text";
+```
+
+```tsx
+<Text variant="h1">Hello</Text>
+<Text variant="muted">Secondary copy</Text>
+```
+
+## API Reference
+
+### Text
+
+Extends React Native `TextProps`.
+
+<PropsTable
+  props={[
+    {
+      prop: "variant",
+      type: '"display" | "h1" | "h2" | "h3" | "h4" | "lead" | "body" | "large" | "small" | "muted" | "caption" | "overline" | "code"',
+      defaultValue: '"body"',
+      description: "Type scale preset.",
+    },
+    {
+      prop: "tone",
+      type: '"default" | "muted" | "brand" | "success" | "warning" | "destructive"',
+      description: "Color token. Muted variants default to muted.",
+    },
+    { prop: "align", type: "TextStyle['textAlign']", description: "Text alignment." },
+    {
+      prop: "weight",
+      type: "TextStyle['fontWeight']",
+      description: "Override the variant weight.",
+    },
+  ]}
+/>
+
+## Accessibility
+
+Headings are plain `Text`. Add `accessibilityRole="header"` to screen titles so VoiceOver and TalkBack can jump between them.

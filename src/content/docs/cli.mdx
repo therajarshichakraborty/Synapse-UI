@@ -21,11 +21,11 @@ Adds one or more components. Registry dependencies are resolved recursively. For
 
 <PmCommand dlx="synapse-ui@latest add dialog sheet marquee" />
 
-| Option             | Description                                                             |
-| ------------------ | ----------------------------------------------------------------------- |
-| `--overwrite`      | Overwrite existing files                                                |
-| `--registry <url>` | Use a self-hosted registry (default: `https://synapse-ui.vercel.app/r`) |
-| `--dry-run`        | Print the files that would be written                                   |
+| Option             | Description                                                                 |
+| ------------------ | --------------------------------------------------------------------------- |
+| `--overwrite`      | Overwrite existing files                                                    |
+| `--registry <url>` | Use a self-hosted registry (default: `https://synapse-ui-dev.vercel.app/r`) |
+| `--dry-run`        | Print the files that would be written                                       |
 
 ## list
 
@@ -52,7 +52,7 @@ Because the format is compatible, you can also use the shadcn CLI or add Synapse
 ```json title="components.json"
 {
   "registries": {
-    "@synapse": "https://synapse-ui.vercel.app/r/{name}.json"
+    "@synapse": "https://synapse-ui-dev.vercel.app/r/{name}.json"
   }
 }
 ```

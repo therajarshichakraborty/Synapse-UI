@@ -1,0 +1,42 @@
+---
+title: "Spinner"
+description: "A smooth arc spinner in three sizes."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-spinner-demo" />
+
+## Installation
+
+<ComponentInstall name="native-spinner" />
+
+## Usage
+
+```tsx
+import { Spinner } from "@/components/native/spinner";
+```
+
+```tsx
+<Spinner size="md" />
+```
+
+## API Reference
+
+### Spinner
+
+<PropsTable
+  props={[
+    {
+      prop: "size",
+      type: '"sm" | "md" | "lg" | number',
+      defaultValue: '"md"',
+      description: "16, 24, 36 or a custom size.",
+    },
+    { prop: "color", type: "string", defaultValue: "foreground", description: "Arc color." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

@@ -1,6 +1,6 @@
 <div align="center">
 
-<a href="https://synapse-ui.vercel.app">
+<a href="https://synapse-ui-dev.vercel.app">
   <img src=".github/assets/logo.svg" alt="Synapse UI" width="64" height="64" />
 </a>
 
@@ -9,17 +9,18 @@
 <p><strong>Beautiful, accessible React components and refined motion.<br />Copy them into your project. Own every line.</strong></p>
 
 <p>
-  <a href="https://synapse-ui.vercel.app/docs">Documentation</a> ·
-  <a href="https://synapse-ui.vercel.app/docs/components">Components</a> ·
-  <a href="https://synapse-ui.vercel.app/docs/animated">Animated</a> ·
-  <a href="https://synapse-ui.vercel.app/docs/blocks">Blocks</a> ·
-  <a href="https://synapse-ui.vercel.app/docs/changelog">Changelog</a>
+  <a href="https://synapse-ui-dev.vercel.app/docs">Documentation</a> ·
+  <a href="https://synapse-ui-dev.vercel.app/docs/components">Components</a> ·
+  <a href="https://synapse-ui-dev.vercel.app/docs/animated">Animated</a> ·
+  <a href="https://synapse-ui-dev.vercel.app/docs/blocks">Blocks</a> ·
+  <a href="https://synapse-ui-dev.vercel.app/docs/react-native">React Native</a> ·
+  <a href="https://synapse-ui-dev.vercel.app/docs/changelog">Changelog</a>
 </p>
 
 <p>
   <a href="https://github.com/therajarshichakraborty/Synapse-UI/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/therajarshichakraborty/Synapse-UI?style=flat&logo=github&color=171717&labelColor=fafafa&logoColor=171717" /></a>
   <a href="./LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-171717?style=flat&labelColor=fafafa" /></a>
-  <img alt="Components" src="https://img.shields.io/badge/components-96-171717?style=flat&labelColor=fafafa" />
+  <img alt="Components" src="https://img.shields.io/badge/components-155-171717?style=flat&labelColor=fafafa" />
   <img alt="TypeScript strict" src="https://img.shields.io/badge/TypeScript-strict-171717?style=flat&logo=typescript&labelColor=fafafa&logoColor=3178C6" />
 </p>
 
@@ -40,7 +41,7 @@ It combines the structure and developer experience of [shadcn/ui](https://ui.sha
 - **53 core components.** A complete, shadcn-compatible set from Accordion to Tooltip, built on Radix primitives.
 - **31 animated components.** Spotlight, Aurora, Marquee, Number Ticker, Floating Dock, Timeline and more. Every one respects `prefers-reduced-motion`.
 - **12 blocks.** Heroes, features, pricing, testimonials, FAQ, auth pages and a full dashboard shell.
-- **~200 collection variants.** Hand-crafted alerts, buttons, cards, inputs, AI chat inputs and more.
+- **59 React Native components.** Premium, Expo-ready components for mobile: bottom sheets, OTP input, tab bar, charts, chat and more. Built on core React Native and `react-native-svg`.
 
 ## Contents
 
@@ -75,28 +76,34 @@ It combines the structure and developer experience of [shadcn/ui](https://ui.sha
 
 ## Preview
 
-All screenshots are taken from the production build in light mode.
+All screenshots are taken from the live site in light mode.
 
 <table>
   <tr>
-    <td width="50%"><img src=".github/assets/docs.png" alt="Component documentation page with live preview and code" /></td>
+    <td width="50%"><img src=".github/assets/docs.png" alt="Component docs page with breadcrumb, Copy Page, Preview and Code tabs" /></td>
+    <td width="50%"><img src=".github/assets/react-native.png" alt="React Native Switch docs page with a live phone preview" /></td>
+  </tr>
+  <tr>
+    <td align="center"><sub><b>Docs.</b> Preview / Code tabs, Copy Page for LLMs, install steps and props tables.</sub></td>
+    <td align="center"><sub><b>React Native.</b> 59 Expo components, previewed live in a phone frame.</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src=".github/assets/showcase.png" alt="React Native section of the landing page with a live phone demo" /></td>
     <td width="50%"><img src=".github/assets/dashboard.png" alt="Dashboard shell block with sidebar, stat cards and revenue chart" /></td>
   </tr>
   <tr>
-    <td align="center"><sub><b>Docs.</b> Live preview, GitHub-themed code, install steps and props tables.</sub></td>
+    <td align="center"><sub><b>Mobile.</b> The same craft, running live with react-native-web.</sub></td>
     <td align="center"><sub><b>Dashboard Shell block.</b> Sidebar, stat cards and a themed chart.</sub></td>
   </tr>
   <tr>
-    <td width="50%"><img src=".github/assets/showcase.png" alt="Live component showcase with animated components" /></td>
     <td width="50%"><img src=".github/assets/pricing.png" alt="Pricing section" /></td>
+    <td width="50%"><img src=".github/assets/faq.png" alt="FAQ section built with the Accordion component" /></td>
   </tr>
   <tr>
-    <td align="center"><sub><b>Showcase.</b> Real components rendered live, not screenshots.</sub></td>
     <td align="center"><sub><b>Pricing.</b> Free and open source, forever.</sub></td>
+    <td align="center"><sub><b>FAQ.</b> Built with the Accordion component.</sub></td>
   </tr>
 </table>
-
-<img src=".github/assets/faq.png" alt="FAQ section built with the Accordion component" width="100%" />
 
 ## Quick start
 
@@ -123,13 +130,13 @@ npx synapse-ui@latest add dashboard-shell
 > Prefer the shadcn CLI? Every item is published in the shadcn registry format:
 >
 > ```bash
-> npx shadcn@latest add https://synapse-ui.vercel.app/r/button.json
+> npx shadcn@latest add https://synapse-ui-dev.vercel.app/r/button.json
 > ```
 >
 > Or register Synapse as a namespace in `components.json`:
 >
 > ```json
-> { "registries": { "@synapse": "https://synapse-ui.vercel.app/r/{name}.json" } }
+> { "registries": { "@synapse": "https://synapse-ui-dev.vercel.app/r/{name}.json" } }
 > ```
 
 ### Requirements
@@ -202,7 +209,7 @@ Every color is a CSS variable, defined once for light and once for dark. Compone
 | `brand`                                       | The blue accent                       |
 | `chart-1` to `chart-5`                        | Chart series                          |
 
-Effect utilities ship with the tokens: `surface-premium`, `glass`, `border-beam`, `text-gradient`, `mask-edge-fade-x` and more. See the [theming guide](https://synapse-ui.vercel.app/docs/theming) and [dark mode guide](https://synapse-ui.vercel.app/docs/dark-mode).
+Effect utilities ship with the tokens: `surface-premium`, `glass`, `border-beam`, `text-gradient`, `mask-edge-fade-x` and more. See the [theming guide](https://synapse-ui-dev.vercel.app/docs/theming) and [dark mode guide](https://synapse-ui-dev.vercel.app/docs/dark-mode).
 
 ## Tech stack
 
@@ -239,22 +246,22 @@ Effect utilities ship with the tokens: `surface-premium`, `glass`, `border-beam`
 <summary><b>Core components</b> (53)</summary>
 <br />
 
-|                                                                            |                                                                            |                                                                              |                                                                                  |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| [Accordion](https://synapse-ui.vercel.app/docs/components/accordion)       | [Alert](https://synapse-ui.vercel.app/docs/components/alert)               | [Alert Dialog](https://synapse-ui.vercel.app/docs/components/alert-dialog)   | [Aspect Ratio](https://synapse-ui.vercel.app/docs/components/aspect-ratio)       |
-| [Avatar](https://synapse-ui.vercel.app/docs/components/avatar)             | [Badge](https://synapse-ui.vercel.app/docs/components/badge)               | [Breadcrumb](https://synapse-ui.vercel.app/docs/components/breadcrumb)       | [Button](https://synapse-ui.vercel.app/docs/components/button)                   |
-| [Button Group](https://synapse-ui.vercel.app/docs/components/button-group) | [Calendar](https://synapse-ui.vercel.app/docs/components/calendar)         | [Card](https://synapse-ui.vercel.app/docs/components/card)                   | [Carousel](https://synapse-ui.vercel.app/docs/components/carousel)               |
-| [Chart](https://synapse-ui.vercel.app/docs/components/chart)               | [Checkbox](https://synapse-ui.vercel.app/docs/components/checkbox)         | [Collapsible](https://synapse-ui.vercel.app/docs/components/collapsible)     | [Combobox](https://synapse-ui.vercel.app/docs/components/combobox)               |
-| [Command](https://synapse-ui.vercel.app/docs/components/command)           | [Context Menu](https://synapse-ui.vercel.app/docs/components/context-menu) | [Data Table](https://synapse-ui.vercel.app/docs/components/data-table)       | [Date Picker](https://synapse-ui.vercel.app/docs/components/date-picker)         |
-| [Dialog](https://synapse-ui.vercel.app/docs/components/dialog)             | [Drawer](https://synapse-ui.vercel.app/docs/components/drawer)             | [Dropdown Menu](https://synapse-ui.vercel.app/docs/components/dropdown-menu) | [Empty State](https://synapse-ui.vercel.app/docs/components/empty-state)         |
-| [Form](https://synapse-ui.vercel.app/docs/components/form)                 | [Hover Card](https://synapse-ui.vercel.app/docs/components/hover-card)     | [Input](https://synapse-ui.vercel.app/docs/components/input)                 | [Input OTP](https://synapse-ui.vercel.app/docs/components/input-otp)             |
-| [Kbd](https://synapse-ui.vercel.app/docs/components/kbd)                   | [Label](https://synapse-ui.vercel.app/docs/components/label)               | [Menubar](https://synapse-ui.vercel.app/docs/components/menubar)             | [Navigation Menu](https://synapse-ui.vercel.app/docs/components/navigation-menu) |
-| [Pagination](https://synapse-ui.vercel.app/docs/components/pagination)     | [Popover](https://synapse-ui.vercel.app/docs/components/popover)           | [Progress](https://synapse-ui.vercel.app/docs/components/progress)           | [Radio Group](https://synapse-ui.vercel.app/docs/components/radio-group)         |
-| [Resizable](https://synapse-ui.vercel.app/docs/components/resizable)       | [Scroll Area](https://synapse-ui.vercel.app/docs/components/scroll-area)   | [Select](https://synapse-ui.vercel.app/docs/components/select)               | [Separator](https://synapse-ui.vercel.app/docs/components/separator)             |
-| [Sheet](https://synapse-ui.vercel.app/docs/components/sheet)               | [Sidebar](https://synapse-ui.vercel.app/docs/components/sidebar)           | [Skeleton](https://synapse-ui.vercel.app/docs/components/skeleton)           | [Slider](https://synapse-ui.vercel.app/docs/components/slider)                   |
-| [Sonner](https://synapse-ui.vercel.app/docs/components/sonner)             | [Spinner](https://synapse-ui.vercel.app/docs/components/spinner)           | [Switch](https://synapse-ui.vercel.app/docs/components/switch)               | [Table](https://synapse-ui.vercel.app/docs/components/table)                     |
-| [Tabs](https://synapse-ui.vercel.app/docs/components/tabs)                 | [Textarea](https://synapse-ui.vercel.app/docs/components/textarea)         | [Toggle](https://synapse-ui.vercel.app/docs/components/toggle)               | [Toggle Group](https://synapse-ui.vercel.app/docs/components/toggle-group)       |
-| [Tooltip](https://synapse-ui.vercel.app/docs/components/tooltip)           |                                                                            |                                                                              |                                                                                  |
+|                                                                                |                                                                                |                                                                                  |                                                                                      |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| [Accordion](https://synapse-ui-dev.vercel.app/docs/components/accordion)       | [Alert](https://synapse-ui-dev.vercel.app/docs/components/alert)               | [Alert Dialog](https://synapse-ui-dev.vercel.app/docs/components/alert-dialog)   | [Aspect Ratio](https://synapse-ui-dev.vercel.app/docs/components/aspect-ratio)       |
+| [Avatar](https://synapse-ui-dev.vercel.app/docs/components/avatar)             | [Badge](https://synapse-ui-dev.vercel.app/docs/components/badge)               | [Breadcrumb](https://synapse-ui-dev.vercel.app/docs/components/breadcrumb)       | [Button](https://synapse-ui-dev.vercel.app/docs/components/button)                   |
+| [Button Group](https://synapse-ui-dev.vercel.app/docs/components/button-group) | [Calendar](https://synapse-ui-dev.vercel.app/docs/components/calendar)         | [Card](https://synapse-ui-dev.vercel.app/docs/components/card)                   | [Carousel](https://synapse-ui-dev.vercel.app/docs/components/carousel)               |
+| [Chart](https://synapse-ui-dev.vercel.app/docs/components/chart)               | [Checkbox](https://synapse-ui-dev.vercel.app/docs/components/checkbox)         | [Collapsible](https://synapse-ui-dev.vercel.app/docs/components/collapsible)     | [Combobox](https://synapse-ui-dev.vercel.app/docs/components/combobox)               |
+| [Command](https://synapse-ui-dev.vercel.app/docs/components/command)           | [Context Menu](https://synapse-ui-dev.vercel.app/docs/components/context-menu) | [Data Table](https://synapse-ui-dev.vercel.app/docs/components/data-table)       | [Date Picker](https://synapse-ui-dev.vercel.app/docs/components/date-picker)         |
+| [Dialog](https://synapse-ui-dev.vercel.app/docs/components/dialog)             | [Drawer](https://synapse-ui-dev.vercel.app/docs/components/drawer)             | [Dropdown Menu](https://synapse-ui-dev.vercel.app/docs/components/dropdown-menu) | [Empty State](https://synapse-ui-dev.vercel.app/docs/components/empty-state)         |
+| [Form](https://synapse-ui-dev.vercel.app/docs/components/form)                 | [Hover Card](https://synapse-ui-dev.vercel.app/docs/components/hover-card)     | [Input](https://synapse-ui-dev.vercel.app/docs/components/input)                 | [Input OTP](https://synapse-ui-dev.vercel.app/docs/components/input-otp)             |
+| [Kbd](https://synapse-ui-dev.vercel.app/docs/components/kbd)                   | [Label](https://synapse-ui-dev.vercel.app/docs/components/label)               | [Menubar](https://synapse-ui-dev.vercel.app/docs/components/menubar)             | [Navigation Menu](https://synapse-ui-dev.vercel.app/docs/components/navigation-menu) |
+| [Pagination](https://synapse-ui-dev.vercel.app/docs/components/pagination)     | [Popover](https://synapse-ui-dev.vercel.app/docs/components/popover)           | [Progress](https://synapse-ui-dev.vercel.app/docs/components/progress)           | [Radio Group](https://synapse-ui-dev.vercel.app/docs/components/radio-group)         |
+| [Resizable](https://synapse-ui-dev.vercel.app/docs/components/resizable)       | [Scroll Area](https://synapse-ui-dev.vercel.app/docs/components/scroll-area)   | [Select](https://synapse-ui-dev.vercel.app/docs/components/select)               | [Separator](https://synapse-ui-dev.vercel.app/docs/components/separator)             |
+| [Sheet](https://synapse-ui-dev.vercel.app/docs/components/sheet)               | [Sidebar](https://synapse-ui-dev.vercel.app/docs/components/sidebar)           | [Skeleton](https://synapse-ui-dev.vercel.app/docs/components/skeleton)           | [Slider](https://synapse-ui-dev.vercel.app/docs/components/slider)                   |
+| [Sonner](https://synapse-ui-dev.vercel.app/docs/components/sonner)             | [Spinner](https://synapse-ui-dev.vercel.app/docs/components/spinner)           | [Switch](https://synapse-ui-dev.vercel.app/docs/components/switch)               | [Table](https://synapse-ui-dev.vercel.app/docs/components/table)                     |
+| [Tabs](https://synapse-ui-dev.vercel.app/docs/components/tabs)                 | [Textarea](https://synapse-ui-dev.vercel.app/docs/components/textarea)         | [Toggle](https://synapse-ui-dev.vercel.app/docs/components/toggle)               | [Toggle Group](https://synapse-ui-dev.vercel.app/docs/components/toggle-group)       |
+| [Tooltip](https://synapse-ui-dev.vercel.app/docs/components/tooltip)           |                                                                                |                                                                                  |                                                                                      |
 
 </details>
 
@@ -262,16 +269,16 @@ Effect utilities ship with the tokens: `surface-premium`, `glass`, `border-beam`
 <summary><b>Animated components</b> (31)</summary>
 <br />
 
-|                                                                                |                                                                                          |                                                                                         |                                                                                            |
-| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| [Spotlight](https://synapse-ui.vercel.app/docs/animated/spotlight)             | [Background Beams](https://synapse-ui.vercel.app/docs/animated/background-beams)         | [Grid and Dot Backgrounds](https://synapse-ui.vercel.app/docs/animated/grid-background) | [Aurora Background](https://synapse-ui.vercel.app/docs/animated/aurora-background)         |
-| [Meteors](https://synapse-ui.vercel.app/docs/animated/meteors)                 | [Sparkles](https://synapse-ui.vercel.app/docs/animated/sparkles)                         | [Glowing Border Card](https://synapse-ui.vercel.app/docs/animated/glowing-card)         | [Moving Border Button](https://synapse-ui.vercel.app/docs/animated/moving-border-button)   |
-| [3D Tilt Card](https://synapse-ui.vercel.app/docs/animated/tilt-card)          | [Card Spotlight](https://synapse-ui.vercel.app/docs/animated/card-spotlight)             | [Bento Grid](https://synapse-ui.vercel.app/docs/animated/bento-grid)                    | [Infinite Moving Cards](https://synapse-ui.vercel.app/docs/animated/infinite-moving-cards) |
-| [Marquee](https://synapse-ui.vercel.app/docs/animated/marquee)                 | [Text Generate Effect](https://synapse-ui.vercel.app/docs/animated/text-generate-effect) | [Typewriter](https://synapse-ui.vercel.app/docs/animated/typewriter)                    | [Flip Words](https://synapse-ui.vercel.app/docs/animated/flip-words)                       |
-| [Gradient Text](https://synapse-ui.vercel.app/docs/animated/gradient-text)     | [Number Ticker](https://synapse-ui.vercel.app/docs/animated/number-ticker)               | [Animated Tabs](https://synapse-ui.vercel.app/docs/animated/animated-tabs)              | [Floating Dock](https://synapse-ui.vercel.app/docs/animated/floating-dock)                 |
-| [Floating Navbar](https://synapse-ui.vercel.app/docs/animated/floating-navbar) | [Timeline](https://synapse-ui.vercel.app/docs/animated/timeline)                         | [Tracing Beam](https://synapse-ui.vercel.app/docs/animated/tracing-beam)                | [Lamp Effect](https://synapse-ui.vercel.app/docs/animated/lamp-effect)                     |
-| [Shimmer Button](https://synapse-ui.vercel.app/docs/animated/shimmer-button)   | [Animated Tooltip](https://synapse-ui.vercel.app/docs/animated/animated-tooltip)         | [Expandable Card](https://synapse-ui.vercel.app/docs/animated/expandable-card)          | [Parallax Scroll](https://synapse-ui.vercel.app/docs/animated/parallax-scroll)             |
-| [Terminal](https://synapse-ui.vercel.app/docs/animated/terminal)               | [Code Block](https://synapse-ui.vercel.app/docs/animated/code-block)                     | [Dotted World Map](https://synapse-ui.vercel.app/docs/animated/dotted-world-map)        |                                                                                            |
+|                                                                                    |                                                                                              |                                                                                             |                                                                                                |
+| ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| [Spotlight](https://synapse-ui-dev.vercel.app/docs/animated/spotlight)             | [Background Beams](https://synapse-ui-dev.vercel.app/docs/animated/background-beams)         | [Grid and Dot Backgrounds](https://synapse-ui-dev.vercel.app/docs/animated/grid-background) | [Aurora Background](https://synapse-ui-dev.vercel.app/docs/animated/aurora-background)         |
+| [Meteors](https://synapse-ui-dev.vercel.app/docs/animated/meteors)                 | [Sparkles](https://synapse-ui-dev.vercel.app/docs/animated/sparkles)                         | [Glowing Border Card](https://synapse-ui-dev.vercel.app/docs/animated/glowing-card)         | [Moving Border Button](https://synapse-ui-dev.vercel.app/docs/animated/moving-border-button)   |
+| [3D Tilt Card](https://synapse-ui-dev.vercel.app/docs/animated/tilt-card)          | [Card Spotlight](https://synapse-ui-dev.vercel.app/docs/animated/card-spotlight)             | [Bento Grid](https://synapse-ui-dev.vercel.app/docs/animated/bento-grid)                    | [Infinite Moving Cards](https://synapse-ui-dev.vercel.app/docs/animated/infinite-moving-cards) |
+| [Marquee](https://synapse-ui-dev.vercel.app/docs/animated/marquee)                 | [Text Generate Effect](https://synapse-ui-dev.vercel.app/docs/animated/text-generate-effect) | [Typewriter](https://synapse-ui-dev.vercel.app/docs/animated/typewriter)                    | [Flip Words](https://synapse-ui-dev.vercel.app/docs/animated/flip-words)                       |
+| [Gradient Text](https://synapse-ui-dev.vercel.app/docs/animated/gradient-text)     | [Number Ticker](https://synapse-ui-dev.vercel.app/docs/animated/number-ticker)               | [Animated Tabs](https://synapse-ui-dev.vercel.app/docs/animated/animated-tabs)              | [Floating Dock](https://synapse-ui-dev.vercel.app/docs/animated/floating-dock)                 |
+| [Floating Navbar](https://synapse-ui-dev.vercel.app/docs/animated/floating-navbar) | [Timeline](https://synapse-ui-dev.vercel.app/docs/animated/timeline)                         | [Tracing Beam](https://synapse-ui-dev.vercel.app/docs/animated/tracing-beam)                | [Lamp Effect](https://synapse-ui-dev.vercel.app/docs/animated/lamp-effect)                     |
+| [Shimmer Button](https://synapse-ui-dev.vercel.app/docs/animated/shimmer-button)   | [Animated Tooltip](https://synapse-ui-dev.vercel.app/docs/animated/animated-tooltip)         | [Expandable Card](https://synapse-ui-dev.vercel.app/docs/animated/expandable-card)          | [Parallax Scroll](https://synapse-ui-dev.vercel.app/docs/animated/parallax-scroll)             |
+| [Terminal](https://synapse-ui-dev.vercel.app/docs/animated/terminal)               | [Code Block](https://synapse-ui-dev.vercel.app/docs/animated/code-block)                     | [Dotted World Map](https://synapse-ui-dev.vercel.app/docs/animated/dotted-world-map)        |                                                                                                |
 
 </details>
 
@@ -279,20 +286,27 @@ Effect utilities ship with the tokens: `surface-premium`, `glass`, `border-beam`
 <summary><b>Blocks</b> (12)</summary>
 <br />
 
-|                                                                             |                                                                          |                                                                              |
-| --------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
-| [Hero: Spotlight](https://synapse-ui.vercel.app/docs/blocks/hero-spotlight) | [Hero: Split](https://synapse-ui.vercel.app/docs/blocks/hero-split)      | [Hero: Product](https://synapse-ui.vercel.app/docs/blocks/hero-product)      |
-| [Feature Section](https://synapse-ui.vercel.app/docs/blocks/feature-grid)   | [Pricing Table](https://synapse-ui.vercel.app/docs/blocks/pricing-table) | [Testimonials](https://synapse-ui.vercel.app/docs/blocks/testimonial-wall)   |
-| [FAQ](https://synapse-ui.vercel.app/docs/blocks/faq-section)                | [Call to Action](https://synapse-ui.vercel.app/docs/blocks/cta-panel)    | [Footer](https://synapse-ui.vercel.app/docs/blocks/site-footer)              |
-| [Login Page](https://synapse-ui.vercel.app/docs/blocks/login-page)          | [Signup Page](https://synapse-ui.vercel.app/docs/blocks/signup-page)     | [Dashboard Shell](https://synapse-ui.vercel.app/docs/blocks/dashboard-shell) |
+|                                                                                 |                                                                              |                                                                                  |
+| ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| [Hero: Spotlight](https://synapse-ui-dev.vercel.app/docs/blocks/hero-spotlight) | [Hero: Split](https://synapse-ui-dev.vercel.app/docs/blocks/hero-split)      | [Hero: Product](https://synapse-ui-dev.vercel.app/docs/blocks/hero-product)      |
+| [Feature Section](https://synapse-ui-dev.vercel.app/docs/blocks/feature-grid)   | [Pricing Table](https://synapse-ui-dev.vercel.app/docs/blocks/pricing-table) | [Testimonials](https://synapse-ui-dev.vercel.app/docs/blocks/testimonial-wall)   |
+| [FAQ](https://synapse-ui-dev.vercel.app/docs/blocks/faq-section)                | [Call to Action](https://synapse-ui-dev.vercel.app/docs/blocks/cta-panel)    | [Footer](https://synapse-ui-dev.vercel.app/docs/blocks/site-footer)              |
+| [Login Page](https://synapse-ui-dev.vercel.app/docs/blocks/login-page)          | [Signup Page](https://synapse-ui-dev.vercel.app/docs/blocks/signup-page)     | [Dashboard Shell](https://synapse-ui-dev.vercel.app/docs/blocks/dashboard-shell) |
 
 </details>
 
 <details>
-<summary><b>Collections</b></summary>
+<summary><b>React Native components</b> (59)</summary>
 <br />
 
-Ready-made variants of common patterns: [AI Inputs](https://synapse-ui.vercel.app/docs/collections/ai-input), [Alerts](https://synapse-ui.vercel.app/docs/collections/alert), [Badges](https://synapse-ui.vercel.app/docs/collections/badge), [Buttons](https://synapse-ui.vercel.app/docs/collections/button), [Cards](https://synapse-ui.vercel.app/docs/collections/card), [FAQs](https://synapse-ui.vercel.app/docs/collections/faq), [Inputs](https://synapse-ui.vercel.app/docs/collections/input), [Lists](https://synapse-ui.vercel.app/docs/collections/list), [Messages](https://synapse-ui.vercel.app/docs/collections/message), [Popovers](https://synapse-ui.vercel.app/docs/collections/popover), [Pricing](https://synapse-ui.vercel.app/docs/collections/pricing), [Texts](https://synapse-ui.vercel.app/docs/collections/text), [Tooltips](https://synapse-ui.vercel.app/docs/collections/tooltip) and [Hooks](https://synapse-ui.vercel.app/docs/collections/hooks).
+For React Native and Expo. Install with `npx synapse-ui@latest add native-<name>`, then follow the [setup guide](https://synapse-ui-dev.vercel.app/docs/react-native).
+
+- **Foundations:** Text, Icon
+- **Actions:** Button, Toggle, Floating Action Button, Segmented Control
+- **Forms:** Input, Textarea, Form Field, Search Bar, OTP Input, Chat Input, Checkbox, Radio Group, Switch, Slider, Stepper, Select, Chip, Rating, Keypad
+- **Display:** Card, Avatar, Badge, Separator, Skeleton, Progress, Progress Ring, Spinner, Alert, Banner, Empty State, List, Accordion, Tabs, Stat Card, Timeline, Steps, Carousel, Page Indicator, Media Card, Plan Card, Chat Bubble, Typing Indicator, Number Ticker, Calendar Strip, Bar Chart, Sparkline
+- **Overlays:** Dialog, Alert Dialog, Bottom Sheet, Action Sheet, Dropdown Menu, Tooltip, Drawer, Toast
+- **Navigation:** Header, Tab Bar, Swipeable Row
 
 </details>
 
@@ -327,7 +341,8 @@ Open [http://localhost:3000](http://localhost:3000). Append `?theme=light` or `?
 ├── packages/cli/              # The `synapse-ui` CLI (init, add, list)
 ├── public/r/                  # Generated registry (shadcn format), one JSON per item
 ├── scripts/
-│   ├── build-registry.mjs     # Builds public/r and the collections index
+│   ├── build-registry.mjs     # Builds public/r (shadcn registry JSON)
+│   ├── generate-native-icons.mjs  # Builds the React Native icon set from Lucide
 │   ├── build-docs-index.mjs   # Builds the lazy example map and tokens.css
 │   ├── generate-docs.ts       # Generates component docs pages
 │   └── docs-meta/             # Usage, examples, props and a11y per component
@@ -337,15 +352,18 @@ Open [http://localhost:3000](http://localhost:3000). Append `?theme=light` or `?
     │   ├── ui/                # Core components
     │   ├── animated/          # Animated components
     │   ├── blocks/            # Page sections
-    │   ├── synapse-ui-components/  # Collections (variants)
-    │   ├── docs/              # Preview, install, code block, props table
+    │   ├── native/            # React Native / Expo components
+    │   ├── docs/              # Preview, install, code block, props table, phone frame
     │   └── site/              # Site chrome and landing sections
     ├── content/docs/          # MDX documentation
     ├── registry/
     │   ├── registry.ts        # Metadata for every documented item
     │   └── examples/          # Live examples used by the docs
     └── lib/                   # Utilities, Shiki highlighter, docs navigation
+unused/                        # Retired code (the old collections), kept for reference
 ```
+
+React Native examples render live in the docs through `react-native-web` (aliased in `next.config.mjs`). Any example named `native-*` is shown inside a phone frame.
 
 ## Adding a component
 
@@ -368,12 +386,15 @@ The new page appears in the sidebar, the ⌘K palette and the CLI automatically.
 - Visible focus rings on every interactive element, using the `ring` token.
 - `prefers-reduced-motion` disables CSS animations globally, and Motion runs with `reducedMotion="user"`.
 - Docs pages and examples are statically generated. Code is highlighted at build time, so no highlighter ships to the browser for docs.
+- Every docs page is also served as plain Markdown at `/md/<page>` (e.g. `/md/components/button`), and **Copy Page** puts it on your clipboard for LLMs.
+- Keyboard: `⌘K` / `Ctrl+K` to search, `[` and `]` for the previous and next page, `Esc` closes native overlays on the web.
 - Examples load lazily, so a docs page only downloads the demos it shows.
 
 ## Roadmap
 
 - [x] Dark-first token system with a complete light theme
 - [x] 53 core, 31 animated and 12 block components
+- [x] 59 React Native components for Expo
 - [x] CLI and shadcn-compatible registry
 - [ ] Publish the `synapse-ui` CLI to npm
 - [ ] Figma kit

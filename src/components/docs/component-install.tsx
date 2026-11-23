@@ -21,18 +21,45 @@ function Step({ title, children }: { title: string; children?: React.ReactNode }
   );
 }
 
+/** Main file first, then every `@/components/native/*` file it depends on. */
+async function collectNativeFiles(entryFiles: string[]) {
+  const out: string[] = [];
+  const queue = [...entryFiles];
+  while (queue.length) {
+    const file = queue.shift()!;
+    if (out.includes(file)) continue;
+    const code = await readSource(file);
+    if (code.startsWith("// Source not found")) continue;
+    out.push(file);
+    for (const m of code.matchAll(/from\s+["']@\/components\/native\/([\w-]+)["']/g)) {
+      const base = `src/components/native/${m[1]}`;
+      const ts = `${base}.ts`;
+      queue.push(
+        (await readSource(`${base}.tsx`)).startsWith("// Source not found") ? ts : `${base}.tsx`,
+      );
+    }
+  }
+  return out;
+}
+
 export async function ComponentInstall({ name }: { name: string }) {
   const entry = getEntry(name);
   if (!entry) return <p className="text-sm text-destructive">Unknown registry item: {name}</p>;
 
+  const native = entry.category === "native";
+  const sources = native ? await collectNativeFiles(entry.files) : entry.files;
+
   const files = await Promise.all(
-    entry.files.map(async (file) => {
+    sources.map(async (file) => {
       const code = toConsumerSource(await readSource(file));
       return { file, code, html: await highlight(code, "tsx"), deps: scanDeps(code) };
     }),
   );
 
-  const packages = [...new Set(files.flatMap((f) => f.deps.packages))];
+  const packages = [...new Set(files.flatMap((f) => f.deps.packages))].filter(
+    // react-native is already in every Expo app.
+    (p) => !(native && p === "react-native"),
+  );
   const internal = [...new Set(files.flatMap((f) => f.deps.internal))].filter(
     (d) => d !== "utils" && !entry.files.some((f) => f.endsWith(`/${d}.tsx`)),
   );
@@ -55,7 +82,11 @@ export async function ComponentInstall({ name }: { name: string }) {
           <StepList>
             {packages.length > 0 && (
               <Step title="Install the following dependencies:">
-                <PmCommand install={packages.join(" ")} />
+                {native ? (
+                  <PmCommand dlx={`expo install ${packages.join(" ")}`} />
+                ) : (
+                  <PmCommand install={packages.join(" ")} />
+                )}
               </Step>
             )}
             {internal.length > 0 && (

@@ -1,0 +1,51 @@
+---
+title: "Number Ticker"
+description: "Animated counting numbers with formatting."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-number-ticker-demo" />
+
+## Installation
+
+<ComponentInstall name="native-number-ticker" />
+
+## Usage
+
+```tsx
+import { NumberTicker } from "@/components/native/number-ticker";
+```
+
+```tsx
+<NumberTicker value={12480.5} prefix="$" decimals={2} />
+```
+
+## API Reference
+
+### NumberTicker
+
+<PropsTable
+  props={[
+    {
+      prop: "value",
+      type: "number",
+      description: "Target value. Changing it animates from the current one.",
+    },
+    { prop: "from", type: "number", defaultValue: "0", description: "Start value on mount." },
+    { prop: "duration", type: "number", defaultValue: "1200", description: "Milliseconds." },
+    { prop: "decimals", type: "number", defaultValue: "0", description: "Fraction digits." },
+    { prop: "prefix", type: "string", defaultValue: '""', description: "e.g. $" },
+    { prop: "suffix", type: "string", defaultValue: '""', description: "e.g. %" },
+    {
+      prop: "grouping",
+      type: "boolean",
+      defaultValue: "true",
+      description: "Thousands separators.",
+    },
+    { prop: "style", type: "StyleProp<TextStyle>", description: "Text style." },
+  ]}
+/>

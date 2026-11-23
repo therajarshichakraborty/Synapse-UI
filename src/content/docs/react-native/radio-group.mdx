@@ -1,0 +1,54 @@
+---
+title: "Radio Group"
+description: "A set of radio options in list or card layouts."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-radio-group-demo" />
+
+## Installation
+
+<ComponentInstall name="native-radio-group" />
+
+## Usage
+
+```tsx
+import { RadioGroup } from "@/components/native/radio-group";
+```
+
+```tsx
+<RadioGroup
+  variant="card"
+  value={plan}
+  onValueChange={setPlan}
+  options={[{ value: "a", label: "Option A" }]}
+/>
+```
+
+## API Reference
+
+### RadioGroup
+
+<PropsTable
+  props={[
+    {
+      prop: "options",
+      type: "{ value, label, description?, icon?, disabled? }[]",
+      description: "Choices.",
+    },
+    { prop: "value", type: "string", description: "Controlled value." },
+    { prop: "defaultValue", type: "string", description: "Initial value." },
+    { prop: "onValueChange", type: "(value: string) => void", description: "Called on change." },
+    {
+      prop: "variant",
+      type: '"list" | "card"',
+      defaultValue: '"list"',
+      description: "Compact rows or bordered tiles.",
+    },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

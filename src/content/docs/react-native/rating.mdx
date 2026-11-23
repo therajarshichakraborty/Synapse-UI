@@ -1,0 +1,49 @@
+---
+title: "Rating"
+description: "Tap-to-rate stars with half-step display."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-rating-demo" />
+
+## Installation
+
+<ComponentInstall name="native-rating" />
+
+## Usage
+
+```tsx
+import { Rating } from "@/components/native/rating";
+```
+
+```tsx
+<Rating value={stars} onValueChange={setStars} />
+<Rating readOnly value={4.6} showValue count="2.4k" />
+```
+
+## API Reference
+
+### Rating
+
+<PropsTable
+  props={[
+    {
+      prop: "value",
+      type: "number",
+      description: "Controlled value. Fractions render in read-only mode.",
+    },
+    { prop: "defaultValue", type: "number", defaultValue: "0", description: "Initial value." },
+    { prop: "onValueChange", type: "(value: number) => void", description: "Called on tap." },
+    { prop: "max", type: "number", defaultValue: "5", description: "Number of stars." },
+    { prop: "size", type: "number", defaultValue: "28", description: "Star size." },
+    { prop: "readOnly", type: "boolean", defaultValue: "false", description: "Display only." },
+    { prop: "showValue", type: "boolean", defaultValue: "false", description: "Show the number." },
+    { prop: "count", type: "string", description: "Review count after the value." },
+    { prop: "color", type: "string", defaultValue: '"#f5a524"', description: "Star color." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

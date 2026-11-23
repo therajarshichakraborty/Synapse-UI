@@ -1,0 +1,70 @@
+---
+title: "Toggle"
+description: "An icon toggle with a satisfying pop, for likes, bookmarks and follows."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-toggle-demo" />
+
+## Installation
+
+<ComponentInstall name="native-toggle" />
+
+## Usage
+
+```tsx
+import { Toggle } from "@/components/native/toggle";
+```
+
+```tsx
+<Toggle icon="heart" label="128" accessibilityLabel="Like" />
+```
+
+## API Reference
+
+### Toggle
+
+<PropsTable
+  props={[
+    { prop: "icon", type: "IconName", description: "Icon to toggle." },
+    { prop: "pressed", type: "boolean", description: "Controlled state." },
+    {
+      prop: "defaultPressed",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Initial state when uncontrolled.",
+    },
+    {
+      prop: "onPressedChange",
+      type: "(pressed: boolean) => void",
+      description: "Called on toggle.",
+    },
+    {
+      prop: "activeColor",
+      type: "string",
+      description: "Defaults to red for heart, amber for star.",
+    },
+    {
+      prop: "fillWhenActive",
+      type: "boolean",
+      defaultValue: "true",
+      description: "Fill the icon while on.",
+    },
+    { prop: "label", type: "string", description: "Text next to the icon." },
+    {
+      prop: "bordered",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Draw a pill around it.",
+    },
+    { prop: "accessibilityLabel", type: "string", description: "Required." },
+  ]}
+/>
+
+## Accessibility
+
+Announced as a switch with its checked state.

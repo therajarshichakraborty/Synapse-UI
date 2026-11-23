@@ -1,0 +1,49 @@
+---
+title: "Switch"
+description: "An iOS-grade toggle switch with a springy thumb."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-switch-demo" />
+
+## Installation
+
+<ComponentInstall name="native-switch" />
+
+## Usage
+
+```tsx
+import { Switch } from "@/components/native/switch";
+```
+
+```tsx
+<Switch value={enabled} onValueChange={setEnabled} />
+<Switch label="Notifications" description="Push and email" />
+```
+
+## API Reference
+
+### Switch
+
+<PropsTable
+  props={[
+    { prop: "value", type: "boolean", description: "Controlled state." },
+    { prop: "defaultValue", type: "boolean", defaultValue: "false", description: "Initial state." },
+    { prop: "onValueChange", type: "(value: boolean) => void", description: "Called on toggle." },
+    {
+      prop: "tint",
+      type: '"success" | "brand" | "primary"',
+      defaultValue: '"success"',
+      description: "Track color when on.",
+    },
+    { prop: "size", type: '"sm" | "md"', defaultValue: '"md"', description: "51×31 or 40×24." },
+    { prop: "label", type: "string", description: "Renders a labeled row." },
+    { prop: "description", type: "string", description: "Secondary text." },
+    { prop: "disabled", type: "boolean", defaultValue: "false", description: "Not pressable." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

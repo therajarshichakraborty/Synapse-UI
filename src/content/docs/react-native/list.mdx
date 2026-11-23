@@ -1,0 +1,57 @@
+---
+title: "List"
+description: "Grouped, inset settings-style lists with icons, values and switches."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-list-demo" />
+
+## Installation
+
+<ComponentInstall name="native-list" />
+
+## Usage
+
+```tsx
+import { ListGroup, ListItem } from "@/components/native/list";
+```
+
+```tsx
+<ListGroup header="General">
+  <ListItem title="Wi-Fi" icon="wifi" iconColor="#3b82f6" value="Home" onPress={open} />
+  <ListItem title="Dark mode" icon="moon" trailing={<Switch />} />
+</ListGroup>
+```
+
+## API Reference
+
+### ListGroup
+
+<PropsTable
+  props={[
+    { prop: "header", type: "string", description: "Uppercase heading." },
+    { prop: "footer", type: "string", description: "Helper text below." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>
+
+### ListItem
+
+<PropsTable
+  props={[
+    { prop: "title", type: "string", description: "Primary text." },
+    { prop: "subtitle", type: "string", description: "Secondary text." },
+    { prop: "icon", type: "IconName", description: "Icon tile." },
+    { prop: "iconColor", type: "string", description: "Tile background; the icon turns white." },
+    { prop: "leading", type: "ReactNode", description: "Custom leading element." },
+    { prop: "value", type: "string", description: "Right-aligned value." },
+    { prop: "trailing", type: "ReactNode", description: "Custom trailing element." },
+    { prop: "onPress", type: "() => void", description: "Makes the row pressable." },
+    { prop: "chevron", type: "boolean", defaultValue: "auto", description: "Disclosure chevron." },
+    { prop: "destructive", type: "boolean", defaultValue: "false", description: "Red title." },
+  ]}
+/>

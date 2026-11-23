@@ -1,0 +1,61 @@
+---
+title: "Bottom Sheet"
+description: "A draggable bottom sheet with snap points and handle."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-bottom-sheet-demo" />
+
+## Installation
+
+<ComponentInstall name="native-bottom-sheet" />
+
+## Usage
+
+```tsx
+import { BottomSheet } from "@/components/native/bottom-sheet";
+```
+
+```tsx
+<BottomSheet open={open} onOpenChange={setOpen} title="Share" snapPoints={[0.4, 0.9]}>
+  …
+</BottomSheet>
+```
+
+## API Reference
+
+### BottomSheet
+
+<PropsTable
+  props={[
+    { prop: "open", type: "boolean", description: "Visibility." },
+    {
+      prop: "onOpenChange",
+      type: "(open: boolean) => void",
+      description: "Called on drag-close, backdrop or back.",
+    },
+    { prop: "title", type: "string", description: "Heading." },
+    { prop: "description", type: "string", description: "Subheading." },
+    {
+      prop: "snapPoints",
+      type: "number[]",
+      defaultValue: "content height",
+      description: "Heights as screen fractions, smallest first.",
+    },
+    {
+      prop: "bottomInset",
+      type: "number",
+      defaultValue: "28",
+      description: "Padding for the home indicator.",
+    },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>
+
+## Accessibility
+
+Drag the handle or header. A fast downward fling closes it from any snap point.

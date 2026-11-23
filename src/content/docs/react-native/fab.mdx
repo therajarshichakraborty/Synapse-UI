@@ -1,0 +1,60 @@
+---
+title: "Floating Action Button"
+description: "A floating action button that expands into a speed-dial menu."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-fab-demo" />
+
+## Installation
+
+<ComponentInstall name="native-fab" />
+
+## Usage
+
+```tsx
+import { Fab } from "@/components/native/fab";
+```
+
+```tsx
+<Fab
+  actions={[
+    { icon: "camera", label: "Scan", onPress: scan },
+    { icon: "edit", label: "New note", onPress: create },
+  ]}
+/>
+```
+
+## API Reference
+
+### Fab
+
+<PropsTable
+  props={[
+    {
+      prop: "icon",
+      type: "IconName",
+      defaultValue: '"plus"',
+      description: "Main icon. Rotates 135° when the menu opens.",
+    },
+    { prop: "label", type: "string", description: "Makes an extended FAB." },
+    { prop: "onPress", type: "() => void", description: "Used when there are no actions." },
+    { prop: "actions", type: "{ icon, label, onPress }[]", description: "Speed-dial items." },
+    {
+      prop: "position",
+      type: '"bottom-right" | "bottom-center" | "none"',
+      defaultValue: '"bottom-right"',
+      description: "Absolute placement in the parent.",
+    },
+    { prop: "offset", type: "number", defaultValue: "24", description: "Distance from the edges." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>
+
+## Accessibility
+
+Reports `expanded` when it has a menu. Tapping the scrim closes it.

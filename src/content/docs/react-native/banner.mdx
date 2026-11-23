@@ -1,0 +1,46 @@
+---
+title: "Banner"
+description: "A dismissible announcement banner with an action."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-banner-demo" />
+
+## Installation
+
+<ComponentInstall name="native-banner" />
+
+## Usage
+
+```tsx
+import { Banner } from "@/components/native/banner";
+```
+
+```tsx
+<Banner title="Meet Synapse AI" action={{ label: "Try it", onPress }} onDismiss={hide} />
+```
+
+## API Reference
+
+### Banner
+
+<PropsTable
+  props={[
+    { prop: "title", type: "string", description: "Heading." },
+    { prop: "description", type: "string", description: "Body." },
+    { prop: "icon", type: "IconName", defaultValue: '"sparkles"', description: "Leading icon." },
+    { prop: "action", type: "{ label, onPress }", description: "White pill button." },
+    { prop: "onDismiss", type: "() => void", description: "Animates out, then calls this." },
+    {
+      prop: "colors",
+      type: "[string, string]",
+      defaultValue: "blue → violet",
+      description: "Gradient.",
+    },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

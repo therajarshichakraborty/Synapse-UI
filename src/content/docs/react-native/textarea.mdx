@@ -1,0 +1,51 @@
+---
+title: "Textarea"
+description: "A multi-line text field with a live character counter."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-textarea-demo" />
+
+## Installation
+
+<ComponentInstall name="native-textarea" />
+
+## Usage
+
+```tsx
+import { Textarea } from "@/components/native/textarea";
+```
+
+```tsx
+<Textarea placeholder="Write a message…" maxLength={280} showCount />
+```
+
+## API Reference
+
+### Textarea
+
+Extends `TextInputProps`.
+
+<PropsTable
+  props={[
+    {
+      prop: "rows",
+      type: "number",
+      defaultValue: "4",
+      description: "Visible lines before scrolling.",
+    },
+    {
+      prop: "showCount",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Character counter. Turns amber at 90% of `maxLength`.",
+    },
+    { prop: "invalid", type: "boolean", defaultValue: "false", description: "Error styling." },
+    { prop: "disabled", type: "boolean", defaultValue: "false", description: "Not editable." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

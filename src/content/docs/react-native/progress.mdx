@@ -1,0 +1,55 @@
+---
+title: "Progress"
+description: "An animated linear progress bar with label and value."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-progress-demo" />
+
+## Installation
+
+<ComponentInstall name="native-progress" />
+
+## Usage
+
+```tsx
+import { Progress } from "@/components/native/progress";
+```
+
+```tsx
+<Progress value={64} label="Uploading" showValue />
+```
+
+## API Reference
+
+### Progress
+
+<PropsTable
+  props={[
+    { prop: "value", type: "number", description: "0–100. Omit for indeterminate." },
+    { prop: "label", type: "string", description: "Label above the bar." },
+    {
+      prop: "showValue",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Percentage on the right.",
+    },
+    {
+      prop: "size",
+      type: '"sm" | "md" | "lg"',
+      defaultValue: '"md"',
+      description: "Bar thickness.",
+    },
+    {
+      prop: "tone",
+      type: '"primary" | "brand" | "success" | "warning" | "destructive"',
+      defaultValue: '"primary"',
+      description: "Bar color.",
+    },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

@@ -1,0 +1,46 @@
+---
+title: "Plan Card"
+description: "Selectable subscription plans with highlight and badge."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-plan-card-demo" />
+
+## Installation
+
+<ComponentInstall name="native-plan-card" />
+
+## Usage
+
+```tsx
+import { PlanCard } from "@/components/native/plan-card";
+```
+
+```tsx
+<PlanCard plan={plan} selected={selected === plan.id} onPress={() => setSelected(plan.id)} />
+```
+
+## API Reference
+
+### PlanCard
+
+<PropsTable
+  props={[
+    {
+      prop: "plan",
+      type: "{ id, name, price, period?, description?, features?, badge? }",
+      description: "Plan data.",
+    },
+    { prop: "selected", type: "boolean", defaultValue: "false", description: "Selected styling." },
+    { prop: "onPress", type: "() => void", description: "Press handler." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>
+
+## Accessibility
+
+Announced as a radio so a list of plans reads as one choice.

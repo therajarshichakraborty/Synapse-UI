@@ -1,0 +1,40 @@
+---
+title: "Empty State"
+description: "A friendly placeholder for empty lists and first runs."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-empty-state-demo" />
+
+## Installation
+
+<ComponentInstall name="native-empty-state" />
+
+## Usage
+
+```tsx
+import { EmptyState } from "@/components/native/empty-state";
+```
+
+```tsx
+<EmptyState icon="inbox" title="No messages" action={{ label: "Compose", onPress }} />
+```
+
+## API Reference
+
+### EmptyState
+
+<PropsTable
+  props={[
+    { prop: "title", type: "string", description: "Heading." },
+    { prop: "description", type: "string", description: "Body." },
+    { prop: "icon", type: "IconName", defaultValue: '"inbox"', description: "Illustration icon." },
+    { prop: "action", type: "{ label, onPress }", description: "Primary button." },
+    { prop: "secondaryAction", type: "{ label, onPress }", description: "Ghost button." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

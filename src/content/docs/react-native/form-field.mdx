@@ -1,0 +1,56 @@
+---
+title: "Form Field"
+description: "Label, description and error message wired around any control."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-form-field-demo" />
+
+## Installation
+
+<ComponentInstall name="native-form-field" />
+
+## Usage
+
+```tsx
+import { FormField } from "@/components/native/form-field";
+```
+
+```tsx
+<FormField label="Email" error={errors.email}>
+  <Input invalid={!!errors.email} />
+</FormField>
+```
+
+## API Reference
+
+### FormField
+
+<PropsTable
+  props={[
+    { prop: "label", type: "string", description: "Label above the control." },
+    {
+      prop: "description",
+      type: "string",
+      description: "Helper text. Hidden while `error` is set.",
+    },
+    { prop: "error", type: "string", description: "Error message with icon." },
+    {
+      prop: "required",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Adds a red asterisk.",
+    },
+    { prop: "labelRight", type: "ReactNode", description: "Content beside the label." },
+    { prop: "children", type: "ReactNode", description: "The control." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>
+
+## Accessibility
+
+Errors are announced via `accessibilityLiveRegion="polite"` on Android.

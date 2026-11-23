@@ -1,0 +1,51 @@
+---
+title: "Tabs"
+description: "Underline and pill tabs with an animated indicator."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-tabs-demo" />
+
+## Installation
+
+<ComponentInstall name="native-tabs" />
+
+## Usage
+
+```tsx
+import { Tabs } from "@/components/native/tabs";
+```
+
+```tsx
+<Tabs value={tab} onValueChange={setTab} items={[{ value: "a", label: "Inbox", badge: 4 }]} />
+```
+
+## API Reference
+
+### Tabs
+
+<PropsTable
+  props={[
+    { prop: "items", type: "{ value, label, icon?, badge? }[]", description: "Tabs." },
+    { prop: "value", type: "string", description: "Controlled value." },
+    {
+      prop: "defaultValue",
+      type: "string",
+      defaultValue: "first item",
+      description: "Initial value.",
+    },
+    { prop: "onValueChange", type: "(value: string) => void", description: "Called on change." },
+    {
+      prop: "variant",
+      type: '"underline" | "pill"',
+      defaultValue: '"underline"',
+      description: "Indicator style.",
+    },
+    { prop: "fill", type: "boolean", defaultValue: "true", description: "Stretch tabs evenly." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

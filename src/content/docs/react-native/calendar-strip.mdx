@@ -1,0 +1,46 @@
+---
+title: "Calendar Strip"
+description: "A horizontal week strip for picking a day."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-calendar-strip-demo" />
+
+## Installation
+
+<ComponentInstall name="native-calendar-strip" />
+
+## Usage
+
+```tsx
+import { CalendarStrip } from "@/components/native/calendar-strip";
+```
+
+```tsx
+<CalendarStrip value={date} onValueChange={setDate} marked={["2026-06-12"]} />
+```
+
+## API Reference
+
+### CalendarStrip
+
+<PropsTable
+  props={[
+    { prop: "value", type: "Date", description: "Selected day." },
+    { prop: "onValueChange", type: "(date: Date) => void", description: "Called on tap." },
+    { prop: "start", type: "Date", defaultValue: "start of week", description: "First day shown." },
+    { prop: "days", type: "number", defaultValue: "14", description: "Days to show." },
+    {
+      prop: "marked",
+      type: "string[]",
+      defaultValue: "[]",
+      description: "YYYY-MM-DD dates with an event dot.",
+    },
+    { prop: "locale", type: "string", defaultValue: '"en-US"', description: "Weekday names." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

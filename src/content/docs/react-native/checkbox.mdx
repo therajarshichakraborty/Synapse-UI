@@ -1,0 +1,61 @@
+---
+title: "Checkbox"
+description: "An animated checkbox with label, description and indeterminate state."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-checkbox-demo" />
+
+## Installation
+
+<ComponentInstall name="native-checkbox" />
+
+## Usage
+
+```tsx
+import { Checkbox } from "@/components/native/checkbox";
+```
+
+```tsx
+<Checkbox label="Remember me" checked={remember} onCheckedChange={setRemember} />
+```
+
+## API Reference
+
+### Checkbox
+
+<PropsTable
+  props={[
+    { prop: "checked", type: 'boolean | "indeterminate"', description: "Controlled state." },
+    {
+      prop: "defaultChecked",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Initial state.",
+    },
+    {
+      prop: "onCheckedChange",
+      type: "(checked: boolean) => void",
+      description: "Called on toggle.",
+    },
+    { prop: "label", type: "string", description: "Label text. The whole row is pressable." },
+    { prop: "description", type: "string", description: "Secondary text." },
+    {
+      prop: "shape",
+      type: '"square" | "round"',
+      defaultValue: '"square"',
+      description: "Round suits to-do lists.",
+    },
+    { prop: "invalid", type: "boolean", defaultValue: "false", description: "Red border." },
+    { prop: "disabled", type: "boolean", defaultValue: "false", description: "Not pressable." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>
+
+## Accessibility
+
+Announced as a checkbox; indeterminate is reported as `mixed`.

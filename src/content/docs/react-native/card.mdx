@@ -1,0 +1,60 @@
+---
+title: "Card"
+description: "A surface with header, content and footer slots, in four styles."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-card-demo" />
+
+## Installation
+
+<ComponentInstall name="native-card" />
+
+## Usage
+
+```tsx
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/native/card";
+```
+
+```tsx
+<Card variant="elevated">
+  <CardHeader title="Title" description="Description" />
+  <CardContent>…</CardContent>
+  <CardFooter>…</CardFooter>
+</Card>
+```
+
+## API Reference
+
+### Card
+
+<PropsTable
+  props={[
+    {
+      prop: "variant",
+      type: '"outline" | "elevated" | "filled" | "ghost"',
+      defaultValue: '"outline"',
+      description: "Surface style.",
+    },
+    {
+      prop: "onPress",
+      type: "() => void",
+      description: "Makes the card pressable with spring feedback.",
+    },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>
+
+### CardHeader
+
+<PropsTable
+  props={[
+    { prop: "title", type: "string", description: "Heading." },
+    { prop: "description", type: "string", description: "Subheading." },
+    { prop: "right", type: "ReactNode", description: "Trailing content." },
+  ]}
+/>

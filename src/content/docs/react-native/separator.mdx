@@ -1,0 +1,44 @@
+---
+title: "Separator"
+description: "A hairline divider, optionally with a centered label."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-separator-demo" />
+
+## Installation
+
+<ComponentInstall name="native-separator" />
+
+## Usage
+
+```tsx
+import { Separator } from "@/components/native/separator";
+```
+
+```tsx
+<Separator />
+<Separator label="or" />
+```
+
+## API Reference
+
+### Separator
+
+<PropsTable
+  props={[
+    {
+      prop: "orientation",
+      type: '"horizontal" | "vertical"',
+      defaultValue: '"horizontal"',
+      description: "Direction.",
+    },
+    { prop: "label", type: "string", description: "Centered text." },
+    { prop: "inset", type: "number", defaultValue: "0", description: "Left inset." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

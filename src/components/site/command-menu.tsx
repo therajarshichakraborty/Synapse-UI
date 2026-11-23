@@ -13,6 +13,7 @@ import {
   LaptopIcon,
   MoonIcon,
   SearchIcon,
+  SmartphoneIcon,
   SparklesIcon,
   SunIcon,
 } from "lucide-react";
@@ -27,7 +28,13 @@ import {
   CommandSeparator,
 } from "@/components/ui/command";
 import { cn } from "@/lib/utils";
-import { animatedComponents, blockComponents, coreComponents, entryUrl } from "@/registry/registry";
+import {
+  animatedComponents,
+  blockComponents,
+  coreComponents,
+  entryUrl,
+  nativeComponents,
+} from "@/registry/registry";
 
 type SearchResult = { id: string; url: string; type: "page" | "heading" | "text"; content: string };
 
@@ -193,6 +200,18 @@ function CommandMenu({
                 onSelect={() => go(entryUrl(c))}
               >
                 <BlocksIcon />
+                {c.title}
+              </CommandItem>
+            ))}
+          </CommandGroup>
+          <CommandGroup heading="React Native">
+            {nativeComponents.map((c) => (
+              <CommandItem
+                key={c.name}
+                value={`${c.title} ${c.name} react native expo mobile`}
+                onSelect={() => go(entryUrl(c))}
+              >
+                <SmartphoneIcon />
                 {c.title}
               </CommandItem>
             ))}

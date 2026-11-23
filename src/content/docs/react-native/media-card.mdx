@@ -1,0 +1,47 @@
+---
+title: "Media Card"
+description: "An image card with gradient scrim, title and actions."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-media-card-demo" />
+
+## Installation
+
+<ComponentInstall name="native-media-card" />
+
+## Usage
+
+```tsx
+import { MediaCard } from "@/components/native/media-card";
+```
+
+```tsx
+<MediaCard image={uri} title="Kyoto" subtitle="Japan" meta="$1,240" eyebrow="Popular" />
+```
+
+## API Reference
+
+### MediaCard
+
+<PropsTable
+  props={[
+    { prop: "image", type: "string", description: "Image URL." },
+    { prop: "title", type: "string", description: "Title over the scrim." },
+    { prop: "subtitle", type: "string", description: "Secondary text." },
+    { prop: "eyebrow", type: "string", description: "Frosted pill top-left." },
+    {
+      prop: "action",
+      type: "{ icon, label, active?, onPress }",
+      description: "Round button top-right.",
+    },
+    { prop: "meta", type: "string", description: "Bottom-right text, e.g. a price." },
+    { prop: "aspectRatio", type: "number", defaultValue: "0.8", description: "Width / height." },
+    { prop: "onPress", type: "() => void", description: "Press handler." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

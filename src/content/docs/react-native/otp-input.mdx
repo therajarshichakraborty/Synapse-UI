@@ -1,0 +1,59 @@
+---
+title: "OTP Input"
+description: "One-time-code input with per-digit cells, caret and paste support."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-otp-input-demo" />
+
+## Installation
+
+<ComponentInstall name="native-otp-input" />
+
+## Usage
+
+```tsx
+import { OtpInput } from "@/components/native/otp-input";
+```
+
+```tsx
+<OtpInput length={6} groupAfter={3} onComplete={verify} />
+```
+
+## API Reference
+
+### OtpInput
+
+<PropsTable
+  props={[
+    { prop: "length", type: "number", defaultValue: "6", description: "Number of cells." },
+    { prop: "value", type: "string", description: "Controlled code." },
+    {
+      prop: "onChange",
+      type: "(code: string) => void",
+      description: "Called on every change. Non-digits are stripped.",
+    },
+    {
+      prop: "onComplete",
+      type: "(code: string) => void",
+      description: "Called when every cell is filled.",
+    },
+    {
+      prop: "invalid",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Shakes and turns red.",
+    },
+    { prop: "groupAfter", type: "number", description: "Adds a dash after this many cells." },
+    { prop: "autoFocus", type: "boolean", defaultValue: "false", description: "Focus on mount." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>
+
+## Accessibility
+
+A single hidden `TextInput` with `textContentType="oneTimeCode"` drives the cells, so iOS and Android SMS autofill work.

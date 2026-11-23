@@ -1,0 +1,41 @@
+---
+title: "Stat Card"
+description: "A KPI card with trend, delta and sparkline."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-stat-card-demo" />
+
+## Installation
+
+<ComponentInstall name="native-stat-card" />
+
+## Usage
+
+```tsx
+import { StatCard } from "@/components/native/stat-card";
+```
+
+```tsx
+<StatCard label="Revenue" value="$48,290" delta={12.4} trend={data} />
+```
+
+## API Reference
+
+### StatCard
+
+<PropsTable
+  props={[
+    { prop: "label", type: "string", description: "Metric name." },
+    { prop: "value", type: "string", description: "Formatted value." },
+    { prop: "delta", type: "number", description: "Percent change; sign picks the color." },
+    { prop: "caption", type: "string", description: "Text after the delta." },
+    { prop: "icon", type: "IconName", description: "Corner icon." },
+    { prop: "trend", type: "number[]", description: "Sparkline data." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

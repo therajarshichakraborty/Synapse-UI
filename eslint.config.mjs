@@ -16,6 +16,7 @@ const eslintConfig = [
       "public/**",
       "next-env.d.ts",
       "packages/cli/**",
+      "unused/**",
     ],
   },
   ...compat.extends("next/core-web-vitals", "next/typescript"),

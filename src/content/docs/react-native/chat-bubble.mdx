@@ -1,0 +1,57 @@
+---
+title: "Chat Bubble"
+description: "Message bubbles with tails, timestamps and read receipts."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-chat-bubble-demo" />
+
+## Installation
+
+<ComponentInstall name="native-chat-bubble" />
+
+## Usage
+
+```tsx
+import { ChatBubble } from "@/components/native/chat-bubble";
+```
+
+```tsx
+<ChatBubble from="me" time="9:41" status="read">
+  See you there!
+</ChatBubble>
+```
+
+## API Reference
+
+### ChatBubble
+
+<PropsTable
+  props={[
+    { prop: "children", type: "ReactNode", description: "Message. Strings are styled for you." },
+    {
+      prop: "from",
+      type: '"me" | "them"',
+      defaultValue: '"them"',
+      description: "Alignment and color.",
+    },
+    { prop: "time", type: "string", description: "Timestamp." },
+    {
+      prop: "status",
+      type: '"sending" | "sent" | "read"',
+      description: "Receipt for your messages.",
+    },
+    {
+      prop: "tail",
+      type: "boolean",
+      defaultValue: "true",
+      description: "Turn off for grouped messages.",
+    },
+    { prop: "animate", type: "boolean", defaultValue: "true", description: "Spring in on mount." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

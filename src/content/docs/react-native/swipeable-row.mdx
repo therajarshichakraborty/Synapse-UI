@@ -1,0 +1,55 @@
+---
+title: "Swipeable Row"
+description: "List rows that reveal actions when swiped."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-swipeable-row-demo" />
+
+## Installation
+
+<ComponentInstall name="native-swipeable-row" />
+
+## Usage
+
+```tsx
+import { SwipeableRow } from "@/components/native/swipeable-row";
+```
+
+```tsx
+<SwipeableRow rightActions={[{ label: "Delete", icon: "trash", onPress: remove }]}>
+  <ListItem title="Message" />
+</SwipeableRow>
+```
+
+## API Reference
+
+### SwipeableRow
+
+<PropsTable
+  props={[
+    { prop: "children", type: "ReactNode", description: "Row content." },
+    {
+      prop: "rightActions",
+      type: "{ label, icon, color?, onPress }[]",
+      defaultValue: "[]",
+      description: "Revealed swiping left.",
+    },
+    {
+      prop: "leftActions",
+      type: "{ label, icon, color?, onPress }[]",
+      defaultValue: "[]",
+      description: "Revealed swiping right.",
+    },
+    { prop: "actionWidth", type: "number", defaultValue: "76", description: "Width per action." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>
+
+## Accessibility
+
+Actions are exposed as accessibility actions, so screen reader users can trigger them without swiping.

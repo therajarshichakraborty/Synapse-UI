@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@source not "../../unused";
 
 @custom-variant dark (&:where(.dark, .dark *):not(:where(.light, .light *)));
 
@@ -296,9 +297,9 @@
   --dot-color: rgb(0 0 0 / 0.12);
   --glass: rgb(255 255 255 / 0.75);
   --noise-opacity: 0;
-  --code-bg: #fafafa;
-  --code-title: #f4f4f5;
-  --code-highlight: rgb(0 0 0 / 0.045);
+  --code-bg: #ffffff;
+  --code-title: #ffffff;
+  --code-highlight: rgb(37 99 235 / 0.06);
 
   color-scheme: light;
 }
@@ -357,8 +358,8 @@
   --dot-color: rgb(255 255 255 / 0.1);
   --glass: rgb(17 17 19 / 0.72);
   --noise-opacity: 0;
-  --code-bg: #0f0f11;
-  --code-title: #141416;
+  --code-bg: #0b0b0c;
+  --code-title: #0b0b0c;
   --code-highlight: rgb(255 255 255 / 0.05);
 
   color-scheme: dark;
@@ -514,6 +515,21 @@
   }
 }
 
+/* Dotted blueprint rails used by the landing frame */
+@utility dotted-rail-y {
+  width: 1px;
+  background-image: radial-gradient(circle, var(--border-strong) 0.9px, transparent 1.1px);
+  background-size: 1px 6px;
+  background-repeat: repeat-y;
+}
+
+@utility dotted-rail-x {
+  height: 1px;
+  background-image: radial-gradient(circle, var(--border-strong) 0.9px, transparent 1.1px);
+  background-size: 6px 1px;
+  background-repeat: repeat-x;
+}
+
 @utility scrollbar-thin {
   scrollbar-width: thin;
   scrollbar-color: var(--border-strong) transparent;
@@ -549,6 +565,12 @@ pre.shiki {
   padding-inline: 1.25rem;
   min-height: 1.7em;
   border-left: 2px solid transparent;
+}
+.code-body .shiki .line {
+  transition: background-color 120ms ease;
+}
+.code-body .shiki .line:hover {
+  background: color-mix(in oklab, var(--foreground) 3.5%, transparent);
 }
 .shiki .line.highlighted {
   background: var(--code-highlight);

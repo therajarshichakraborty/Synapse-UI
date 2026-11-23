@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { AnimatePresence, motion } from "motion/react";
 import { TerminalIcon } from "lucide-react";
 import { CopyButton } from "@/components/docs/copy-button";
 import { cn } from "@/lib/utils";
@@ -67,20 +68,22 @@ export function PmCommand({
 }) {
   const [pm, setPm] = usePackageManager();
   const command = toCommand(pm, { install, dlx, dev });
+  const id = React.useId();
+  const [bin, ...rest] = command.split(" ");
 
   return (
     <div
       className={cn(
-        "my-6 overflow-hidden rounded-xl border border-border bg-[var(--code-bg)]",
+        "group/pm not-prose my-6 overflow-hidden rounded-2xl border border-border bg-[var(--code-bg)] shadow-[0_1px_2px_rgba(0,0,0,0.03)] transition-[border-color,box-shadow] duration-300 hover:border-border-strong hover:shadow-[0_6px_24px_-12px_rgba(0,0,0,0.12)]",
         className,
       )}
     >
       <div
-        className="flex h-11 items-center gap-1 border-b border-border bg-[var(--code-title)] pr-2 pl-3"
+        className="flex h-11 items-center gap-0.5 border-b border-border pr-2 pl-3"
         role="tablist"
         aria-label="Package manager"
       >
-        <TerminalIcon className="mr-1.5 size-3.5 text-muted-foreground" aria-hidden="true" />
+        <TerminalIcon className="mr-2 size-3.5 text-muted-foreground" aria-hidden="true" />
         {MANAGERS.map((m) => (
           <button
             key={m}
@@ -89,23 +92,45 @@ export function PmCommand({
             aria-selected={pm === m}
             onClick={() => setPm(m)}
             className={cn(
-              "h-7 rounded-md px-2.5 font-mono text-[12.5px] transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ring/40",
-              pm === m
-                ? "bg-accent text-foreground"
-                : "text-muted-foreground hover:text-foreground",
+              "relative h-7 rounded-lg px-2.5 font-mono text-[12.5px] transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ring/40 active:scale-95",
+              pm === m ? "text-foreground" : "text-muted-foreground hover:text-foreground",
             )}
           >
-            {m}
+            {pm === m && (
+              <motion.span
+                layoutId={`${id}-pm`}
+                className="absolute inset-0 rounded-lg bg-accent ring-1 ring-border"
+                transition={{ type: "spring", stiffness: 500, damping: 36 }}
+              />
+            )}
+            <span className="relative">{m}</span>
           </button>
         ))}
-        <CopyButton className="ml-auto" value={command} label="Copy command" />
+        <CopyButton className="ml-auto" value={command} label="Copy command" showLabel />
       </div>
       <div
-        className="overflow-x-auto px-5 py-4 font-mono text-[13px] leading-6 whitespace-nowrap scrollbar-thin"
+        className="flex items-center overflow-x-auto px-5 py-4 font-mono text-[13px] leading-6 whitespace-nowrap scrollbar-thin"
         role="tabpanel"
       >
-        <span className="text-[#cf222e] dark:text-[#ff7b72]">{command.split(" ")[0]}</span>
-        <span className="text-foreground/90"> {command.split(" ").slice(1).join(" ")}</span>
+        <span className="mr-2.5 text-muted-foreground/60 select-none" aria-hidden="true">
+          $
+        </span>
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.span
+            key={command}
+            initial={{ opacity: 0, y: 4, filter: "blur(3px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            exit={{ opacity: 0, y: -4, filter: "blur(3px)" }}
+            transition={{ duration: 0.18 }}
+          >
+            <span className="text-brand">{bin}</span>
+            <span className="text-foreground/90"> {rest.join(" ")}</span>
+          </motion.span>
+        </AnimatePresence>
+        <span
+          aria-hidden="true"
+          className="ml-1 inline-block h-4 w-[7px] translate-y-px animate-pulse rounded-[1px] bg-foreground/25 opacity-0 group-hover/pm:opacity-100"
+        />
       </div>
     </div>
   );

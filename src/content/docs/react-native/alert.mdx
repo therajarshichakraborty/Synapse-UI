@@ -1,0 +1,46 @@
+---
+title: "Alert"
+description: "Inline callouts for info, success, warning and errors."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-alert-demo" />
+
+## Installation
+
+<ComponentInstall name="native-alert" />
+
+## Usage
+
+```tsx
+import { Alert } from "@/components/native/alert";
+```
+
+```tsx
+<Alert tone="warning" title="Storage almost full" description="You've used 92%." />
+```
+
+## API Reference
+
+### Alert
+
+<PropsTable
+  props={[
+    { prop: "title", type: "string", description: "Heading." },
+    { prop: "description", type: "string", description: "Body." },
+    {
+      prop: "tone",
+      type: '"info" | "success" | "warning" | "destructive" | "neutral"',
+      defaultValue: '"info"',
+      description: "Color and default icon.",
+    },
+    { prop: "icon", type: "IconName", description: "Override the icon." },
+    { prop: "action", type: "{ label, onPress }", description: "Inline action link." },
+    { prop: "onDismiss", type: "() => void", description: "Shows a close button." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

@@ -1,0 +1,66 @@
+---
+title: "Icon"
+description: "90+ crisp Lucide icons drawn with react-native-svg, themed by default."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-icon-demo" />
+
+## Installation
+
+<ComponentInstall name="native-icon" />
+
+## Usage
+
+```tsx
+import { Icon } from "@/components/native/icon";
+```
+
+```tsx
+<Icon name="sparkles" size={20} color="#2563eb" />
+```
+
+## API Reference
+
+### Icon
+
+<PropsTable
+  props={[
+    {
+      prop: "name",
+      type: "IconName",
+      description: "One of the bundled icons. `iconNames` lists them all.",
+    },
+    {
+      prop: "size",
+      type: "number",
+      defaultValue: "20",
+      description: "Width and height in points.",
+    },
+    {
+      prop: "color",
+      type: "string",
+      defaultValue: "theme foreground",
+      description: "Stroke color.",
+    },
+    { prop: "strokeWidth", type: "number", defaultValue: "2", description: "Line weight." },
+    {
+      prop: "fill",
+      type: "string",
+      defaultValue: '"none"',
+      description: "Fill for solid shapes like heart or star.",
+    },
+  ]}
+/>
+
+## Accessibility
+
+Icons are decorative. Give the pressable that wraps an icon an `accessibilityLabel`.
+
+## Adding icons
+
+The set is generated from Lucide. Add names to `scripts/generate-native-icons.mjs` and run `node scripts/generate-native-icons.mjs`, or paste any Lucide icon node into the `icons` map.

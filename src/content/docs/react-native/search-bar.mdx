@@ -1,0 +1,44 @@
+---
+title: "Search Bar"
+description: "A pill search field with an animated cancel button."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-search-bar-demo" />
+
+## Installation
+
+<ComponentInstall name="native-search-bar" />
+
+## Usage
+
+```tsx
+import { SearchBar } from "@/components/native/search-bar";
+```
+
+```tsx
+<SearchBar value={query} onChangeText={setQuery} placeholder="Search" />
+```
+
+## API Reference
+
+### SearchBar
+
+Extends `TextInputProps`.
+
+<PropsTable
+  props={[
+    {
+      prop: "cancelLabel",
+      type: "string",
+      defaultValue: '"Cancel"',
+      description: "Label of the button that slides in on focus.",
+    },
+    { prop: "onCancel", type: "() => void", description: "Called after clearing and blurring." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

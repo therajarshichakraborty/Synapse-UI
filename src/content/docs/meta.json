@@ -11,6 +11,6 @@
     "components",
     "animated",
     "blocks",
-    "collections"
+    "react-native"
   ]
 }

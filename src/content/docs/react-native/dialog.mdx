@@ -1,0 +1,63 @@
+---
+title: "Dialog"
+description: "A centered modal with a spring entrance and backdrop."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-dialog-demo" />
+
+## Installation
+
+<ComponentInstall name="native-dialog" />
+
+## Usage
+
+```tsx
+import { Dialog } from "@/components/native/dialog";
+```
+
+```tsx
+<Dialog
+  open={open}
+  onOpenChange={setOpen}
+  title="Rename"
+  footer={<Button onPress={save}>Save</Button>}
+>
+  <Input />
+</Dialog>
+```
+
+## API Reference
+
+### Dialog
+
+<PropsTable
+  props={[
+    { prop: "open", type: "boolean", description: "Visibility." },
+    { prop: "onOpenChange", type: "(open: boolean) => void", description: "Called to close." },
+    { prop: "title", type: "string", description: "Heading." },
+    { prop: "description", type: "string", description: "Subheading." },
+    { prop: "footer", type: "ReactNode", description: "Button row." },
+    {
+      prop: "dismissible",
+      type: "boolean",
+      defaultValue: "true",
+      description: "Close on backdrop and back button.",
+    },
+    {
+      prop: "showClose",
+      type: "boolean",
+      defaultValue: "true",
+      description: "Close button top-right.",
+    },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>
+
+## Accessibility
+
+Marked `accessibilityViewIsModal` so VoiceOver ignores content behind it. Renders into `PortalHost`.

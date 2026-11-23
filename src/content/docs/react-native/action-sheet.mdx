@@ -1,0 +1,54 @@
+---
+title: "Action Sheet"
+description: "An iOS-style action sheet with grouped options and cancel."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-action-sheet-demo" />
+
+## Installation
+
+<ComponentInstall name="native-action-sheet" />
+
+## Usage
+
+```tsx
+import { ActionSheet } from "@/components/native/action-sheet";
+```
+
+```tsx
+<ActionSheet
+  open={open}
+  onOpenChange={setOpen}
+  options={[{ label: "Delete", destructive: true, onPress }]}
+/>
+```
+
+## API Reference
+
+### ActionSheet
+
+<PropsTable
+  props={[
+    { prop: "open", type: "boolean", description: "Visibility." },
+    { prop: "onOpenChange", type: "(open: boolean) => void", description: "Called to close." },
+    { prop: "title", type: "string", description: "Heading." },
+    { prop: "message", type: "string", description: "Explanation." },
+    {
+      prop: "options",
+      type: "{ label, icon?, destructive?, disabled?, onPress }[]",
+      description: "Actions.",
+    },
+    {
+      prop: "cancelLabel",
+      type: "string",
+      defaultValue: '"Cancel"',
+      description: "Separate cancel button.",
+    },
+    { prop: "bottomInset", type: "number", defaultValue: "24", description: "Bottom padding." },
+  ]}
+/>

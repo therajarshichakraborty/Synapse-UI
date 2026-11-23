@@ -1,0 +1,60 @@
+---
+title: "Tab Bar"
+description: "A floating bottom tab bar with a sliding active pill."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-tab-bar-demo" />
+
+## Installation
+
+<ComponentInstall name="native-tab-bar" />
+
+## Usage
+
+```tsx
+import { TabBar } from "@/components/native/tab-bar";
+```
+
+```tsx
+<TabBar items={tabs} value={tab} onValueChange={setTab} />
+```
+
+## API Reference
+
+### TabBar
+
+<PropsTable
+  props={[
+    { prop: "items", type: "{ key, label, icon, badge? }[]", description: "Tabs." },
+    { prop: "value", type: "string", description: "Active key." },
+    { prop: "onValueChange", type: "(key: string) => void", description: "Called on press." },
+    {
+      prop: "variant",
+      type: '"floating" | "docked"',
+      defaultValue: '"floating"',
+      description: "Floating pill or edge-to-edge.",
+    },
+    { prop: "bottomInset", type: "number", defaultValue: "20", description: "Bottom spacing." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>
+
+## With Expo Router
+
+```tsx
+<Tabs
+  screenOptions={{ headerShown: false }}
+  tabBar={({ state, navigation }) => (
+    <TabBar
+      items={state.routes.map((r) => ({ key: r.name, label: r.name, icon: icons[r.name] }))}
+      value={state.routes[state.index].name}
+      onValueChange={(name) => navigation.navigate(name)}
+    />
+  )}
+/>
+```

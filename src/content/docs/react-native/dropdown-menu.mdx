@@ -1,0 +1,58 @@
+---
+title: "Dropdown Menu"
+description: "An anchored menu with icons, shortcuts and destructive items."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-dropdown-menu-demo" />
+
+## Installation
+
+<ComponentInstall name="native-dropdown-menu" />
+
+## Usage
+
+```tsx
+import { DropdownMenu } from "@/components/native/dropdown-menu";
+```
+
+```tsx
+<DropdownMenu items={[{ label: "Edit", icon: "edit", onPress: edit }]}>
+  {(open) => <IconButton icon="more-horizontal" accessibilityLabel="More" onPress={open} />}
+</DropdownMenu>
+```
+
+## API Reference
+
+### DropdownMenu
+
+<PropsTable
+  props={[
+    {
+      prop: "items",
+      type: "MenuItem[]",
+      description: 'Items, `{ type: "separator" }` and `{ type: "label", label }`.',
+    },
+    {
+      prop: "children",
+      type: "(open: () => void) => ReactNode",
+      description: "Render the trigger.",
+    },
+    {
+      prop: "align",
+      type: '"start" | "end"',
+      defaultValue: '"end"',
+      description: "Alignment to the trigger.",
+    },
+    { prop: "width", type: "number", defaultValue: "230", description: "Menu width." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>
+
+## Accessibility
+
+Positioned with `measureInWindow`, clamped to the screen edges.

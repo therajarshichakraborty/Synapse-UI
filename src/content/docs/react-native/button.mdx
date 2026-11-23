@@ -1,0 +1,93 @@
+---
+title: "Button"
+description: "Spring-press buttons with seven variants, icons, loading and icon-only buttons."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-button-demo" />
+
+## Installation
+
+<ComponentInstall name="native-button" />
+
+## Usage
+
+```tsx
+import { Button, IconButton } from "@/components/native/button";
+```
+
+```tsx
+<Button rightIcon="arrow-right" onPress={next}>Continue</Button>
+<IconButton icon="heart" accessibilityLabel="Like" />
+```
+
+## API Reference
+
+### Button
+
+Extends `PressableProps`.
+
+<PropsTable
+  props={[
+    {
+      prop: "variant",
+      type: '"default" | "brand" | "secondary" | "outline" | "ghost" | "destructive" | "link"',
+      defaultValue: '"default"',
+      description: "Visual style.",
+    },
+    {
+      prop: "size",
+      type: '"sm" | "md" | "lg"',
+      defaultValue: '"md"',
+      description: "Height 36, 46 or 54.",
+    },
+    {
+      prop: "loading",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Shows a spinner and disables presses.",
+    },
+    { prop: "leftIcon", type: "IconName", description: "Icon before the label." },
+    { prop: "rightIcon", type: "IconName", description: "Icon after the label." },
+    {
+      prop: "block",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Stretch to the parent width.",
+    },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>
+
+### IconButton
+
+<PropsTable
+  props={[
+    { prop: "icon", type: "IconName", description: "The icon to render." },
+    {
+      prop: "accessibilityLabel",
+      type: "string",
+      description: "Required. Read by screen readers.",
+    },
+    {
+      prop: "variant",
+      type: "ButtonVariant",
+      defaultValue: '"outline"',
+      description: "Visual style.",
+    },
+    {
+      prop: "shape",
+      type: '"rounded" | "circle"',
+      defaultValue: '"rounded"',
+      description: "Corner style.",
+    },
+  ]}
+/>
+
+## Accessibility
+
+Uses `accessibilityRole="button"` and reports `disabled` and `busy` states. Icon-only buttons must have an `accessibilityLabel`.

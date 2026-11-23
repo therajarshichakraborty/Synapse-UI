@@ -1,0 +1,45 @@
+---
+title: "Timeline"
+description: "A vertical activity timeline with status dots."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-timeline-demo" />
+
+## Installation
+
+<ComponentInstall name="native-timeline" />
+
+## Usage
+
+```tsx
+import { Timeline } from "@/components/native/timeline";
+```
+
+```tsx
+<Timeline
+  events={[
+    { title: "Ordered", time: "9:41" },
+    { title: "Shipped", status: "current" },
+  ]}
+/>
+```
+
+## API Reference
+
+### Timeline
+
+<PropsTable
+  props={[
+    {
+      prop: "events",
+      type: '{ title, description?, time?, icon?, status?: "done" | "current" | "upcoming" }[]',
+      description: "Events, top to bottom.",
+    },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

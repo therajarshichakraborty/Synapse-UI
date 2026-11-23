@@ -1,0 +1,59 @@
+---
+title: "Drawer"
+description: "A side drawer for navigation with swipe-to-close."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-drawer-demo" />
+
+## Installation
+
+<ComponentInstall name="native-drawer" />
+
+## Usage
+
+```tsx
+import { Drawer, DrawerItem } from "@/components/native/drawer";
+```
+
+```tsx
+<Drawer open={open} onOpenChange={setOpen}>
+  <DrawerItem label="Home" icon="home" active />
+</Drawer>
+```
+
+## API Reference
+
+### Drawer
+
+<PropsTable
+  props={[
+    { prop: "open", type: "boolean", description: "Visibility." },
+    { prop: "onOpenChange", type: "(open: boolean) => void", description: "Called to close." },
+    { prop: "side", type: '"left" | "right"', defaultValue: '"left"', description: "Edge." },
+    {
+      prop: "size",
+      type: "number",
+      defaultValue: "0.82",
+      description: "Width as a screen fraction.",
+    },
+    { prop: "topInset", type: "number", defaultValue: "56", description: "Top padding." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>
+
+### DrawerItem
+
+<PropsTable
+  props={[
+    { prop: "label", type: "string", description: "Text." },
+    { prop: "icon", type: "IconName", description: "Icon." },
+    { prop: "active", type: "boolean", defaultValue: "false", description: "Selected styling." },
+    { prop: "badge", type: "string | number", description: "Count pill." },
+    { prop: "onPress", type: "() => void", description: "Press handler." },
+  ]}
+/>

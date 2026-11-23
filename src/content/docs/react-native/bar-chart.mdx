@@ -1,0 +1,45 @@
+---
+title: "Bar Chart"
+description: "A lightweight animated bar chart, no chart library needed."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-bar-chart-demo" />
+
+## Installation
+
+<ComponentInstall name="native-bar-chart" />
+
+## Usage
+
+```tsx
+import { BarChart } from "@/components/native/bar-chart";
+```
+
+```tsx
+<BarChart data={[{ label: "Mon", value: 6400 }]} formatValue={(v) => `${v} steps`} />
+```
+
+## API Reference
+
+### BarChart
+
+<PropsTable
+  props={[
+    { prop: "data", type: "{ label, value }[]", description: "Bars." },
+    { prop: "height", type: "number", defaultValue: "160", description: "Plot height." },
+    {
+      prop: "defaultActive",
+      type: "number",
+      defaultValue: "last",
+      description: "Initially highlighted bar.",
+    },
+    { prop: "formatValue", type: "(v: number) => string", description: "Readout text." },
+    { prop: "color", type: "string", defaultValue: "brand", description: "Active bar color." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

@@ -1,0 +1,46 @@
+---
+title: "Tooltip"
+description: "Long-press tooltips that position above their trigger."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-tooltip-demo" />
+
+## Installation
+
+<ComponentInstall name="native-tooltip" />
+
+## Usage
+
+```tsx
+import { Tooltip } from "@/components/native/tooltip";
+```
+
+```tsx
+<Tooltip content="Share">
+  <ShareIcon />
+</Tooltip>
+```
+
+## API Reference
+
+### Tooltip
+
+<PropsTable
+  props={[
+    { prop: "content", type: "string", description: "Tooltip text. Also the accessibility hint." },
+    { prop: "children", type: "ReactNode", description: "Trigger. Avoid nested pressables." },
+    {
+      prop: "trigger",
+      type: '"longPress" | "press"',
+      defaultValue: '"longPress"',
+      description: "Gesture that opens it.",
+    },
+    { prop: "duration", type: "number", defaultValue: "1800", description: "Auto-hide delay." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

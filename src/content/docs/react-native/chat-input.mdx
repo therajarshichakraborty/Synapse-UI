@@ -1,0 +1,61 @@
+---
+title: "Chat Input"
+description: "An AI chat composer with attachments, auto-grow and send button."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-chat-input-demo" />
+
+## Installation
+
+<ComponentInstall name="native-chat-input" />
+
+## Usage
+
+```tsx
+import { ChatInput } from "@/components/native/chat-input";
+```
+
+```tsx
+<ChatInput onSend={send} busy={streaming} onStop={stop} />
+```
+
+## API Reference
+
+### ChatInput
+
+<PropsTable
+  props={[
+    { prop: "value", type: "string", description: "Controlled text." },
+    { prop: "onChangeText", type: "(text: string) => void", description: "Called on change." },
+    {
+      prop: "onSend",
+      type: "(text: string) => void",
+      description: "Receives trimmed text, then clears.",
+    },
+    {
+      prop: "busy",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Swaps send for a stop button.",
+    },
+    { prop: "onStop", type: "() => void", description: "Pressed while busy." },
+    {
+      prop: "actions",
+      type: "{ icon, label, onPress? }[]",
+      defaultValue: "[plus]",
+      description: "Leading buttons.",
+    },
+    {
+      prop: "maxLines",
+      type: "number",
+      defaultValue: "6",
+      description: "Grows up to this many lines.",
+    },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

@@ -1,0 +1,46 @@
+---
+title: "Stepper"
+description: "A numeric stepper with press-and-hold to repeat."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-stepper-demo" />
+
+## Installation
+
+<ComponentInstall name="native-stepper" />
+
+## Usage
+
+```tsx
+import { Stepper } from "@/components/native/stepper";
+```
+
+```tsx
+<Stepper value={guests} onValueChange={setGuests} min={1} max={10} />
+```
+
+## API Reference
+
+### Stepper
+
+<PropsTable
+  props={[
+    { prop: "value", type: "number", description: "Controlled value." },
+    { prop: "defaultValue", type: "number", defaultValue: "0", description: "Initial value." },
+    { prop: "min", type: "number", defaultValue: "0", description: "Minimum." },
+    { prop: "max", type: "number", defaultValue: "99", description: "Maximum." },
+    { prop: "step", type: "number", defaultValue: "1", description: "Increment." },
+    { prop: "unit", type: "string", description: "Caption under the number." },
+    { prop: "size", type: '"sm" | "md"', defaultValue: '"md"', description: "Control size." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>
+
+## Accessibility
+
+Long-press either button to repeat; the repeat rate accelerates.

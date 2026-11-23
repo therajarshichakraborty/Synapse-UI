@@ -1,0 +1,62 @@
+---
+title: "Accordion"
+description: "Expandable sections with a rotating chevron and smooth height."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-accordion-demo" />
+
+## Installation
+
+<ComponentInstall name="native-accordion" />
+
+## Usage
+
+```tsx
+import { Accordion } from "@/components/native/accordion";
+```
+
+```tsx
+<Accordion items={[{ value: "a", title: "Question", content: "Answer" }]} />
+```
+
+## API Reference
+
+### Accordion
+
+<PropsTable
+  props={[
+    {
+      prop: "items",
+      type: "{ value, title, content }[]",
+      description: "Sections. `content` can be a string or nodes.",
+    },
+    {
+      prop: "type",
+      type: '"single" | "multiple"',
+      defaultValue: '"single"',
+      description: "How many can be open.",
+    },
+    {
+      prop: "defaultValue",
+      type: "string[]",
+      defaultValue: "[]",
+      description: "Initially open sections.",
+    },
+    {
+      prop: "variant",
+      type: '"plain" | "separated"',
+      defaultValue: '"plain"',
+      description: "Divided list or separate cards.",
+    },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>
+
+## Accessibility
+
+Each trigger reports its `expanded` state.

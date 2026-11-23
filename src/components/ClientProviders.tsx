@@ -9,7 +9,7 @@ import { CommandMenuProvider } from "@/components/site/command-menu";
 
 export default function ClientProviders({ children }: { children: ReactNode }) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
       <MotionConfig reducedMotion="user">
         <TooltipProvider delayDuration={150}>
           <CommandMenuProvider>{children}</CommandMenuProvider>

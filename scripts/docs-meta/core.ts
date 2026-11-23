@@ -143,8 +143,6 @@ export const coreDocs: DocMeta[] = [
       notes:
         'Alert renders with `role="alert"`. Screen readers announce it when it appears. For dismissible or non-urgent messages, consider a toast instead.',
     },
-    extra:
-      "## More designs\n\nLooking for richer layouts? Browse 20 hand-crafted variants in the [Alerts collection](/docs/collections/alert).",
   },
   {
     name: "alert-dialog",
@@ -280,8 +278,6 @@ export const coreDocs: DocMeta[] = [
         ],
       },
     ],
-    extra:
-      "## More designs\n\nSee animated, notification and status badges in the [Badges collection](/docs/collections/badge).",
   },
   {
     name: "breadcrumb",
@@ -373,7 +369,7 @@ export const coreDocs: DocMeta[] = [
       ],
     },
     extra:
-      "## More designs\n\nFor animated buttons with shimmer, sliding icons and more, see the [Buttons collection](/docs/collections/button), [Shimmer Button](/docs/animated/shimmer-button) and [Moving Border Button](/docs/animated/moving-border-button).",
+      "## More designs\n\nFor animated buttons, see [Shimmer Button](/docs/animated/shimmer-button) and [Moving Border Button](/docs/animated/moving-border-button). Building for mobile? See the [React Native Button](/docs/react-native/button).",
   },
   {
     name: "button-group",
@@ -473,7 +469,7 @@ export const coreDocs: DocMeta[] = [
       },
     ],
     extra:
-      "## More designs\n\nSee [Glowing Border Card](/docs/animated/glowing-card), [Card Spotlight](/docs/animated/card-spotlight), [3D Tilt Card](/docs/animated/tilt-card) and the [Cards collection](/docs/collections/card).",
+      "## More designs\n\nSee [Glowing Border Card](/docs/animated/glowing-card), [Card Spotlight](/docs/animated/card-spotlight) and [3D Tilt Card](/docs/animated/tilt-card).",
   },
   {
     name: "carousel",
@@ -1108,8 +1104,6 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
         ],
       },
     ],
-    extra:
-      "## More designs\n\nSee OTP, tag and search inputs in the [Inputs collection](/docs/collections/input), and chat composers in [AI Inputs](/docs/collections/ai-input).",
   },
   {
     name: "input-otp",
@@ -1311,8 +1305,6 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
         ["Esc", "Closes the popover and returns focus."],
       ],
     },
-    extra:
-      "## More designs\n\nSee color pickers, user cards and action menus in the [Popovers collection](/docs/collections/popover).",
   },
   {
     name: "progress",
@@ -1889,7 +1881,6 @@ toast.success("Event has been created.");`,
         ["Esc", "Closes the tooltip."],
       ],
     },
-    extra:
-      "## More designs\n\nSee [Animated Tooltip](/docs/animated/animated-tooltip) and the [Tooltips collection](/docs/collections/tooltip).",
+    extra: "## More designs\n\nSee [Animated Tooltip](/docs/animated/animated-tooltip).",
   },
 ];

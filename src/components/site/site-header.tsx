@@ -3,6 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion } from "motion/react";
 import { MenuIcon, PlusIcon } from "lucide-react";
 import { LogoMark } from "@/components/site/logo";
 import { ThemeToggle } from "@/components/site/theme-toggle";
@@ -33,9 +34,9 @@ const nav = [
   },
   { title: "Blocks", href: "/docs/blocks", match: (p: string) => p.startsWith("/docs/blocks") },
   {
-    title: "Collections",
-    href: "/docs/collections/button",
-    match: (p: string) => p.startsWith("/docs/collections"),
+    title: "React Native",
+    href: "/docs/react-native",
+    match: (p: string) => p.startsWith("/docs/react-native"),
   },
   {
     title: "Changelog",
@@ -60,6 +61,7 @@ export function SiteHeader({
 }) {
   const pathname = usePathname() ?? "/";
   const [open, setOpen] = React.useState(false);
+  const [hovered, setHovered] = React.useState<string | null>(null);
 
   React.useEffect(() => setOpen(false), [pathname]);
 
@@ -113,7 +115,11 @@ export function SiteHeader({
           </span>
         </Link>
 
-        <nav aria-label="Main" className="hidden h-16 items-stretch lg:flex">
+        <nav
+          aria-label="Main"
+          className="hidden h-16 items-center lg:flex"
+          onMouseLeave={() => setHovered(null)}
+        >
           {nav.map((item) => {
             const active = item.match(pathname);
             return (
@@ -121,14 +127,26 @@ export function SiteHeader({
                 key={item.title}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
+                onMouseEnter={() => setHovered(item.title)}
                 className={cn(
-                  "relative flex items-center px-3 text-[14.5px] font-medium transition-colors outline-none focus-visible:text-foreground",
+                  "relative flex h-9 items-center rounded-lg px-3 text-[14.5px] font-medium transition-colors outline-none focus-visible:text-foreground",
                   active ? "text-foreground" : "text-muted-foreground hover:text-foreground",
                 )}
               >
-                {item.title}
+                {hovered === item.title && (
+                  <motion.span
+                    layoutId="site-header-hover"
+                    className="absolute inset-0 rounded-lg bg-accent"
+                    transition={{ type: "spring", stiffness: 520, damping: 40 }}
+                  />
+                )}
+                <span className="relative">{item.title}</span>
                 {active && (
-                  <span className="absolute inset-x-3 bottom-3 h-0.5 rounded-full bg-foreground" />
+                  <motion.span
+                    layoutId="site-header-active"
+                    className="absolute inset-x-3 -bottom-[11px] h-0.5 rounded-full bg-foreground"
+                    transition={{ type: "spring", stiffness: 420, damping: 36 }}
+                  />
                 )}
               </Link>
             );

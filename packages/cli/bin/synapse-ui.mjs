@@ -5,7 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { execSync } from "node:child_process";
 
-const DEFAULT_REGISTRY = process.env.SYNAPSE_REGISTRY ?? "https://synapse-ui.vercel.app/r";
+const DEFAULT_REGISTRY = process.env.SYNAPSE_REGISTRY ?? "https://synapse-ui-dev.vercel.app/r";
 const BASE_DEPS = [
   "class-variance-authority",
   "clsx",

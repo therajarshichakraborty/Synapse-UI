@@ -1,0 +1,49 @@
+---
+title: "Segmented Control"
+description: "An iOS-style segmented control with a sliding thumb."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-segmented-control-demo" />
+
+## Installation
+
+<ComponentInstall name="native-segmented-control" />
+
+## Usage
+
+```tsx
+import { SegmentedControl } from "@/components/native/segmented-control";
+```
+
+```tsx
+<SegmentedControl options={["Day", "Week", "Month"]} value={range} onValueChange={setRange} />
+```
+
+## API Reference
+
+### SegmentedControl
+
+<PropsTable
+  props={[
+    { prop: "options", type: "(string | { value, label?, icon? })[]", description: "Segments." },
+    { prop: "value", type: "string", description: "Controlled value." },
+    {
+      prop: "defaultValue",
+      type: "string",
+      defaultValue: "first option",
+      description: "Initial value.",
+    },
+    { prop: "onValueChange", type: "(value: string) => void", description: "Called on change." },
+    { prop: "size", type: '"sm" | "md"', defaultValue: '"md"', description: "Height 32 or 40." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>
+
+## Accessibility
+
+Exposed as a tablist; each segment is a tab with a selected state.

@@ -1,0 +1,51 @@
+---
+title: "Sparkline"
+description: "A tiny smooth trend line with gradient fill."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-sparkline-demo" />
+
+## Installation
+
+<ComponentInstall name="native-sparkline" />
+
+## Usage
+
+```tsx
+import { Sparkline } from "@/components/native/sparkline";
+```
+
+```tsx
+<Sparkline data={[4, 8, 6, 12, 10, 16]} height={56} />
+```
+
+## API Reference
+
+### Sparkline
+
+<PropsTable
+  props={[
+    { prop: "data", type: "number[]", description: "Values." },
+    {
+      prop: "height",
+      type: "number",
+      defaultValue: "56",
+      description: "Height; width fills the parent.",
+    },
+    { prop: "color", type: "string", defaultValue: "brand", description: "Line color." },
+    { prop: "strokeWidth", type: "number", defaultValue: "2", description: "Line weight." },
+    { prop: "fill", type: "boolean", defaultValue: "true", description: "Gradient area." },
+    {
+      prop: "showEnd",
+      type: "boolean",
+      defaultValue: "true",
+      description: "Dot on the last point.",
+    },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

@@ -1,0 +1,67 @@
+---
+title: "Toast"
+description: "Imperative, stackable toasts with promise and action support."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-toast-demo" />
+
+## Installation
+
+<ComponentInstall name="native-toast" />
+
+## Usage
+
+```tsx
+import { Toaster, toast } from "@/components/native/toast";
+```
+
+```tsx
+// once, at the root
+<Toaster />;
+
+// anywhere
+toast.success("Saved", { description: "IMG_2048.HEIC" });
+toast.promise(upload(), { loading: "Uploading…", success: "Done", error: "Failed" });
+```
+
+## API Reference
+
+### toast
+
+`toast(title, options)`, plus `.success`, `.error`, `.warning`, `.info`, `.loading`, `.promise` and `.dismiss(id?)`.
+
+<PropsTable
+  props={[
+    { prop: "description", type: "string", description: "Second line." },
+    {
+      prop: "duration",
+      type: "number",
+      defaultValue: "3500",
+      description: "Milliseconds. `Infinity` keeps it.",
+    },
+    { prop: "action", type: "{ label, onPress }", description: "Inline button." },
+    { prop: "icon", type: "IconName", description: "Icon for default toasts." },
+  ]}
+/>
+
+### Toaster
+
+<PropsTable
+  props={[
+    {
+      prop: "offset",
+      type: "number",
+      defaultValue: "56",
+      description: "Distance from the top edge.",
+    },
+  ]}
+/>
+
+## Accessibility
+
+Up to three toasts stack with depth. Swipe up to dismiss.

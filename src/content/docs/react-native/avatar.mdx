@@ -1,0 +1,69 @@
+---
+title: "Avatar"
+description: "Avatars with image, initials fallback, status dot and stacked groups."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-avatar-demo" />
+
+## Installation
+
+<ComponentInstall name="native-avatar" />
+
+## Usage
+
+```tsx
+import { Avatar, AvatarGroup } from "@/components/native/avatar";
+```
+
+```tsx
+<Avatar src={user.photo} name={user.name} status="online" />
+<AvatarGroup people={members} max={4} />
+```
+
+## API Reference
+
+### Avatar
+
+<PropsTable
+  props={[
+    { prop: "src", type: "string", description: "Image URL. Falls back to initials on error." },
+    {
+      prop: "name",
+      type: "string",
+      description: "Initials, fallback color and accessibility label.",
+    },
+    { prop: "size", type: "number", defaultValue: "44", description: "Diameter." },
+    {
+      prop: "status",
+      type: '"online" | "away" | "busy" | "offline"',
+      description: "Presence dot.",
+    },
+    { prop: "ring", type: "boolean", defaultValue: "false", description: "Story-style ring." },
+    {
+      prop: "shape",
+      type: '"circle" | "rounded"',
+      defaultValue: '"circle"',
+      description: "Corner style.",
+    },
+  ]}
+/>
+
+### AvatarGroup
+
+<PropsTable
+  props={[
+    { prop: "people", type: "{ src?, name }[]", description: "People to show." },
+    {
+      prop: "max",
+      type: "number",
+      defaultValue: "4",
+      description: "Shown before collapsing to +N.",
+    },
+    { prop: "size", type: "number", defaultValue: "36", description: "Diameter." },
+  ]}
+/>

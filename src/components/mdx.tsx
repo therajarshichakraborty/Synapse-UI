@@ -3,10 +3,10 @@ import type { MDXComponents } from "mdx/types";
 import type { ComponentProps } from "react";
 import { cn } from "@/lib/utils";
 import { Pre } from "@/components/docs/code-block";
+import { HeadingAnchor } from "@/components/docs/heading-anchor";
 import { PmCommand } from "@/components/docs/pm-command";
 import { ComponentPreview } from "@/components/docs/component-preview";
 import { ComponentInstall, ComponentSource } from "@/components/docs/component-install";
-import { ComponentShowcase } from "@/components/docs/component-showcase";
 import {
   Callout,
   ComponentsGrid,
@@ -21,15 +21,7 @@ function heading(Tag: "h2" | "h3" | "h4", base: string) {
     return (
       <Tag id={id} className={cn("group scroll-mt-8", base, className)} {...props}>
         {children}
-        {id && (
-          <a
-            href={`#${id}`}
-            aria-label="Link to this section"
-            className="ml-2 text-muted-foreground/0 no-underline transition-colors group-hover:text-muted-foreground hover:text-foreground!"
-          >
-            #
-          </a>
-        )}
+        {id && <HeadingAnchor id={id} />}
       </Tag>
     );
   }
@@ -66,7 +58,10 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
       <strong className={cn("font-semibold text-foreground", className)} {...props} />
     ),
     code: ({ className, ...props }: ComponentProps<"code">) => {
-      const isBlock = typeof className === "string" && /language-|shiki/.test(className);
+      // Shiki block code has line <span> children; inline code is a plain string.
+      const isBlock =
+        (typeof className === "string" && /language-|shiki/.test(className)) ||
+        (props.children != null && typeof props.children !== "string");
       if (isBlock) return <code className={className} {...props} />;
       return (
         <code
@@ -149,7 +144,6 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     ComponentPreview,
     ComponentInstall,
     ComponentSource,
-    ComponentShowcase,
     ComponentsGrid,
     PmCommand,
     Callout,

@@ -290,9 +290,9 @@
   --dot-color: rgb(0 0 0 / 0.12);
   --glass: rgb(255 255 255 / 0.75);
   --noise-opacity: 0;
-  --code-bg: #fafafa;
-  --code-title: #f4f4f5;
-  --code-highlight: rgb(0 0 0 / 0.045);
+  --code-bg: #ffffff;
+  --code-title: #ffffff;
+  --code-highlight: rgb(37 99 235 / 0.06);
 
   color-scheme: light;
 }
@@ -351,8 +351,8 @@
   --dot-color: rgb(255 255 255 / 0.1);
   --glass: rgb(17 17 19 / 0.72);
   --noise-opacity: 0;
-  --code-bg: #0f0f11;
-  --code-title: #141416;
+  --code-bg: #0b0b0c;
+  --code-title: #0b0b0c;
   --code-highlight: rgb(255 255 255 / 0.05);
 
   color-scheme: dark;
@@ -506,6 +506,21 @@
     opacity: var(--noise-opacity);
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
+}
+
+/* Dotted blueprint rails used by the landing frame */
+@utility dotted-rail-y {
+  width: 1px;
+  background-image: radial-gradient(circle, var(--border-strong) 0.9px, transparent 1.1px);
+  background-size: 1px 6px;
+  background-repeat: repeat-y;
+}
+
+@utility dotted-rail-x {
+  height: 1px;
+  background-image: radial-gradient(circle, var(--border-strong) 0.9px, transparent 1.1px);
+  background-size: 6px 1px;
+  background-repeat: repeat-x;
 }
 
 @utility scrollbar-thin {

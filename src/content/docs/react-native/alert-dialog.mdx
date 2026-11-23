@@ -1,0 +1,62 @@
+---
+title: "Alert Dialog"
+description: "A confirmation dialog for destructive or important actions."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-alert-dialog-demo" />
+
+## Installation
+
+<ComponentInstall name="native-alert-dialog" />
+
+## Usage
+
+```tsx
+import { AlertDialog } from "@/components/native/alert-dialog";
+```
+
+```tsx
+<AlertDialog open={open} onOpenChange={setOpen} destructive title="Delete?" onConfirm={remove} />
+```
+
+## API Reference
+
+### AlertDialog
+
+<PropsTable
+  props={[
+    { prop: "open", type: "boolean", description: "Visibility." },
+    { prop: "onOpenChange", type: "(open: boolean) => void", description: "Called to close." },
+    { prop: "title", type: "string", description: "Question." },
+    { prop: "description", type: "string", description: "Consequences." },
+    { prop: "icon", type: "IconName", description: "Header icon." },
+    {
+      prop: "confirmLabel",
+      type: "string",
+      defaultValue: '"Continue"',
+      description: "Confirm button.",
+    },
+    {
+      prop: "cancelLabel",
+      type: "string",
+      defaultValue: '"Cancel"',
+      description: "Cancel button.",
+    },
+    { prop: "destructive", type: "boolean", defaultValue: "false", description: "Red confirm." },
+    {
+      prop: "onConfirm",
+      type: "() => void | Promise<void>",
+      description: "Spinner until the promise settles, then closes.",
+    },
+    { prop: "onCancel", type: "() => void", description: "Called on cancel." },
+  ]}
+/>
+
+## Accessibility
+
+Can't be dismissed by tapping outside; the user must choose.

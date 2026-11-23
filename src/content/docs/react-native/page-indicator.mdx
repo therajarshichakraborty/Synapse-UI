@@ -1,0 +1,49 @@
+---
+title: "Page Indicator"
+description: "Animated pagination dots that stretch for the active page."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-page-indicator-demo" />
+
+## Installation
+
+<ComponentInstall name="native-page-indicator" />
+
+## Usage
+
+```tsx
+import { PageIndicator } from "@/components/native/page-indicator";
+```
+
+```tsx
+<PageIndicator count={3} progress={page} onPress={setPage} />
+```
+
+## API Reference
+
+### PageIndicator
+
+<PropsTable
+  props={[
+    { prop: "count", type: "number", description: "Number of pages." },
+    {
+      prop: "progress",
+      type: "number | Animated.Value",
+      description: "Current page. Pass scrollX / width to track the finger.",
+    },
+    { prop: "onPress", type: "(index: number) => void", description: "Makes dots pressable." },
+    { prop: "activeColor", type: "string", defaultValue: "foreground", description: "Active dot." },
+    {
+      prop: "inactiveColor",
+      type: "string",
+      defaultValue: "borderStrong",
+      description: "Other dots.",
+    },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

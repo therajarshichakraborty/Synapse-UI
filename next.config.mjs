@@ -1,4 +1,5 @@
 import { execSync } from "node:child_process";
+import { fileURLToPath } from "node:url";
 import { createMDX } from "fumadocs-mdx/next";
 
 try {
@@ -11,12 +12,32 @@ try {
 
 const withMDX = createMDX();
 
-// Variant galleries moved from /docs/components/* to /docs/collections/*.
-const movedCollections = ["ai-input", "faq", "list", "pricing", "text", "block", "message"];
+/**
+ * React Native components (src/components/native) are previewed in the docs through
+ * react-native-web. `react-native-svg` is swapped for a tiny DOM shim on the web.
+ */
+const nativeAliases = {
+  "react-native": "react-native-web",
+  "react-native-svg": "./src/lib/native-web/react-native-svg.tsx",
+};
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   devIndicators: false,
+  transpilePackages: ["react-native-web"],
+  turbopack: {
+    resolveAlias: nativeAliases,
+  },
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...(config.resolve.alias ?? {}),
+      "react-native$": "react-native-web",
+      "react-native-svg$": fileURLToPath(
+        new URL("./src/lib/native-web/react-native-svg.tsx", import.meta.url),
+      ),
+    };
+    return config;
+  },
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "encrypted-tbn0.gstatic.com", pathname: "/**" },
@@ -30,12 +51,14 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      ...movedCollections.map((slug) => ({
+      // The variant collections were retired; send old links to the component index.
+      { source: "/docs/collections/:path*", destination: "/docs/components", permanent: false },
+      { source: "/docs/hooks/:slug", destination: "/docs/components", permanent: false },
+      ...["ai-input", "faq", "list", "pricing", "text", "block", "message"].map((slug) => ({
         source: `/docs/components/${slug}`,
-        destination: `/docs/collections/${slug}`,
-        permanent: true,
+        destination: "/docs/components",
+        permanent: false,
       })),
-      { source: "/docs/hooks/:slug", destination: "/docs/collections/hooks", permanent: true },
       { source: "/pricing", destination: "/#pricing", permanent: false },
     ];
   },

@@ -1,0 +1,94 @@
+---
+title: "React Native"
+description: "59 premium, copy-paste components for React Native and Expo. Themeable, accessible, dark-mode ready, with zero UI dependencies."
+---
+
+Synapse UI Native brings the shadcn approach to mobile: you copy the source into your app and own it. Every component is built on core React Native primitives (`Pressable`, `Animated`, `PanResponder`) plus `react-native-svg`. There is no styling runtime, no native module to link, and nothing to eject.
+
+<ComponentPreview name="native-showcase" hideCode />
+
+## Highlights
+
+- **Expo-first.** Works in Expo Go, development builds and bare React Native (0.74+).
+- **Feels native.** Spring physics, press feedback, drag gestures and iOS-style details.
+- **Light and dark.** Follows the device scheme by default, or force one with `ThemeProvider`.
+- **Accessible.** Real roles, states and labels for VoiceOver and TalkBack.
+- **Typed.** Strict TypeScript with documented props for every component.
+
+## Setup
+
+<Steps>
+
+### Create an Expo app (or use your own)
+
+<PmCommand dlx="create-expo-app@latest my-app" />
+
+### Install the one peer dependency
+
+<PmCommand dlx="expo install react-native-svg" />
+
+### Check the path alias
+
+Components import each other from `@/components/native/*`. New Expo projects already map `@/*` to the project root in `tsconfig.json`:
+
+```json title="tsconfig.json"
+{
+  "compilerOptions": {
+    "paths": { "@/*": ["./*"] }
+  }
+}
+```
+
+### Add a component
+
+<PmCommand dlx="synapse-ui@latest add native-button" />
+
+Each item pulls in its shared files (`theme`, `icon`, `portal`…) automatically. Prefer copy and paste? Every page has a **Manual** tab.
+
+### Wrap your root layout
+
+Overlays (Dialog, Bottom Sheet, Select, Menu…) render into `PortalHost`, and `Toaster` shows toasts:
+
+```tsx title="app/_layout.tsx"
+import { Stack } from "expo-router";
+import { PortalHost } from "@/components/native/portal";
+import { Toaster } from "@/components/native/toast";
+
+export default function RootLayout() {
+  return (
+    <PortalHost>
+      <Stack />
+      <Toaster />
+    </PortalHost>
+  );
+}
+```
+
+</Steps>
+
+## Theming
+
+All colors come from tokens in `components/native/theme.tsx`. Override any of them per scheme, or force a scheme:
+
+```tsx
+import { ThemeProvider } from "@/components/native/theme";
+
+<ThemeProvider colors={{ light: { brand: "#7c3aed" }, dark: { brand: "#a78bfa" } }}>
+  <App />
+</ThemeProvider>;
+```
+
+Read tokens in your own components with `useTheme()`:
+
+```tsx
+const { colors, radius, shadow } = useTheme();
+<View style={[{ backgroundColor: colors.card, borderRadius: radius.lg }, shadow(2)]} />;
+```
+
+<Callout title="Web support">
+  These docs render the components live with `react-native-web`, so they work in Expo for web too.
+</Callout>
+
+## Components
+
+<ComponentsGrid category="native" />

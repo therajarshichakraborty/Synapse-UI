@@ -1,0 +1,63 @@
+---
+title: "Select"
+description: "A select field that opens a searchable bottom-sheet picker."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-select-demo" />
+
+## Installation
+
+<ComponentInstall name="native-select" />
+
+## Usage
+
+```tsx
+import { Select } from "@/components/native/select";
+```
+
+```tsx
+<Select
+  title="Country"
+  options={[{ value: "us", label: "United States" }]}
+  value={country}
+  onValueChange={setCountry}
+/>
+```
+
+## API Reference
+
+### Select
+
+<PropsTable
+  props={[
+    { prop: "options", type: "{ value, label, description?, icon? }[]", description: "Choices." },
+    { prop: "value", type: "string", description: "Controlled value." },
+    { prop: "defaultValue", type: "string", description: "Initial value." },
+    { prop: "onValueChange", type: "(value: string) => void", description: "Called on choose." },
+    {
+      prop: "placeholder",
+      type: "string",
+      defaultValue: '"Select an option"',
+      description: "Shown with no value.",
+    },
+    { prop: "title", type: "string", description: "Sheet title." },
+    {
+      prop: "searchable",
+      type: "boolean",
+      defaultValue: "8+ options",
+      description: "Adds a filter field.",
+    },
+    { prop: "invalid", type: "boolean", defaultValue: "false", description: "Error styling." },
+    { prop: "disabled", type: "boolean", defaultValue: "false", description: "Not pressable." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>
+
+## Accessibility
+
+The trigger is a combobox with an `expanded` state; the Android back button closes the sheet.

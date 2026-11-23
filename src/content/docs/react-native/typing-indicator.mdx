@@ -1,0 +1,42 @@
+---
+title: "Typing Indicator"
+description: "Three bouncing dots that show someone is typing."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-typing-indicator-demo" />
+
+## Installation
+
+<ComponentInstall name="native-typing-indicator" />
+
+## Usage
+
+```tsx
+import { TypingIndicator } from "@/components/native/typing-indicator";
+```
+
+```tsx
+<TypingIndicator />
+```
+
+## API Reference
+
+### TypingIndicator
+
+<PropsTable
+  props={[
+    {
+      prop: "bubble",
+      type: "boolean",
+      defaultValue: "true",
+      description: "Wrap in a chat bubble.",
+    },
+    { prop: "color", type: "string", defaultValue: "mutedForeground", description: "Dot color." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

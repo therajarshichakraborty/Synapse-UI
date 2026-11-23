@@ -1,0 +1,46 @@
+---
+title: "Progress Ring"
+description: "A circular progress ring with a centered label."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-progress-ring-demo" />
+
+## Installation
+
+<ComponentInstall name="native-progress-ring" />
+
+## Usage
+
+```tsx
+import { ProgressRing } from "@/components/native/progress-ring";
+```
+
+```tsx
+<ProgressRing value={72} colors={["#22d3ee", "#6366f1"]} label="Daily goal" />
+```
+
+## API Reference
+
+### ProgressRing
+
+<PropsTable
+  props={[
+    { prop: "value", type: "number", description: "0–100." },
+    { prop: "size", type: "number", defaultValue: "120", description: "Diameter." },
+    { prop: "strokeWidth", type: "number", defaultValue: "10", description: "Ring thickness." },
+    {
+      prop: "colors",
+      type: "[string, string]",
+      defaultValue: "brand",
+      description: "Gradient stops.",
+    },
+    { prop: "label", type: "string", description: "Caption under the percentage." },
+    { prop: "children", type: "ReactNode", description: "Replaces the centered percentage." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

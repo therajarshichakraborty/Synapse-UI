@@ -1,0 +1,59 @@
+---
+title: "Keypad"
+description: "A PIN pad with dots, haptic-style press and delete."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-keypad-demo" />
+
+## Installation
+
+<ComponentInstall name="native-keypad" />
+
+## Usage
+
+```tsx
+import { Keypad } from "@/components/native/keypad";
+```
+
+```tsx
+<Keypad length={4} error={wrong} onComplete={check} />
+```
+
+## API Reference
+
+### Keypad
+
+<PropsTable
+  props={[
+    {
+      prop: "length",
+      type: "number",
+      defaultValue: "4",
+      description: "PIN length. 0 hides the dots for amount entry.",
+    },
+    { prop: "value", type: "string", description: "Controlled value." },
+    { prop: "onChange", type: "(value: string) => void", description: "Called on every key." },
+    { prop: "onComplete", type: "(value: string) => void", description: "Called when full." },
+    {
+      prop: "error",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Shakes, turns red and clears.",
+    },
+    {
+      prop: "extraKey",
+      type: "{ label?, icon?, onPress }",
+      description: "Bottom-left key, e.g. Face ID.",
+    },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>
+
+## Accessibility
+
+Long-press delete to clear everything.

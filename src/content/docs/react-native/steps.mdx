@@ -1,0 +1,43 @@
+---
+title: "Steps"
+description: "A horizontal progress indicator for multi-step flows."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-steps-demo" />
+
+## Installation
+
+<ComponentInstall name="native-steps" />
+
+## Usage
+
+```tsx
+import { Steps } from "@/components/native/steps";
+```
+
+```tsx
+<Steps steps={["Account", "Profile", "Done"]} current={1} />
+```
+
+## API Reference
+
+### Steps
+
+<PropsTable
+  props={[
+    { prop: "steps", type: "string[]", description: "Step labels." },
+    { prop: "current", type: "number", description: "Active step index." },
+    {
+      prop: "variant",
+      type: '"dots" | "bar"',
+      defaultValue: '"dots"',
+      description: "Numbered nodes or segmented bar.",
+    },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>

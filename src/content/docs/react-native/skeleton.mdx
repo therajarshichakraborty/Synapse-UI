@@ -1,0 +1,58 @@
+---
+title: "Skeleton"
+description: "Shimmering placeholders for loading content."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-skeleton-demo" />
+
+## Installation
+
+<ComponentInstall name="native-skeleton" />
+
+## Usage
+
+```tsx
+import { Skeleton, SkeletonText } from "@/components/native/skeleton";
+```
+
+```tsx
+<Skeleton circle={44} />
+<SkeletonText lines={3} />
+```
+
+## API Reference
+
+### Skeleton
+
+<PropsTable
+  props={[
+    { prop: "width", type: "DimensionValue", defaultValue: '"100%"', description: "Width." },
+    { prop: "height", type: "DimensionValue", defaultValue: "16", description: "Height." },
+    { prop: "radius", type: "number", defaultValue: "8", description: "Corner radius." },
+    { prop: "circle", type: "number", description: "Diameter of a circular skeleton." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>
+
+### SkeletonText
+
+<PropsTable
+  props={[
+    {
+      prop: "lines",
+      type: "number",
+      defaultValue: "3",
+      description: "Line count; the last is shorter.",
+    },
+    { prop: "gap", type: "number", defaultValue: "10", description: "Space between lines." },
+  ]}
+/>
+
+## Accessibility
+
+Every skeleton on screen pulses from one shared clock, so they stay in sync and cost a single animation.

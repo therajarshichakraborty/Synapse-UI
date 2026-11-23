@@ -1,0 +1,69 @@
+---
+title: "Input"
+description: "A text field with floating focus ring, icons, clear and password reveal."
+---
+
+<Callout type="tip" title="First time?">
+  Follow the [React Native setup](/docs/react-native) once: install `react-native-svg` and wrap your
+  app in `PortalHost`.
+</Callout>
+
+<ComponentPreview name="native-input-demo" />
+
+## Installation
+
+<ComponentInstall name="native-input" />
+
+## Usage
+
+```tsx
+import { Input } from "@/components/native/input";
+```
+
+```tsx
+<Input leftIcon="mail" placeholder="you@example.com" clearable />
+<Input leftIcon="lock" secureTextEntry revealable />
+```
+
+## API Reference
+
+### Input
+
+Extends `TextInputProps` and forwards its ref.
+
+<PropsTable
+  props={[
+    { prop: "leftIcon", type: "IconName", description: "Leading icon." },
+    { prop: "rightIcon", type: "IconName", description: "Trailing icon." },
+    {
+      prop: "clearable",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Clear button while there is text.",
+    },
+    {
+      prop: "revealable",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Eye toggle for `secureTextEntry`.",
+    },
+    {
+      prop: "invalid",
+      type: "boolean",
+      defaultValue: "false",
+      description: "Red border and ring.",
+    },
+    {
+      prop: "size",
+      type: '"sm" | "md" | "lg"',
+      defaultValue: '"md"',
+      description: "Height 40, 48 or 56.",
+    },
+    { prop: "disabled", type: "boolean", defaultValue: "false", description: "Not editable." },
+    { prop: "style", type: "StyleProp<ViewStyle>", description: "Merged onto the root view." },
+  ]}
+/>
+
+## Accessibility
+
+Pair with `FormField` for a visible label. Clear and reveal buttons have their own labels.

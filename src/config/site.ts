@@ -1,11 +1,10 @@
 export const siteConfig = {
   name: "Synapse UI",
   shortName: "synapse-ui",
-  // TODO(owner): replace with the production domain.
-  url: "https://synapse-ui.vercel.app",
+  url: "https://synapse-ui-dev.vercel.app",
   ogImage: "/og.png",
   description:
-    "Beautifully designed, accessible React components and animated sections. Copy, paste, own the code. Built with Tailwind CSS v4, Radix and Motion.",
+    "Beautifully designed, accessible React and React Native components and animated sections. Copy, paste, own the code. Built with Tailwind CSS v4, Radix and Motion, plus Expo-ready mobile components.",
   links: {
     // TODO(owner): confirm the canonical repo and social handles.
     github: "https://github.com/therajarshichakraborty/Synapse-UI",

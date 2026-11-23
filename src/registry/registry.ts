@@ -5,7 +5,9 @@
  * installation steps and the CLI. Pure data, safe to import on the client.
  */
 
-export type RegistryCategory = "core" | "animated" | "block";
+import { nativeComponents } from "./native";
+
+export type RegistryCategory = "core" | "animated" | "block" | "native";
 
 export type RegistryEntry = {
   name: string;
@@ -768,20 +770,29 @@ export const registry: RegistryEntry[] = [
   ...coreComponents,
   ...animatedComponents,
   ...blockComponents,
+  ...nativeComponents,
 ];
+
+export { nativeComponents };
 
 export const categoryBase: Record<RegistryCategory, string> = {
   core: "/docs/components",
   animated: "/docs/animated",
   block: "/docs/blocks",
+  native: "/docs/react-native",
 };
 
 export function getEntry(name: string): RegistryEntry | undefined {
   return registry.find((e) => e.name === name);
 }
 
+/** Docs slug. Native entries are registered as `native-<slug>`. */
+export function entrySlug(entry: RegistryEntry): string {
+  return entry.category === "native" ? entry.name.replace(/^native-/, "") : entry.name;
+}
+
 export function entryUrl(entry: RegistryEntry): string {
-  return `${categoryBase[entry.category]}/${entry.name}`;
+  return `${categoryBase[entry.category]}/${entrySlug(entry)}`;
 }
 
 /** URL → isNew, used by the docs sidebar. */
