@@ -21,13 +21,13 @@ function transformerMetaHighlight() {
       const raw = this.options.meta?.__raw;
       const lines = parseLineRanges(raw);
       if (lines.has(line)) this.addClassToHast(node, "highlighted");
-    },
+    }
   };
 }
 
 // source.config.ts
 var docs = defineDocs({
-  dir: "src/content/docs",
+  dir: "src/content/docs"
 });
 var source_config_default = defineConfig({
   mdxOptions: {
@@ -37,13 +37,16 @@ var source_config_default = defineConfig({
       ...rehypeCodeDefaultOptions,
       themes: {
         light: "github-light-default",
-        dark: "github-dark-default",
+        dark: "github-dark-default"
       },
       defaultColor: false,
       icon: false,
       tab: false,
-      transformers: [...(rehypeCodeDefaultOptions.transformers ?? []), transformerMetaHighlight()],
-    },
-  },
+      transformers: [...rehypeCodeDefaultOptions.transformers ?? [], transformerMetaHighlight()]
+    }
+  }
 });
-export { source_config_default as default, docs };
+export {
+  source_config_default as default,
+  docs
+};
