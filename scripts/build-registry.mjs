@@ -1,246 +1,209 @@
+// Builds the Synapse UI registry (public/r/*.json).
+//
+// The same JSON serves two installers:
+//   1. shadcn:      npx shadcn@latest add https://synapse-ui-dev.vercel.app/r/native-fab.json
+//   2. Synapse CLI: npx synapseui@latest add native-fab
+//
+// Install layout in the user's project (src/ is respected automatically):
+//   web components (ui, animated, blocks) -> components/synapse-ui/<name>.tsx
+//   React Native components               -> components/native/<name>.tsx
+//   hooks                                 -> hooks/<name>.ts
+//
+// Every file carries an explicit `target`, and every registry dependency is a full
+// Synapse URL, so the shadcn CLI never substitutes its own components.
 import fs from "node:fs";
-import path from "path";
+import path from "node:path";
 
+const REGISTRY_URL = (
+  process.env.SYNAPSE_REGISTRY_URL ?? "https://synapse-ui-dev.vercel.app/r"
+).replace(/\/$/, "");
 const REGISTRY_DIR = path.join("public", "r");
 const STYLES_DIR = path.join(REGISTRY_DIR, "styles", "default");
-
-// Ensure target directories exist
+const SCHEMA = "https://ui.shadcn.com/schema/registry-item.json";
 fs.mkdirSync(STYLES_DIR, { recursive: true });
 
-const nodeBuiltins = new Set([
-  "fs",
-  "path",
-  "crypto",
-  "os",
-  "http",
-  "https",
-  "stream",
-  "util",
-  "zlib",
-  "url",
-  "child_process",
+const WEB_DIRS = ["ui", "animated", "blocks"];
+const nativeDir = path.join("src", "components", "native");
+const hooksDir = path.join("src", "hooks");
+const IGNORED_PKGS = new Set([
+  "react",
+  "react-dom",
+  "next",
+  ...[
+    "fs",
+    "path",
+    "crypto",
+    "os",
+    "http",
+    "https",
+    "stream",
+    "util",
+    "zlib",
+    "url",
+    "child_process",
+  ],
 ]);
 
-function getPackageName(importPath) {
-  if (importPath.startsWith("@")) return importPath.split("/").slice(0, 2).join("/");
-  return importPath.split("/")[0];
+const pkgName = (p) => (p.startsWith("@") ? p.split("/").slice(0, 2).join("/") : p.split("/")[0]);
+const read = (p) => fs.readFileSync(p, "utf-8");
+const url = (name) => `${REGISTRY_URL}/${name}.json`;
+
+/** Web files import each other from one flat folder once installed. */
+function toInstalledSource(code) {
+  return code.replace(/@\/components\/(?:ui|animated|blocks)\//g, "@/components/synapse-ui/");
 }
 
-// Scan imports to determine npm dependencies and registry dependencies
-function scanFileDependencies(filePath) {
-  const content = fs.readFileSync(filePath, "utf-8");
-  const dependencies = new Set();
-  const registryDependencies = new Set();
-
-  const importFromRegex = /import\s+([^;]*?)\s+from\s+["']([^"']+)["']/g;
-  const importSideEffectRegex = /import\s+["']([^"']+)["']/g;
-
-  let match;
-  while ((match = importFromRegex.exec(content)) !== null) {
-    const importPath = match[2];
-    if (importPath.startsWith("@/components/ui/")) {
-      registryDependencies.add(
-        importPath
-          .substring("@/components/ui/".length)
-          .split("/")[0]
-          .replace(/\.(tsx|ts)$/, ""),
-      );
-    } else if (importPath.startsWith("@/hooks/")) {
-      registryDependencies.add(
-        `hook:${importPath
-          .substring("@/hooks/".length)
-          .split("/")[0]
-          .replace(/\.(tsx|ts)$/, "")}`,
-      );
-    } else if (importPath.startsWith("@/components/native/")) {
-      registryDependencies.add(`native:${importPath.substring("@/components/native/".length)}`);
-    } else if (!importPath.startsWith(".") && !importPath.startsWith("@/")) {
-      const pkgName = getPackageName(importPath);
-      if (!nodeBuiltins.has(pkgName) && pkgName !== "react" && pkgName !== "react-dom") {
-        dependencies.add(pkgName);
-      }
+/** npm packages + local imports (web names, hooks, native files) of one source file. */
+function scan(code) {
+  const packages = new Set();
+  const web = new Set();
+  const hooks = new Set();
+  const native = new Set();
+  const re = /(?:import|export)\s+(?:[^"';]*?\s+from\s+)?["']([^"']+)["']/g;
+  for (const [, spec] of code.matchAll(re)) {
+    let m;
+    if ((m = spec.match(/^@\/components\/(?:ui|animated|blocks)\/([\w-]+)/))) web.add(m[1]);
+    else if ((m = spec.match(/^@\/hooks\/([\w-]+)/))) hooks.add(m[1]);
+    else if ((m = spec.match(/^@\/components\/native\/([\w-]+)/))) native.add(m[1]);
+    else if (!spec.startsWith(".") && !spec.startsWith("@/")) {
+      const name = pkgName(spec);
+      if (!IGNORED_PKGS.has(name)) packages.add(name);
     }
   }
-
-  while ((match = importSideEffectRegex.exec(content)) !== null) {
-    const importPath = match[1];
-    if (!importPath.startsWith(".") && !importPath.startsWith("@/")) {
-      const pkgName = getPackageName(importPath);
-      if (!nodeBuiltins.has(pkgName) && pkgName !== "react" && pkgName !== "react-dom") {
-        dependencies.add(pkgName);
-      }
-    }
-  }
-
-  return {
-    dependencies: Array.from(dependencies),
-    registryDependencies: Array.from(registryDependencies),
-  };
+  return { packages, web, hooks, native };
 }
 
-const registryItems = [];
-
-// 1. UI primitives (src/components/ui/)
-const uiDir = path.join("src", "components", "ui");
-if (fs.existsSync(uiDir)) {
-  for (const file of fs.readdirSync(uiDir).filter((f) => f.endsWith(".tsx") || f.endsWith(".ts"))) {
-    const filePath = path.join(uiDir, file);
-    if (fs.statSync(filePath).size === 0) continue;
-    const { dependencies, registryDependencies } = scanFileDependencies(filePath);
-    registryItems.push({
-      name: file.replace(/\.(tsx|ts)$/, ""),
-      type: "registry:ui",
-      dependencies,
-      registryDependencies,
-      files: [
-        {
-          path: `components/ui/${file}`,
-          content: fs.readFileSync(filePath, "utf-8"),
-          type: "registry:ui",
-        },
-      ],
-    });
-  }
-}
-
-// 2. Hooks (src/hooks/)
-const hooksDir = path.join("src", "hooks");
-if (fs.existsSync(hooksDir)) {
-  for (const file of fs.readdirSync(hooksDir).filter((f) => f.endsWith(".ts"))) {
-    const filePath = path.join(hooksDir, file);
-    if (fs.statSync(filePath).size === 0) continue;
-    const { dependencies, registryDependencies } = scanFileDependencies(filePath);
-    registryItems.push({
-      name: file.replace(/\.ts$/, ""),
-      type: "registry:hook",
-      dependencies,
-      registryDependencies,
-      files: [
-        {
-          path: `hooks/${file}`,
-          content: fs.readFileSync(filePath, "utf-8"),
-          type: "registry:hook",
-        },
-      ],
-    });
-  }
-}
-
-// 3. Animated components and blocks (src/components/animated, src/components/blocks)
-for (const [dirName, type] of [
-  ["animated", "registry:ui"],
-  ["blocks", "registry:block"],
-]) {
-  const dir = path.join("src", "components", dirName);
-  if (!fs.existsSync(dir)) continue;
-  for (const file of fs.readdirSync(dir).filter((f) => f.endsWith(".tsx"))) {
-    const filePath = path.join(dir, file);
-    const name = file.replace(/\.tsx$/, "");
-    const { dependencies, registryDependencies } = scanFileDependencies(filePath);
-    const content = fs.readFileSync(filePath, "utf-8");
-    const animatedDeps = [
-      ...content.matchAll(/from\s+["']@\/components\/animated\/([\w-]+)["']/g),
-    ].map((m) => m[1]);
-    registryItems.push({
-      name,
-      type,
-      dependencies,
-      registryDependencies: [...new Set([...registryDependencies, ...animatedDeps])].filter(
-        (d) => d !== name,
-      ),
-      files: [{ path: `components/${dirName}/${file}`, content, type }],
-    });
-  }
-}
-
-// 4. React Native components (src/components/native). Published as `native-<name>`
-//    with their shared files (theme, icon, portal…) inlined, so one add is enough.
-const nativeDir = path.join("src", "components", "native");
-if (fs.existsSync(nativeDir)) {
-  for (const file of fs.readdirSync(nativeDir).filter((f) => /\.tsx?$/.test(f))) {
-    const filePath = path.join(nativeDir, file);
-    const base = file.replace(/\.(tsx|ts)$/, "");
-    const { dependencies, registryDependencies } = scanFileDependencies(filePath);
-    registryItems.push({
-      name: `native-${base}`,
-      type: "registry:ui",
-      dependencies,
-      registryDependencies: registryDependencies.filter((d) => d !== `native:${base}`),
-      files: [
-        {
-          path: `components/native/${file}`,
-          content: fs.readFileSync(filePath, "utf-8"),
-          type: "registry:ui",
-        },
-      ],
-    });
-  }
-}
-
-// Inline local hook and native dependencies recursively
-function resolveLocal(dep) {
-  if (dep.startsWith("hook:")) {
-    const hookName = dep.substring("hook:".length);
-    for (const ext of [".ts", ".tsx"]) {
-      const p = path.join("src", "hooks", `${hookName}${ext}`);
-      if (fs.existsSync(p))
-        return { file: p, rel: `hooks/${hookName}${ext}`, type: "registry:hook" };
-    }
-  } else if (dep.startsWith("native:")) {
-    const rel = dep.substring("native:".length);
-    for (const ext of [".tsx", ".ts"]) {
-      const p = path.join(nativeDir, `${rel}${ext}`);
-      if (fs.existsSync(p))
-        return { file: p, rel: `components/native/${rel}${ext}`, type: "registry:ui" };
-    }
+function findFile(dir, base) {
+  for (const ext of [".tsx", ".ts"]) {
+    const p = path.join(dir, base + ext);
+    if (fs.existsSync(p)) return p;
   }
   return null;
 }
 
-for (const item of registryItems) {
-  const filesMap = new Map(item.files.map((f) => [f.path, f]));
-  const finalRegDeps = new Set();
-  const finalDeps = new Set(item.dependencies);
-  const queue = [...item.registryDependencies];
-  const processed = new Set();
+const sources = (dir, re) =>
+  fs.existsSync(dir)
+    ? fs.readdirSync(dir).filter((f) => re.test(f) && fs.statSync(path.join(dir, f)).size > 0)
+    : [];
 
-  while (queue.length > 0) {
-    const dep = queue.shift();
-    if (processed.has(dep)) continue;
-    processed.add(dep);
+const items = [];
 
-    if (dep.startsWith("hook:") || dep.startsWith("native:")) {
-      const local = resolveLocal(dep);
-      if (!local) continue;
-      if (!filesMap.has(local.rel)) {
-        filesMap.set(local.rel, {
-          path: local.rel,
-          content: fs.readFileSync(local.file, "utf-8"),
-          type: local.type,
-        });
-      }
-      const sub = scanFileDependencies(local.file);
-      sub.dependencies.forEach((d) => finalDeps.add(d));
-      sub.registryDependencies.forEach((r) => queue.push(r));
-    } else {
-      finalRegDeps.add(dep);
+// Web components and blocks (one item per file; other web components are registry deps).
+for (const dir of WEB_DIRS) {
+  const type = dir === "blocks" ? "registry:block" : "registry:component";
+  for (const file of sources(path.join("src", "components", dir), /\.tsx?$/)) {
+    const name = file.replace(/\.tsx?$/, "");
+    items.push({
+      name,
+      type,
+      category: dir === "blocks" ? "block" : "web",
+      entry: path.join("src", "components", dir, file),
+      target: `components/synapse-ui/${file}`,
+    });
+  }
+}
+// React Native: shared native files (theme, icon, portal…) are inlined, so one add is enough.
+for (const file of sources(nativeDir, /\.tsx?$/)) {
+  const base = file.replace(/\.tsx?$/, "");
+  items.push({
+    name: `native-${base}`,
+    type: "registry:component",
+    category: "native",
+    entry: path.join(nativeDir, file),
+    target: `components/native/${file}`,
+  });
+}
+// Hooks
+for (const file of sources(hooksDir, /\.tsx?$/)) {
+  items.push({
+    name: file.replace(/\.tsx?$/, ""),
+    type: "registry:hook",
+    category: "hook",
+    entry: path.join(hooksDir, file),
+    target: `hooks/${file}`,
+  });
+}
+
+const webNames = new Set(
+  items.filter((i) => i.category === "web" || i.category === "block").map((i) => i.name),
+);
+
+const output = items.map((item) => {
+  const files = new Map();
+  const packages = new Set();
+  const registryDeps = new Set();
+  const queue = [{ file: item.entry, target: item.target }];
+
+  while (queue.length) {
+    const { file, target } = queue.shift();
+    if (files.has(target)) continue;
+    const code = read(file);
+    const deps = scan(code);
+    deps.packages.forEach((p) => packages.add(p));
+    files.set(target, {
+      path: target,
+      target,
+      type: item.type === "registry:hook" ? "registry:hook" : "registry:component",
+      content: toInstalledSource(code),
+    });
+    for (const w of deps.web) if (w !== item.name && webNames.has(w)) registryDeps.add(url(w));
+    for (const h of deps.hooks) {
+      const p = findFile(hooksDir, h);
+      if (p) queue.push({ file: p, target: `hooks/${path.basename(p)}` });
+    }
+    for (const n of deps.native) {
+      const p = findFile(nativeDir, n);
+      if (p) queue.push({ file: p, target: `components/native/${path.basename(p)}` });
     }
   }
 
-  item.files = Array.from(filesMap.values());
-  item.dependencies = Array.from(finalDeps);
-  item.registryDependencies = Array.from(finalRegDeps);
+  // react-native ships with every Expo app; installing it into a web app would be wrong.
+  if (item.category === "native") packages.delete("react-native");
+
+  return {
+    $schema: SCHEMA,
+    name: item.name,
+    type: item.type,
+    meta: { category: item.category },
+    dependencies: [...packages].sort(),
+    registryDependencies: [...registryDeps].sort(),
+    files: [...files.values()],
+  };
+});
+
+// Collection items: `all` (every web component + block) and `all-native`.
+const collection = (name, description, category) => ({
+  $schema: SCHEMA,
+  name,
+  type: "registry:block",
+  description,
+  meta: { category: "collection" },
+  dependencies: [],
+  registryDependencies: output
+    .filter((i) => category.includes(i.meta.category))
+    .map((i) => url(i.name)),
+  files: [],
+});
+output.push(
+  collection("all", "Every Synapse UI web component and block.", ["web", "block"]),
+  collection("all-native", "Every Synapse UI React Native component.", ["native"]),
+);
+
+for (const item of output) {
+  const json = JSON.stringify(item, null, 2);
+  fs.writeFileSync(path.join(REGISTRY_DIR, `${item.name}.json`), json);
+  fs.writeFileSync(path.join(STYLES_DIR, `${item.name}.json`), json);
 }
 
-// 5. Output shadcn registry JSONs
-for (const item of registryItems) {
-  const jsonContent = JSON.stringify(item, null, 2);
-  fs.writeFileSync(path.join(REGISTRY_DIR, `${item.name}.json`), jsonContent);
-  fs.writeFileSync(path.join(STYLES_DIR, `${item.name}.json`), jsonContent);
-}
+// Lightweight index for `synapseui list` / `add --all` (no file contents).
+const index = output.map(({ name, type, meta, dependencies, registryDependencies }) => ({
+  name,
+  type,
+  category: meta.category,
+  dependencies,
+  registryDependencies,
+}));
+fs.writeFileSync(path.join(REGISTRY_DIR, "index.json"), JSON.stringify(index, null, 2));
+fs.writeFileSync(path.join(STYLES_DIR, "index.json"), JSON.stringify(index, null, 2));
 
-const indexContent = JSON.stringify(registryItems, null, 2);
-fs.writeFileSync(path.join(REGISTRY_DIR, "index.json"), indexContent);
-fs.writeFileSync(path.join(STYLES_DIR, "index.json"), indexContent);
-
-console.log(`Successfully generated registry index with ${registryItems.length} components/hooks.`);
+console.log(`Successfully generated registry index with ${output.length} components/hooks.`);

@@ -1,15 +1,20 @@
 {
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "parallax-scroll",
-  "type": "registry:ui",
+  "type": "registry:component",
+  "meta": {
+    "category": "web"
+  },
   "dependencies": [
     "motion"
   ],
   "registryDependencies": [],
   "files": [
     {
-      "path": "components/animated/parallax-scroll.tsx",
-      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { motion, useScroll, useTransform } from \"motion/react\";\nimport { cn } from \"@/lib/utils\";\n\nexport type ParallaxScrollProps = {\n  /** CSS backgrounds (gradients or url()) for each tile. */\n  items: string[];\n  className?: string;\n  /** Height of the scroll container. */\n  height?: string;\n};\n\n/** A three-column gallery where the outer columns move at different speeds as you scroll. */\nexport function ParallaxScroll({ items, className, height = \"32rem\" }: ParallaxScrollProps) {\n  const ref = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({ container: ref });\n  const up = useTransform(scrollYProgress, [0, 1], [0, -220]);\n  const down = useTransform(scrollYProgress, [0, 1], [0, 220]);\n  const third = Math.ceil(items.length / 3);\n  const columns = [items.slice(0, third), items.slice(third, 2 * third), items.slice(2 * third)];\n\n  return (\n    <div\n      ref={ref}\n      className={cn(\"w-full overflow-y-auto rounded-2xl scrollbar-thin\", className)}\n      style={{ height }}\n    >\n      <div className=\"mx-auto grid max-w-4xl grid-cols-2 items-start gap-4 px-4 py-10 md:grid-cols-3\">\n        {columns.map((col, c) => (\n          <motion.div\n            key={c}\n            style={{ y: c === 1 ? down : up }}\n            className={cn(\"grid gap-4\", c === 2 && \"hidden md:grid\")}\n          >\n            {col.map((bg, i) => (\n              <div\n                key={i}\n                className=\"aspect-[3/4] rounded-xl border border-border\"\n                style={{ background: bg }}\n              />\n            ))}\n          </motion.div>\n        ))}\n      </div>\n    </div>\n  );\n}\n",
-      "type": "registry:ui"
+      "path": "components/synapse-ui/parallax-scroll.tsx",
+      "target": "components/synapse-ui/parallax-scroll.tsx",
+      "type": "registry:component",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { motion, useScroll, useTransform } from \"motion/react\";\nimport { cn } from \"@/lib/utils\";\n\nexport type ParallaxScrollProps = {\n  /** CSS backgrounds (gradients or url()) for each tile. */\n  items: string[];\n  className?: string;\n  /** Height of the scroll container. */\n  height?: string;\n};\n\n/** A three-column gallery where the outer columns move at different speeds as you scroll. */\nexport function ParallaxScroll({ items, className, height = \"32rem\" }: ParallaxScrollProps) {\n  const ref = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({ container: ref });\n  const up = useTransform(scrollYProgress, [0, 1], [0, -220]);\n  const down = useTransform(scrollYProgress, [0, 1], [0, 220]);\n  const third = Math.ceil(items.length / 3);\n  const columns = [items.slice(0, third), items.slice(third, 2 * third), items.slice(2 * third)];\n\n  return (\n    <div\n      ref={ref}\n      className={cn(\"w-full overflow-y-auto rounded-2xl scrollbar-thin\", className)}\n      style={{ height }}\n    >\n      <div className=\"mx-auto grid max-w-4xl grid-cols-2 items-start gap-4 px-4 py-10 md:grid-cols-3\">\n        {columns.map((col, c) => (\n          <motion.div\n            key={c}\n            style={{ y: c === 1 ? down : up }}\n            className={cn(\"grid gap-4\", c === 2 && \"hidden md:grid\")}\n          >\n            {col.map((bg, i) => (\n              <div\n                key={i}\n                className=\"aspect-[3/4] rounded-xl border border-border\"\n                style={{ background: bg }}\n              />\n            ))}\n          </motion.div>\n        ))}\n      </div>\n    </div>\n  );\n}\n"
     }
   ]
 }

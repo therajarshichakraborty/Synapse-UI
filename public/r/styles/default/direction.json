@@ -1,15 +1,20 @@
 {
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "direction",
-  "type": "registry:ui",
+  "type": "registry:component",
+  "meta": {
+    "category": "web"
+  },
   "dependencies": [
     "radix-ui"
   ],
   "registryDependencies": [],
   "files": [
     {
-      "path": "components/ui/direction.tsx",
-      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { Direction } from \"radix-ui\";\n\nfunction DirectionProvider({\n  dir,\n  direction,\n  children,\n}: React.ComponentProps<typeof Direction.DirectionProvider> & {\n  direction?: React.ComponentProps<typeof Direction.DirectionProvider>[\"dir\"];\n}) {\n  return (\n    <Direction.DirectionProvider dir={direction ?? dir}>{children}</Direction.DirectionProvider>\n  );\n}\n\nconst useDirection = Direction.useDirection;\n\nexport { DirectionProvider, useDirection };\n",
-      "type": "registry:ui"
+      "path": "components/synapse-ui/direction.tsx",
+      "target": "components/synapse-ui/direction.tsx",
+      "type": "registry:component",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { Direction } from \"radix-ui\";\n\nfunction DirectionProvider({\n  dir,\n  direction,\n  children,\n}: React.ComponentProps<typeof Direction.DirectionProvider> & {\n  direction?: React.ComponentProps<typeof Direction.DirectionProvider>[\"dir\"];\n}) {\n  return (\n    <Direction.DirectionProvider dir={direction ?? dir}>{children}</Direction.DirectionProvider>\n  );\n}\n\nconst useDirection = Direction.useDirection;\n\nexport { DirectionProvider, useDirection };\n"
     }
   ]
 }

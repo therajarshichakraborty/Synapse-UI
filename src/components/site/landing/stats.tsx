@@ -1,26 +1,27 @@
 import { NumberTicker } from "@/components/animated/number-ticker";
 import { siteConfig } from "@/config/site";
+import { nativeComponents } from "@/registry/registry";
 
-// TODO(owner): replace with real numbers (see siteConfig.stats).
+// TODO(owner): replace downloads with a real number (see siteConfig.stats).
 const stats = [
   { label: "Components and blocks", value: siteConfig.stats.components, suffix: "+" },
-  { label: "GitHub stars", value: siteConfig.stats.stars, suffix: "" },
+  { label: "React Native components", value: nativeComponents.length, suffix: "" },
   { label: "Monthly downloads", value: siteConfig.stats.downloads, suffix: "+" },
-  { label: "Contributors", value: siteConfig.stats.contributors, suffix: "" },
+  { label: "Free and open source", value: 100, suffix: "%" },
 ];
 
-export function Stats({ stars }: { stars?: number }) {
+export function Stats() {
   return (
-    <section aria-label="Project stats" className="py-12">
+    <section aria-label="Project stats" className="py-14 sm:py-16">
       <div className="container-page">
-        <dl className="mx-auto grid max-w-5xl grid-cols-2 gap-px overflow-hidden rounded-3xl border border-border bg-border lg:grid-cols-4">
+        <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border lg:grid-cols-4">
           {stats.map((s) => (
-            <div key={s.label} className="flex flex-col gap-2 bg-background px-6 py-10 text-center">
-              <dd className="order-1 text-[clamp(2.25rem,1.8rem+1.6vw,3rem)] leading-none font-semibold tracking-[-0.04em]">
-                <NumberTicker
-                  value={s.label === "GitHub stars" && stars ? stars : s.value}
-                  suffix={s.suffix}
-                />
+            <div
+              key={s.label}
+              className="flex flex-col gap-2 bg-background px-5 py-8 sm:px-8 sm:py-10"
+            >
+              <dd className="order-1 text-[clamp(1.875rem,1.5rem+1.4vw,2.75rem)] leading-none font-semibold tracking-[-0.04em]">
+                <NumberTicker value={s.value} suffix={s.suffix} />
               </dd>
               <dt className="order-2 text-sm text-muted-foreground">{s.label}</dt>
             </div>

@@ -15,12 +15,15 @@ export default function NativeShowcase() {
   const [tab, setTab] = React.useState("home");
   return (
     <View style={{ flex: 1 }}>
-      <ScrollView contentContainerStyle={{ padding: 18, gap: 18, paddingBottom: 120 }}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ padding: 18, gap: 18, paddingBottom: 120 }}
+      >
         <View style={{ flexDirection: "row", alignItems: "center", gap: 12 }}>
           <Avatar
             size={42}
             name="Jamie Rivera"
-            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&h=120&fit=crop"
+            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=160&h=160&fit=crop&crop=faces"
             status="online"
           />
           <View style={{ flex: 1 }}>

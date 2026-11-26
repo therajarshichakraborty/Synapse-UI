@@ -1,15 +1,20 @@
 {
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "testimonial-wall",
   "type": "registry:block",
+  "meta": {
+    "category": "block"
+  },
   "dependencies": [],
   "registryDependencies": [
-    "infinite-moving-cards"
+    "https://synapse-ui-dev.vercel.app/r/infinite-moving-cards.json"
   ],
   "files": [
     {
-      "path": "components/blocks/testimonial-wall.tsx",
-      "content": "import {\n  InfiniteMovingCards,\n  type MovingCardItem,\n} from \"@/components/animated/infinite-moving-cards\";\n\n// PLACEHOLDER testimonials. Replace with real customer quotes before shipping.\nconst rowA: MovingCardItem[] = [\n  {\n    quote: \"The fastest way we have found to ship a polished UI.\",\n    name: \"Placeholder Name\",\n    title: \"CTO, Example Co\",\n  },\n  {\n    quote: \"Our design and engineering teams finally speak the same language.\",\n    name: \"Sample Person\",\n    title: \"Head of Design, Demo Labs\",\n  },\n  {\n    quote: \"Dark mode and light mode both look intentional. That is rare.\",\n    name: \"Test User\",\n    title: \"Founder, Acme\",\n  },\n  {\n    quote: \"We rebuilt our marketing site in three days.\",\n    name: \"Jane Placeholder\",\n    title: \"Growth Lead, Sample Inc\",\n  },\n];\nconst rowB: MovingCardItem[] = [\n  {\n    quote: \"Accessibility details we would have missed are already handled.\",\n    name: \"Alex Sample\",\n    title: \"Frontend Engineer, Example Corp\",\n  },\n  {\n    quote: \"The animated components are tasteful, not gimmicky.\",\n    name: \"Jordan Demo\",\n    title: \"Product Designer, Placeholder Studio\",\n  },\n  {\n    quote: \"Owning the code means we never wait on a library release.\",\n    name: \"Riley Test\",\n    title: \"Staff Engineer, Demo Inc\",\n  },\n  {\n    quote: \"It looks like we hired a design agency.\",\n    name: \"Morgan Example\",\n    title: \"CEO, Sample Startup\",\n  },\n];\n\nexport default function TestimonialWall() {\n  return (\n    <section className=\"overflow-hidden bg-background py-24 md:py-32\">\n      <div className=\"mx-auto max-w-2xl px-6 text-center\">\n        <h2 className=\"text-h2 font-semibold\">Loved by builders</h2>\n        <p className=\"mt-4 text-body-lg text-muted-foreground\">\n          Placeholder quotes. Replace with your own customers.\n        </p>\n      </div>\n      <div className=\"mt-14 grid gap-4\">\n        <InfiniteMovingCards items={rowA} speed=\"slow\" />\n        <InfiniteMovingCards items={rowB} speed=\"slow\" direction=\"right\" />\n      </div>\n    </section>\n  );\n}\n",
-      "type": "registry:block"
+      "path": "components/synapse-ui/testimonial-wall.tsx",
+      "target": "components/synapse-ui/testimonial-wall.tsx",
+      "type": "registry:component",
+      "content": "import {\n  InfiniteMovingCards,\n  type MovingCardItem,\n} from \"@/components/synapse-ui/infinite-moving-cards\";\n\n// PLACEHOLDER testimonials. Replace with real customer quotes before shipping.\nconst rowA: MovingCardItem[] = [\n  {\n    quote: \"The fastest way we have found to ship a polished UI.\",\n    name: \"Placeholder Name\",\n    title: \"CTO, Example Co\",\n  },\n  {\n    quote: \"Our design and engineering teams finally speak the same language.\",\n    name: \"Sample Person\",\n    title: \"Head of Design, Demo Labs\",\n  },\n  {\n    quote: \"Dark mode and light mode both look intentional. That is rare.\",\n    name: \"Test User\",\n    title: \"Founder, Acme\",\n  },\n  {\n    quote: \"We rebuilt our marketing site in three days.\",\n    name: \"Jane Placeholder\",\n    title: \"Growth Lead, Sample Inc\",\n  },\n];\nconst rowB: MovingCardItem[] = [\n  {\n    quote: \"Accessibility details we would have missed are already handled.\",\n    name: \"Alex Sample\",\n    title: \"Frontend Engineer, Example Corp\",\n  },\n  {\n    quote: \"The animated components are tasteful, not gimmicky.\",\n    name: \"Jordan Demo\",\n    title: \"Product Designer, Placeholder Studio\",\n  },\n  {\n    quote: \"Owning the code means we never wait on a library release.\",\n    name: \"Riley Test\",\n    title: \"Staff Engineer, Demo Inc\",\n  },\n  {\n    quote: \"It looks like we hired a design agency.\",\n    name: \"Morgan Example\",\n    title: \"CEO, Sample Startup\",\n  },\n];\n\nexport default function TestimonialWall() {\n  return (\n    <section className=\"overflow-hidden bg-background py-24 md:py-32\">\n      <div className=\"mx-auto max-w-2xl px-6 text-center\">\n        <h2 className=\"text-h2 font-semibold\">Loved by builders</h2>\n        <p className=\"mt-4 text-body-lg text-muted-foreground\">\n          Placeholder quotes. Replace with your own customers.\n        </p>\n      </div>\n      <div className=\"mt-14 grid gap-4\">\n        <InfiniteMovingCards items={rowA} speed=\"slow\" />\n        <InfiniteMovingCards items={rowB} speed=\"slow\" direction=\"right\" />\n      </div>\n    </section>\n  );\n}\n"
     }
   ]
 }

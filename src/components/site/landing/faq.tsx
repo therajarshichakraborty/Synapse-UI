@@ -1,12 +1,11 @@
 import Link from "next/link";
-import { ArrowUpRightIcon, MessageCircleIcon } from "lucide-react";
+import { ArrowUpRightIcon } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
 import { GitHubIcon } from "@/components/site/icons";
 import { siteConfig } from "@/config/site";
 import { SectionHeading } from "@/components/site/landing/reveal";
@@ -40,50 +39,45 @@ const faqs = [
 
 export function Faq() {
   return (
-    <section id="faq" className="py-24 md:py-32">
-      <div className="container-page grid max-w-6xl gap-12 lg:grid-cols-[0.9fr_1.4fr] lg:gap-16">
-        <div className="lg:sticky lg:top-10 lg:self-start">
+    <section id="faq" className="py-20 sm:py-24 md:py-32">
+      <div className="container-page grid max-w-6xl gap-12 lg:grid-cols-[0.8fr_1.4fr] lg:gap-20">
+        <div className="lg:sticky lg:top-28 lg:self-start">
           <SectionHeading
             align="left"
             eyebrow="FAQ"
-            title="Questions, answered"
+            title="Questions, answered."
             description="Everything you need to know before you add your first component."
           />
-          <div className="mt-8 rounded-2xl surface-premium p-5">
-            <div className="flex items-center gap-3">
-              <span className="flex size-9 items-center justify-center rounded-full border border-border bg-muted">
-                <MessageCircleIcon className="size-4" />
-              </span>
-              <div>
-                <p className="text-sm font-medium">Still have questions?</p>
-                <p className="text-xs text-muted-foreground">Open a discussion and we will help.</p>
-              </div>
-            </div>
-            <div className="mt-4 flex gap-2">
-              <Button size="sm" variant="secondary" asChild>
-                <a href={`${siteConfig.links.github}/discussions`} target="_blank" rel="noreferrer">
-                  <GitHubIcon className="size-3.5" /> Discussions
-                </a>
-              </Button>
-              <Button size="sm" variant="ghost" asChild>
-                <Link href="/docs">
-                  Read the docs <ArrowUpRightIcon data-icon="inline-end" />
-                </Link>
-              </Button>
-            </div>
+          <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm">
+            <a
+              href={`${siteConfig.links.github}/discussions`}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 font-medium underline-offset-4 hover:underline"
+            >
+              <GitHubIcon className="size-4" /> Ask on GitHub
+            </a>
+            <Link
+              href="/docs"
+              className="inline-flex items-center gap-1 text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+            >
+              Read the docs <ArrowUpRightIcon className="size-3.5" />
+            </Link>
           </div>
         </div>
-        <Accordion type="single" collapsible defaultValue="0" className="grid w-full gap-3">
+
+        <Accordion
+          type="single"
+          collapsible
+          defaultValue="0"
+          className="w-full border-t border-border"
+        >
           {faqs.map((f, i) => (
-            <AccordionItem
-              key={f.q}
-              value={String(i)}
-              className="rounded-2xl border border-border bg-surface-1 px-5 transition-colors last:border-b data-[state=open]:bg-surface-2"
-            >
-              <AccordionTrigger className="py-5 text-[15px] font-medium hover:no-underline">
+            <AccordionItem key={f.q} value={String(i)} className="border-b border-border">
+              <AccordionTrigger className="py-6 text-base font-medium hover:no-underline">
                 {f.q}
               </AccordionTrigger>
-              <AccordionContent className="pb-5 text-[15px] leading-7 text-muted-foreground">
+              <AccordionContent className="max-w-[60ch] pb-6 text-[15px] leading-7 text-muted-foreground">
                 {f.a}
               </AccordionContent>
             </AccordionItem>

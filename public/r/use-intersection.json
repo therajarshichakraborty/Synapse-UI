@@ -1,13 +1,18 @@
 {
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "use-intersection",
   "type": "registry:hook",
+  "meta": {
+    "category": "hook"
+  },
   "dependencies": [],
   "registryDependencies": [],
   "files": [
     {
       "path": "hooks/use-intersection.ts",
-      "content": "\"use client\";\n\nimport { useState, useEffect } from \"react\";\n\ninterface UseIntersectionOptions {\n  threshold?: number;\n  prefix?: string;\n}\n\nexport function useIntersection(\n  items: { id: string | number }[],\n  options: UseIntersectionOptions = {},\n) {\n  const [visibleIds, setVisibleIds] = useState<Set<string | number>>(new Set());\n\n  useEffect(() => {\n    const handleIntersection = (entries: IntersectionObserverEntry[]) => {\n      setVisibleIds((prev) => {\n        const next = new Set(prev);\n        for (const entry of entries) {\n          const id = entry.target.id.replace(`${options.prefix}-`, \"\");\n          const parsedId = Number.isNaN(Number(id)) ? id : Number(id);\n\n          if (entry.isIntersecting) {\n            next.add(parsedId);\n          } else {\n            next.delete(parsedId);\n          }\n        }\n        return next;\n      });\n    };\n\n    const observer = new IntersectionObserver(handleIntersection, {\n      threshold: options.threshold || 0.2,\n      rootMargin: \"-50px 0px\",\n    });\n\n    for (const item of items) {\n      const element = document.getElementById(`${options.prefix}-${item.id}`);\n      if (element) observer.observe(element);\n    }\n\n    return () => observer.disconnect();\n  }, [items, options.prefix, options.threshold]);\n\n  return { visibleIds };\n}\n",
-      "type": "registry:hook"
+      "target": "hooks/use-intersection.ts",
+      "type": "registry:hook",
+      "content": "\"use client\";\n\nimport { useState, useEffect } from \"react\";\n\ninterface UseIntersectionOptions {\n  threshold?: number;\n  prefix?: string;\n}\n\nexport function useIntersection(\n  items: { id: string | number }[],\n  options: UseIntersectionOptions = {},\n) {\n  const [visibleIds, setVisibleIds] = useState<Set<string | number>>(new Set());\n\n  useEffect(() => {\n    const handleIntersection = (entries: IntersectionObserverEntry[]) => {\n      setVisibleIds((prev) => {\n        const next = new Set(prev);\n        for (const entry of entries) {\n          const id = entry.target.id.replace(`${options.prefix}-`, \"\");\n          const parsedId = Number.isNaN(Number(id)) ? id : Number(id);\n\n          if (entry.isIntersecting) {\n            next.add(parsedId);\n          } else {\n            next.delete(parsedId);\n          }\n        }\n        return next;\n      });\n    };\n\n    const observer = new IntersectionObserver(handleIntersection, {\n      threshold: options.threshold || 0.2,\n      rootMargin: \"-50px 0px\",\n    });\n\n    for (const item of items) {\n      const element = document.getElementById(`${options.prefix}-${item.id}`);\n      if (element) observer.observe(element);\n    }\n\n    return () => observer.disconnect();\n  }, [items, options.prefix, options.threshold]);\n\n  return { visibleIds };\n}\n"
     }
   ]
 }

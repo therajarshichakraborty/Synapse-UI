@@ -1,15 +1,20 @@
 {
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "empty-state",
-  "type": "registry:ui",
+  "type": "registry:component",
+  "meta": {
+    "category": "web"
+  },
   "dependencies": [],
   "registryDependencies": [
-    "empty"
+    "https://synapse-ui-dev.vercel.app/r/empty.json"
   ],
   "files": [
     {
-      "path": "components/ui/empty-state.tsx",
-      "content": "/**\n * Alias of `empty` under the name used in the docs (\"Empty State\").\n * Both import paths are supported.\n */\nexport {\n  Empty as EmptyState,\n  Empty,\n  EmptyHeader,\n  EmptyTitle,\n  EmptyDescription,\n  EmptyContent,\n  EmptyMedia,\n} from \"@/components/ui/empty\";\n",
-      "type": "registry:ui"
+      "path": "components/synapse-ui/empty-state.tsx",
+      "target": "components/synapse-ui/empty-state.tsx",
+      "type": "registry:component",
+      "content": "/**\n * Alias of `empty` under the name used in the docs (\"Empty State\").\n * Both import paths are supported.\n */\nexport {\n  Empty as EmptyState,\n  Empty,\n  EmptyHeader,\n  EmptyTitle,\n  EmptyDescription,\n  EmptyContent,\n  EmptyMedia,\n} from \"@/components/synapse-ui/empty\";\n"
     }
   ]
 }

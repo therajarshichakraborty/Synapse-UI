@@ -17,8 +17,12 @@ export function examplePath(name: string) {
 }
 
 /** Rewrites internal aliases the way they land in a consumer project. */
+/** Web components install into `components/synapse-ui/` (CLI and shadcn alike). */
 export function toConsumerSource(code: string) {
-  return code.replace(/@\/components\/synapse-ui-components\//g, "@/components/synapse-ui/");
+  return code.replace(
+    /@\/components\/(?:ui|animated|blocks|synapse-ui-components)\//g,
+    "@/components/synapse-ui/",
+  );
 }
 
 const IGNORED = new Set(["react", "react-dom", "next"]);
@@ -52,5 +56,8 @@ export function scanDeps(code: string): SourceDeps {
 export function targetPath(relPath: string) {
   return relPath
     .replace(/^src\//, "")
-    .replace("components/synapse-ui-components/", "components/synapse-ui/");
+    .replace(
+      /^components\/(?:ui|animated|blocks|synapse-ui-components)\//,
+      "components/synapse-ui/",
+    );
 }

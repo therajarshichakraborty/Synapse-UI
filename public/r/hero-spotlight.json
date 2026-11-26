@@ -1,19 +1,23 @@
 {
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "hero-spotlight",
   "type": "registry:block",
+  "meta": {
+    "category": "block"
+  },
   "dependencies": [
-    "next",
     "lucide-react"
   ],
   "registryDependencies": [
-    "button",
-    "spotlight"
+    "https://synapse-ui-dev.vercel.app/r/button.json",
+    "https://synapse-ui-dev.vercel.app/r/spotlight.json"
   ],
   "files": [
     {
-      "path": "components/blocks/hero-spotlight.tsx",
-      "content": "import Link from \"next/link\";\nimport { ArrowRightIcon, SparklesIcon } from \"lucide-react\";\nimport { Spotlight } from \"@/components/animated/spotlight\";\nimport { Button } from \"@/components/ui/button\";\n\nexport default function HeroSpotlight() {\n  return (\n    <section className=\"relative isolate overflow-hidden bg-background\">\n      <Spotlight className=\"-top-40 left-0 md:-top-24 md:left-60\" />\n      <div className=\"mx-auto flex max-w-5xl flex-col items-center px-6 pt-28 pb-24 text-center md:pt-36 md:pb-32\">\n        <Link\n          href=\"#\"\n          className=\"group inline-flex items-center gap-2 rounded-full border border-border bg-surface-1/70 py-1 pr-3 pl-1 text-sm text-muted-foreground backdrop-blur transition-colors hover:border-border-strong hover:text-foreground\"\n        >\n          <span className=\"inline-flex items-center gap-1 rounded-full bg-primary/15 px-2 py-0.5 text-xs font-medium text-primary\">\n            <SparklesIcon className=\"size-3\" /> New\n          </span>\n          Introducing workflows\n          <ArrowRightIcon className=\"size-3.5 transition-transform group-hover:translate-x-0.5\" />\n        </Link>\n        <h1 className=\"mt-8 text-display font-semibold text-gradient-subtle\">\n          The platform for <span className=\"text-gradient\">ambitious teams</span>\n        </h1>\n        <p className=\"mt-6 max-w-2xl text-body-lg text-muted-foreground\">\n          Plan, build and ship from one beautiful workspace. Fast by default, secure by design,\n          delightful to use.\n        </p>\n        <div className=\"mt-10 flex flex-col gap-3 sm:flex-row\">\n          <Button size=\"lg\">\n            Start for free <ArrowRightIcon data-icon=\"inline-end\" />\n          </Button>\n          <Button size=\"lg\" variant=\"outline\">\n            Talk to sales\n          </Button>\n        </div>\n        <p className=\"mt-6 text-xs text-muted-foreground\">\n          No credit card required · Free for teams up to 5\n        </p>\n      </div>\n    </section>\n  );\n}\n",
-      "type": "registry:block"
+      "path": "components/synapse-ui/hero-spotlight.tsx",
+      "target": "components/synapse-ui/hero-spotlight.tsx",
+      "type": "registry:component",
+      "content": "import Link from \"next/link\";\nimport { ArrowRightIcon, SparklesIcon } from \"lucide-react\";\nimport { Spotlight } from \"@/components/synapse-ui/spotlight\";\nimport { Button } from \"@/components/synapse-ui/button\";\n\nexport default function HeroSpotlight() {\n  return (\n    <section className=\"relative isolate overflow-hidden bg-background\">\n      <Spotlight className=\"-top-40 left-0 md:-top-24 md:left-60\" />\n      <div className=\"mx-auto flex max-w-5xl flex-col items-center px-6 pt-28 pb-24 text-center md:pt-36 md:pb-32\">\n        <Link\n          href=\"#\"\n          className=\"group inline-flex items-center gap-2 rounded-full border border-border bg-surface-1/70 py-1 pr-3 pl-1 text-sm text-muted-foreground backdrop-blur transition-colors hover:border-border-strong hover:text-foreground\"\n        >\n          <span className=\"inline-flex items-center gap-1 rounded-full bg-primary/15 px-2 py-0.5 text-xs font-medium text-primary\">\n            <SparklesIcon className=\"size-3\" /> New\n          </span>\n          Introducing workflows\n          <ArrowRightIcon className=\"size-3.5 transition-transform group-hover:translate-x-0.5\" />\n        </Link>\n        <h1 className=\"mt-8 text-display font-semibold text-gradient-subtle\">\n          The platform for <span className=\"text-gradient\">ambitious teams</span>\n        </h1>\n        <p className=\"mt-6 max-w-2xl text-body-lg text-muted-foreground\">\n          Plan, build and ship from one beautiful workspace. Fast by default, secure by design,\n          delightful to use.\n        </p>\n        <div className=\"mt-10 flex flex-col gap-3 sm:flex-row\">\n          <Button size=\"lg\">\n            Start for free <ArrowRightIcon data-icon=\"inline-end\" />\n          </Button>\n          <Button size=\"lg\" variant=\"outline\">\n            Talk to sales\n          </Button>\n        </div>\n        <p className=\"mt-6 text-xs text-muted-foreground\">\n          No credit card required · Free for teams up to 5\n        </p>\n      </div>\n    </section>\n  );\n}\n"
     }
   ]
 }

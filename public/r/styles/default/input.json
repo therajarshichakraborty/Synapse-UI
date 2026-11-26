@@ -1,13 +1,18 @@
 {
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "input",
-  "type": "registry:ui",
+  "type": "registry:component",
+  "meta": {
+    "category": "web"
+  },
   "dependencies": [],
   "registryDependencies": [],
   "files": [
     {
-      "path": "components/ui/input.tsx",
-      "content": "import * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction Input({ className, type, ...props }: React.ComponentProps<\"input\">) {\n  return (\n    <input\n      type={type}\n      data-slot=\"input\"\n      className={cn(\n        \"h-9 w-full min-w-0 rounded-full px-4 py-1 text-base border border-transparent bg-muted/70 transition-[color,background-color,border-color,box-shadow] outline-none placeholder:text-muted-foreground hover:bg-muted focus-visible:border-ring/40 focus-visible:bg-background focus-visible:ring-[3px] focus-visible:ring-ring/15 dark:bg-muted dark:hover:bg-accent dark:focus-visible:bg-muted file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 md:text-sm dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { Input };\n",
-      "type": "registry:ui"
+      "path": "components/synapse-ui/input.tsx",
+      "target": "components/synapse-ui/input.tsx",
+      "type": "registry:component",
+      "content": "import * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction Input({ className, type, ...props }: React.ComponentProps<\"input\">) {\n  return (\n    <input\n      type={type}\n      data-slot=\"input\"\n      className={cn(\n        \"h-9 w-full min-w-0 rounded-full px-4 py-1 text-base border border-transparent bg-muted/70 transition-[color,background-color,border-color,box-shadow] outline-none placeholder:text-muted-foreground hover:bg-muted focus-visible:border-ring/40 focus-visible:bg-background focus-visible:ring-[3px] focus-visible:ring-ring/15 dark:bg-muted dark:hover:bg-accent dark:focus-visible:bg-muted file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 md:text-sm dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { Input };\n"
     }
   ]
 }

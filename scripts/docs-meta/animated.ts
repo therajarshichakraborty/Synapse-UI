@@ -590,7 +590,7 @@ export const animatedDocs: DocMeta[] = [
       imports: imp("Terminal", "terminal"),
       code: `<Terminal
   lines={[
-    { type: "command", text: "npx synapse-ui add button" },
+    { type: "command", text: "npx synapseui add button" },
     { type: "output", text: "✔ Done", tone: "success" },
   ]}
 />`,

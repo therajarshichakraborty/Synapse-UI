@@ -13,6 +13,7 @@ import { ArrowRightIcon, CheckIcon, CopyIcon } from "lucide-react";
 import { LogoMark } from "@/components/site/logo";
 import { MotionLogo, NextLogo, ReactLogo, TailwindLogo } from "@/components/site/landing/logos";
 import { useCopy } from "@/components/docs/copy-button";
+import Image from "next/image";
 
 const WORDS = ["feel premium", "ship faster", "earn trust", "look expensive"];
 
@@ -86,13 +87,13 @@ function Highlight() {
 
 function InstallPill() {
   const { copied, copy } = useCopy();
-  const cmd = "npx synapse-ui@latest init";
+  const cmd = "npx synapseui@latest init";
   return (
     <button
       type="button"
       onClick={() => copy(cmd)}
       aria-label={copied ? "Copied" : `Copy command: ${cmd}`}
-      className="group mt-7 inline-flex h-9 items-center gap-2.5 rounded-full border border-dashed border-border-strong pr-1.5 pl-4 font-mono text-[12.5px] text-muted-foreground transition-[color,border-color,transform] hover:border-foreground/40 hover:text-foreground active:scale-[0.98]"
+      className="group mt-7 inline-flex h-9 items-center gap-2.5 rounded-full border border-border bg-background/85 pr-1.5 pl-4 font-mono text-[12.5px] text-foreground/80 shadow-sm backdrop-blur-md transition-[color,border-color,transform] hover:border-foreground/40 hover:text-foreground active:scale-[0.98]"
     >
       <span className="select-none text-brand">$</span>
       <span>{cmd}</span>
@@ -133,6 +134,21 @@ export function Hero() {
         my.set(((e.clientY - r.top) / r.height) * 100);
       }}
     >
+      {/* Photographic backdrop: vivid behind the nav, fading into the page under the copy */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-20 h-[680px] sm:h-[800px]"
+      >
+        <Image
+          src="/images/beach-landscape.webp"
+          alt=""
+          fill
+          priority
+          sizes="(min-width: 1200px) 1200px, 100vw"
+          className="object-cover object-bottom"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,color-mix(in_oklab,var(--background)_10%,transparent)_40%,color-mix(in_oklab,var(--background)_10%,transparent)_84%,var(--background)_100%)]" />
+      </div>
       <motion.div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10"
@@ -143,7 +159,7 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 -z-10 bg-dots opacity-60 [--dot-size:22px] [mask-image:radial-gradient(ellipse_70%_55%_at_50%_0%,black,transparent_75%)]"
       />
 
-      <div className="flex flex-col items-center px-5 pt-24 pb-16 text-center sm:pt-32 md:pb-20">
+      <div className="flex flex-col items-center px-4 pt-44 pb-16 text-center sm:px-6 sm:pt-52 md:pb-20 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -175,7 +191,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease, delay: 0.15 }}
-          className="mt-7 max-w-[38rem] text-[1.0625rem] leading-[1.7] text-pretty text-muted-foreground sm:text-lg"
+          className="mt-7 max-w-[38rem] text-[1.0625rem] leading-[1.7] text-pretty text-foreground/75 sm:text-lg"
         >
           Synapse UI is a copy-paste component library for React, Next.js and React Native. Clear
           hierarchy, intentional motion, and accessibility that holds up in production.
@@ -217,7 +233,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease, delay: 0.45 }}
-          className="mt-16 w-full"
+          className="mt-16 w-full sm:mt-20"
         >
           <p className="text-[14px] leading-6 font-medium text-foreground">
             Built on the stack

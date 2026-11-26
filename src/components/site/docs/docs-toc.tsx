@@ -1,10 +1,8 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
 import { motion } from "motion/react";
-import { ArrowRightIcon, BugIcon, LightbulbIcon, PencilIcon } from "lucide-react";
-import { GitHubIcon } from "@/components/site/icons";
+import { BugIcon, LightbulbIcon, PencilIcon } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
@@ -122,47 +120,6 @@ export function DocsToc({
             </li>
           ))}
         </ul>
-      </div>
-
-      <div className="group/promo relative mt-6 shrink-0 overflow-hidden rounded-2xl border border-border bg-background p-5 transition-[border-color,box-shadow] duration-300 hover:border-border-strong hover:shadow-[0_12px_32px_-16px_rgba(0,0,0,0.18)]">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -top-16 -right-16 size-40 rounded-full bg-brand/15 blur-3xl transition-transform duration-700 group-hover/promo:scale-125"
-        />
-        <p className="relative flex items-center gap-2 text-[11px] font-semibold tracking-[0.12em] text-success uppercase">
-          <span className="relative flex size-2">
-            <span className="absolute inset-0 animate-ping rounded-full bg-success/60" />
-            <span className="relative size-2 rounded-full bg-success" />
-          </span>
-          Free &amp; open source
-        </p>
-        <p className="relative mt-3 text-[19px] leading-tight font-semibold tracking-tight">
-          Ship <em className="font-serif italic">faster</em> with{" "}
-          <span className="bg-gradient-to-r from-brand via-sky-500 to-indigo-500 bg-clip-text text-transparent">
-            Synapse UI
-          </span>
-        </p>
-        <p className="relative mt-2 text-[13px] leading-5 text-muted-foreground">
-          150+ components for web and mobile. A star on GitHub helps more people find it.
-        </p>
-        <div className="relative mt-4 flex items-center gap-2">
-          <a
-            href={siteConfig.links.github}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex h-8 items-center gap-1.5 rounded-lg bg-foreground px-3 text-[13px] font-medium whitespace-nowrap text-background transition-transform active:scale-95"
-          >
-            <GitHubIcon className="size-3.5" />
-            Star
-          </a>
-          <Link
-            href="/docs/changelog"
-            className="group/cl inline-flex h-8 items-center gap-1 px-1 text-[13px] font-medium text-muted-foreground hover:text-foreground"
-          >
-            Changelog
-            <ArrowRightIcon className="size-3.5 transition-transform group-hover/cl:translate-x-0.5" />
-          </Link>
-        </div>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@
 import { CheckIcon, CopyIcon } from "lucide-react";
 import { useCopy } from "@/components/docs/copy-button";
 
-export function InstallSnippet({ command = "npx synapse-ui@latest init" }: { command?: string }) {
+export function InstallSnippet({ command = "npx synapseui@latest init" }: { command?: string }) {
   const { copied, copy } = useCopy();
   return (
     <button

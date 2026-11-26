@@ -1,13 +1,18 @@
 {
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "meteors",
-  "type": "registry:ui",
+  "type": "registry:component",
+  "meta": {
+    "category": "web"
+  },
   "dependencies": [],
   "registryDependencies": [],
   "files": [
     {
-      "path": "components/animated/meteors.tsx",
-      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nexport type MeteorsProps = { number?: number; className?: string };\n\n/** Meteors streaking diagonally. Positioned randomly on mount to avoid hydration mismatch. */\nexport function Meteors({ number = 18, className }: MeteorsProps) {\n  const [meteors, setMeteors] = React.useState<{ left: string; delay: string; duration: string }[]>(\n    [],\n  );\n\n  React.useEffect(() => {\n    setMeteors(\n      Array.from({ length: number }).map(() => ({\n        left: `${Math.floor(Math.random() * 120) - 10}%`,\n        delay: `${(Math.random() * 6).toFixed(2)}s`,\n        duration: `${(Math.random() * 6 + 3).toFixed(2)}s`,\n      })),\n    );\n  }, [number]);\n\n  return (\n    <div\n      aria-hidden=\"true\"\n      className=\"pointer-events-none absolute inset-0 overflow-hidden motion-reduce:hidden\"\n    >\n      {meteors.map((m, i) => (\n        <span\n          key={i}\n          className={cn(\n            \"absolute top-0 size-0.5 rotate-[215deg] animate-meteor rounded-full bg-foreground/70 shadow-[0_0_0_1px_rgb(255_255_255/0.06)]\",\n            \"before:absolute before:top-1/2 before:h-px before:w-[60px] before:-translate-y-1/2 before:bg-gradient-to-r before:from-foreground/40 before:to-transparent before:content-['']\",\n            className,\n          )}\n          style={{ left: m.left, animationDelay: m.delay, animationDuration: m.duration }}\n        />\n      ))}\n    </div>\n  );\n}\n",
-      "type": "registry:ui"
+      "path": "components/synapse-ui/meteors.tsx",
+      "target": "components/synapse-ui/meteors.tsx",
+      "type": "registry:component",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nexport type MeteorsProps = { number?: number; className?: string };\n\n/** Meteors streaking diagonally. Positioned randomly on mount to avoid hydration mismatch. */\nexport function Meteors({ number = 18, className }: MeteorsProps) {\n  const [meteors, setMeteors] = React.useState<{ left: string; delay: string; duration: string }[]>(\n    [],\n  );\n\n  React.useEffect(() => {\n    setMeteors(\n      Array.from({ length: number }).map(() => ({\n        left: `${Math.floor(Math.random() * 120) - 10}%`,\n        delay: `${(Math.random() * 6).toFixed(2)}s`,\n        duration: `${(Math.random() * 6 + 3).toFixed(2)}s`,\n      })),\n    );\n  }, [number]);\n\n  return (\n    <div\n      aria-hidden=\"true\"\n      className=\"pointer-events-none absolute inset-0 overflow-hidden motion-reduce:hidden\"\n    >\n      {meteors.map((m, i) => (\n        <span\n          key={i}\n          className={cn(\n            \"absolute top-0 size-0.5 rotate-[215deg] animate-meteor rounded-full bg-foreground/70 shadow-[0_0_0_1px_rgb(255_255_255/0.06)]\",\n            \"before:absolute before:top-1/2 before:h-px before:w-[60px] before:-translate-y-1/2 before:bg-gradient-to-r before:from-foreground/40 before:to-transparent before:content-['']\",\n            className,\n          )}\n          style={{ left: m.left, animationDelay: m.delay, animationDuration: m.duration }}\n        />\n      ))}\n    </div>\n  );\n}\n"
     }
   ]
 }

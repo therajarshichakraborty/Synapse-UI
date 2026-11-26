@@ -24,6 +24,13 @@ const nativeAliases = {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   devIndicators: false,
+  // Docs code blocks read component sources from disk at request time (src/lib/registry-source.ts).
+  // Ship those files with the serverless functions, or deployed pages show "Source not found".
+  outputFileTracingIncludes: {
+    "/docs/**": ["./src/**/*.{ts,tsx,css}"],
+    "/md/**": ["./src/**/*.{ts,tsx,css}"],
+    "/view/**": ["./src/**/*.{ts,tsx,css}"],
+  },
   transpilePackages: ["react-native-web"],
   turbopack: {
     resolveAlias: nativeAliases,

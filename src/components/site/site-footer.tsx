@@ -190,8 +190,9 @@ function Wordmark() {
   );
   const faded =
     "linear-gradient(180deg, color-mix(in oklab, var(--foreground) 22%, transparent) 0%, color-mix(in oklab, var(--foreground) 6%, transparent) 55%, transparent 88%)";
-  const sharp =
-    "linear-gradient(180deg, color-mix(in oklab, var(--brand) 75%, transparent) 0%, color-mix(in oklab, var(--foreground) 12%, transparent) 80%)";
+  // Red → violet → pink, used for the hover state.
+  const vibrant =
+    "linear-gradient(90deg, #ef4444 0%, #f43f5e 18%, #8b5cf6 50%, #d946ef 75%, #ec4899 100%)";
 
   return (
     <div
@@ -199,9 +200,13 @@ function Wordmark() {
       aria-hidden="true"
       onPointerMove={onMove}
       onPointerLeave={onLeave}
-      className="relative -mb-[0.14em] overflow-hidden [--r:0px] [--x:50%] [--y:50%]"
+      className="group/wm relative -mb-[0.14em] overflow-hidden [--r:0px] [--x:50%] [--y:50%]"
     >
       {text("blur-[6px]", faded)}
+      {/* Soft gradient wash over the whole word while hovered */}
+      <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover/wm:opacity-45 [mask-image:linear-gradient(180deg,black_20%,transparent_85%)]">
+        {text("blur-[5px]", vibrant)}
+      </div>
       <div
         className="pointer-events-none absolute inset-0 transition-[mask-size] duration-300"
         style={{
@@ -211,7 +216,7 @@ function Wordmark() {
             "radial-gradient(circle var(--r) at var(--x) var(--y), black 30%, transparent 100%)",
         }}
       >
-        {text("", sharp)}
+        {text("", vibrant)}
       </div>
     </div>
   );

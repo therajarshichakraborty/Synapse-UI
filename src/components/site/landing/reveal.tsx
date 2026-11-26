@@ -78,21 +78,25 @@ export function SectionHeading({
       {eyebrow && (
         <RevealItem
           as="p"
-          className="inline-flex items-center rounded-full border border-border bg-surface-1 px-3 py-1 text-xs font-medium text-muted-foreground"
+          className="inline-flex items-center gap-2 font-mono text-[12px] font-medium tracking-[0.08em] text-muted-foreground uppercase"
         >
+          <span aria-hidden="true" className="size-1.5 rounded-[2px] bg-brand" />
           {eyebrow}
         </RevealItem>
       )}
       <RevealItem
         as="h2"
-        className="mt-5 text-[clamp(2rem,1.4rem+2.2vw,3rem)] leading-[1.08] font-semibold tracking-[-0.035em] text-balance"
+        className="mt-4 text-[clamp(1.875rem,1.4rem+2vw,3rem)] leading-[1.08] font-semibold tracking-[-0.035em] text-balance"
       >
         {title}
       </RevealItem>
       {description && (
         <RevealItem
           as="p"
-          className="mt-4 text-[1.0625rem] leading-7 text-pretty text-muted-foreground"
+          className={cn(
+            "mt-4 text-base leading-7 text-pretty text-muted-foreground sm:text-[1.0625rem]",
+            align === "center" && "mx-auto max-w-xl",
+          )}
         >
           {description}
         </RevealItem>

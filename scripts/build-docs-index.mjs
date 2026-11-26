@@ -33,7 +33,7 @@ fs.writeFileSync(path.join("src", "registry", "__index__.tsx"), index);
 fs.writeFileSync(path.join("src", "registry", "__names__.ts"), namesFile);
 console.log(`Generated docs index with ${names.length} examples.`);
 
-// Publish the design tokens for `synapse-ui init`.
+// Publish the design tokens for `synapseui init`.
 const css = fs.readFileSync(path.join("src", "app", "globals.css"), "utf-8");
 const start = css.indexOf("/* ───");
 fs.writeFileSync(

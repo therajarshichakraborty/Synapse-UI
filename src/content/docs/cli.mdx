@@ -1,53 +1,72 @@
 ---
 title: CLI
-description: Add components, their dependencies and the design tokens with one command.
+description: Add Synapse UI components to a shadcn/ui project with the Synapse CLI or the shadcn CLI.
 ---
 
-## init
+There are two ways to install components. Both read the same registry, write the same files to the same folders, and need a project that **already uses shadcn/ui**. Neither one scaffolds a new app.
 
-Sets up a project: installs base dependencies, writes `lib/utils.ts` and appends the Synapse tokens to your global CSS.
+| Kind                      | Installed to             |
+| ------------------------- | ------------------------ |
+| Web components and blocks | `components/synapse-ui/` |
+| React Native components   | `components/native/`     |
+| Hooks                     | `hooks/`                 |
 
-<PmCommand dlx="synapse-ui@latest init" />
+Folders follow your `components.json` aliases and `tsconfig` paths, including `src/`.
 
-| Option         | Description                                                                          |
-| -------------- | ------------------------------------------------------------------------------------ |
-| `--cwd <path>` | Run in a different directory                                                         |
-| `--css <path>` | Path to your global stylesheet (default: `app/globals.css` or `src/app/globals.css`) |
-| `-y, --yes`    | Skip prompts                                                                         |
+## Before you start
 
-## add
+Set up shadcn once, if you have not already:
 
-Adds one or more components. Registry dependencies are resolved recursively. For example, `date-picker` also pulls in `popover`, `calendar` and `button`.
+<PmCommand dlx="shadcn@latest init" />
 
-<PmCommand dlx="synapse-ui@latest add dialog sheet marquee" />
+## Synapse CLI
+
+### init
+
+Adds the Synapse design tokens to the stylesheet named in `components.json`. Run it once per project.
+
+<PmCommand dlx="synapseui@latest init" />
+
+### add
+
+Adds components and everything they depend on. For example, `dialog` also adds `button`, and `native-fab` adds the shared native `icon` and `theme` files. Missing npm packages are installed with your package manager (`npx expo install` in Expo apps).
+
+<PmCommand dlx="synapseui@latest add dialog native-fab" />
+
+Add everything at once:
+
+<PmCommand dlx="synapseui@latest add --all" />
+
+<PmCommand dlx="synapseui@latest add --all --native" />
 
 | Option             | Description                                                                 |
 | ------------------ | --------------------------------------------------------------------------- |
-| `--overwrite`      | Overwrite existing files                                                    |
+| `--all`            | Every web component and block (add `--native` for every React Native one)   |
+| `-o, --overwrite`  | Replace files that already exist                                            |
+| `-y, --yes`        | Skip confirmation prompts                                                   |
+| `--dry-run`        | Show what would change without writing anything                             |
+| `--cwd <path>`     | Run in a different directory                                                |
 | `--registry <url>` | Use a self-hosted registry (default: `https://synapse-ui-dev.vercel.app/r`) |
-| `--dry-run`        | Print the files that would be written                                       |
 
-## list
+### list
 
-Prints every available component, animated component and block.
+Prints every item, grouped by where it installs.
 
-<PmCommand dlx="synapse-ui@latest list" />
+<PmCommand dlx="synapseui@latest list" />
 
-## Registry format
+## shadcn CLI
 
-The registry follows the [shadcn registry schema](https://ui.shadcn.com/docs/registry). Each item is served at `/r/<name>.json`:
+Every item is a standard shadcn registry item, so the shadcn CLI installs it to the same folders:
 
-```json title="/r/button.json"
-{
-  "name": "button",
-  "type": "registry:ui",
-  "dependencies": ["class-variance-authority", "radix-ui"],
-  "registryDependencies": [],
-  "files": [{ "path": "components/ui/button.tsx", "type": "registry:ui", "content": "..." }]
-}
-```
+<PmCommand dlx="shadcn@latest add https://synapse-ui-dev.vercel.app/r/native-fab.json" />
 
-Because the format is compatible, you can also use the shadcn CLI or add Synapse as a namespaced registry in `components.json`:
+Everything at once:
+
+<PmCommand dlx="shadcn@latest add https://synapse-ui-dev.vercel.app/r/all.json" />
+
+<PmCommand dlx="shadcn@latest add https://synapse-ui-dev.vercel.app/r/all-native.json" />
+
+Or register Synapse as a namespace in `components.json` and use short names:
 
 ```json title="components.json"
 {
@@ -57,4 +76,25 @@ Because the format is compatible, you can also use the shadcn CLI or add Synapse
 }
 ```
 
-<PmCommand dlx="shadcn@latest add @synapse/spotlight" />
+<PmCommand dlx="shadcn@latest add @synapse/dialog @synapse/native-fab" />
+
+## Registry format
+
+Each item is served at `/r/<name>.json` and follows the [shadcn registry schema](https://ui.shadcn.com/docs/registry). Files carry an explicit `target`, and dependencies on other Synapse items are full URLs, so the shadcn CLI never swaps in its own components.
+
+```json title="/r/dialog.json"
+{
+  "name": "dialog",
+  "type": "registry:component",
+  "dependencies": ["lucide-react", "radix-ui"],
+  "registryDependencies": ["https://synapse-ui-dev.vercel.app/r/button.json"],
+  "files": [
+    {
+      "path": "components/synapse-ui/dialog.tsx",
+      "target": "components/synapse-ui/dialog.tsx",
+      "type": "registry:component",
+      "content": "..."
+    }
+  ]
+}
+```

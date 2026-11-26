@@ -61,7 +61,7 @@ export function PmCommand({
 }: {
   /** Packages to install, e.g. "motion clsx". */
   install?: string;
-  /** Command to execute with the package runner, e.g. "synapse-ui@latest add button". */
+  /** Command to execute with the package runner, e.g. "synapseui@latest add button". */
   dlx?: string;
   dev?: boolean;
   className?: string;

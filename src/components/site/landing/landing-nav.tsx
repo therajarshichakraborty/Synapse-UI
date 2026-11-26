@@ -22,7 +22,7 @@ function DotDivider() {
   return (
     <span
       aria-hidden="true"
-      className="mx-1 hidden h-9 w-px self-center bg-[radial-gradient(circle,var(--border-strong)_1px,transparent_1.2px)] bg-[length:1px_5px] md:block"
+      className="mx-1 hidden h-9 w-px self-center bg-[radial-gradient(circle,var(--border-strong)_1px,transparent_1.2px)] bg-[length:1px_5px] lg:block"
     />
   );
 }
@@ -64,7 +64,7 @@ export function LandingNav({ stars = siteConfig.stats.stars }: { stars?: number 
         </Link>
         <DotDivider />
 
-        <ul className="mx-auto hidden items-center md:flex" onMouseLeave={() => setHovered(null)}>
+        <ul className="mx-auto hidden items-center lg:flex" onMouseLeave={() => setHovered(null)}>
           {links.map((l, i) => (
             <li key={l.href} className="flex items-center">
               {i > 0 && <span aria-hidden="true" className="size-1 rounded-full bg-brand" />}
@@ -72,7 +72,7 @@ export function LandingNav({ stars = siteConfig.stats.stars }: { stars?: number 
                 href={l.href}
                 onMouseEnter={() => setHovered(l.href)}
                 onFocus={() => setHovered(l.href)}
-                className="relative flex h-9 items-center gap-1.5 rounded-lg px-3.5 text-[14.5px] font-medium text-foreground/80 outline-none transition-colors hover:text-foreground"
+                className="relative flex h-9 items-center gap-1.5 rounded-lg px-3.5 text-[14.5px] whitespace-nowrap font-medium text-foreground/80 outline-none transition-colors hover:text-foreground"
               >
                 {hovered === l.href && (
                   <motion.span
@@ -92,7 +92,7 @@ export function LandingNav({ stars = siteConfig.stats.stars }: { stars?: number 
           ))}
         </ul>
 
-        <div className="ml-auto flex items-center gap-0.5 md:ml-0">
+        <div className="ml-auto flex items-center gap-0.5 lg:ml-0">
           <DotDivider />
           <button
             type="button"
@@ -115,7 +115,7 @@ export function LandingNav({ stars = siteConfig.stats.stars }: { stars?: number 
           <ThemeToggle className="size-9 rounded-lg" />
           <Link
             href="/docs/installation"
-            className="group relative ml-1 hidden h-10 items-center gap-1.5 overflow-hidden rounded-xl bg-brand px-4 text-[14.5px] font-medium text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_1px_2px_rgba(37,99,235,0.4),0_0_0_1px_#1d4ed8] transition-[transform,box-shadow] outline-none hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_8px_20px_-6px_rgba(37,99,235,0.6),0_0_0_1px_#1d4ed8] focus-visible:ring-2 focus-visible:ring-brand/50 active:scale-[0.97] sm:inline-flex"
+            className="group relative ml-1 hidden h-10 items-center gap-1.5 overflow-hidden rounded-xl bg-brand px-4 text-[14.5px] font-medium whitespace-nowrap text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_1px_2px_rgba(37,99,235,0.4),0_0_0_1px_#1d4ed8] transition-[transform,box-shadow] outline-none hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_8px_20px_-6px_rgba(37,99,235,0.6),0_0_0_1px_#1d4ed8] focus-visible:ring-2 focus-visible:ring-brand/50 active:scale-[0.97] sm:inline-flex"
           >
             <span
               aria-hidden="true"
@@ -129,7 +129,7 @@ export function LandingNav({ stars = siteConfig.stats.stars }: { stars?: number 
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((o) => !o)}
-            className="inline-flex size-9 items-center justify-center rounded-lg hover:bg-accent md:hidden"
+            className="inline-flex size-9 items-center justify-center rounded-lg hover:bg-accent lg:hidden"
           >
             {open ? <XIcon className="size-5" /> : <MenuIcon className="size-5" />}
           </button>
@@ -143,7 +143,7 @@ export function LandingNav({ stars = siteConfig.stats.stars }: { stars?: number 
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.98 }}
             transition={{ type: "spring", stiffness: 400, damping: 32 }}
-            className="mx-auto mt-2 max-w-[1040px] rounded-2xl border border-border bg-background p-2 shadow-xl md:hidden"
+            className="mx-auto mt-2 max-w-[1040px] rounded-2xl border border-border bg-background p-2 shadow-xl lg:hidden"
           >
             {[...links, { title: "Docs", href: "/docs" }].map((l) => (
               <Link

@@ -1,13 +1,18 @@
 {
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "gradient-text",
-  "type": "registry:ui",
+  "type": "registry:component",
+  "meta": {
+    "category": "web"
+  },
   "dependencies": [],
   "registryDependencies": [],
   "files": [
     {
-      "path": "components/animated/gradient-text.tsx",
-      "content": "import * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nexport type GradientTextProps = React.ComponentProps<\"span\"> & {\n  /** Animate the gradient position. */\n  animate?: boolean;\n  /** Seconds per cycle. */\n  duration?: number;\n  colors?: string[];\n};\n\n/** Text filled with the brand gradient, optionally animated. */\nexport function GradientText({\n  className,\n  animate = true,\n  duration = 6,\n  colors = [\n    \"var(--muted-foreground)\",\n    \"var(--foreground)\",\n    \"color-mix(in oklab, var(--brand) 70%, var(--foreground))\",\n    \"var(--foreground)\",\n    \"var(--muted-foreground)\",\n  ],\n  style,\n  ...props\n}: GradientTextProps) {\n  return (\n    <span\n      className={cn(\n        \"inline-block bg-[length:200%_auto] bg-clip-text text-transparent motion-reduce:animate-none\",\n        animate && \"animate-[shimmer_var(--duration)_linear_infinite]\",\n        className,\n      )}\n      style={\n        {\n          backgroundImage: `linear-gradient(90deg, ${colors.join(\", \")})`,\n          \"--duration\": `${duration}s`,\n          ...style,\n        } as React.CSSProperties\n      }\n      {...props}\n    />\n  );\n}\n",
-      "type": "registry:ui"
+      "path": "components/synapse-ui/gradient-text.tsx",
+      "target": "components/synapse-ui/gradient-text.tsx",
+      "type": "registry:component",
+      "content": "import * as React from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nexport type GradientTextProps = React.ComponentProps<\"span\"> & {\n  /** Animate the gradient position. */\n  animate?: boolean;\n  /** Seconds per cycle. */\n  duration?: number;\n  colors?: string[];\n};\n\n/** Text filled with the brand gradient, optionally animated. */\nexport function GradientText({\n  className,\n  animate = true,\n  duration = 6,\n  colors = [\n    \"var(--muted-foreground)\",\n    \"var(--foreground)\",\n    \"color-mix(in oklab, var(--brand) 70%, var(--foreground))\",\n    \"var(--foreground)\",\n    \"var(--muted-foreground)\",\n  ],\n  style,\n  ...props\n}: GradientTextProps) {\n  return (\n    <span\n      className={cn(\n        \"inline-block bg-[length:200%_auto] bg-clip-text text-transparent motion-reduce:animate-none\",\n        animate && \"animate-[shimmer_var(--duration)_linear_infinite]\",\n        className,\n      )}\n      style={\n        {\n          backgroundImage: `linear-gradient(90deg, ${colors.join(\", \")})`,\n          \"--duration\": `${duration}s`,\n          ...style,\n        } as React.CSSProperties\n      }\n      {...props}\n    />\n  );\n}\n"
     }
   ]
 }

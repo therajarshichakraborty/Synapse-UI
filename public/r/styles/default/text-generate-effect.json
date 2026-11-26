@@ -1,15 +1,20 @@
 {
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "text-generate-effect",
-  "type": "registry:ui",
+  "type": "registry:component",
+  "meta": {
+    "category": "web"
+  },
   "dependencies": [
     "motion"
   ],
   "registryDependencies": [],
   "files": [
     {
-      "path": "components/animated/text-generate-effect.tsx",
-      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { motion, stagger, useAnimate, useInView, useReducedMotion } from \"motion/react\";\nimport { cn } from \"@/lib/utils\";\n\nexport type TextGenerateEffectProps = {\n  words: string;\n  className?: string;\n  /** Seconds per word. */\n  duration?: number;\n  blur?: boolean;\n};\n\n/** Reveals text word by word with a fade and un-blur when it enters the viewport. */\nexport function TextGenerateEffect({\n  words,\n  className,\n  duration = 0.5,\n  blur = true,\n}: TextGenerateEffectProps) {\n  const [scope, animate] = useAnimate();\n  const inView = useInView(scope, { once: true, amount: 0.5 });\n  const reduce = useReducedMotion();\n  const list = words.split(\" \");\n\n  React.useEffect(() => {\n    if (!inView || reduce) return;\n    animate(\"span\", { opacity: 1, filter: \"blur(0px)\" }, { duration, delay: stagger(0.08) });\n  }, [animate, duration, inView, reduce]);\n\n  return (\n    <p\n      ref={scope}\n      className={cn(\"text-2xl leading-snug font-semibold tracking-tight\", className)}\n      aria-label={words}\n    >\n      {list.map((word, i) => (\n        <motion.span\n          key={`${word}-${i}`}\n          aria-hidden=\"true\"\n          className=\"inline-block\"\n          style={reduce ? undefined : { opacity: 0, filter: blur ? \"blur(8px)\" : \"none\" }}\n        >\n          {word}\n          {i < list.length - 1 ? \" \" : \"\"}\n        </motion.span>\n      ))}\n    </p>\n  );\n}\n",
-      "type": "registry:ui"
+      "path": "components/synapse-ui/text-generate-effect.tsx",
+      "target": "components/synapse-ui/text-generate-effect.tsx",
+      "type": "registry:component",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { motion, stagger, useAnimate, useInView, useReducedMotion } from \"motion/react\";\nimport { cn } from \"@/lib/utils\";\n\nexport type TextGenerateEffectProps = {\n  words: string;\n  className?: string;\n  /** Seconds per word. */\n  duration?: number;\n  blur?: boolean;\n};\n\n/** Reveals text word by word with a fade and un-blur when it enters the viewport. */\nexport function TextGenerateEffect({\n  words,\n  className,\n  duration = 0.5,\n  blur = true,\n}: TextGenerateEffectProps) {\n  const [scope, animate] = useAnimate();\n  const inView = useInView(scope, { once: true, amount: 0.5 });\n  const reduce = useReducedMotion();\n  const list = words.split(\" \");\n\n  React.useEffect(() => {\n    if (!inView || reduce) return;\n    animate(\"span\", { opacity: 1, filter: \"blur(0px)\" }, { duration, delay: stagger(0.08) });\n  }, [animate, duration, inView, reduce]);\n\n  return (\n    <p\n      ref={scope}\n      className={cn(\"text-2xl leading-snug font-semibold tracking-tight\", className)}\n      aria-label={words}\n    >\n      {list.map((word, i) => (\n        <motion.span\n          key={`${word}-${i}`}\n          aria-hidden=\"true\"\n          className=\"inline-block\"\n          style={reduce ? undefined : { opacity: 0, filter: blur ? \"blur(8px)\" : \"none\" }}\n        >\n          {word}\n          {i < list.length - 1 ? \" \" : \"\"}\n        </motion.span>\n      ))}\n    </p>\n  );\n}\n"
     }
   ]
 }

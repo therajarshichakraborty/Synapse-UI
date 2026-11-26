@@ -10,17 +10,15 @@ import { Pricing } from "@/components/site/landing/pricing";
 import { Faq } from "@/components/site/landing/faq";
 import { FinalCta } from "@/components/site/landing/final-cta";
 import { DottedRule, Frame } from "@/components/site/landing/frame";
-import { getGitHubStars } from "@/lib/github";
 
-export default async function HomePage() {
-  const stars = await getGitHubStars();
+export default function HomePage() {
   const sections = [
     <Features key="features" />,
     <Showcase key="showcase" />,
     <NativeSection key="native" />,
     <CodeToUi key="code" />,
     <CliSection key="cli" />,
-    <Stats key="stats" stars={stars} />,
+    <Stats key="stats" />,
     <Testimonials key="testimonials" />,
     <Pricing key="pricing" />,
     <Faq key="faq" />,
@@ -29,7 +27,7 @@ export default async function HomePage() {
 
   return (
     <Frame>
-      <div className="pt-[76px]">
+      <div>
         <Hero />
       </div>
       {sections.map((section) => (

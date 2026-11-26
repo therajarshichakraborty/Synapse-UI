@@ -17,22 +17,30 @@ Start a new Next.js app, or skip this step if you already have one.
 
 <PmCommand dlx="create-next-app@latest my-app --typescript --tailwind --app" />
 
-### Initialize Synapse UI
+### Set up shadcn/ui
 
-The `init` command installs the base dependencies, adds the `cn` utility and writes the design tokens into your global stylesheet.
+Synapse UI installs into projects that use shadcn/ui. If yours does not yet, run this once. It creates `components.json` and the `cn` utility.
 
-<PmCommand dlx="synapse-ui@latest init" />
+<PmCommand dlx="shadcn@latest init" />
+
+### Add the Synapse design tokens
+
+<PmCommand dlx="synapseui@latest init" />
 
 ### Add components
 
-Add components by name. Dependencies are resolved for you.
+Add components by name. Dependencies are resolved for you. Web components go to `components/synapse-ui/`, React Native components to `components/native/`.
 
-<PmCommand dlx="synapse-ui@latest add button card spotlight" />
+<PmCommand dlx="synapseui@latest add button card spotlight" />
+
+Or add every web component at once:
+
+<PmCommand dlx="synapseui@latest add --all" />
 
 ### Import and use
 
 ```tsx title="app/page.tsx"
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/synapse-ui/button";
 
 export default function Page() {
   return <Button>Get started</Button>;
@@ -83,6 +91,8 @@ Copy the tokens from [Theming](/docs/theming) into `app/globals.css`.
 
 ## Using the shadcn CLI
 
-Every Synapse component is also published in the shadcn registry format, so the shadcn CLI can install it straight from a URL:
+Every Synapse component is also published in the shadcn registry format, so the shadcn CLI can install it straight from a URL, into the same folders:
 
 <PmCommand dlx="shadcn@latest add https://synapse-ui-dev.vercel.app/r/button.json" />
+
+See [CLI](/docs/cli) for `all.json`, `all-native.json` and the `@synapse` namespace.

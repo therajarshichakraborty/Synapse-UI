@@ -1,15 +1,18 @@
 {
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "native-portal",
-  "type": "registry:ui",
-  "dependencies": [
-    "react-native"
-  ],
+  "type": "registry:component",
+  "meta": {
+    "category": "native"
+  },
+  "dependencies": [],
   "registryDependencies": [],
   "files": [
     {
       "path": "components/native/portal.tsx",
-      "content": "/**\n * Portal + PortalHost.\n *\n * Overlays (Dialog, Sheet, Select, Toast…) render into the nearest <PortalHost>\n * so they sit above your navigation. Put one at the root of your app:\n *\n *   <PortalHost>\n *     <Stack />\n *   </PortalHost>\n *\n * Without a host, overlays fall back to a transparent React Native <Modal>.\n */\nimport * as React from \"react\";\nimport { Modal, StyleSheet, View } from \"react-native\";\n\ntype Store = {\n  set: (key: string, node: React.ReactNode) => void;\n  remove: (key: string) => void;\n};\n\nconst PortalContext = React.createContext<Store | null>(null);\n\nexport function PortalHost({ children }: { children?: React.ReactNode }) {\n  const [nodes, setNodes] = React.useState<[string, React.ReactNode][]>([]);\n\n  const store = React.useMemo<Store>(\n    () => ({\n      set: (key, node) =>\n        setNodes((prev) => {\n          const i = prev.findIndex(([k]) => k === key);\n          if (i === -1) return [...prev, [key, node]];\n          const next = prev.slice();\n          next[i] = [key, node];\n          return next;\n        }),\n      remove: (key) => setNodes((prev) => prev.filter(([k]) => k !== key)),\n    }),\n    [],\n  );\n\n  return (\n    <PortalContext.Provider value={store}>\n      <View style={styles.root}>\n        {children}\n        <View pointerEvents=\"box-none\" style={StyleSheet.absoluteFill}>\n          {nodes.map(([key, node]) => (\n            <React.Fragment key={key}>{node}</React.Fragment>\n          ))}\n        </View>\n      </View>\n    </PortalContext.Provider>\n  );\n}\n\nexport function Portal({ children }: { children: React.ReactNode }) {\n  const store = React.useContext(PortalContext);\n  const key = React.useId();\n\n  React.useLayoutEffect(() => {\n    store?.set(key, children);\n  }, [store, key, children]);\n\n  React.useLayoutEffect(() => {\n    return () => store?.remove(key);\n  }, [store, key]);\n\n  if (store) return null;\n  return (\n    <Modal transparent visible animationType=\"none\" statusBarTranslucent>\n      {children}\n    </Modal>\n  );\n}\n\nconst styles = StyleSheet.create({\n  root: { flex: 1 },\n});\n",
-      "type": "registry:ui"
+      "target": "components/native/portal.tsx",
+      "type": "registry:component",
+      "content": "/**\n * Portal + PortalHost.\n *\n * Overlays (Dialog, Sheet, Select, Toast…) render into the nearest <PortalHost>\n * so they sit above your navigation. Put one at the root of your app:\n *\n *   <PortalHost>\n *     <Stack />\n *   </PortalHost>\n *\n * Without a host, overlays fall back to a transparent React Native <Modal>.\n */\nimport * as React from \"react\";\nimport { Modal, StyleSheet, View } from \"react-native\";\n\ntype Store = {\n  set: (key: string, node: React.ReactNode) => void;\n  remove: (key: string) => void;\n};\n\nconst PortalContext = React.createContext<Store | null>(null);\n\nexport function PortalHost({ children }: { children?: React.ReactNode }) {\n  const [nodes, setNodes] = React.useState<[string, React.ReactNode][]>([]);\n\n  const store = React.useMemo<Store>(\n    () => ({\n      set: (key, node) =>\n        setNodes((prev) => {\n          const i = prev.findIndex(([k]) => k === key);\n          if (i === -1) return [...prev, [key, node]];\n          const next = prev.slice();\n          next[i] = [key, node];\n          return next;\n        }),\n      remove: (key) => setNodes((prev) => prev.filter(([k]) => k !== key)),\n    }),\n    [],\n  );\n\n  return (\n    <PortalContext.Provider value={store}>\n      <View style={styles.root}>\n        {children}\n        <View pointerEvents=\"box-none\" style={StyleSheet.absoluteFill}>\n          {nodes.map(([key, node]) => (\n            <React.Fragment key={key}>{node}</React.Fragment>\n          ))}\n        </View>\n      </View>\n    </PortalContext.Provider>\n  );\n}\n\nexport function Portal({ children }: { children: React.ReactNode }) {\n  const store = React.useContext(PortalContext);\n  const key = React.useId();\n\n  React.useLayoutEffect(() => {\n    store?.set(key, children);\n  }, [store, key, children]);\n\n  React.useLayoutEffect(() => {\n    return () => store?.remove(key);\n  }, [store, key]);\n\n  if (store) return null;\n  return (\n    <Modal transparent visible animationType=\"none\" statusBarTranslucent>\n      {children}\n    </Modal>\n  );\n}\n\nconst styles = StyleSheet.create({\n  root: { flex: 1 },\n});\n"
     }
   ]
 }
