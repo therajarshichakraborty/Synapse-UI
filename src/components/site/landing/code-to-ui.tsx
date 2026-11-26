@@ -147,7 +147,7 @@ export function CodeToUi() {
           </div>
         </div>
 
-        <div className="mt-10 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+        <div className="mt-10 grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <AnimatePresence mode="wait">
             <motion.div
               key={sample.id}

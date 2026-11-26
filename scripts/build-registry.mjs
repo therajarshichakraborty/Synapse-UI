@@ -124,6 +124,17 @@ for (const file of sources(hooksDir, /\.tsx?$/)) {
   });
 }
 
+// Two sources mapping to one registry name would silently overwrite each other's JSON.
+const byName = new Map();
+for (const item of items) {
+  if (byName.has(item.name)) {
+    throw new Error(
+      `Registry name collision: "${item.name}" comes from both ${byName.get(item.name)} and ${item.entry}. Rename one of them.`,
+    );
+  }
+  byName.set(item.name, item.entry);
+}
+
 const webNames = new Set(
   items.filter((i) => i.category === "web" || i.category === "block").map((i) => i.name),
 );

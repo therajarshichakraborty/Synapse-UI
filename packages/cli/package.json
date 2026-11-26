@@ -1,6 +1,6 @@
 {
   "name": "synapse-ui-cli",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Add Synapse UI components (web and React Native) to a shadcn/ui project.",
   "type": "module",
   "bin": {

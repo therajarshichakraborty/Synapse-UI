@@ -40,7 +40,7 @@ const faqs = [
 export function Faq() {
   return (
     <section id="faq" className="py-20 sm:py-24 md:py-32">
-      <div className="container-page grid max-w-6xl gap-12 lg:grid-cols-[0.8fr_1.4fr] lg:gap-20">
+      <div className="container-page grid grid-cols-1 max-w-6xl gap-12 lg:grid-cols-[0.8fr_1.4fr] lg:gap-20">
         <div className="lg:sticky lg:top-28 lg:self-start">
           <SectionHeading
             align="left"

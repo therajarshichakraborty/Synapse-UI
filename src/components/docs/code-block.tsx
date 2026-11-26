@@ -72,7 +72,7 @@ export function CodeFrame({
         ref={ref}
         style={maxHeight ? { maxHeight } : undefined}
         className={cn(
-          "code-body overflow-auto py-3.5 font-mono text-[13px] leading-[1.7] scrollbar-thin [&_.line]:pr-12 [&_pre]:m-0 [&_pre]:bg-transparent! [&_pre]:p-0 [&_pre]:outline-none",
+          "code-body overflow-auto py-3.5 font-mono text-[12px] leading-[1.7] sm:text-[13px] scrollbar-thin [&_.line]:pr-12 [&_pre]:m-0 [&_pre]:bg-transparent! [&_pre]:p-0 [&_pre]:outline-none",
           lineNumbers && "line-numbers",
         )}
       >

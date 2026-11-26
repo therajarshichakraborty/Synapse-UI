@@ -226,7 +226,7 @@ export function KeyboardTable({ keys }: { keys: [string, string][] }) {
 export function ComponentsGrid({ category }: { category: RegistryCategory }) {
   const items = registry.filter((e) => e.category === category);
   return (
-    <div className="not-prose my-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="not-prose my-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
       {items.map((item) => (
         <Link
           key={item.name}

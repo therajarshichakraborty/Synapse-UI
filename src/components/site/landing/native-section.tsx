@@ -36,7 +36,7 @@ export function NativeSection() {
 
   return (
     <section className="py-20 sm:py-24 md:py-32">
-      <div className="container-page grid items-center gap-16 lg:grid-cols-[1fr_auto] lg:gap-20">
+      <div className="container-page grid grid-cols-1 items-center gap-16 lg:grid-cols-[1fr_auto] lg:gap-20">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -56,7 +56,7 @@ export function NativeSection() {
             CLI, own the code, and ship to iOS, Android and the web.
           </p>
 
-          <dl className="mt-10 grid gap-x-8 gap-y-6 border-t border-border pt-8 sm:grid-cols-2">
+          <dl className="mt-10 grid grid-cols-1 gap-x-8 gap-y-6 border-t border-border pt-8 sm:grid-cols-2">
             {points.map(([title, text]) => (
               <div key={title} className="flex gap-3">
                 <CheckIcon className="mt-0.5 size-4 shrink-0 text-brand" strokeWidth={2.5} />

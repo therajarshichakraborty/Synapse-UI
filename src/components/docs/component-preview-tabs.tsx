@@ -187,7 +187,7 @@ export function ComponentPreviewTabs({
     <div
       key={replay}
       className={cn(
-        "flex min-h-[450px] w-full flex-col px-6 pt-16 pb-10 sm:px-10",
+        "flex min-h-[300px] w-full flex-col px-4 pt-16 pb-10 sm:min-h-[450px] sm:px-10",
         align === "center" && "items-center justify-center",
         align === "start" && "items-start justify-start",
         align === "end" && "items-end justify-end",

@@ -41,7 +41,7 @@ function Cell({
   return (
     <div
       className={cn(
-        "group relative flex flex-col bg-background p-6 transition-colors duration-300 hover:bg-surface-1 sm:p-8",
+        "group relative flex min-w-0 flex-col bg-background p-5 transition-colors duration-300 hover:bg-surface-1 sm:p-8",
         className,
       )}
     >
@@ -475,7 +475,7 @@ export function Features() {
         />
 
         <div className="mt-14 overflow-hidden rounded-2xl border border-border sm:mt-16">
-          <div className="grid gap-px bg-border md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-px bg-border md:grid-cols-2 lg:grid-cols-4">
             <Cell
               className="md:col-span-2"
               icon={PaletteIcon}

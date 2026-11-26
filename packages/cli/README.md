@@ -144,13 +144,28 @@ export function Screen() {
 
 ---
 
+## Install everything at once
+
+| Command                                        | What you get                                     | Folder                   |
+| ---------------------------------------------- | ------------------------------------------------ | ------------------------ |
+| `npx synapse-ui-cli@latest add --all`          | Everything for this project (auto-detected)      | depends on the project   |
+| `npx synapse-ui-cli@latest add --all --react`  | Only the React components and blocks (no native) | `components/synapse-ui/` |
+| `npx synapse-ui-cli@latest add --all --native` | Only the React Native components (no web)        | `components/native/`     |
+| `npx synapse-ui-cli@latest add --all --both`   | Every React **and** every React Native component | both folders             |
+
+Without a flag, the CLI reads your `package.json`: Expo and React Native apps get every native component; Next.js, Vite and other React apps get every React component and block.
+
+`--react` and `--native` also work with names. In a React Native project, `add button select` installs `native-button` and `native-select`; `add button --react` installs the React (web) button instead.
+
+---
+
 ## Where files go
 
-| Kind                      | Folder                   | Example                            |
-| ------------------------- | ------------------------ | ---------------------------------- |
-| Web components and blocks | `components/synapse-ui/` | `components/synapse-ui/dialog.tsx` |
-| React Native components   | `components/native/`     | `components/native/fab.tsx`        |
-| Hooks                     | `hooks/`                 | `hooks/use-mobile.ts`              |
+| Kind                     | Folder                   | Example                            |
+| ------------------------ | ------------------------ | ---------------------------------- |
+| React components, blocks | `components/synapse-ui/` | `components/synapse-ui/dialog.tsx` |
+| React Native components  | `components/native/`     | `components/native/fab.tsx`        |
+| Hooks                    | `hooks/`                 | `hooks/use-mobile.ts`              |
 
 Folders follow your `components.json` aliases and `tsconfig` paths, so a `src/` folder or a custom alias (like `~/components`) just works. Shared native files such as `theme.tsx` and `icon.tsx` are added automatically the first time you add a native component.
 
@@ -176,31 +191,38 @@ npx synapse-ui-cli@latest add <name...>
 
 ```bash
 npx synapse-ui-cli@latest add dialog sheet marquee      # several at once
-npx synapse-ui-cli@latest add --all                     # every web component and block
-npx synapse-ui-cli@latest add --all --native            # every React Native component
+npx synapse-ui-cli@latest add --all                     # everything for this project (auto-detects React / React Native)
+npx synapse-ui-cli@latest add --all --react             # only the React components and blocks
+npx synapse-ui-cli@latest add --all --native            # only the React Native components
+npx synapse-ui-cli@latest add --all --both              # every React AND every React Native component
 npx synapse-ui-cli@latest add dialog --dry-run          # preview, write nothing
 ```
 
 ### `list`
 
-Shows every available item, grouped by where it installs.
+Shows every available item, grouped by where it installs. Add `--react` or `--native` to show one platform.
 
 ```bash
 npx synapse-ui-cli@latest list
+npx synapse-ui-cli@latest list --react
+npx synapse-ui-cli@latest list --native
 ```
 
 ### Options
 
-| Option             | Description                                                    |
-| ------------------ | -------------------------------------------------------------- |
-| `--all`            | Every web component and block. Add `--native` for React Native |
-| `-o, --overwrite`  | Replace files that already exist                               |
-| `-y, --yes`        | Skip confirmation prompts                                      |
-| `--dry-run`        | Show what would change without writing anything                |
-| `--cwd <path>`     | Run in another directory                                       |
-| `--registry <url>` | Use a self-hosted registry                                     |
-| `-h, --help`       | Show help                                                      |
-| `-v, --version`    | Show the version                                               |
+| Option             | Description                                                                  |
+| ------------------ | ---------------------------------------------------------------------------- |
+| `-a, --all`        | Every component for this project (auto-detects React / React Native)         |
+| `--react`          | Only React (web) components and blocks. Alias: `--web`                       |
+| `--native`         | Only React Native components (`add button` → `native-button`). Alias: `--rn` |
+| `--both`           | React and React Native together                                              |
+| `-o, --overwrite`  | Replace files that already exist                                             |
+| `-y, --yes`        | Skip confirmation prompts                                                    |
+| `--dry-run`        | Show what would change without writing anything                              |
+| `--cwd <path>`     | Run in another directory                                                     |
+| `--registry <url>` | Use a self-hosted registry                                                   |
+| `-h, --help`       | Show help                                                                    |
+| `-v, --version`    | Show the version                                                             |
 
 When a file already exists and differs, the CLI asks before replacing it. Identical files are left alone, so running `add` twice is safe.
 
@@ -213,8 +235,8 @@ Every Synapse item is a standard shadcn registry item and installs to the same f
 ```bash
 npx shadcn@latest add https://synapse-ui-dev.vercel.app/r/dialog.json
 npx shadcn@latest add https://synapse-ui-dev.vercel.app/r/native-fab.json
-npx shadcn@latest add https://synapse-ui-dev.vercel.app/r/all.json          # everything (web)
-npx shadcn@latest add https://synapse-ui-dev.vercel.app/r/all-native.json   # everything (native)
+npx shadcn@latest add https://synapse-ui-dev.vercel.app/r/all.json          # every React component
+npx shadcn@latest add https://synapse-ui-dev.vercel.app/r/all-native.json   # every React Native component
 ```
 
 Or add Synapse as a namespace in `components.json`:

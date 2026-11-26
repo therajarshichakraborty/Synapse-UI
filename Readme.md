@@ -72,7 +72,7 @@ It combines the structure and developer experience of [shadcn/ui](https://ui.sha
 | **Motion with restraint**            | Ease-out curves, 150 to 400 ms in UI, longer only for hero reveals. Everything switches off for users who prefer reduced motion.        |
 | **Light and dark, both first-class** | Two complete palettes, plus scoped `.light` / `.dark` subtrees for previews and marketing sections.                                     |
 | **Typed end to end**                 | Strict TypeScript, `forwardRef`-compatible props and `cva` variants that autocomplete in your editor.                                   |
-| **CLI that resolves dependencies**   | `npx synapse-ui-cli add date-picker` also brings in `popover`, `calendar` and `button`, and installs the npm packages they need.             |
+| **CLI that resolves dependencies**   | `npx synapse-ui-cli add date-picker` also brings in `popover`, `calendar` and `button`, and installs the npm packages they need.        |
 
 ## Preview
 
@@ -116,7 +116,7 @@ npx synapse-ui-cli@latest init
 ```
 
 > [!NOTE]
-> The `synapse-ui-cli` CLI lives in [`packages/cli`](./packages/cli) and is not on npm yet. Until it is published, use the shadcn CLI command in the tip below, which works today.
+> The CLI is on npm as [`synapse-ui-cli`](https://www.npmjs.com/package/synapse-ui-cli). Its source lives in [`packages/cli`](./packages/cli).
 
 ### 2. Add components
 
@@ -125,6 +125,17 @@ npx synapse-ui-cli@latest add button card dialog
 npx synapse-ui-cli@latest add spotlight marquee number-ticker
 npx synapse-ui-cli@latest add dashboard-shell
 ```
+
+### 3. Or add everything at once
+
+```bash
+npx synapse-ui-cli@latest add --all            # everything for this project (auto-detects React / React Native)
+npx synapse-ui-cli@latest add --all --react    # only the React components and blocks → components/synapse-ui
+npx synapse-ui-cli@latest add --all --native   # only the React Native components     → components/native
+npx synapse-ui-cli@latest add --all --both     # every React AND every React Native component
+```
+
+Without a flag, Expo and React Native apps get every native component, and every other React app gets every React component and block. Works with `pnpm dlx`, `bunx` and `yarn dlx` too.
 
 > [!TIP]
 > Prefer the shadcn CLI? Every item is published in the shadcn registry format:
@@ -299,7 +310,7 @@ Effect utilities ship with the tokens: `surface-premium`, `glass`, `border-beam`
 <summary><b>React Native components</b> (59)</summary>
 <br />
 
-For React Native and Expo. Install with `npx synapse-ui-cli@latest add native-<name>`, then follow the [setup guide](https://synapse-ui-dev.vercel.app/docs/react-native).
+For React Native and Expo. Install one with `npx synapse-ui-cli@latest add native-<name>`, or all of them with `npx synapse-ui-cli@latest add --all --native`, then follow the [setup guide](https://synapse-ui-dev.vercel.app/docs/react-native).
 
 - **Foundations:** Text, Icon
 - **Actions:** Button, Toggle, Floating Action Button, Segmented Control
@@ -396,7 +407,8 @@ The new page appears in the sidebar, the ⌘K palette and the CLI automatically.
 - [x] 53 core, 31 animated and 12 block components
 - [x] 59 React Native components for Expo
 - [x] CLI and shadcn-compatible registry
-- [ ] Publish the `synapse-ui-cli` CLI to npm
+- [x] Publish the `synapse-ui-cli` CLI to npm
+- [x] `add --all` with `--react`, `--native` and `--both`
 - [ ] Figma kit
 - [ ] Full-page templates
 

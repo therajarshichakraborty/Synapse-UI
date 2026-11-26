@@ -254,7 +254,7 @@ export function SearchTrigger({ className }: { className?: string }) {
     >
       <SearchIcon className="size-4 shrink-0 sm:hidden" aria-hidden="true" />
       <span className="hidden flex-1 truncate text-left sm:inline">Search documentation...</span>
-      <kbd className="pointer-events-none hidden h-5 items-center gap-0.5 rounded-md border border-border bg-background px-1.5 font-sans text-[11px] font-medium text-muted-foreground md:inline-flex">
+      <kbd className="pointer-events-none hidden h-5 items-center gap-0.5 rounded-md border border-border bg-background px-1.5 font-sans text-[11px] font-medium text-muted-foreground md:inline-flex lg:hidden xl:inline-flex">
         <span className="text-xs">⌘</span>K
       </kbd>
     </button>

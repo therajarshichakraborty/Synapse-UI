@@ -33,9 +33,11 @@ Add components by name. Dependencies are resolved for you. Web components go to 
 
 <PmCommand dlx="synapse-ui-cli@latest add button card spotlight" />
 
-Or add every web component at once:
+Or add every React component and block at once:
 
-<PmCommand dlx="synapse-ui-cli@latest add --all" />
+<PmCommand dlx="synapse-ui-cli@latest add --all --react" />
+
+Plain `--all` detects your project: React Native apps get every native component, everything else gets every React one. Use `--native` for only React Native, or `--both` for both. See the [CLI](/docs/cli#add-everything) for details.
 
 ### Import and use
 

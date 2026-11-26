@@ -4,14 +4,16 @@
 //
 //   npx synapse-ui-cli@latest add native-fab
 //   npx synapse-ui-cli@latest add dialog marquee
-//   npx synapse-ui-cli@latest add --all            every web component -> components/synapse-ui
-//   npx synapse-ui-cli@latest add --all --native   every React Native component -> components/native
+//   npx synapse-ui-cli@latest add --all            everything for this project (React or React Native, auto-detected)
+//   npx synapse-ui-cli@latest add --all --react    only the React (web) components + blocks -> components/synapse-ui
+//   npx synapse-ui-cli@latest add --all --native   only the React Native components -> components/native
+//   npx synapse-ui-cli@latest add --all --both     every React AND every React Native component
 import fs from "node:fs";
 import path from "node:path";
 import readline from "node:readline/promises";
 import { execSync } from "node:child_process";
 
-const VERSION = "0.2.1";
+const VERSION = "0.3.0";
 const DEFAULT_REGISTRY = process.env.SYNAPSE_REGISTRY ?? "https://synapse-ui-dev.vercel.app/r";
 
 const tty = process.stdout.isTTY;
@@ -31,6 +33,8 @@ class CliError extends Error {}
 const VALUE_FLAGS = new Set(["cwd", "registry"]);
 function parseArgs(argv) {
   const [command, ...rest] = argv;
+  // Platform aliases: --react and --web mean the same thing (React DOM components).
+  const ALIASES = { web: "react", "react-native": "native", rn: "native" };
   const flags = {};
   const names = [];
   for (let i = 0; i < rest.length; i++) {
@@ -42,7 +46,7 @@ function parseArgs(argv) {
     else if (a.startsWith("--")) {
       const [key, inline] = a.slice(2).split("=");
       if (VALUE_FLAGS.has(key)) flags[key] = inline ?? rest[++i];
-      else flags[key] = true;
+      else flags[ALIASES[key] ?? key] = true;
     } else names.push(a);
   }
   return { command, names, flags };
@@ -232,6 +236,60 @@ async function resolveItems(registry, refs) {
   return [...seen.values()];
 }
 
+/** Platform from --react / --native / --both, else detected from package.json. */
+function pickPlatform(flags, cwd) {
+  if (flags.both || (flags.native && flags.react)) return "both";
+  if (flags.native) return "native";
+  if (flags.react) return "web";
+  return detectPlatform(cwd);
+}
+
+/** "native" for Expo / React Native apps, "web" for everything else (Next, Vite, Expo-for-web is still native). */
+function detectPlatform(cwd) {
+  let pkg = {};
+  try {
+    pkg = readJson(path.join(cwd, "package.json"));
+  } catch {}
+  const deps = { ...pkg.dependencies, ...pkg.devDependencies };
+  const isNative = Boolean(deps.expo || deps["react-native"]);
+  const isWebFramework = Boolean(deps.next || deps.vite || deps["@remix-run/react"]);
+  return isNative && !isWebFramework ? "native" : "web";
+}
+
+/**
+ * Maps the names typed by the user to registry items for the target platform:
+ *   native project: "button" -> "native-button" (when it exists)
+ *   web project:    "native-button" stays as typed (explicit wins)
+ *   both:           "button" -> "button" + "native-button"
+ */
+async function resolveNames(registry, names, platform) {
+  if (!names.length || platform === "web") return names;
+  let index;
+  try {
+    index = await fetchJson(`${registry}/index.json`);
+  } catch {
+    return names.map((n) =>
+      platform === "native" && !n.startsWith("native-") ? `native-${n}` : n,
+    );
+  }
+  const known = new Set(index.map((i) => i.name));
+  const out = [];
+  for (const raw of names) {
+    const name = raw.replace(/\.json$/, "");
+    if (/^https?:\/\//.test(name) || name.startsWith("native-")) {
+      out.push(name);
+      continue;
+    }
+    const nativeName = `native-${name}`;
+    if (platform === "both") {
+      if (known.has(name)) out.push(name);
+      if (known.has(nativeName)) out.push(nativeName);
+      if (!known.has(name) && !known.has(nativeName)) out.push(name);
+    } else out.push(known.has(nativeName) ? nativeName : name);
+  }
+  return out;
+}
+
 async function confirm(question) {
   if (!process.stdin.isTTY) return true;
   const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
@@ -246,8 +304,25 @@ async function add({ names, flags }) {
   const project = loadProject(path.resolve(flags.cwd ?? process.cwd()));
   const dryRun = Boolean(flags["dry-run"]);
 
-  let refs = names;
-  if (flags.all) refs = [flags.native ? "all-native" : "all", ...names];
+  const platform = pickPlatform(flags, project.cwd);
+
+  let refs = await resolveNames(registry, names, platform);
+  if (flags.all) {
+    const collections = { web: ["all"], native: ["all-native"], both: ["all", "all-native"] };
+    refs = [...collections[platform], ...refs];
+    const label = { web: "React", native: "React Native", both: "React and React Native" }[
+      platform
+    ];
+    const why =
+      flags.native || flags.react || flags.both ? "" : c.dim(" (detected from package.json)");
+    const hint =
+      platform === "web"
+        ? c.dim(" → components/synapse-ui")
+        : platform === "native"
+          ? c.dim(" → components/native")
+          : c.dim(" → components/synapse-ui + components/native");
+    console.log(`Adding every ${c.bold(label)} component${why}${hint}`);
+  }
   if (!refs.length) {
     throw new CliError(
       `Name at least one component, e.g. ${c.bold("synapse-ui-cli add button")}, or use --all.`,
@@ -259,6 +334,7 @@ async function add({ names, flags }) {
   const files = items.flatMap((item) => item.files ?? []);
   const packages = new Set(items.flatMap((item) => item.dependencies ?? []));
   const native = items.some((item) => item.meta?.category === "native");
+  const web = items.some((item) => ["web", "block"].includes(item.meta?.category));
 
   // Plan writes and find conflicts.
   const plan = [];
@@ -294,7 +370,7 @@ async function add({ names, flags }) {
     written.push(rel);
   }
 
-  const utils = !native ? ensureUtils(project, dryRun) : null;
+  const utils = web ? ensureUtils(project, dryRun) : null;
   if (utils) {
     written.push(utils);
     packages.add("clsx");
@@ -320,7 +396,6 @@ async function add({ names, flags }) {
       ),
     );
   }
-  const web = items.some((item) => ["web", "block"].includes(item.meta?.category));
   if (web && !hasTokens(stylesheet(project))) {
     console.log(
       c.yellow(
@@ -374,11 +449,17 @@ async function list({ flags }) {
   const registry = (flags.registry ?? DEFAULT_REGISTRY).replace(/\/$/, "");
   const items = await fetchJson(`${registry}/index.json`);
   const groups = [
-    ["web", "Components", "components/synapse-ui"],
-    ["block", "Blocks", "components/synapse-ui"],
+    ["web", "React components", "components/synapse-ui"],
+    ["block", "React blocks", "components/synapse-ui"],
     ["native", "React Native", "components/native"],
     ["hook", "Hooks", "hooks"],
-  ];
+  ].filter(([key]) =>
+    flags.react && !flags.native
+      ? key !== "native"
+      : flags.native && !flags.react
+        ? key === "native"
+        : true,
+  );
   for (const [key, title, dir] of groups) {
     const names = items
       .filter((i) => i.category === key)
@@ -395,11 +476,18 @@ const help = `${c.bold("synapse-ui-cli")} ${c.dim(`v${VERSION}`)}  Add Synapse U
 ${c.bold("Usage")}
   synapse-ui-cli init                 Add the Synapse design tokens to your stylesheet
   synapse-ui-cli add <name...>        Add components and everything they depend on
-  synapse-ui-cli add --all            Add every web component   → components/synapse-ui
-  synapse-ui-cli add --all --native   Add every native component → components/native
-  synapse-ui-cli list                 List every available item
+  synapse-ui-cli add --all            Add every component for this project (React or React Native, auto-detected)
+  synapse-ui-cli add --all --react    Add only the React components and blocks → components/synapse-ui
+  synapse-ui-cli add --all --native   Add only the React Native components     → components/native
+  synapse-ui-cli add --all --both     Add every React and every React Native component
+  synapse-ui-cli list [--react|--native]
+                                      List every available item
 
 ${c.bold("Options")}
+      --react         Only React (web) components. Alias: --web
+      --native        Only React Native components. Alias: --rn
+      --both          React and React Native together
+                      (default: detected from package.json; Expo / React Native apps get native)
   -o, --overwrite     Replace files that already exist
   -y, --yes           Skip confirmation prompts
       --dry-run       Show what would change without writing anything

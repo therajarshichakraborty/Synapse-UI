@@ -175,7 +175,7 @@ export function Testimonials() {
           </div>
         </figure>
 
-        <div className="relative mx-auto mt-16 grid h-[560px] max-w-6xl gap-4 overflow-hidden mask-edge-fade-y md:grid-cols-2 lg:grid-cols-3">
+        <div className="relative mx-auto mt-16 grid grid-cols-1 h-[560px] max-w-6xl gap-4 overflow-hidden mask-edge-fade-y md:grid-cols-2 lg:grid-cols-3">
           {columns.map((col, i) => (
             <Marquee
               key={i}

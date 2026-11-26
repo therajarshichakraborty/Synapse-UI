@@ -43,6 +43,10 @@ Components import each other from `@/components/native/*`. New Expo projects alr
 
 <PmCommand dlx="synapse-ui-cli@latest add native-button" />
 
+Or add every React Native component at once (no web components):
+
+<PmCommand dlx="synapse-ui-cli@latest add --all --native" />
+
 Each item pulls in its shared files (`theme`, `icon`, `portal`…) automatically. Prefer copy and paste? Every page has a **Manual** tab.
 
 ### Wrap your root layout

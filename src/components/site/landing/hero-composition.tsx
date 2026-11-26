@@ -91,7 +91,7 @@ export function HeroComposition() {
 
   return (
     <div className="relative mx-auto mt-20 w-full max-w-[1500px] px-4 pb-10 sm:px-6 md:mt-24">
-      <div className="grid items-start gap-4 md:grid-cols-2 xl:grid-cols-4">
+      <div className="grid grid-cols-1 items-start gap-4 md:grid-cols-2 xl:grid-cols-4">
         {/* Primitives */}
         <Panel i={0}>
           <div className="flex flex-wrap gap-2">

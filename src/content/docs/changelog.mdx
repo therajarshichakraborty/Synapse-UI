@@ -3,6 +3,17 @@ title: Changelog
 description: Latest updates and releases.
 ---
 
+## v2.2.0: Install everything, your way
+
+CLI `synapse-ui-cli@0.3.0`. See [CLI](/docs/cli#add-everything).
+
+- `add --all` detects your project: Expo and React Native apps get every native component, other React apps get every React component and block
+- `add --all --react` installs only the React components and blocks; `add --all --native` only the React Native ones; `add --all --both` installs both
+- In a React Native project, plain names resolve to native: `add button` installs `native-button`
+- `list --react` and `list --native` show one platform
+- The web `native-select` component is now `html-select`, so `native-select` always means the React Native Select
+- Responsive pass on the site: phone and iPad layouts no longer overflow
+
 ## v2.1.0: React Native
 
 Synapse UI now ships for mobile. See [React Native](/docs/react-native).

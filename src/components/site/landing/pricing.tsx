@@ -29,7 +29,7 @@ export function Pricing() {
           description="No license keys, no paywalled components. If it helps you, a star on GitHub helps us."
         />
 
-        <div className="mx-auto mt-14 grid max-w-5xl gap-4 sm:mt-16 lg:grid-cols-[1.4fr_1fr]">
+        <div className="mx-auto mt-14 grid grid-cols-1 max-w-5xl gap-4 sm:mt-16 lg:grid-cols-[1.4fr_1fr]">
           {/* Open source (featured) */}
           <div className="dark relative overflow-hidden rounded-2xl bg-[#0b0b0c] p-7 text-foreground ring-1 ring-white/10 sm:p-10">
             <div
@@ -53,7 +53,7 @@ export function Pricing() {
                 Use it in personal and commercial work. No signup required.
               </p>
 
-              <ul className="mt-8 grid gap-x-6 gap-y-3 border-t border-border pt-8 text-sm sm:grid-cols-2">
+              <ul className="mt-8 grid grid-cols-1 gap-x-6 gap-y-3 border-t border-border pt-8 text-sm sm:grid-cols-2">
                 {included.map((f) => (
                   <li key={f} className="flex items-start gap-2.5">
                     <CheckIcon className="mt-0.5 size-4 shrink-0 text-brand" strokeWidth={2.5} />

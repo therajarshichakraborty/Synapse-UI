@@ -5,11 +5,11 @@ description: Add Synapse UI components to a shadcn/ui project with the Synapse C
 
 There are two ways to install components. Both read the same registry, write the same files to the same folders, and need a project that **already uses shadcn/ui**. Neither one scaffolds a new app.
 
-| Kind                      | Installed to             |
-| ------------------------- | ------------------------ |
-| Web components and blocks | `components/synapse-ui/` |
-| React Native components   | `components/native/`     |
-| Hooks                     | `hooks/`                 |
+| Kind                     | Installed to             |
+| ------------------------ | ------------------------ |
+| React components, blocks | `components/synapse-ui/` |
+| React Native components  | `components/native/`     |
+| Hooks                    | `hooks/`                 |
 
 Folders follow your `components.json` aliases and `tsconfig` paths, including `src/`.
 
@@ -40,15 +40,39 @@ Adds components and everything they depend on. For example, `dialog` also adds `
 
 <PmCommand dlx="synapse-ui-cli@latest add dialog native-fab" />
 
-Add everything at once:
+### Add everything
+
+Add every component in one command. Without a flag, the CLI reads your `package.json`: Expo and React Native apps get every native component, and every other React app gets every React component and block.
 
 <PmCommand dlx="synapse-ui-cli@latest add --all" />
 
+Only the React components and blocks, never the native ones (installed to `components/synapse-ui/`):
+
+<PmCommand dlx="synapse-ui-cli@latest add --all --react" />
+
+Only the React Native components, never the web ones (installed to `components/native/`):
+
 <PmCommand dlx="synapse-ui-cli@latest add --all --native" />
+
+Every React **and** every React Native component, for monorepos or apps that ship both:
+
+<PmCommand dlx="synapse-ui-cli@latest add --all --both" />
+
+| Command              | React (web) | React Native |
+| -------------------- | :---------: | :----------: |
+| `add --all`          |  detected   |   detected   |
+| `add --all --react`  |     Yes     |      No      |
+| `add --all --native` |     No      |     Yes      |
+| `add --all --both`   |     Yes     |     Yes      |
+
+The flags also apply to names. In a React Native project, `add button select` installs `native-button` and `native-select`; `add button --react` installs the React (web) button instead.
 
 | Option             | Description                                                                 |
 | ------------------ | --------------------------------------------------------------------------- |
-| `--all`            | Every web component and block (add `--native` for every React Native one)   |
+| `-a, --all`        | Every component for this project (React or React Native, auto-detected)     |
+| `--react`          | Only React (web) components and blocks. Alias: `--web`                      |
+| `--native`         | Only React Native components. Alias: `--rn`                                 |
+| `--both`           | React and React Native together                                             |
 | `-o, --overwrite`  | Replace files that already exist                                            |
 | `-y, --yes`        | Skip confirmation prompts                                                   |
 | `--dry-run`        | Show what would change without writing anything                             |
@@ -57,9 +81,11 @@ Add everything at once:
 
 ### list
 
-Prints every item, grouped by where it installs.
+Prints every item, grouped by where it installs. Add `--react` or `--native` to show one platform.
 
 <PmCommand dlx="synapse-ui-cli@latest list" />
+
+<PmCommand dlx="synapse-ui-cli@latest list --native" />
 
 ## shadcn CLI
 
@@ -67,7 +93,7 @@ Every item is a standard shadcn registry item, so the shadcn CLI installs it to 
 
 <PmCommand dlx="shadcn@latest add https://synapse-ui-dev.vercel.app/r/native-fab.json" />
 
-Everything at once:
+Everything at once. `all.json` holds every React component and block, `all-native.json` every React Native component:
 
 <PmCommand dlx="shadcn@latest add https://synapse-ui-dev.vercel.app/r/all.json" />
 

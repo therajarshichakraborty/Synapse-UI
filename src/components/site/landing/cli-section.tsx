@@ -8,10 +8,17 @@ const points = [
   "Compatible with the shadcn registry format",
 ];
 
+const everything = [
+  ["add --all", "detects your project"],
+  ["add --all --react", "only React"],
+  ["add --all --native", "only React Native"],
+  ["add --all --both", "both"],
+] as const;
+
 export function CliSection() {
   return (
     <section className="py-24 md:py-32">
-      <div className="container-page grid items-center gap-12 lg:grid-cols-2">
+      <div className="container-page grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
         <div>
           <SectionHeading
             align="left"
@@ -29,6 +36,20 @@ export function CliSection() {
               </li>
             ))}
           </ul>
+          <div className="mt-8">
+            <p className="text-[13px] font-medium text-foreground">Or install everything at once</p>
+            <ul className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
+              {everything.map(([cmd, label]) => (
+                <li
+                  key={cmd}
+                  className="flex min-w-0 flex-col gap-0.5 rounded-lg border border-border bg-surface-1 px-3 py-2"
+                >
+                  <code className="truncate font-mono text-[12px] text-foreground">{cmd}</code>
+                  <span className="text-xs text-muted-foreground">{label}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
         <div className="relative">
           <Terminal
@@ -48,6 +69,12 @@ export function CliSection() {
               {
                 type: "output",
                 text: "✔ Created 3 files: date-picker, calendar, popover",
+                tone: "success",
+              },
+              { type: "command", text: "npx synapse-ui-cli@latest add --all --react" },
+              {
+                type: "output",
+                text: "✔ Adding every React component → components/synapse-ui",
                 tone: "success",
               },
             ]}

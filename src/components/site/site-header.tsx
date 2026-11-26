@@ -129,7 +129,7 @@ export function SiteHeader({
                 aria-current={active ? "page" : undefined}
                 onMouseEnter={() => setHovered(item.title)}
                 className={cn(
-                  "relative flex h-9 items-center rounded-lg px-3 text-[14.5px] font-medium transition-colors outline-none focus-visible:text-foreground",
+                  "relative flex h-9 items-center rounded-lg px-2.5 text-[14px] xl:px-3 xl:text-[14.5px] font-medium transition-colors outline-none focus-visible:text-foreground",
                   active ? "text-foreground" : "text-muted-foreground hover:text-foreground",
                 )}
               >
@@ -144,7 +144,7 @@ export function SiteHeader({
                 {active && (
                   <motion.span
                     layoutId="site-header-active"
-                    className="absolute inset-x-3 -bottom-[11px] h-0.5 rounded-full bg-foreground"
+                    className="absolute inset-x-2.5 -bottom-[11px] xl:inset-x-3 h-0.5 rounded-full bg-foreground"
                     transition={{ type: "spring", stiffness: 420, damping: 36 }}
                   />
                 )}
@@ -153,8 +153,8 @@ export function SiteHeader({
           })}
         </nav>
 
-        <div className="ml-auto flex items-center gap-1">
-          <SearchTrigger className="mr-1 w-9 justify-center sm:w-48 sm:justify-start md:w-60 xl:w-72" />
+        <div className="ml-auto flex min-w-0 items-center gap-1">
+          <SearchTrigger className="mr-1 w-9 justify-center sm:w-48 sm:justify-start md:w-60 lg:w-40 xl:w-60 2xl:w-72" />
           <Button
             variant="ghost"
             size="sm"
@@ -174,7 +174,7 @@ export function SiteHeader({
             </a>
           </Button>
           <ThemeToggle />
-          <Button size="sm" asChild className="ml-1 hidden sm:inline-flex">
+          <Button size="sm" asChild className="ml-1 hidden sm:inline-flex lg:hidden xl:inline-flex">
             <Link href="/docs/installation">
               <PlusIcon data-icon="inline-start" />
               Get Started

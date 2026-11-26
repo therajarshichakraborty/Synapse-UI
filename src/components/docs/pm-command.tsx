@@ -109,7 +109,7 @@ export function PmCommand({
         <CopyButton className="ml-auto" value={command} label="Copy command" showLabel />
       </div>
       <div
-        className="flex items-center overflow-x-auto px-5 py-4 font-mono text-[13px] leading-6 whitespace-nowrap scrollbar-thin"
+        className="flex items-start overflow-x-auto px-4 py-3.5 font-mono text-[12.5px] leading-6 whitespace-normal [overflow-wrap:anywhere] scrollbar-thin sm:items-center sm:px-5 sm:py-4 sm:text-[13px] sm:whitespace-nowrap sm:[overflow-wrap:normal]"
         role="tabpanel"
       >
         <span className="mr-2.5 text-muted-foreground/60 select-none" aria-hidden="true">
@@ -129,7 +129,7 @@ export function PmCommand({
         </AnimatePresence>
         <span
           aria-hidden="true"
-          className="ml-1 inline-block h-4 w-[7px] translate-y-px animate-pulse rounded-[1px] bg-foreground/25 opacity-0 group-hover/pm:opacity-100"
+          className="ml-1 hidden h-4 w-[7px] translate-y-px animate-pulse sm:inline-block rounded-[1px] bg-foreground/25 opacity-0 group-hover/pm:opacity-100"
         />
       </div>
     </div>

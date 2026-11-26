@@ -150,7 +150,7 @@ export default async function DocsPage({ params }: { params: Promise<PageParams>
         <PageFeedback title={page.data.title} />
 
         {(previous || next) && (
-          <nav aria-label="Pagination" className="mt-10 grid gap-3 sm:grid-cols-2">
+          <nav aria-label="Pagination" className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2">
             {previous ? (
               <Link
                 href={previous.url}

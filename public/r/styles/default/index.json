@@ -326,6 +326,15 @@
     "registryDependencies": []
   },
   {
+    "name": "html-select",
+    "type": "registry:component",
+    "category": "web",
+    "dependencies": [
+      "lucide-react"
+    ],
+    "registryDependencies": []
+  },
+  {
     "name": "input-group",
     "type": "registry:component",
     "category": "web",
@@ -390,15 +399,6 @@
     "dependencies": [
       "lucide-react",
       "radix-ui"
-    ],
-    "registryDependencies": []
-  },
-  {
-    "name": "native-select",
-    "type": "registry:component",
-    "category": "web",
-    "dependencies": [
-      "lucide-react"
     ],
     "registryDependencies": []
   },
@@ -1667,6 +1667,7 @@
       "https://synapse-ui-dev.vercel.app/r/field.json",
       "https://synapse-ui-dev.vercel.app/r/form.json",
       "https://synapse-ui-dev.vercel.app/r/hover-card.json",
+      "https://synapse-ui-dev.vercel.app/r/html-select.json",
       "https://synapse-ui-dev.vercel.app/r/input-group.json",
       "https://synapse-ui-dev.vercel.app/r/input-otp.json",
       "https://synapse-ui-dev.vercel.app/r/input.json",
@@ -1674,7 +1675,6 @@
       "https://synapse-ui-dev.vercel.app/r/kbd.json",
       "https://synapse-ui-dev.vercel.app/r/label.json",
       "https://synapse-ui-dev.vercel.app/r/menubar.json",
-      "https://synapse-ui-dev.vercel.app/r/native-select.json",
       "https://synapse-ui-dev.vercel.app/r/navigation-menu.json",
       "https://synapse-ui-dev.vercel.app/r/pagination.json",
       "https://synapse-ui-dev.vercel.app/r/popover.json",

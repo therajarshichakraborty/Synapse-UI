@@ -66,7 +66,7 @@ function OtpDemo() {
 
 const scenes: Record<string, React.ReactNode> = {
   forms: (
-    <div className="grid w-full max-w-3xl items-center gap-12 md:grid-cols-2">
+    <div className="grid grid-cols-1 w-full max-w-3xl items-center gap-12 md:grid-cols-2">
       <div className="grid gap-4">
         <div className="grid gap-2">
           <Label htmlFor="sc-name">Project name</Label>
@@ -102,7 +102,7 @@ const scenes: Record<string, React.ReactNode> = {
     </div>
   ),
   data: (
-    <div className="grid w-full max-w-3xl items-start gap-12 md:grid-cols-[auto_1fr]">
+    <div className="grid grid-cols-1 w-full max-w-3xl items-start gap-12 md:grid-cols-[auto_1fr]">
       <Calendar mode="single" selected={new Date()} className="mx-auto" />
       <div>
         <Accordion type="single" collapsible defaultValue="a">
@@ -125,7 +125,7 @@ const scenes: Record<string, React.ReactNode> = {
     </div>
   ),
   motion: (
-    <div className="grid w-full max-w-4xl items-center gap-6 md:grid-cols-2">
+    <div className="grid grid-cols-1 w-full max-w-4xl items-center gap-6 md:grid-cols-2">
       <TiltCard className="border-0! bg-transparent! p-0! shadow-none!">
         <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-[0_30px_60px_-30px_rgba(2,32,71,0.55)]">
           <Image
