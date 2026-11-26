@@ -34,7 +34,7 @@ export function CliSection() {
           <Terminal
             title="~/my-app"
             lines={[
-              { type: "command", text: "npx synapseui@latest add button" },
+              { type: "command", text: "npx synapse-ui-cli@latest add button" },
               { type: "output", text: "✔ Checking registry.", tone: "muted" },
               {
                 type: "output",
@@ -44,7 +44,7 @@ export function CliSection() {
               { type: "output", text: "✔ Installing packages with bun.", tone: "muted" },
               { type: "output", text: "✔ Created 1 file:", tone: "success" },
               { type: "output", text: "    components/synapse-ui/button.tsx", tone: "info" },
-              { type: "command", text: "npx synapseui@latest add date-picker" },
+              { type: "command", text: "npx synapse-ui-cli@latest add date-picker" },
               {
                 type: "output",
                 text: "✔ Created 3 files: date-picker, calendar, popover",

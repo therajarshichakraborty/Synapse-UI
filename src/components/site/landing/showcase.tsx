@@ -161,7 +161,7 @@ const scenes: Record<string, React.ReactNode> = {
       className="w-full max-w-xl"
       loop
       lines={[
-        { type: "command", text: "npx synapseui add marquee spotlight" },
+        { type: "command", text: "npx synapse-ui-cli add marquee spotlight" },
         { type: "output", text: "✔ Wrote components/animated/marquee.tsx", tone: "success" },
         { type: "output", text: "✔ Wrote components/animated/spotlight.tsx", tone: "success" },
       ]}

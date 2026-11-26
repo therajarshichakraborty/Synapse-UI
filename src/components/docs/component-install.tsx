@@ -68,7 +68,7 @@ export async function ComponentInstall({ name }: { name: string }) {
     <InstallTabs
       cli={
         <>
-          <PmCommand dlx={`synapseui@latest add ${name}`} />
+          <PmCommand dlx={`synapse-ui-cli@latest add ${name}`} />
           <p className="text-xs text-muted-foreground">
             Prefer the shadcn CLI? Run{" "}
             <code className="rounded bg-muted px-1 py-0.5 font-mono text-[11px] text-foreground">

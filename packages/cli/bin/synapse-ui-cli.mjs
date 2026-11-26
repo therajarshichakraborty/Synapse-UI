@@ -2,16 +2,16 @@
 // Synapse UI CLI: add Synapse UI components to a project that already uses shadcn/ui.
 // Zero dependencies. Node 18+ (global fetch).
 //
-//   npx synapseui@latest add native-fab
-//   npx synapseui@latest add dialog marquee
-//   npx synapseui@latest add --all            every web component -> components/synapse-ui
-//   npx synapseui@latest add --all --native   every React Native component -> components/native
+//   npx synapse-ui-cli@latest add native-fab
+//   npx synapse-ui-cli@latest add dialog marquee
+//   npx synapse-ui-cli@latest add --all            every web component -> components/synapse-ui
+//   npx synapse-ui-cli@latest add --all --native   every React Native component -> components/native
 import fs from "node:fs";
 import path from "node:path";
 import readline from "node:readline/promises";
 import { execSync } from "node:child_process";
 
-const VERSION = "0.2.0";
+const VERSION = "0.2.1";
 const DEFAULT_REGISTRY = process.env.SYNAPSE_REGISTRY ?? "https://synapse-ui-dev.vercel.app/r";
 
 const tty = process.stdout.isTTY;
@@ -215,7 +215,7 @@ async function resolveItems(registry, refs) {
           const name = path.basename(u, ".json");
           throw new CliError(
             e.message.includes("404")
-              ? `"${name}" is not in the Synapse UI registry. Run ${c.bold("synapseui list")} to see every item.`
+              ? `"${name}" is not in the Synapse UI registry. Run ${c.bold("synapse-ui-cli list")} to see every item.`
               : e.message,
           );
         }),
@@ -250,7 +250,7 @@ async function add({ names, flags }) {
   if (flags.all) refs = [flags.native ? "all-native" : "all", ...names];
   if (!refs.length) {
     throw new CliError(
-      `Name at least one component, e.g. ${c.bold("synapseui add button")}, or use --all.`,
+      `Name at least one component, e.g. ${c.bold("synapse-ui-cli add button")}, or use --all.`,
     );
   }
 
@@ -324,7 +324,7 @@ async function add({ names, flags }) {
   if (web && !hasTokens(stylesheet(project))) {
     console.log(
       c.yellow(
-        `• Synapse design tokens are missing. Run ${c.bold("npx synapseui@latest init")} once.`,
+        `• Synapse design tokens are missing. Run ${c.bold("npx synapse-ui-cli@latest init")} once.`,
       ),
     );
   }
@@ -367,7 +367,7 @@ ${tokens}`,
   console.log(
     c.green(`✔ ${flags["dry-run"] ? "Would add" : "Added"} Synapse design tokens to ${rel}`),
   );
-  console.log(c.dim(`  Next: npx synapseui@latest add button`));
+  console.log(c.dim(`  Next: npx synapse-ui-cli@latest add button`));
 }
 
 async function list({ flags }) {
@@ -390,14 +390,14 @@ async function list({ flags }) {
   }
 }
 
-const help = `${c.bold("synapseui")} ${c.dim(`v${VERSION}`)}  Add Synapse UI components to a shadcn/ui project.
+const help = `${c.bold("synapse-ui-cli")} ${c.dim(`v${VERSION}`)}  Add Synapse UI components to a shadcn/ui project.
 
 ${c.bold("Usage")}
-  synapseui init                 Add the Synapse design tokens to your stylesheet
-  synapseui add <name...>        Add components and everything they depend on
-  synapseui add --all            Add every web component   → components/synapse-ui
-  synapseui add --all --native   Add every native component → components/native
-  synapseui list                 List every available item
+  synapse-ui-cli init                 Add the Synapse design tokens to your stylesheet
+  synapse-ui-cli add <name...>        Add components and everything they depend on
+  synapse-ui-cli add --all            Add every web component   → components/synapse-ui
+  synapse-ui-cli add --all --native   Add every native component → components/native
+  synapse-ui-cli list                 List every available item
 
 ${c.bold("Options")}
   -o, --overwrite     Replace files that already exist

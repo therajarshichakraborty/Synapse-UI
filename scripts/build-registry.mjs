@@ -2,7 +2,7 @@
 //
 // The same JSON serves two installers:
 //   1. shadcn:      npx shadcn@latest add https://synapse-ui-dev.vercel.app/r/native-fab.json
-//   2. Synapse CLI: npx synapseui@latest add native-fab
+//   2. Synapse CLI: npx synapse-ui-cli@latest add native-fab
 //
 // Install layout in the user's project (src/ is respected automatically):
 //   web components (ui, animated, blocks) -> components/synapse-ui/<name>.tsx
@@ -195,7 +195,7 @@ for (const item of output) {
   fs.writeFileSync(path.join(STYLES_DIR, `${item.name}.json`), json);
 }
 
-// Lightweight index for `synapseui list` / `add --all` (no file contents).
+// Lightweight index for `synapse-ui-cli list` / `add --all` (no file contents).
 const index = output.map(({ name, type, meta, dependencies, registryDependencies }) => ({
   name,
   type,

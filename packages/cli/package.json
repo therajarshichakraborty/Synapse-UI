@@ -1,11 +1,10 @@
 {
-  "name": "synapseui",
-  "version": "0.2.0",
+  "name": "synapse-ui-cli",
+  "version": "0.2.1",
   "description": "Add Synapse UI components (web and React Native) to a shadcn/ui project.",
   "type": "module",
   "bin": {
-    "synapseui": "./bin/synapse-ui.mjs",
-    "synapse-ui": "./bin/synapse-ui.mjs"
+    "synapse-ui-cli": "./bin/synapse-ui-cli.mjs"
   },
   "files": [
     "bin",
@@ -13,8 +12,10 @@
     "LICENSE"
   ],
   "keywords": [
+    "synapse-ui-cli",
     "synapse-ui",
     "shadcn",
+    "shadcn-ui",
     "react",
     "react-native",
     "expo",

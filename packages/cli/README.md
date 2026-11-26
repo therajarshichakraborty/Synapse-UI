@@ -5,10 +5,10 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/synapseui"><img src="https://img.shields.io/npm/v/synapseui?style=flat-square&color=0a0a0a&label=npm" alt="npm version" /></a>
-  <a href="https://www.npmjs.com/package/synapseui"><img src="https://img.shields.io/npm/dm/synapseui?style=flat-square&color=0a0a0a" alt="downloads" /></a>
-  <a href="https://github.com/therajarshichakraborty/Synapse-UI/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/synapseui?style=flat-square&color=0a0a0a" alt="MIT license" /></a>
-  <img src="https://img.shields.io/node/v/synapseui?style=flat-square&color=0a0a0a" alt="node version" />
+  <a href="https://www.npmjs.com/package/synapse-ui-cli"><img src="https://img.shields.io/npm/v/synapse-ui-cli?style=flat-square&color=0a0a0a&label=npm" alt="npm version" /></a>
+  <a href="https://www.npmjs.com/package/synapse-ui-cli"><img src="https://img.shields.io/npm/dm/synapse-ui-cli?style=flat-square&color=0a0a0a" alt="downloads" /></a>
+  <a href="https://github.com/therajarshichakraborty/Synapse-UI/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/synapse-ui-cli?style=flat-square&color=0a0a0a" alt="MIT license" /></a>
+  <img src="https://img.shields.io/node/v/synapse-ui-cli?style=flat-square&color=0a0a0a" alt="node version" />
 </p>
 
 <p align="center">
@@ -33,23 +33,39 @@
 npx shadcn@latest init
 
 # 2. Add the Synapse design tokens (once per project)
-npx synapseui@latest init
+npx synapse-ui-cli@latest init
 
 # 3. Add components
-npx synapseui@latest add button dialog
+npx synapse-ui-cli@latest add button dialog
 ```
 
 <p align="center">
-  <img src="https://synapse-ui-dev.vercel.app/readme/terminal.png" alt="synapseui add dialog native-fab" width="100%" />
+  <img src="https://synapse-ui-dev.vercel.app/readme/terminal.png" alt="synapse-ui-cli add dialog native-fab" width="100%" />
 </p>
 
 Use whichever package manager you like:
 
 ```bash
-npx synapseui@latest add button
-pnpm dlx synapseui@latest add button
-bunx synapseui@latest add button
-yarn dlx synapseui@latest add button
+npx synapse-ui-cli@latest add button
+pnpm dlx synapse-ui-cli@latest add button
+bunx synapse-ui-cli@latest add button
+yarn dlx synapse-ui-cli@latest add button
+```
+
+### Install it (optional)
+
+Running with `npx` always uses the latest version, so installing is optional. If you prefer a fixed version in your project:
+
+```bash
+npm i -D synapse-ui-cli      # or: pnpm add -D / bun add -d / yarn add -D
+npx synapse-ui-cli add button
+```
+
+Or install it globally and use it anywhere:
+
+```bash
+npm i -g synapse-ui-cli
+synapse-ui-cli add button
 ```
 
 ---
@@ -77,7 +93,7 @@ npx shadcn@latest init
 Synapse components use semantic color tokens (`surface-1`, `brand`, `border-strong`…). This appends them to the stylesheet named in your `components.json` (for example `src/app/globals.css`):
 
 ```bash
-npx synapseui@latest init
+npx synapse-ui-cli@latest init
 ```
 
 Running it again does nothing if the tokens are already there.
@@ -85,7 +101,7 @@ Running it again does nothing if the tokens are already there.
 ### 3. Add components
 
 ```bash
-npx synapseui@latest add dialog
+npx synapse-ui-cli@latest add dialog
 ```
 
 The CLI:
@@ -115,7 +131,7 @@ export default function Page() {
 React Native:
 
 ```bash
-npx synapseui@latest add native-fab
+npx synapse-ui-cli@latest add native-fab
 ```
 
 ```tsx
@@ -147,7 +163,7 @@ Folders follow your `components.json` aliases and `tsconfig` paths, so a `src/` 
 Adds the Synapse design tokens to your global stylesheet.
 
 ```bash
-npx synapseui@latest init
+npx synapse-ui-cli@latest init
 ```
 
 ### `add`
@@ -155,14 +171,14 @@ npx synapseui@latest init
 Adds one or more components and their dependencies.
 
 ```bash
-npx synapseui@latest add <name...>
+npx synapse-ui-cli@latest add <name...>
 ```
 
 ```bash
-npx synapseui@latest add dialog sheet marquee      # several at once
-npx synapseui@latest add --all                     # every web component and block
-npx synapseui@latest add --all --native            # every React Native component
-npx synapseui@latest add dialog --dry-run          # preview, write nothing
+npx synapse-ui-cli@latest add dialog sheet marquee      # several at once
+npx synapse-ui-cli@latest add --all                     # every web component and block
+npx synapse-ui-cli@latest add --all --native            # every React Native component
+npx synapse-ui-cli@latest add dialog --dry-run          # preview, write nothing
 ```
 
 ### `list`
@@ -170,7 +186,7 @@ npx synapseui@latest add dialog --dry-run          # preview, write nothing
 Shows every available item, grouped by where it installs.
 
 ```bash
-npx synapseui@latest list
+npx synapse-ui-cli@latest list
 ```
 
 ### Options
@@ -222,8 +238,8 @@ npx shadcn@latest add @synapse/dialog @synapse/native-fab
 | Message                                   | Fix                                                                               |
 | ----------------------------------------- | --------------------------------------------------------------------------------- |
 | `No components.json found`                | Run `npx shadcn@latest init` in your project first.                               |
-| `"xyz" is not in the Synapse UI registry` | Check the name with `npx synapseui@latest list`.                                  |
-| `Synapse design tokens are missing`       | Run `npx synapseui@latest init` once.                                             |
+| `"xyz" is not in the Synapse UI registry` | Check the name with `npx synapse-ui-cli@latest list`.                             |
+| `Synapse design tokens are missing`       | Run `npx synapse-ui-cli@latest init` once.                                        |
 | `Skipped N existing file(s)`              | You changed those files. Re-run with `--overwrite` to replace them.               |
 | Imports can't be resolved                 | Make sure `tsconfig.json` has an `@/*` path alias that matches `components.json`. |
 

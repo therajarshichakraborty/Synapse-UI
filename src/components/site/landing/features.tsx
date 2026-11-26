@@ -398,7 +398,7 @@ const deps: Record<string, string> = {
 function CliDemo() {
   const [name, setName] = React.useState("dialog");
   const [run, setRun] = React.useState(0);
-  const cmd = `synapseui add ${name}`;
+  const cmd = `synapse-ui-cli add ${name}`;
   return (
     <div className="flex w-full flex-col gap-3 px-3 sm:px-4">
       <div className="flex gap-1.5">

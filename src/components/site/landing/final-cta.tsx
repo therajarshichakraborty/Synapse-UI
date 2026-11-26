@@ -45,7 +45,7 @@ export function FinalCta() {
         </div>
 
         <p className="mt-10 font-mono text-[13px] text-white/45">
-          <span className="text-white/30">$</span> npx synapseui@latest init
+          <span className="text-white/30">$</span> npx synapse-ui-cli@latest init
         </p>
       </div>
     </section>

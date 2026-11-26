@@ -21,23 +21,30 @@ Set up shadcn once, if you have not already:
 
 ## Synapse CLI
 
+The CLI is published on npm as [`synapse-ui-cli`](https://www.npmjs.com/package/synapse-ui-cli). Run it with your package runner (always the latest version), or install it:
+
+```bash
+npm i -D synapse-ui-cli      # per project, then: npx synapse-ui-cli add button
+npm i -g synapse-ui-cli      # globally, then:    synapse-ui-cli add button
+```
+
 ### init
 
 Adds the Synapse design tokens to the stylesheet named in `components.json`. Run it once per project.
 
-<PmCommand dlx="synapseui@latest init" />
+<PmCommand dlx="synapse-ui-cli@latest init" />
 
 ### add
 
 Adds components and everything they depend on. For example, `dialog` also adds `button`, and `native-fab` adds the shared native `icon` and `theme` files. Missing npm packages are installed with your package manager (`npx expo install` in Expo apps).
 
-<PmCommand dlx="synapseui@latest add dialog native-fab" />
+<PmCommand dlx="synapse-ui-cli@latest add dialog native-fab" />
 
 Add everything at once:
 
-<PmCommand dlx="synapseui@latest add --all" />
+<PmCommand dlx="synapse-ui-cli@latest add --all" />
 
-<PmCommand dlx="synapseui@latest add --all --native" />
+<PmCommand dlx="synapse-ui-cli@latest add --all --native" />
 
 | Option             | Description                                                                 |
 | ------------------ | --------------------------------------------------------------------------- |
@@ -52,7 +59,7 @@ Add everything at once:
 
 Prints every item, grouped by where it installs.
 
-<PmCommand dlx="synapseui@latest list" />
+<PmCommand dlx="synapse-ui-cli@latest list" />
 
 ## shadcn CLI
 

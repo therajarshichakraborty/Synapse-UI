@@ -87,7 +87,7 @@ function Highlight() {
 
 function InstallPill() {
   const { copied, copy } = useCopy();
-  const cmd = "npx synapseui@latest init";
+  const cmd = "npx synapse-ui-cli@latest init";
   return (
     <button
       type="button"

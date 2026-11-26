@@ -72,7 +72,7 @@ It combines the structure and developer experience of [shadcn/ui](https://ui.sha
 | **Motion with restraint**            | Ease-out curves, 150 to 400 ms in UI, longer only for hero reveals. Everything switches off for users who prefer reduced motion.        |
 | **Light and dark, both first-class** | Two complete palettes, plus scoped `.light` / `.dark` subtrees for previews and marketing sections.                                     |
 | **Typed end to end**                 | Strict TypeScript, `forwardRef`-compatible props and `cva` variants that autocomplete in your editor.                                   |
-| **CLI that resolves dependencies**   | `npx synapseui add date-picker` also brings in `popover`, `calendar` and `button`, and installs the npm packages they need.             |
+| **CLI that resolves dependencies**   | `npx synapse-ui-cli add date-picker` also brings in `popover`, `calendar` and `button`, and installs the npm packages they need.             |
 
 ## Preview
 
@@ -112,18 +112,18 @@ All screenshots are taken from the live site in light mode.
 Installs the base dependencies, adds the `cn()` helper and writes the design tokens into your global stylesheet.
 
 ```bash
-npx synapseui@latest init
+npx synapse-ui-cli@latest init
 ```
 
 > [!NOTE]
-> The `synapseui` CLI lives in [`packages/cli`](./packages/cli) and is not on npm yet. Until it is published, use the shadcn CLI command in the tip below, which works today.
+> The `synapse-ui-cli` CLI lives in [`packages/cli`](./packages/cli) and is not on npm yet. Until it is published, use the shadcn CLI command in the tip below, which works today.
 
 ### 2. Add components
 
 ```bash
-npx synapseui@latest add button card dialog
-npx synapseui@latest add spotlight marquee number-ticker
-npx synapseui@latest add dashboard-shell
+npx synapse-ui-cli@latest add button card dialog
+npx synapse-ui-cli@latest add spotlight marquee number-ticker
+npx synapse-ui-cli@latest add dashboard-shell
 ```
 
 > [!TIP]
@@ -299,7 +299,7 @@ Effect utilities ship with the tokens: `surface-premium`, `glass`, `border-beam`
 <summary><b>React Native components</b> (59)</summary>
 <br />
 
-For React Native and Expo. Install with `npx synapseui@latest add native-<name>`, then follow the [setup guide](https://synapse-ui-dev.vercel.app/docs/react-native).
+For React Native and Expo. Install with `npx synapse-ui-cli@latest add native-<name>`, then follow the [setup guide](https://synapse-ui-dev.vercel.app/docs/react-native).
 
 - **Foundations:** Text, Icon
 - **Actions:** Button, Toggle, Floating Action Button, Segmented Control
@@ -338,7 +338,7 @@ Open [http://localhost:3000](http://localhost:3000). Append `?theme=light` or `?
 
 ```text
 .
-├── packages/cli/              # The `synapseui` CLI (init, add, list)
+├── packages/cli/              # The `synapse-ui-cli` CLI (init, add, list)
 ├── public/r/                  # Generated registry (shadcn format), one JSON per item
 ├── scripts/
 │   ├── build-registry.mjs     # Builds public/r (shadcn registry JSON)
@@ -396,7 +396,7 @@ The new page appears in the sidebar, the ⌘K palette and the CLI automatically.
 - [x] 53 core, 31 animated and 12 block components
 - [x] 59 React Native components for Expo
 - [x] CLI and shadcn-compatible registry
-- [ ] Publish the `synapseui` CLI to npm
+- [ ] Publish the `synapse-ui-cli` CLI to npm
 - [ ] Figma kit
 - [ ] Full-page templates
 

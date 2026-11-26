@@ -6,7 +6,7 @@ export default function TerminalDemo() {
       className="w-full max-w-lg"
       title="zsh: my-app"
       lines={[
-        { type: "command", text: "npx synapseui@latest add button" },
+        { type: "command", text: "npx synapse-ui-cli@latest add button" },
         { type: "output", text: "✔ Checking registry.", tone: "muted" },
         { type: "output", text: "✔ Installing dependencies.", tone: "muted" },
         { type: "output", text: "✔ Created 1 file:", tone: "success" },
